@@ -3,838 +3,549 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Nikkah of Faiza & Abdulmumin — #KoFosealedinlove26#</title>
-    
-    <!-- Premium Editorial & Classical Calligraphy Typography -->
+    <title>The Wedding of Faiza & Abdulmumin</title>
+    <!-- Premium Typography Selection -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Plus+Jakarta+Sans:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
     
     <style>
-        /* --------------------------------------------------------
-           LUXURY LUXE THEME
-        -------------------------------------------------------- */
+        /* --- LUXURY DESIGN TOKENS --- */
         :root {
-            --emerald-deep: #021a14;
-            --emerald-mesh: #04261e;
-            --gold-primary: #d4af37;
-            --gold-bright: #fbf5b7;
-            --gold-matte: #b38728;
+            --emerald: #00664d;
+            --olive: #708238;
             --white-silk: #f4f6f4;
-            --text-muted: #a3b8aa;
-            
-            --font-serif: 'Cormorant Garamond', Georgia, serif;
-            --font-sans: 'Plus Jakarta Sans', sans-serif;
-            --font-arabic: 'Amiri', serif;
-            --transition-luxe: opacity 1.4s cubic-bezier(0.25, 1, 0.5, 1), transform 1.4s cubic-bezier(0.25, 1, 0.5, 1);
+            --dark-slate: #0b1511;
+            --gold-gradient: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fcf6ba 75%, #bf953f 100%);
+            --subtle-gold: #c5a059;
+            --transition-smooth: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
-        /* --------------------------------------------------------
-           BASE STRUCTURE & COUTURIER BACKGROUND MESH
-        -------------------------------------------------------- */
+        /* --- SYSTEM RESET & BASE CONFIG --- */
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
-        }
-
-        html, body {
-            background-color: var(--emerald-deep);
-            color: var(--white-silk);
-            font-family: var(--font-sans);
-            -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
+            box-sizing: border-box;
         }
 
         body {
-            position: relative;
-            background-image: linear-gradient(135deg, rgba(4,38,30,0.4) 25%, transparent 25%), 
-                              linear-gradient(225deg, rgba(4,38,30,0.4) 25%, transparent 25%), 
-                              linear-gradient(45deg, rgba(4,38,30,0.4) 25%, transparent 25%), 
-                              linear-gradient(315deg, rgba(4,38,30,0.4) 25%, var(--emerald-deep) 25%);
-            background-position: 40px 0, 40px 0, 0 0, 0 0;
-            background-size: 80px 80px;
-            background-repeat: repeat;
+            font-family: 'Cormorant Garamond', serif;
+            background-color: var(--dark-slate);
+            color: var(--white-silk);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            text-align: center;
         }
 
-        .container {
+        /* Ambient Luxury Background Mesh */
+        .bg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 2.5rem;
-        }
-        .narrow-width { max-width: 750px; }
-
-        .section-space {
-            padding: 12rem 0;
-        }
-        @media (max-width: 768px) {
-            .section-space { padding: 7rem 0; }
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(0, 102, 77, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(112, 130, 56, 0.12) 0%, transparent 40%);
+            z-index: -1;
+            pointer-events: none;
         }
 
-        .text-center { text-align: center; }
-        
-        .gold-gradient-text {
-            background: linear-gradient(135deg, var(--gold-matte) 0%, var(--gold-bright) 50%, var(--gold-primary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* --------------------------------------------------------
-           CINEMATIC SILK SMOOTH REVEAL SYSTEM
-        -------------------------------------------------------- */
-        .reveal-luxe {
+        /* --- SCROLL REVEAL MECHANICS --- */
+        .reveal {
             opacity: 0;
             transform: translateY(30px);
-            transition: var(--transition-luxe);
+            transition: var(--transition-smooth);
         }
-        .active-reveal {
+
+        .reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* --------------------------------------------------------
-           HERO HEADER
-        -------------------------------------------------------- */
-        .hero-viewport {
-            height: 100vh;
-            width: 100%;
-            position: relative;
+        /* --- HERO SECTIONS --- */
+        header {
+            min-height: 100vh;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
-            overflow: hidden;
-        }
-
-        .hero-video-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 1;
-        }
-
-        .hero-scrim {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(2,26,20,0.3) 0%, rgba(2,26,20,0.85) 100%);
-            z-index: 2;
-        }
-
-        .hero-frame {
+            align-items: center;
+            padding: 2rem;
             position: relative;
-            z-index: 3;
-            max-width: 850px;
-            padding: 0 1.5rem;
-            text-align: center;
         }
 
-        .arabic-calligraphy {
-            font-family: var(--font-arabic);
-            font-size: clamp(2.2rem, 5vw, 3.2rem);
-            color: var(--gold-primary);
+        .bismillah {
+            font-family: 'Amiri', serif;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin-bottom: 2.5rem;
-            text-shadow: 0 4px 12px rgba(0,0,0,0.4);
-            font-weight: 400;
-        }
-
-        .hero-tagline {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.4em;
-            color: var(--white-silk);
-            margin-bottom: 2rem;
-            font-weight: 300;
-            opacity: 0.9;
-        }
-
-        .monumental-names {
-            font-family: var(--font-serif);
-            font-size: clamp(3.8rem, 9vw, 6.5rem);
-            font-weight: 300;
-            line-height: 1.1;
-            letter-spacing: -0.01em;
-            color: var(--white-silk);
-            margin-bottom: 2rem;
-        }
-        .monumental-names em {
-            font-family: var(--font-serif);
-            font-style: italic;
-            color: var(--gold-primary);
-            font-size: 0.85em;
-            display: block;
-            margin: 0.3rem 0;
-        }
-
-        .hero-meta-date {
-            font-size: 0.95rem;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            color: var(--gold-bright);
-            font-weight: 300;
-        }
-
-        .hero-hashtag {
-            font-size: 0.8rem;
-            letter-spacing: 0.2em;
-            color: var(--gold-primary);
-            margin-top: 1.5rem;
-            font-weight: 400;
-            opacity: 0.8;
-        }
-
-        .luxe-separator {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1.5rem;
-            margin: 2.5rem auto;
-            max-width: 300px;
-        }
-        .luxe-separator .line {
-            height: 1px;
-            flex-grow: 1;
-            background: linear-gradient(to right, transparent, var(--gold-primary), transparent);
-        }
-        .luxe-separator .crest {
-            font-family: var(--font-serif);
-            font-size: 1.2rem;
-            color: var(--gold-primary);
-            font-style: italic;
-        }
-
-        /* --------------------------------------------------------
-           QURANIC BLESSING & SACRED VERSE
-        -------------------------------------------------------- */
-        .sacred-verse-block {
-            background-color: rgba(2, 26, 20, 0.6);
-            border-top: 1px solid rgba(212, 175, 87, 0.15);
-            border-bottom: 1px solid rgba(212, 175, 87, 0.15);
-            backdrop-filter: blur(10px);
-        }
-        .quran-arabic {
-            font-family: var(--font-arabic);
-            font-size: clamp(1.8rem, 4vw, 2.4rem);
-            line-height: 2.2;
-            color: var(--gold-bright);
-            direction: rtl;
-            margin-bottom: 2rem;
-        }
-        .quran-translation {
-            font-family: var(--font-serif);
-            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
-            font-style: italic;
-            line-height: 1.8;
-            color: var(--white-silk);
-            font-weight: 300;
-            opacity: 0.85;
-        }
-
-        /* --------------------------------------------------------
-           PARENTAL LINEAGE & INVITATION PROSE
-        -------------------------------------------------------- */
-        .lineage-headline {
-            font-family: var(--font-serif);
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
-            font-weight: 400;
-            line-height: 1.6;
-            color: var(--white-silk);
-            letter-spacing: 0.01em;
-            margin-bottom: 3.5rem;
-        }
-        .lineage-headline span {
-            font-size: 0.65em;
-            font-family: var(--font-sans);
-            font-weight: 300;
-            color: var(--text-muted);
-            display: block;
-            margin-top: 0.4rem;
             letter-spacing: 1px;
         }
-        .editorial-prose {
-            font-family: var(--font-serif);
-            font-size: clamp(1.4rem, 3vw, 1.9rem);
-            line-height: 1.9;
-            color: var(--white-silk);
-            font-weight: 300;
+
+        .tagline {
+            font-size: clamp(0.75rem, 1.5vw, 0.95rem);
+            text-transform: uppercase;
+            letter-spacing: 0.35em;
+            color: rgba(244, 246, 246, 0.85);
+            margin-bottom: 2rem;
+            max-width: 90%;
+            line-height: 1.8;
         }
 
-        /* --------------------------------------------------------
-           CENTERED TIMEKEEPING HORIZON (VIDEO REMOVED)
-        -------------------------------------------------------- */
-        .story-text-frame {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-        .toast-label {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.3em;
-            color: var(--gold-primary);
-            margin-bottom: 1rem;
-            font-weight: 500;
-        }
-        .section-header-title {
-            font-family: var(--font-serif);
-            font-size: clamp(2.4rem, 5vw, 3.5rem);
+        .couple-names {
+            font-size: clamp(3rem, 8vw, 6rem);
             font-weight: 300;
+            font-style: italic;
             line-height: 1.2;
             margin-bottom: 1.5rem;
-        }
-        .toast-quote {
-            font-family: var(--font-serif);
-            font-size: 1.4rem;
-            font-style: italic;
-            line-height: 1.7;
-            color: var(--text-muted);
-            margin-bottom: 2.5rem;
-            max-width: 600px;
-            border-bottom: 1px solid rgba(212, 175, 87, 0.15);
-            padding-bottom: 1.5rem;
+            letter-spacing: 0.02em;
         }
 
-        .countdown-grid {
-            display: flex;
-            gap: 2.5rem;
-            margin-top: 2rem;
-            justify-content: center;
-        }
-        .countdown-node {
-            text-align: center;
-        }
-        .countdown-node .num {
-            font-family: var(--font-serif);
-            font-size: clamp(2.8rem, 6vw, 4rem);
-            font-weight: 300;
-            color: var(--white-silk);
-            line-height: 1;
-        }
-        .countdown-node .lbl {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            color: var(--gold-primary);
-            margin-top: 0.6rem;
+        .ampersand {
             display: block;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 0.5rem 0;
         }
 
-        /* --------------------------------------------------------
-           EDITORIAL PORTRAIT EXHIBITION
-        -------------------------------------------------------- */
-        .editorial-gallery-flow {
+        .divider-line {
+            width: 120px;
+            height: 1px;
+            background: var(--gold-gradient);
+            margin: 1.5rem auto;
+            opacity: 0.6;
+        }
+
+        .event-type {
+            font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+            font-style: italic;
+            color: var(--subtle-gold);
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+        }
+
+        .date-location-line {
+            font-size: clamp(0.85rem, 2vw, 1.15rem);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(244, 246, 246, 0.9);
+            margin-bottom: 2rem;
+        }
+
+        .hashtag {
+            font-size: clamp(0.8rem, 1.8vw, 1rem);
+            letter-spacing: 0.15em;
+            color: var(--subtle-gold);
+            font-weight: 300;
+        }
+
+        /* --- COUNTDOWN TIMELINE AXIS --- */
+        #countdown-section {
+            padding: 4rem 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #luxe-timer {
+            display: flex;
+            gap: clamp(1rem, 3vw, 2.5rem);
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .time-node {
             display: flex;
             flex-direction: column;
-            gap: 8rem;
-        }
-        
-        .gallery-row-art {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
             align-items: center;
+            min-width: 70px;
         }
 
-        .gallery-image-wrapper {
-            position: relative;
-            padding: 12px;
-            border: 1px solid rgba(212,175,87,0.15);
-            background: #021f18;
-            overflow: hidden;
-        }
-        .gallery-image-wrapper img {
-            width: 100%;
-            display: block;
-            object-fit: cover;
-            transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-        .gallery-image-wrapper:hover img {
-            transform: scale(1.03);
+        .time-value {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 300;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .gallery-caption-box {
-            z-index: 5;
-        }
-        .gallery-caption-box h4 {
-            font-family: var(--font-serif);
-            font-size: 1.8rem;
-            font-weight: 400;
-            margin-bottom: 0.8rem;
-            color: var(--white-silk);
-        }
-        .gallery-caption-box p {
-            font-family: var(--font-serif);
-            font-size: 1.2rem;
-            font-style: italic;
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
-
-        .row-one .gallery-image-wrapper { grid-column: 1 / 8; }
-        .row-one .gallery-caption-box { grid-column: 9 / 13; text-align: left; }
-
-        .row-two .gallery-image-wrapper { grid-column: 6 / 13; order: 2; }
-        .row-two .gallery-caption-box { grid-column: 1 / 5; order: 1; text-align: right; }
-
-        .row-three .gallery-image-wrapper { grid-column: 1 / 7; }
-        .row-three .gallery-caption-box { grid-column: 8 / 13; text-align: left; }
-
-        .row-four .gallery-image-wrapper { grid-column: 5 / 12; order: 2; }
-        .row-four .gallery-caption-box { grid-column: 1 / 4; order: 1; text-align: right; }
-
-        @media (max-width: 768px) {
-            .gallery-row-art { grid-template-columns: 1fr; gap: 2rem; }
-            .row-one .gallery-image-wrapper, .row-two .gallery-image-wrapper, .row-three .gallery-image-wrapper, .row-four .gallery-image-wrapper { grid-column: 1 / -1; order: initial; }
-            .row-one .gallery-caption-box, .row-two .gallery-caption-box, .row-three .gallery-caption-box, .row-four .gallery-caption-box { grid-column: 1 / -1; text-align: center; order: initial; padding: 0 1rem; }
-        }
-
-        /* --------------------------------------------------------
-           THE ITINERARY ITINERARY CARD GRID
-        -------------------------------------------------------- */
-        .itinerary-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 3.5rem;
-            margin-top: 5rem;
-        }
-        @media (max-width: 768px) {
-            .itinerary-grid { grid-template-columns: 1fr; gap: 3rem; }
-        }
-
-        .itinerary-card {
-            border: 1px solid rgba(212, 175, 87, 0.2);
-            background: linear-gradient(180deg, rgba(2,26,20,0.8) 0%, rgba(1,15,12,0.95) 100%);
-            padding: 5rem 3rem;
-            text-align: center;
-            position: relative;
-        }
-        .itinerary-card h3 {
-            font-family: var(--font-serif);
-            font-size: 2.2rem;
-            font-weight: 400;
-            margin-bottom: 2rem;
-            letter-spacing: 0.05em;
-        }
-        .itinerary-meta-title {
-            font-size: 0.75rem;
+        .time-label {
+            font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 0.2em;
-            color: var(--gold-primary);
-            margin-bottom: 0.4rem;
-            display: block;
-        }
-        .itinerary-meta-value {
-            font-family: var(--font-serif);
-            font-size: 1.4rem;
-            font-weight: 300;
-            color: var(--white-silk);
-            margin-bottom: 2.5rem;
-            line-height: 1.5;
+            color: rgba(244, 246, 246, 0.5);
+            margin-top: 0.5rem;
         }
 
-        .btn-luxe-action {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            padding: 1rem 2.5rem;
-            border: 1px solid var(--gold-primary);
-            background: transparent;
+        /* --- ITINERARY / DETAILS GRID --- */
+        .details-section {
+            padding: 5rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .event-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(197, 160, 89, 0.15);
+            padding: 3rem 2rem;
+            border-radius: 4px;
+            transition: var(--transition-smooth);
+        }
+
+        .event-card:hover {
+            border-color: var(--subtle-gold);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .card-title {
+            font-size: 1.6rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+            color: var(--subtle-gold);
+        }
+
+        .card-detail {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: rgba(244, 246, 246, 0.8);
+            margin-bottom: 1.5rem;
+        }
+
+        .maps-btn {
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            border: 1px solid var(--subtle-gold);
             color: var(--white-silk);
             text-decoration: none;
+            font-size: 0.8rem;
             text-transform: uppercase;
-            font-size: 0.75rem;
-            letter-spacing: 0.2em;
-            transition: all 0.4s ease;
+            letter-spacing: 0.15em;
+            transition: var(--transition-smooth);
+            border-radius: 2px;
         }
-        .btn-luxe-action:hover {
-            background: var(--white-silk);
-            color: var(--emerald-deep);
+
+        .maps-btn:hover {
+            background: var(--gold-gradient);
+            color: var(--dark-slate);
+            border-color: transparent;
+            font-weight: 600;
+        }
+
+        /* --- ULTRA-MINIMALIST PALETTE INTERFACE --- */
+        .palette-section {
+            padding: 6rem 2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .palette-title {
+            font-size: 1.5rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        .palette-grid {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .palette-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            min-width: 100px;
+        }
+
+        .color-swatch {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Individual Swatch Assignments */
+        .swatch-emerald { background-color: var(--emerald); }
+        .swatch-olive { background-color: var(--olive); }
+        .swatch-white { background-color: var(--white-silk); }
+        .swatch-gold { background: var(--gold-gradient); }
+
+        .color-label {
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            color: rgba(244, 246, 246, 0.9);
+            text-align: center;
+        }
+
+        /* --- FLOATING AUDIO SYSTEM --- */
+        .audio-wrapper {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        .audio-toggle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(11, 21, 17, 0.85);
+            border: 1px solid var(--subtle-gold);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(5px);
+            transition: var(--transition-smooth);
+        }
+
+        .audio-toggle:hover {
+            transform: scale(1.05);
             border-color: var(--white-silk);
         }
 
-        /* --------------------------------------------------------
-           MINIMALIST PALETTE FRAME (AS SEEN IN 1001264794.jpg)
-        -------------------------------------------------------- */
-        .palette-flex {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin: 4rem 0 0;
-            flex-wrap: wrap;
-        }
-        .palette-pill {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.2rem;
-        }
-        .palette-pill span {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            color: var(--white-silk);
-            font-weight: 400;
-        }
-        .circle-swatch {
-            width: 75px;
-            height: 75px;
-            border-radius: 50%;
-            border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-        }
-        .circle-swatch.c1 { background-color: #00664d; }
-        .circle-swatch.c2 { background-color: #708238; }
-        .circle-swatch.c3 { background-color: #f4f6f4; }
-        .circle-swatch.c4 { background: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728); }
-
-        /* --------------------------------------------------------
-           RSVP COORDINATION
-        -------------------------------------------------------- */
-        .rsvp-flex-wrapper {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin: 4rem auto 0;
-            max-width: 650px;
-        }
-        @media (max-width: 500px) {
-            .rsvp-flex-wrapper { grid-template-columns: 1fr; }
-        }
-        .rsvp-anchor-card {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            padding: 1.6rem;
-            background: rgba(4, 38, 30, 0.2);
-            border: 1px solid rgba(212, 175, 87, 0.15);
-            color: var(--white-silk);
-            text-decoration: none;
-            font-size: 1rem;
-            letter-spacing: 0.05em;
-            transition: all 0.4s ease;
-        }
-        .rsvp-anchor-card:hover {
-            border-color: var(--gold-primary);
-            background: rgba(212, 175, 87, 0.05);
+        .audio-icon {
+            fill: var(--subtle-gold);
+            width: 18px;
+            height: 18px;
+            transition: var(--transition-smooth);
         }
 
-        /* --------------------------------------------------------
-           SOVEREIGN FOOTER FRAME
-        -------------------------------------------------------- */
-        .sovereign-signature-footer {
-            padding: 6rem 0;
-            text-align: center;
-            border-top: 1px solid rgba(212, 175, 87, 0.1);
-            background-color: #01110d;
+        /* Rotation animation when media is active */
+        .playing {
+            animation: spin 4s linear infinite;
         }
-        .sovereign-signature-footer h5 {
-            font-family: var(--font-serif);
-            font-size: 2rem;
-            letter-spacing: 0.05em;
-            color: var(--gold-primary);
-            font-weight: 300;
-            margin-bottom: 1rem;
+
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
         }
-        .sovereign-signature-footer p {
-            font-size: 0.7rem;
+
+        /* --- FOOTER FRAME --- */
+        footer {
+            padding: 4rem 2rem;
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            color: rgba(244, 246, 246, 0.4);
             text-transform: uppercase;
-            letter-spacing: 0.25em;
-            color: rgba(255,255,255,0.25);
         }
     </style>
 </head>
 <body>
 
-    <!-- HERO VIEWPORT CINEMATIC ENTRANCE -->
-    <header class="hero-viewport">
-        <video autoplay muted loop playsinline class="hero-video-bg">
-            <source src="kofobackgroundvideo.mp4" type="video/mp4">
-        </video>
-        <div class="hero-scrim"></div>
+    <!-- Subtle Design Gradient Environment -->
+    <div class="bg-overlay"></div>
 
-        <div class="hero-frame">
-            <div class="arabic-calligraphy reveal-luxe">
-                بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ
-            </div>
-            
-            <p class="hero-tagline reveal-luxe">The Honour of Your Presence is Requested</p>
-            
-            <h1 class="monumental-names reveal-luxe">
-                <span>Faiza</span>
-                <em>&amp;</em>
-                <span>Abdulmumin</span>
-            </h1>
+    <!-- Floating Audio Control Module -->
+    <div class="audio-wrapper">
+        <button class="audio-toggle" id="audioBtn" aria-label="Toggle Background Music">
+            <!-- Dynamic Inline Elegant SVG Icon -->
+            <svg class="audio-icon" id="audioIcon" viewBox="0 0 24 24">
+                <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+            </svg>
+        </button>
+    </div>
+    
+    <!-- Updated Audio Asset Targeting for GitHub Pages Deployment -->
+    <audio id="inviteMusic" src="kofoweddingmusic.mp3" loop></audio>
 
-            <div class="luxe-separator reveal-luxe">
-                <span class="line"></span>
-                <span class="crest">Nikkah</span>
-                <span class="line"></span>
-            </div>
-
-            <p class="hero-meta-date reveal-luxe">17 . 07 . 2026 &mdash; Kaduna State</p>
-            <p class="hero-hashtag reveal-luxe">#KoFosealedinlove26#</p>
-        </div>
+    <!-- HERO PRESENTATION FRAME -->
+    <header>
+        <div class="bismillah reveal">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
+        <div class="tagline reveal">The Honour of Your Presence is Requested at the Nikkah of</div>
+        <h1 class="couple-names reveal">
+            Faiza 
+            <span class="ampersand">&</span> 
+            Abdulmumin
+        </h1>
+        <div class="divider-line reveal"></div>
+        <div class="event-type reveal">Nikkah</div>
+        <div class="date-location-line reveal">17 . 07 . 2026 — KADUNA STATE</div>
+        <div class="hashtag reveal">#KoFosealedinlove26#</div>
     </header>
 
-    <!-- SACRED MATRIMONIAL VIRTUE OMISSION (QURANIC SECTION) -->
-    <section class="sacred-verse-block section-space text-center">
-        <div class="container narrow-width">
-            <div class="quran-arabic reveal-luxe">
-                وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ
+    <!-- PERFECTLY CENTERED TIMELINE COORDINATE -->
+    <section id="countdown-section" class="reveal">
+        <div id="luxe-timer">
+            <div class="time-node">
+                <span class="time-value" id="days">00</span>
+                <span class="time-label">Days</span>
             </div>
-            <div class="quran-translation reveal-luxe">
-                "And of His signs is that He created for you from yourselves mates that you may find tranquility in them; and He placed between you affection and mercy. Indeed in that are signs for a people who give thought." <br>
-                <span style="font-size: 0.75em; text-transform: uppercase; letter-spacing: 2px; color: var(--gold-primary); display:block; margin-top:1rem;">— Surah Ar-Rum (30:21)</span>
+            <div class="time-node">
+                <span class="time-value" id="hours">00</span>
+                <span class="time-label">Hrs</span>
             </div>
-        </div>
-    </section>
-
-    <!-- INVITATORY PROSE & FAMILY HONOR -->
-    <section class="section-space text-center">
-        <div class="container narrow-width">
-            <h2 class="lineage-headline reveal-luxe">
-                Alhaji Abdulrazaq Abubakar Ahmed <span>(Oba Agwa)</span> 
-                <br><span style="font-family:var(--font-serif); font-size:1.2rem; font-style:italic; color:var(--gold-primary); margin: 0.5rem 0;">&amp;</span>
-                Alhaji Aminullah Muhammad <span>(Al-Imam)</span>
-            </h2>
-            <p class="editorial-prose reveal-luxe">
-                With deep humility and boundless praise to Almighty Allah (SWT), we present the wedding of our beloved children. We invite you to join us as witnesses to this timeless covenant of love, affection, and dynamic blessing.
-            </p>
-        </div>
-    </section>
-
-    <!-- CENTERED TIMEKEEPING CHRONO -->
-    <section class="section-space" style="background-color: rgba(1, 15, 12, 0.4);">
-        <div class="container narrow-width">
-            <div class="story-text-frame reveal-luxe">
-                <span class="toast-label">A Toast to Destiny</span>
-                <h2 class="section-header-title">Our Shared Horizon</h2>
-                <p class="toast-quote">"Two souls, unified under divine ordinance, stepping together into an endless stream of prayer and devotion."</p>
-                
-                <div class="countdown-grid" id="luxe-timer" data-target="2026-07-17T09:30:00">
-                    <div class="countdown-node"><span class="num" id="d-val">00</span><span class="lbl">Days</span></div>
-                    <div class="countdown-node"><span class="num" id="h-val">00</span><span class="lbl">Hours</span></div>
-                    <div class="countdown-node"><span class="num" id="m-val">00</span><span class="lbl">Mins</span></div>
-                    <div class="countdown-node"><span class="num" id="s-val">00</span><span class="lbl">Secs</span></div>
-                </div>
+            <div class="time-node">
+                <span class="time-value" id="minutes">00</span>
+                <span class="time-label">Min</span>
+            </div>
+            <div class="time-node">
+                <span class="time-value" id="seconds">00</span>
+                <span class="time-label">Sec</span>
             </div>
         </div>
     </section>
 
-    <!-- FINE ART PORTRAIT EXHIBITION GALLERY -->
-    <section class="section-space">
-        <div class="container">
-            <div class="text-center" style="margin-bottom: 8rem;">
-                <span class="toast-label">Visual Tribute</span>
-                <h2 class="section-header-title">Moments Captured In Faith</h2>
+    <!-- ITINERARY LOGISTICS ARCHITECTURE -->
+    <section class="details-section">
+        <div class="grid-container">
+            <!-- Card One -->
+            <div class="event-card reveal">
+                <h3 class="card-title">The Nikkah</h3>
+                <p class="card-detail">
+                    Time: 11:00 AM Prompt<br>
+                    Venue Location Details to be Announced
+                </p>
             </div>
-
-            <div class="editorial-gallery-flow">
-                <!-- Image 1 -->
-                <div class="gallery-row-art row-one reveal-luxe">
-                    <div class="gallery-image-wrapper">
-                        <img src="kofolove1.jpg" alt="Faiza & Abdulmumin Portrait I">
-                    </div>
-                    <div class="gallery-caption-box">
-                        <h4>A Sacred Beginning</h4>
-                        <p>"May your path ahead be illuminated with the continuous light of dynamic peace and mutual adoration."</p>
-                    </div>
-                </div>
-
-                <!-- Image 2 -->
-                <div class="gallery-row-art row-two reveal-luxe">
-                    <div class="gallery-image-wrapper">
-                        <img src="kofolove2.jpg" alt="Faiza & Abdulmumin Portrait II">
-                    </div>
-                    <div class="gallery-caption-box">
-                        <h4>Quiet Devotion</h4>
-                        <p>"Bound together by invisible threads of grace, destined to reflect the truest virtues of companionship."</p>
-                    </div>
-                </div>
-
-                <!-- Image 3 -->
-                <div class="gallery-row-art row-three reveal-luxe">
-                    <div class="gallery-image-wrapper">
-                        <img src="kofolove3.jpg" alt="Faiza & Abdulmumin Portrait III">
-                    </div>
-                    <div class="gallery-caption-box">
-                        <h4>Divine Mercy</h4>
-                        <p>"A union where love is an act of worship, and every shared gaze is a prayer answered in silence."</p>
-                    </div>
-                </div>
-
-                <!-- Image 4 -->
-                <div class="gallery-row-art row-four reveal-luxe">
-                    <div class="gallery-image-wrapper">
-                        <img src="kofolove4.jpg" alt="Faiza & Abdulmumin Portrait IV">
-                    </div>
-                    <div class="gallery-caption-box">
-                        <h4>The Endless Horizon</h4>
-                        <p>"Stepping forward hand-in-hand into a journey that begins in time, but flows into eternity."</p>
-                    </div>
-                </div>
+            <!-- Card Two: Updated Luxury Hall Coordinates -->
+            <div class="event-card reveal">
+                <h3 class="card-title">The Reception</h3>
+                <p class="card-detail">
+                    Time: Immediately Following Nikkah<br>
+                    Luxury Hall, Agwa, Kaduna.
+                </p>
+                <a href="https://maps.google.com/?q=Luxury+Hall+Agwa+Kaduna" target="_blank" class="maps-btn">Navigate Venue</a>
             </div>
         </div>
     </section>
 
-    <!-- EVENT ITINERARY GRID -->
-    <section class="section-space" style="background-color: rgba(2, 26, 20, 0.4); border-top: 1px solid rgba(212,175,87,0.1);">
-        <div class="container">
-            <div class="text-center">
-                <span class="toast-label">The Day of Celebration</span>
-                <h2 class="section-header-title">The Sacred Schedule</h2>
-                <p style="color: var(--gold-bright); font-size: 0.9rem; letter-spacing: 3px; text-transform: uppercase; margin-top: 0.5rem;">Friday, 17th July 2026</p>
+    <!-- ULTRA-MINIMALIST PALETTE INTERFACE -->
+    <section class="palette-section reveal">
+        <h2 class="palette-title">Matrimonial Palette</h2>
+        <div class="palette-grid">
+            <div class="palette-item">
+                <div class="color-swatch swatch-emerald"></div>
+                <span class="color-label">Emerald</span>
             </div>
-
-            <div class="itinerary-grid">
-                <!-- Nikkah -->
-                <div class="itinerary-card reveal-luxe">
-                    <h3>The Solemnization</h3>
-                    <div class="luxe-separator" style="margin: 1.5rem auto;"><span class="line"></span></div>
-                    <div>
-                        <span class="itinerary-meta-title">Hour</span>
-                        <p class="itinerary-meta-value">09:30 AM Prompt</p>
-                    </div>
-                    <div>
-                        <span class="itinerary-meta-title">The Coordinates</span>
-                        <p class="itinerary-meta-value">Oba Agwa Compound, <br>Kaduna State, Nigeria</p>
-                    </div>
-                    <a href="https://maps.google.com/?q=Oba+Agwa+Compound+Kaduna" target="_blank" rel="noopener noreferrer" class="btn-luxe-action">
-                        <span>Navigate Location</span>
-                    </a>
-                </div>
-
-                <!-- Reception -->
-                <div class="itinerary-card reveal-luxe">
-                    <h3>The Feast</h3>
-                    <div class="luxe-separator" style="margin: 1.5rem auto;"><span class="line"></span></div>
-                    <div>
-                        <span class="itinerary-meta-title">Hour</span>
-                        <p class="itinerary-meta-value">02:00 PM Prompt</p>
-                    </div>
-                    <div>
-                        <span class="itinerary-meta-title">The Coordinates</span>
-                        <p class="itinerary-meta-value">Kudende Hall, Agwa, Kaduna.</p>
-                    </div>
-                    <a href="https://maps.google.com/?q=Kudende+Hall+Agwa+Kaduna" target="_blank" rel="noopener noreferrer" class="btn-luxe-action">
-                        <span>Navigate Location</span>
-                    </a>
-                </div>
+            <div class="palette-item">
+                <div class="color-swatch swatch-olive"></div>
+                <span class="color-label">Olive</span>
+            </div>
+            <div class="palette-item">
+                <div class="color-swatch swatch-white"></div>
+                <span class="color-label">White Silk</span>
+            </div>
+            <div class="palette-item">
+                <div class="color-swatch swatch-gold"></div>
+                <span class="color-label">Soft Gold</span>
             </div>
         </div>
     </section>
 
-    <!-- MINIMALIST MATRIMONIAL PALETTE (AS IMAGE 1001264794.jpg - TEXT REMOVED) -->
-    <section class="section-space text-center">
-        <div class="container narrow-width">
-            <h2 class="section-header-title">The Matrimonial Palette</h2>
-            
-            <div class="palette-flex reveal-luxe">
-                <div class="palette-pill"><div class="circle-swatch c1"></div><span>Emerald</span></div>
-                <div class="palette-pill"><div class="circle-swatch c2"></div><span>Olive</span></div>
-                <div class="palette-pill"><div class="circle-swatch c3"></div><span>White Silk</span></div>
-                <div class="palette-pill"><div class="circle-swatch c4"></div><span>Soft Gold</span></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- RSVP ASSISTANCE -->
-    <section class="section-space text-center" style="background-color: var(--emerald-deep); border-top:1px solid rgba(212,175,87,0.15);">
-        <div class="container narrow-width">
-            <h2 class="section-header-title gold-gradient-text reveal-luxe">RSVP &amp; Enquiries</h2>
-            <p style="font-family: var(--font-serif); font-size: 1.4rem; color: var(--text-muted); font-style: italic;" class="reveal-luxe">
-                To guarantee perfect guest hospitality, please liaise with our designated venue coordinators.
-            </p>
-            
-            <div class="rsvp-flex-wrapper reveal-luxe">
-                <a href="tel:08036007267" class="rsvp-anchor-card"><span>0803 600 7267</span></a>
-                <a href="tel:07032326592" class="rsvp-anchor-card"><span>0703 232 6592</span></a>
-                <a href="tel:08177145309" class="rsvp-anchor-card"><span>0817 714 5309</span></a>
-                <a href="tel:07039171555" class="rsvp-anchor-card"><span>0703 917 1555</span></a>
-            </div>
-            
-            <p style="font-family: var(--font-serif); font-size: 1.7rem; color: var(--gold-bright); margin-top: 4.5rem; font-style: italic;" class="reveal-luxe">
-                "May Allah (SWT) preserve your presence and fill your journey with safety and reward." Amin.
-            </p>
-        </div>
-    </section>
-
-    <!-- SOVEREIGN FOOTER -->
-    <footer class="sovereign-signature-footer">
-        <h5>Faiza &amp; Abdulmumin</h5>
-        <p>&copy; 2026 All Rights Reserved.</p>
+    <!-- FOOTER SIGNATURE -->
+    <footer>
+        © 2026 #KoFosealedinlove26# All Rights Reserved
     </footer>
 
-    <!-- INTERACTIVE SCRIPTS -->
+    <!-- INTERACTION LOGIC & SYSTEM MECHANICS -->
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            runCountdownEngine();
-            runRevealObserver();
-        });
+        /* --- HARDWARE-ACCELERATED SCROLL REVEAL SCRIPT --- */
+        const observerOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
 
-        function runCountdownEngine() {
-            const wrap = document.getElementById("luxe-timer");
-            if (!wrap) return;
+        revealElements.forEach(element => revealObserver.observe(element));
 
-            const finalDate = new Date(wrap.getAttribute("data-target")).getTime();
+        /* --- PRECISE COUNTDOWN TIMEKEEPING ENGINE --- */
+        const targetWeddingDate = new Date('July 17, 2026 11:00:00').getTime();
 
-            const dEl = document.getElementById("d-val");
-            const hEl = document.getElementById("h-val");
-            const mEl = document.getElementById("m-val");
-            const sEl = document.getElementById("s-val");
+        document.addEventListener('DOMContentLoaded', () => {
+            function runCountdownEngine() {
+                const currentTime = new Date().getTime();
+                const timeDifference = targetWeddingDate - currentTime;
 
-            function compute() {
-                const present = new Date().getTime();
-                const delta = finalDate - present;
-
-                if (delta <= 0) {
-                    wrap.innerHTML = "<span class='toast-label' style='grid-column: span 4;'>Mubarak — The Celebrations Have Commenced!</span>";
-                    clearInterval(intervalId);
+                if (timeDifference <= 0) {
+                    document.getElementById('luxe-timer').innerHTML = "<span class='time-value' style='font-size:1.5rem; letter-spacing:0.1em;'>The Celebration Has Begun</span>";
                     return;
                 }
 
-                const d = Math.floor(delta / (1000 * 60 * 60 * 24));
-                const h = Math.floor((delta % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const m = Math.floor((delta % (1000 * 60 * 60)) / (1000 * 60));
-                const s = Math.floor((delta % (1000 * 60)) / 1000);
+                const d = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+                const h = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const m = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+                const s = Math.floor((timeDifference % (1000 * 60)) / 1000);
 
-                dEl.textContent = String(d).padStart(2, "0");
-                hEl.textContent = String(h).padStart(2, "0");
-                mEl.textContent = String(m).padStart(2, "0");
-                sEl.textContent = String(s).padStart(2, "0");
+                document.getElementById('days').innerText = d < 10 ? '0' + d : d;
+                document.getElementById('hours').innerText = h < 10 ? '0' + h : h;
+                document.getElementById('minutes').innerText = m < 10 ? '0' + m : m;
+                document.getElementById('seconds').innerText = s < 10 ? '0' + s : s;
             }
+            setInterval(runCountdownEngine, 1000);
+            runCountdownEngine();
+        });
 
-            compute();
-            const intervalId = setInterval(compute, 1000);
+        /* --- INTELLIGENT AUDIO ENGINE (INTERACTION UNLOCK) --- */
+        const mediaTrack = document.getElementById('inviteMusic');
+        const controlBtn = document.getElementById('audioBtn');
+        const visualIcon = document.getElementById('audioIcon');
+        let interactionUnlocked = false;
+
+        function playAudioTrack() {
+            mediaTrack.play().then(() => {
+                controlBtn.classList.add('playing');
+                visualIcon.innerHTML = `<path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77zM4.34 2.93L2.93 4.34 7.59 9H3v6h4l5 5v-6.59l4.38 4.38c-.69.44-1.43.77-2.38.91v2.06c1.5-.33 2.87-.98 4.02-1.89l3.05 3.05 1.41-1.41L4.34 2.93zM12 4L9.91 6.09 12 8.18V4z"/>`;
+            }).catch(err => {
+                console.log("Autoplay blocked. Waiting for explicit gesture.");
+            });
         }
 
-        function runRevealObserver() {
-            const items = document.querySelectorAll('.reveal-luxe');
-            
-            const options = {
-                root: null,
-                rootMargin: "0px 0px -10% 0px",
-                threshold: 0.05
-            };
-
-            const obs = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active-reveal');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, options);
-
-            items.forEach(el => obs.observe(el));
+        function toggleMediaState() {
+            if (mediaTrack.paused) {
+                playAudioTrack();
+            } else {
+                mediaTrack.pause();
+                controlBtn.classList.remove('playing');
+                visualIcon.innerHTML = `<path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>`;
+            }
         }
+
+        // Handle direct button interactions
+        controlBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            interactionUnlocked = true;
+            toggleMediaState();
+        });
+
+        // Global listeners to cleanly trigger play state on the user's very first interaction
+        const triggerEvents = ['click', 'touchstart', 'scroll'];
+        
+        function autoPlayOnGesture() {
+            if (!interactionUnlocked) {
+                interactionUnlocked = true;
+                playAudioTrack();
+            }
+            // Remove listeners immediately once background audio is initialized
+            triggerEvents.forEach(event => window.removeEventListener(event, autoPlayOnGesture));
+        }
+
+        triggerEvents.forEach(event => window.addEventListener(event, autoPlayOnGesture, { passive: true }));
     </script>
 </body>
 </html>
