@@ -1,521 +1,1596 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>KOFOSEALEDINLOVE26 · Islamic Wedding</title>
-  <!-- Google Fonts · Cinzel · Cormorant Garamond · Montserrat -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <style>
-    /* ─── RESET & BASE ─── */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      background: #0b0a0a;
-      font-family: 'Cormorant Garamond', serif;
-      color: #f5efe6;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-    /* ─── VIDEO BG ─── */
-    #hero-video {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      object-fit: cover;
-      z-index: 0;
-      pointer-events: none;
-    }
-    /* canvas overlay · particles */
-    #particle-canvas {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      z-index: 1;
-      pointer-events: none;
-    }
-    /* main scroll wrapper */
-    .content {
-      position: relative;
-      z-index: 2;
-      min-height: 100vh;
-      padding: 2rem 1.5rem 4rem;
-      max-width: 1200px;
-      margin: 0 auto;
-      backdrop-filter: blur(1px);
-    }
-    /* ─── TYPOGRAPHY & COLORS ─── */
-    :root {
-      --white-silk: #FFFFFF;
-      --emerald: #00664D;
-      --olive: #808000;
-      --soft-gold: #C5A059;
-    }
-    .gold-text { color: var(--soft-gold); }
-    .emerald-bg { background: var(--emerald); }
-    /* ─── HEADER / BISMILLAH ─── */
-    .bismillah {
-      font-family: 'Cinzel', serif;
-      font-size: 1.8rem;
-      text-align: center;
-      letter-spacing: 0.1em;
-      color: var(--soft-gold);
-      text-shadow: 0 0 20px rgba(197, 160, 89, 0.3);
-      margin-bottom: 0.5rem;
-      line-height: 1.4;
-    }
-    @media (max-width: 480px) { .bismillah { font-size: 1.3rem; } }
-    /* ─── INVITATION CARD ─── */
-    .invitation-card {
-      background: rgba(10, 10, 10, 0.55);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(197, 160, 89, 0.25);
-      border-radius: 3rem 3rem 2rem 2rem;
-      padding: 2.5rem 2rem;
-      margin: 2rem 0 3rem;
-      box-shadow: 0 30px 60px rgba(0,0,0,0.7);
-      text-align: center;
-      transition: all 0.4s ease;
-    }
-    .invitation-card h1 {
-      font-family: 'Cinzel', serif;
-      font-weight: 700;
-      font-size: 3.8rem;
-      letter-spacing: 0.2em;
-      color: var(--white-silk);
-      text-shadow: 0 4px 20px rgba(0,0,0,0.6);
-      line-height: 1.1;
-    }
-    .invitation-card h1 span { color: var(--soft-gold); }
-    .invitation-card .couple {
-      font-family: 'Cinzel', serif;
-      font-size: 2.8rem;
-      font-weight: 600;
-      color: var(--soft-gold);
-      letter-spacing: 0.15em;
-      margin: 0.5rem 0;
-    }
-    .invitation-card .family-line {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem;
-      font-weight: 300;
-      color: #d4cdc0;
-      border-top: 1px solid rgba(197, 160, 89, 0.3);
-      border-bottom: 1px solid rgba(197, 160, 89, 0.3);
-      padding: 0.8rem 0;
-      margin: 1.2rem 0;
-    }
-    .date-block {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 400;
-      font-size: 1.2rem;
-      letter-spacing: 0.1em;
-      color: #e8e0d0;
-    }
-    .date-block strong { color: var(--soft-gold); font-weight: 600; }
-    /* ─── COUNTDOWN GRID ─── */
-    .countdown-grid {
-      display: flex;
-      justify-content: center;
-      gap: 0.5rem;
-      margin: 1.8rem 0 0.5rem;
-      flex-wrap: nowrap;
-    }
-    .countdown-item {
-      background: rgba(0, 102, 77, 0.25);
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
-      border: 1px solid rgba(197, 160, 89, 0.3);
-      border-radius: 20px;
-      padding: 0.6rem 0.2rem;
-      min-width: 70px;
-      flex: 1 1 0;
-      text-align: center;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    }
-    .countdown-item .number {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
-      font-size: 2.5rem;
-      line-height: 1;
-      color: var(--white-silk);
-      letter-spacing: 0.05em;
-    }
-    .countdown-item .label {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 300;
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: #c5b8a0;
-      margin-top: 0.2rem;
-    }
-    /* micro screens */
-    @media (max-width: 480px) {
-      .countdown-item { min-width: 50px; padding: 0.4rem 0.1rem; }
-      .countdown-item .number { font-size: 1.8rem; }
-      .countdown-item .label { font-size: 0.55rem; }
-      .invitation-card h1 { font-size: 2.5rem; }
-      .invitation-card .couple { font-size: 2rem; }
-    }
-    /* ─── INFO BLOCKS ─── */
-    .info-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      margin: 2.5rem 0;
-    }
-    .info-card {
-      background: rgba(20, 20, 20, 0.5);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      border-radius: 2rem;
-      padding: 1.8rem 1rem;
-      border: 1px solid rgba(197, 160, 89, 0.2);
-      text-align: center;
-      transition: transform 0.3s ease;
-    }
-    .info-card svg { width: 48px; height: 48px; stroke: var(--soft-gold); fill: none; stroke-width: 1.5; margin-bottom: 0.5rem; }
-    .info-card h3 { font-family: 'Cinzel', serif; font-size: 1.3rem; color: var(--soft-gold); letter-spacing: 0.1em; }
-    .info-card p { font-size: 1.2rem; font-weight: 300; color: #ece3d0; margin-top: 0.3rem; }
-    .info-card .sub { font-size: 0.9rem; color: #b8aa92; }
-    @media (max-width: 600px) { .info-grid { grid-template-columns: 1fr; } }
-    /* ─── GALLERY ─── */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.2rem;
-      margin: 2.5rem 0;
-    }
-    .gallery-grid img {
-      width: 100%;
-      aspect-ratio: 1/1;
-      object-fit: cover;
-      border-radius: 2rem;
-      border: 1px solid rgba(197, 160, 89, 0.25);
-      cursor: pointer;
-      transition: all 0.35s cubic-bezier(0.2, 0.9, 0.3, 1);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.4);
-    }
-    .gallery-grid img:hover { transform: scale(1.02); border-color: var(--soft-gold); }
-    @media (max-width: 480px) { .gallery-grid { gap: 0.8rem; } }
-    /* ─── RSVP ─── */
-    .rsvp-block {
-      background: rgba(0, 0, 0, 0.4);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      border-radius: 3rem;
-      padding: 2rem 1.5rem;
-      border: 1px solid rgba(197, 160, 89, 0.2);
-      text-align: center;
-      margin-top: 2rem;
-    }
-    .rsvp-block h3 { font-family: 'Cinzel', serif; color: var(--soft-gold); font-size: 1.8rem; }
-    .rsvp-numbers { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.8rem 1.5rem; margin: 1rem 0; }
-    .rsvp-numbers span { font-family: 'Montserrat', sans-serif; font-weight: 300; background: rgba(255,255,255,0.04); padding: 0.3rem 1.2rem; border-radius: 40px; border: 1px solid rgba(197, 160, 89, 0.15); }
-    /* ─── AUDIO DOCK ─── */
-    .audio-dock {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      z-index: 50;
-      background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-radius: 60px;
-      padding: 0.8rem 1.2rem;
-      border: 1px solid rgba(197, 160, 89, 0.4);
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      cursor: pointer;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-      transition: all 0.3s ease;
-    }
-    .audio-dock svg { width: 28px; height: 28px; stroke: var(--soft-gold); fill: none; }
-    .audio-dock span { font-family: 'Montserrat', sans-serif; font-weight: 300; color: #f0e8d8; font-size: 0.9rem; letter-spacing: 0.1em; }
-    .pulse-dot { width: 12px; height: 12px; background: var(--soft-gold); border-radius: 50%; animation: pulse-dot 1.6s infinite; }
-    @keyframes pulse-dot { 0% { opacity: 0.4; transform: scale(0.8); } 50% { opacity: 1; transform: scale(1.2); } 100% { opacity: 0.4; transform: scale(0.8); } }
-    /* ─── REVEAL (Intersection Observer) ─── */
-    .reveal {
-      opacity: 0;
-      transform: scale(0.96) translateY(20px);
-      transition: all 0.9s cubic-bezier(0.15, 0.85, 0.35, 1);
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: scale(1) translateY(0);
-    }
-    .reveal-slide {
-      opacity: 0;
-      transform: translateX(-30px);
-      transition: all 0.9s cubic-bezier(0.15, 0.85, 0.35, 1);
-    }
-    .reveal-slide.visible { opacity: 1; transform: translateX(0); }
-    /* toast glass */
-    .toast-glass {
-      position: fixed;
-      bottom: 6rem;
-      left: 50%;
-      transform: translateX(-50%) scale(0.9);
-      background: rgba(10, 10, 10, 0.75);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(197, 160, 89, 0.3);
-      border-radius: 60px;
-      padding: 0.8rem 2rem;
-      color: #f5efe6;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.3rem;
-      font-weight: 300;
-      letter-spacing: 0.05em;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.8);
-      opacity: 0;
-      transition: all 0.5s cubic-bezier(0.2, 0.9, 0.3, 1);
-      z-index: 100;
-      pointer-events: none;
-      white-space: nowrap;
-    }
-    .toast-glass.show { opacity: 1; transform: translateX(-50%) scale(1); }
-    @media (max-width: 480px) { .toast-glass { font-size: 1rem; padding: 0.6rem 1.2rem; bottom: 5rem; } }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Digital Wedding Invitation for Faiza and Abdulmumin. #KoFosealedinlove26#">
+    <title>The Wedding of Faiza & Abdulmumin — #KoFosealedinlove26#</title>
+    
+    <!-- PREMIUM TYPOGRAPHY INJECTION STACK -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* 
+         ========================================================================
+         LUXURY DIGITAL INVITATION DESIGN SYSTEM
+         ========================================================================
+         Architectural Guidelines:
+         - Palette: Deep Royal Emerald, Olive Accentuation, Pure White Silk, and Gradient Liquid Golds.
+         - Motion: Fluid, hardware-accelerated transforms utilizing cubic-bezier pacing.
+         - Layout: Immersive, layered viewport rendering with meticulous micro-interactions.
+        */
+
+        /* --- ADVANCED CSS DESIGN TOKENS --- */
+        :root {
+            /* Primary Colors */
+            --royal-emerald: #004d38;
+            --deep-emerald: #003324;
+            --olive-accent: #5c6b30;
+            --bright-olive: #708238;
+            --dark-slate: #060b09;
+            --matte-black: #030504;
+            
+            /* Luxury Materials */
+            --white-silk: #f4f6f4;
+            --translucent-silk: rgba(244, 246, 246, 0.85);
+            --glass-dark: rgba(6, 11, 9, 0.65);
+            --glass-darker: rgba(3, 5, 4, 0.85);
+            --glass-emerald: rgba(0, 51, 36, 0.4);
+            
+            /* High-Fidelity Metallic Gold Gradients */
+            --gold-primary: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fcf6ba 75%, #bf953f 100%);
+            --gold-shimmer: linear-gradient(90deg, #b38728 0%, #fcf6ba 50%, #b38728 100%);
+            --gold-solid: #c5a059;
+            --gold-pale: #e5cf9a;
+            --gold-muted: rgba(197, 160, 89, 0.3);
+            
+            /* Global Transitions */
+            --transition-epic: all 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition-smooth: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+            --transition-snappy: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            
+            /* Structural Shadows */
+            --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.3);
+            --shadow-luxury: 0 20px 50px rgba(0, 0, 0, 0.6);
+            --shadow-gold-glow: 0 0 25px rgba(197, 160, 89, 0.25);
+        }
+
+        /* --- RESET AND CORE ENGINE CONFIGURATION --- */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: var(--dark-slate);
+            overflow-x: hidden;
+            text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--white-silk);
+            background-color: var(--dark-slate);
+            min-height: 100vh;
+            text-align: center;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* --- GLOBAL LUXURIOUS UTILITY COMPONENTS --- */
+        .gold-text-gradient {
+            background: var(--gold-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        .premium-caps-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 300;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            color: var(--translucent-silk);
+        }
+
+        /* Custom Scrollbar Architecture */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--matte-black);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold-solid);
+            border-radius: 3px;
+        }
+
+        /* --- BACKDROP VIDEO ENVIRONMENT & ATMOSPHERE --- */
+        .ambient-video-background-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -10;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        #cinematic-bg-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.22; /* Engineered for maximum copy readability */
+            filter: brightness(75%) contrast(110%) saturate(85%);
+            transform: scale(1.02);
+            will-change: transform;
+        }
+
+        /* Atmospheric Layering Layer and Vignette Shading */
+        .luxury-atmospheric-overlay-mesh {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -9;
+            pointer-events: none;
+            background: 
+                linear-gradient(to bottom, rgba(6, 11, 9, 0.85) 0%, rgba(6, 11, 9, 0.5) 40%, rgba(3, 5, 4, 0.9) 85%, var(--matte-black) 100%),
+                radial-gradient(circle at 50% 50%, transparent 20%, rgba(3, 5, 4, 0.7) 100%),
+                radial-gradient(circle at 20% 30%, rgba(0, 77, 56, 0.25) 0%, transparent 60%);
+        }
+
+        /* Interactive Particle Overlay Layer */
+        #luxury-gold-particle-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -8;
+            pointer-events: none;
+        }
+
+        /* --- HARDWARE-ACCELERATED SEGREGATED INTRO SCROLL REVEALS --- */
+        /* Core Fade Up Dynamic Pattern */
+        .reveal-element-fade-up {
+            opacity: 0;
+            transform: translateY(50px) translateZ(0);
+            transition: var(--transition-epic);
+            will-change: transform, opacity;
+        }
+        .reveal-element-fade-up.is-triggered {
+            opacity: 1;
+            transform: translateY(0) translateZ(0);
+        }
+
+        /* Cinematic Scale Zoom Reveal Pattern */
+        .reveal-element-cinematic-zoom {
+            opacity: 0;
+            transform: scale(0.9) translateZ(0);
+            transition: var(--transition-epic);
+            will-change: transform, opacity;
+        }
+        .reveal-element-cinematic-zoom.is-triggered {
+            opacity: 1;
+            transform: scale(1) translateZ(0);
+        }
+
+        /* High-End 3D Perspective Rotation Flip Pattern */
+        .reveal-element-3d-flip {
+            opacity: 0;
+            transform: perspective(1200px) rotateX(-25deg) translateY(40px) translateZ(0);
+            transition: var(--transition-epic);
+            will-change: transform, opacity;
+        }
+        .reveal-element-3d-flip.is-triggered {
+            opacity: 1;
+            transform: perspective(1200px) rotateX(0deg) translateY(0) translateZ(0);
+        }
+
+        /* Lateral Spatial Slide Reveal Pattern - Left Vector */
+        .reveal-element-slide-left {
+            opacity: 0;
+            transform: translateX(-70px) translateZ(0);
+            transition: var(--transition-epic);
+            will-change: transform, opacity;
+        }
+        .reveal-element-slide-left.is-triggered {
+            opacity: 1;
+            transform: translateX(0) translateZ(0);
+        }
+
+        /* Lateral Spatial Slide Reveal Pattern - Right Vector */
+        .reveal-element-slide-right {
+            opacity: 0;
+            transform: translateX(70px) translateZ(0);
+            transition: var(--transition-epic);
+            will-change: transform, opacity;
+        }
+        .reveal-element-slide-right.is-triggered {
+            opacity: 1;
+            transform: translateX(0) translateZ(0);
+        }
+
+        /* EXCLUSIVE HIGH-END SPECIAL INTAKE SCROLL REVEALS FOR PICTURES */
+        .gallery-reveal-pivot {
+            opacity: 0;
+            filter: blur(8px);
+            transform: perspective(1500px) rotateY(12deg) rotateX(4deg) translateY(60px) scale(0.95) translateZ(0);
+            transition: opacity 1.6s cubic-bezier(0.16, 1, 0.3, 1), 
+                        filter 1.6s cubic-bezier(0.16, 1, 0.3, 1), 
+                        transform 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform, opacity, filter;
+        }
+        .gallery-reveal-pivot.is-triggered {
+            opacity: 1;
+            filter: blur(0);
+            transform: perspective(1500px) rotateY(0deg) rotateX(0deg) translateY(0) scale(1) translateZ(0);
+        }
+
+        /* --- MAIN HERO OVERLAY FRAMING --- */
+        .editorial-hero-header-container {
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem 2rem;
+            position: relative;
+        }
+
+        .sacred-bismillah-emblem {
+            font-family: 'Amiri', serif;
+            font-size: clamp(2.2rem, 5.5vw, 3.8rem);
+            margin-bottom: 2.5rem;
+            letter-spacing: 2px;
+            font-weight: 700;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        }
+
+        .matrimonial-tagline-callout {
+            margin-bottom: 3rem;
+            max-width: 650px;
+            line-height: 2;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+        }
+
+        .monumental-couple-typographic-wrapper {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .monumental-couple-names {
+            font-size: clamp(3.5rem, 10vw, 7.5rem);
+            font-weight: 300;
+            font-style: italic;
+            line-height: 1.05;
+            letter-spacing: 0.02em;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+        }
+
+        .editorial-ampersand-bridge {
+            display: block;
+            font-size: clamp(2.5rem, 7vw, 4.2rem);
+            margin: 0.8rem 0;
+            font-weight: 400;
+        }
+
+        /* Linear Geometric Separator */
+        .luxury-geometric-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 3rem auto;
+            width: 100%;
+            max-width: 350px;
+        }
+        .geometric-axis-line {
+            height: 1px;
+            flex: 1;
+            background: linear-gradient(90deg, transparent, var(--gold-solid), transparent);
+            opacity: 0.8;
+        }
+        .geometric-diamond-node {
+            width: 8px;
+            height: 8px;
+            transform: rotate(45deg);
+            background: var(--gold-primary);
+            box-shadow: var(--shadow-gold-glow);
+        }
+
+        /* SVG Interlocking Rings Geometry Section */
+        .interlocking-rings-svg-container {
+            margin: 1rem auto 2.5rem auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .interlocking-rings-svg {
+            width: 85px;
+            height: auto;
+            filter: drop-shadow(0px 8px 15px rgba(0, 0, 0, 0.5));
+            animation: premiumContinuousGlow 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes premiumContinuousGlow {
+            0% {
+                transform: scale(1) rotate(0deg);
+                filter: drop-shadow(0px 8px 15px rgba(197, 160, 89, 0.15));
+            }
+            100% {
+                transform: scale(1.05) rotate(1deg);
+                filter: drop-shadow(0px 12px 22px rgba(197, 160, 89, 0.45));
+            }
+        }
+
+        .matrimonial-event-classification {
+            font-size: clamp(1.4rem, 3.2vw, 2.2rem);
+            font-style: italic;
+            color: var(--gold-solid);
+            letter-spacing: 0.18em;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        .matrimonial-spatial-chronicle {
+            font-size: clamp(0.9rem, 2.2vw, 1.3rem);
+            letter-spacing: 0.26em;
+            text-transform: uppercase;
+            color: rgba(244, 246, 246, 0.95);
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        .matrimonial-unified-hashtag {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(0.85rem, 1.8vw, 1.1rem);
+            letter-spacing: 0.25em;
+            color: var(--gold-pale);
+            font-weight: 300;
+            background: rgba(0, 51, 36, 0.4);
+            padding: 0.6rem 1.8rem;
+            border-radius: 30px;
+            border: 1px solid var(--gold-muted);
+            backdrop-filter: blur(4px);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        /* --- THE SACRED APHORISM EMBEDDED VESSEL (QURANIC ANCHOR) --- */
+        .sacred-aphorism-monumental-section {
+            padding: 8rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .sacred-aphorism-architectural-frame {
+            border: 1px solid rgba(197, 160, 89, 0.22);
+            padding: 5rem 3.5rem;
+            position: relative;
+            background: linear-gradient(135deg, rgba(6, 11, 9, 0.8), rgba(3, 5, 4, 0.95));
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 8px;
+            box-shadow: var(--shadow-luxury);
+        }
+
+        /* Custom Fine-Line Border Filigree Details */
+        .sacred-aphorism-architectural-frame::before {
+            content: '';
+            position: absolute;
+            top: 14px; left: 14px; bottom: 14px; right: 14px;
+            border: 1px solid rgba(197, 160, 89, 0.08);
+            pointer-events: none;
+            border-radius: 6px;
+        }
+
+        .corner-accent-filigree {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            border: 2px solid var(--gold-solid);
+            pointer-events: none;
+        }
+        .top-left-accent     { top: 20px; left: 20px; border-right: none; border-bottom: none; }
+        .top-right-accent    { top: 20px; right: 20px; border-left: none; border-bottom: none; }
+        .bottom-left-accent  { bottom: 20px; left: 20px; border-right: none; border-top: none; }
+        .bottom-right-accent { bottom: 20px; right: 20px; border-left: none; border-top: none; }
+
+        .arabic-scripture-typography {
+            font-family: 'Amiri', serif;
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            line-height: 2.3;
+            color: var(--white-silk);
+            direction: rtl;
+            margin-bottom: 3rem;
+            font-weight: 700;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .vernacular-translation-typography {
+            font-size: clamp(1.05rem, 2vw, 1.35rem);
+            font-style: italic;
+            line-height: 2;
+            color: rgba(244, 246, 246, 0.85);
+            font-weight: 300;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .scripture-citation-tag {
+            display: inline-block;
+            margin-top: 2rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--gold-solid);
+        }
+
+        /* --- THE INFINITE CINEMATIC HORIZONTAL TEXT MOTOR (MARQUEE) --- */
+        .infinite-marquee-cinematic-conveyor {
+            width: 100vw;
+            overflow: hidden;
+            background: linear-gradient(90deg, rgba(0, 51, 36, 0.3), rgba(92, 107, 48, 0.2), rgba(0, 51, 36, 0.3));
+            border-top: 1px solid rgba(197, 160, 89, 0.18);
+            border-bottom: 1px solid rgba(197, 160, 89, 0.18);
+            padding: 1.5rem 0;
+            margin: 6rem 0;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .infinite-marquee-cinematic-conveyor::before, .infinite-marquee-cinematic-conveyor::after {
+            content: '';
+            position: absolute;
+            top: 0; width: 15vw; height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+        .infinite-marquee-cinematic-conveyor::before { left: 0; background: linear-gradient(90deg, var(--dark-slate), transparent); }
+        .infinite-marquee-cinematic-conveyor::after { right: 0; background: linear-gradient(-90deg, var(--dark-slate), transparent); }
+
+        .marquee-high-velocity-wrapper {
+            display: inline-block;
+            animation: luxuryMarqueeEngine 32s linear infinite;
+        }
+
+        .marquee-editorial-text-node {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.4rem, 3.5vw, 2.5rem);
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+            font-weight: 300;
+            color: var(--white-silk);
+            padding-right: 3rem;
+        }
+
+        .marquee-editorial-text-node span {
+            background: var(--gold-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        @keyframes luxuryMarqueeEngine {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
+        }
+
+        /* --- HIGH-PRECISION RECOGNITION TIME PREKEEPER CONTAINER (COUNTDOWN) --- */
+        .chronometric-countdown-outer-wrapper {
+            padding: 4rem 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .chronometric-luxe-dashboard {
+            display: flex;
+            gap: clamp(1.5rem, 5vw, 4rem);
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 800px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.01) 0%, rgba(255,255,255,0.03) 100%);
+            padding: 3rem 2.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.04);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: inset 0 1px 1px rgba(255,255,255,0.1), var(--shadow-subtle);
+        }
+
+        .chronometric-segment-node {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            flex: 1;
+        }
+
+        .chronometric-numerical-output {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.8rem, 7vw, 5.5rem);
+            font-weight: 300;
+            background: var(--gold-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-style: italic;
+            line-height: 1;
+            letter-spacing: -0.02em;
+        }
+
+        .chronometric-descriptor-tag {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.32em;
+            color: rgba(244, 246, 246, 0.45);
+            margin-top: 1rem;
+        }
+
+        /* Inter-node Separation Dot */
+        .chronometric-splitter-colon {
+            font-size: 2.5rem;
+            color: var(--gold-solid);
+            opacity: 0.3;
+            font-weight: 200;
+            transform: translateY(-10px);
+            display: flex;
+            align-items: center;
+        }
+
+        /* --- HIGH-END EDITORIAL GALLERY SYSTEM WITH INDIVIDUAL LUXURY TOASTS --- */
+        .editorial-portrait-gallery-wrapper {
+            padding: 8rem 2rem;
+            max-width: 1300px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .gallery-section-header-block {
+            margin-bottom: 5rem;
+        }
+        
+        .gallery-section-main-title {
+            font-size: clamp(2rem, 4.5vw, 3.5rem);
+            font-weight: 300;
+            letter-spacing: 0.15em;
+            margin-top: 0.8rem;
+            font-style: italic;
+        }
+
+        /* Responsive Asymmetrical Editorial Grid Layout */
+        .editorial-asymmetric-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 3.5rem 2.5rem;
+            width: 100%;
+        }
+
+        /* Premium Image Card Architecture */
+        .luxury-gallery-card-vessel {
+            position: relative;
+            overflow: hidden;
+            border-radius: 6px;
+            border: 1px solid rgba(197, 160, 89, 0.18);
+            background: var(--matte-black);
+            box-shadow: var(--shadow-luxury);
+            transition: border-color 0.8s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .luxury-gallery-card-vessel:hover {
+            border-color: var(--gold-solid);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.85), var(--shadow-gold-glow);
+        }
+
+        .luxury-gallery-card-vessel img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 1.6s cubic-bezier(0.16, 1, 0.3, 1), filter 1.6s ease;
+            will-change: transform;
+        }
+
+        .luxury-gallery-card-vessel:hover img {
+            transform: scale(1.07) translateZ(0);
+            filter: brightness(90%);
+        }
+
+        /* --- THE REWRITTEN HIGH-END INTERACTIVE EXTENDED CORRESPONDING TOASTS --- */
+        .luxury-bespoke-hover-toast-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 3rem 2rem 2.5rem 2rem;
+            background: linear-gradient(to top, 
+                rgba(3, 5, 4, 0.98) 0%, 
+                rgba(6, 11, 9, 0.9) 65%, 
+                rgba(6, 11, 9, 0.4) 85%, 
+                transparent 100%);
+            transform: translateY(102%) translateZ(0);
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            text-align: center;
+            z-index: 5;
+            border-top: 1px solid rgba(197, 160, 89, 0.15);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            will-change: transform;
+        }
+
+        .luxury-gallery-card-vessel:hover .luxury-bespoke-hover-toast-container {
+            transform: translateY(0) translateZ(0);
+        }
+
+        .toast-header-classification {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: var(--bright-olive);
+            margin-bottom: 0.6rem;
+            font-weight: 500;
+        }
+
+        .toast-prominent-title {
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: var(--gold-pale);
+            margin-bottom: 0.8rem;
+            letter-spacing: 0.04em;
+        }
+
+        .toast-narrative-body {
+            font-size: 0.95rem;
+            font-style: italic;
+            color: rgba(244, 246, 246, 0.8);
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        /* --- ASYMMETRICAL SPATIAL GRID ASSIGNMENTS --- */
+        /* Card 0: kofolove.jpg */
+        .card-position-zero {
+            grid-column: span 12;
+            aspect-ratio: 16 / 9;
+            max-height: 520px;
+        }
+        /* Card 1: kofolove1.jpg */
+        .card-position-one {
+            grid-column: span 6;
+            aspect-ratio: 4 / 5;
+        }
+        /* Card 2: kofolove2.jpg */
+        .card-position-two {
+            grid-column: span 6;
+            aspect-ratio: 4 / 5;
+        }
+        /* Card 3: kofolove3.jpg */
+        .card-position-three {
+            grid-column: span 7;
+            aspect-ratio: 4 / 3;
+        }
+        /* Card 4: kofolove4.jpg */
+        .card-position-four {
+            grid-column: span 5;
+            aspect-ratio: 1 / 1;
+        }
+
+        /* Responsive Grid Collapse Constraints */
+        @media (max-width: 850px) {
+            .editorial-asymmetric-gallery-grid {
+                display: flex;
+                flex-direction: column;
+                gap: 4rem;
+            }
+            .luxury-gallery-card-vessel {
+                grid-column: span 12 !important;
+                aspect-ratio: 3 / 4 !important;
+                width: 100%;
+            }
+            .card-position-zero {
+                aspect-ratio: 4 / 3 !important;
+            }
+            .card-position-three {
+                aspect-ratio: 4 / 3 !important;
+            }
+            .card-position-four {
+                aspect-ratio: 4 / 3 !important;
+            }
+        }
+
+        /* --- NEW EFFIZY CONTENT SECTION: CINEMATIC LOVE STORY THEATRE --- */
+        .love-story-theatre-section-wrapper {
+            padding: 8rem 2rem;
+            background: linear-gradient(180deg, transparent, var(--matte-black), transparent);
+            position: relative;
+        }
+
+        .theatre-screen-projection-container {
+            max-width: 950px;
+            margin: 0 auto;
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(197, 160, 89, 0.25);
+            box-shadow: var(--shadow-luxury);
+            aspect-ratio: 16 / 9;
+            background: #000;
+        }
+
+        .theatre-video-element {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Bespoke Luxury Media Interface Skins */
+        .theatre-media-controls-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(3, 5, 4, 0.45);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease;
+            z-index: 3;
+        }
+        .theatre-media-controls-overlay.is-hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .theatre-master-play-trigger-btn {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(6, 11, 9, 0.95), rgba(0, 51, 36, 0.95));
+            border: 2px solid var(--gold-solid);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: var(--shadow-gold-glow), 0 10px 25px rgba(0,0,0,0.5);
+            transition: var(--transition-smooth);
+        }
+        .theatre-master-play-trigger-btn:hover {
+            transform: scale(1.1);
+            border-color: var(--white-silk);
+            box-shadow: 0 0 35px rgba(197, 160, 89, 0.6);
+        }
+
+        .theatre-play-icon-vector {
+            fill: var(--gold-solid);
+            width: 26px;
+            height: 26px;
+            margin-left: 5px;
+            transition: var(--transition-smooth);
+        }
+        .theatre-master-play-trigger-btn:hover .theatre-play-icon-vector {
+            fill: var(--white-silk);
+        }
+
+        /* --- ITINERARY LOGISTICS ARCHITECTURE --- */
+        .itinerary-logistics-master-section {
+            padding: 8rem 2rem;
+            max-width: 1150px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .logistics-bipartite-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 4rem;
+            margin-top: 2rem;
+        }
+
+        .logistics-premium-card {
+            background: linear-gradient(180deg, rgba(6, 11, 9, 0.75) 0%, rgba(3, 5, 4, 0.95) 100%);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(197, 160, 89, 0.15);
+            padding: 5rem 3rem;
+            border-radius: 6px;
+            position: relative;
+            box-shadow: var(--shadow-luxury);
+            transition: var(--transition-smooth);
+        }
+
+        .logistics-premium-card:hover {
+            border-color: var(--gold-solid);
+            transform: translateY(-8px) translateZ(0);
+            box-shadow: 0 25px 55px rgba(0,0,0,0.8), var(--shadow-gold-glow);
+        }
+
+        .logistics-card-inner-filigree {
+            position: absolute;
+            top: 12px; left: 12px; bottom: 12px; right: 12px;
+            border: 1px solid rgba(197, 160, 89, 0.05);
+            pointer-events: none;
+            border-radius: 4px;
+        }
+
+        .logistics-card-title {
+            font-size: 2.2rem;
+            font-weight: 300;
+            letter-spacing: 0.08em;
+            margin-bottom: 2rem;
+            color: var(--gold-solid);
+            font-style: italic;
+        }
+
+        .logistics-metric-details-block {
+            font-size: 1.15rem;
+            line-height: 2.1;
+            color: rgba(244, 246, 246, 0.9);
+            font-weight: 300;
+            margin-bottom: 3.5rem;
+        }
+
+        .logistics-metric-details-block strong {
+            font-weight: 500;
+            color: var(--white-silk);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+        }
+
+        .luxury-action-navigation-link {
+            display: inline-block;
+            padding: 1rem 2.8rem;
+            border: 1px solid var(--gold-solid);
+            color: var(--white-silk);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            transition: var(--transition-smooth);
+            border-radius: 2px;
+            background: transparent;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .luxury-action-navigation-link::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--gold-primary);
+            z-index: -1;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .luxury-action-navigation-link:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .luxury-action-navigation-link:hover {
+            color: var(--matte-black);
+            font-weight: 500;
+            border-color: transparent;
+            box-shadow: var(--shadow-gold-glow);
+        }
+
+        /* --- THE CHROMATIC MATRIMONIAL VISUAL CODE (PALETTE) --- */
+        .chromatic-palette-showcase-section {
+            padding: 8rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .chromatic-section-title {
+            font-size: 1.6rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            margin-bottom: 4.5rem;
+            font-weight: 300;
+            color: var(--translucent-silk);
+        }
+
+        .chromatic-swatch-flex-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 3rem 1.5rem;
+        }
+
+        .chromatic-swatch-individual-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            min-width: 130px;
+        }
+
+        .chromatic-swatch-circle-vessel {
+            width: 85px;
+            height: 85px;
+            border-radius: 50%;
+            margin-bottom: 1.4rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.15);
+            position: relative;
+            transition: var(--transition-snappy);
+        }
+        
+        .chromatic-swatch-individual-item:hover .chromatic-swatch-circle-vessel {
+            transform: scale(1.1) translateY(-4px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.7);
+        }
+
+        /* Specific Swatch Identifiers */
+        .swatch-color-royal-emerald { background-color: var(--royal-emerald); }
+        .swatch-color-bright-olive  { background-color: var(--bright-olive); }
+        .swatch-color-white-silk    { background-color: var(--white-silk); }
+        .swatch-color-liquid-gold   { background: var(--gold-primary); border-color: var(--gold-pale); }
+
+        .chromatic-color-label-descriptor {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            letter-spacing: 0.08em;
+            color: var(--white-silk);
+            font-weight: 400;
+        }
+
+        .chromatic-color-hex-tag {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.65rem;
+            color: rgba(244, 246, 246, 0.4);
+            margin-top: 0.4rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* --- INTERACTIVE FLOATING BACKGROUND MUSIC STAGE --- */
+        .floating-audio-orchestration-wrapper {
+            position: fixed;
+            bottom: 35px;
+            right: 35px;
+            z-index: 999;
+        }
+
+        .audio-hardware-toggle-trigger {
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: rgba(3, 5, 4, 0.9);
+            border: 1px solid var(--gold-solid);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: var(--shadow-luxury), 0 0 15px rgba(197, 160, 89, 0.2);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            transition: var(--transition-smooth);
+        }
+
+        .audio-hardware-toggle-trigger:hover {
+            transform: scale(1.08);
+            border-color: var(--white-silk);
+            box-shadow: var(--shadow-luxury), 0 0 25px rgba(197, 160, 89, 0.5);
+        }
+
+        .audio-core-svg-icon {
+            fill: var(--gold-solid);
+            width: 20px;
+            height: 20px;
+            transition: var(--transition-smooth);
+        }
+        .audio-hardware-toggle-trigger:hover .audio-core-svg-icon {
+            fill: var(--white-silk);
+        }
+
+        /* Rotational animation if music plays */
+        .audio-hardware-toggle-trigger.is-playing-animation {
+            animation: luxuryMusicRotation 12s linear infinite;
+        }
+
+        @keyframes luxuryMusicRotation {
+            100% { transform: rotate(360deg); }
+        }
+
+        /* --- EDITORIAL FOOTER COMPOSURE --- */
+        .editorial-monolithic-footer {
+            padding: 8rem 2rem 6rem 2rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.25em;
+            color: rgba(244, 246, 246, 0.3);
+            text-transform: uppercase;
+            border-top: 1px solid rgba(255,255,255,0.03);
+            background: linear-gradient(to bottom, transparent, var(--matte-black));
+            position: relative;
+        }
+
+        .footer-closing-hashtag {
+            color: var(--gold-solid);
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.3em;
+            display: block;
+        }
+    </style>
 </head>
 <body>
 
-  <!-- VIDEO BACKGROUND -->
-  <video id="hero-video" autoplay muted loop playsinline>
-    <source src="kofobackgroundvideo.mp4" type="video/mp4">
-  </video>
-
-  <!-- PARTICLE CANVAS -->
-  <canvas id="particle-canvas"></canvas>
-
-  <!-- TOAST -->
-  <div id="toast" class="toast-glass"></div>
-
-  <!-- MAIN CONTENT -->
-  <div class="content">
-
-    <!-- BISMILLAH -->
-    <div class="bismillah reveal">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
-
-    <!-- INVITATION CARD -->
-    <div class="invitation-card reveal">
-      <h1>#<span>KOFOSEALED</span>INLOVE26#</h1>
-      <div class="couple">Faiza <span style="color: #fff;">&</span> Abdulmumin</div>
-      <div class="family-line">
-        Alhaji Abdulrazaq Abubakar Ahmed (Oba Agwa) &amp; Alhaji Aminullah Muhammad (Al-imam)
-      </div>
-      <div class="date-block">
-        <strong>17 July 2026</strong> · Nikkah 9:30 AM · Oba Agwa Compound
-      </div>
-      <!-- COUNTDOWN -->
-      <div class="countdown-grid" id="countdownGrid">
-        <div class="countdown-item"><div class="number" id="days">00</div><div class="label">Days</div></div>
-        <div class="countdown-item"><div class="number" id="hours">00</div><div class="label">Hours</div></div>
-        <div class="countdown-item"><div class="number" id="mins">00</div><div class="label">Mins</div></div>
-        <div class="countdown-item"><div class="number" id="secs">00</div><div class="label">Secs</div></div>
-      </div>
+    <!-- Ambient Video Background Asset Layer -->
+    <div class="ambient-video-background-wrapper">
+        <video id="cinematic-bg-video" autoplay muted loop playsinline preload="auto" webkit-playsinline>
+            <source src="kofobackgroundvideo.mp4" type="video/mp4">
+        </video>
     </div>
 
-    <!-- INFO GRID with SVGs -->
-    <div class="info-grid">
-      <div class="info-card reveal-slide">
-        <!-- Wedding Ring Icon -->
-        <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="14" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="32" cy="32" r="20" stroke="currentColor" stroke-width="1.5" fill="none" stroke-dasharray="4 4"/><path d="M22 32 L12 22 L8 26 L18 36 L22 32" stroke="currentColor" stroke-width="1.5"/><path d="M42 32 L52 22 L56 26 L46 36 L42 32" stroke="currentColor" stroke-width="1.5"/></svg>
-        <h3>Nikkah Session</h3>
-        <p>9:30 AM · Oba Agwa Compound</p>
-        <div class="sub">Kaduna State</div>
-      </div>
-      <div class="info-card reveal-slide">
-        <!-- Hotel/Gala Icon -->
-        <svg viewBox="0 0 64 64"><path d="M8 24 L32 8 L56 24 L56 52 L8 52 L8 24 Z" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M20 52 L20 36 L44 36 L44 52" stroke="currentColor" stroke-width="1.5"/><rect x="24" y="28" width="6" height="6" stroke="currentColor" stroke-width="1.5"/><rect x="34" y="28" width="6" height="6" stroke="currentColor" stroke-width="1.5"/></svg>
-        <h3>Reception Gala</h3>
-        <p>2:00 PM · Luxury Hotel</p>
-        <div class="sub">Kaduna State</div>
-      </div>
+    <!-- Atmospheric Overlay Layer -->
+    <div class="luxury-atmospheric-overlay-mesh"></div>
+
+    <!-- Golden Dust Particle Canvas -->
+    <canvas id="luxury-gold-particle-canvas"></canvas>
+
+    <!-- Floating Interface Music Module Container -->
+    <div class="floating-audio-orchestration-wrapper">
+        <button class="audio-hardware-toggle-trigger" id="globalAudioBtn" aria-label="Toggle Matrimonial Audio Orchestration">
+            <svg class="audio-core-svg-icon" id="globalAudioIcon" viewBox="0 0 24 24">
+                <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+            </svg>
+        </button>
+    </div>
+    
+    <!-- Verified Relative Core Audio Target Asset -->
+    <audio id="matrimonialMusicTrack" src="kofoweddingmusic.mp3" loop></audio>
+
+
+    <!-- ========================================================================
+         EDITORIAL HERO PRESENTATION SECTION
+         ======================================================================== -->
+    <header class="editorial-hero-header-container">
+        
+        <div class="sacred-bismillah-emblem reveal-element-cinematic-zoom gold-text-gradient">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
+        
+        <p class="matrimonial-tagline-callout reveal-element-fade-up premium-caps-label">
+            The Honour of Your Presence is Requested at the Nikkah Ceremony of
+        </p>
+        
+        <div class="monumental-couple-typographic-wrapper reveal-element-cinematic-zoom">
+            <h1 class="monumental-couple-names">
+                Faiza 
+                <span class="editorial-ampersand-bridge gold-text-gradient">&</span> 
+                Abdulmumin
+            </h1>
+        </div>
+
+        <!-- Interlocking Rings Emblem -->
+        <div class="interlocking-rings-svg-container reveal-element-fade-up">
+            <svg class="interlocking-rings-svg" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="ringGoldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#bf953f" />
+                        <stop offset="25%" stop-color="#fcf6ba" />
+                        <stop offset="50%" stop-color="#b38728" />
+                        <stop offset="75%" stop-color="#fcf6ba" />
+                        <stop offset="100%" stop-color="#bf953f" />
+                    </linearGradient>
+                </defs>
+                <circle cx="38" cy="30" r="20" stroke="url(#ringGoldGradient)" stroke-width="3" fill="none" />
+                <circle cx="62" cy="30" r="20" stroke="url(#ringGoldGradient)" stroke-width="3" fill="none" />
+            </svg>
+        </div>
+
+        <div class="luxury-geometric-divider reveal-element-fade-up">
+            <div class="geometric-axis-line"></div>
+            <div class="geometric-diamond-node"></div>
+            <div class="geometric-axis-line"></div>
+        </div>
+
+        <div class="matrimonial-event-classification reveal-element-fade-up">The Nikkah</div>
+        <div class="matrimonial-spatial-chronicle reveal-element-fade-up">Friday . 17 . 07 . 2026 — Kaduna State</div>
+        
+        <div class="reveal-element-fade-up">
+            <span class="matrimonial-unified-hashtag">#KoFosealedinlove26#</span>
+        </div>
+
+    </header>
+
+
+    <!-- ========================================================================
+         SACRED APHORISM SECTION (QURANIC TEXT ACCENT)
+         ======================================================================== -->
+    <section class="sacred-aphorism-monumental-section reveal-element-3d-flip">
+        <div class="sacred-aphorism-architectural-frame">
+            
+            <!-- Structural Filigree Accents -->
+            <div class="corner-accent-filigree top-left-accent"></div>
+            <div class="corner-accent-filigree top-right-accent"></div>
+            <div class="corner-accent-filigree bottom-left-accent"></div>
+            <div class="corner-accent-filigree bottom-right-accent"></div>
+            
+            <div class="arabic-scripture-typography">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً</div>
+            
+            <p class="vernacular-translation-typography">
+                "And of His signs is that He created for you from yourselves mates that you may find tranquility in them; and He placed between you affection and mercy..."
+            </p>
+            
+            <span class="scripture-citation-tag">— Surah Ar-Rum: 21</span>
+            
+        </div>
+    </section>
+
+
+    <!-- ========================================================================
+         CINEMATIC MARQUEE CONVEYOR STRIP
+         ======================================================================== -->
+    <div class="infinite-marquee-cinematic-conveyor reveal-element-fade-up">
+        <div class="marquee-high-velocity-wrapper">
+            <span class="marquee-editorial-text-node">Faiza & Abdulmumin • <span>The Sacred Union</span> • July 17, 2026 • #KoFosealedinlove26# • </span>
+            <span class="marquee-editorial-text-node">Faiza & Abdulmumin • <span>The Sacred Union</span> • July 17, 2026 • #KoFosealedinlove26# • </span>
+            <span class="marquee-editorial-text-node">Faiza & Abdulmumin • <span>The Sacred Union</span> • July 17, 2026 • #KoFosealedinlove26# • </span>
+            <span class="marquee-editorial-text-node">Faiza & Abdulmumin • <span>The Sacred Union</span> • July 17, 2026 • #KoFosealedinlove26# • </span>
+        </div>
     </div>
 
-    <!-- GALLERY -->
-    <div class="gallery-grid" id="galleryGrid">
-      <img src="kofolove.jpg" data-toast="Capturing an eternity of grace..." alt="love">
-      <img src="kofolove1.jpg" data-toast="A journey written in destiny..." alt="love1">
-      <img src="kofolove2.jpg" data-toast="Two souls, one synchronized path..." alt="love2">
-      <img src="kofolove3.jpg" data-toast="Elegance woven in time..." alt="love3">
-      <!-- hidden extra: we have 4 images but we also have kofolove4.jpg, we'll add it -->
-    </div>
-    <!-- add 5th image manually to satisfy all assets -->
-    <div class="gallery-grid" style="margin-top: -0.5rem;">
-      <img src="kofolove4.jpg" data-toast="Forever etched in gold..." alt="love4" style="grid-column: span 2; max-width: 50%; margin: 0 auto; aspect-ratio: 2/1; object-fit: cover;">
-    </div>
 
-    <!-- RSVP -->
-    <div class="rsvp-block reveal">
-      <h3>RSVP</h3>
-      <div class="rsvp-numbers">
-        <span>08036007267</span> <span>07032326592</span>
-        <span>08177145309</span> <span>07039171555</span>
-      </div>
-      <div style="font-family: 'Montserrat', sans-serif; font-weight: 300; letter-spacing: 0.05em; color: #b8aa92;">Kaduna State · 2026</div>
-    </div>
+    <!-- ========================================================================
+         CHRONOMETRIC TIME RECONSTRUCTED HUB (COUNTDOWN)
+         ======================================================================== -->
+    <section class="chronometric-countdown-outer-wrapper reveal-element-fade-up">
+        <div class="chronometric-luxe-dashboard" id="chronometricDashboard">
+            
+            <div class="chronometric-segment-node">
+                <span class="chronometric-numerical-output" id="luxeDays">00</span>
+                <span class="chronometric-descriptor-tag">Days</span>
+            </div>
+            
+            <div class="chronometric-splitter-colon">:</div>
+            
+            <div class="chronometric-segment-node">
+                <span class="chronometric-numerical-output" id="luxeHours">00</span>
+                <span class="chronometric-descriptor-tag">Hours</span>
+            </div>
+            
+            <div class="chronometric-splitter-colon">:</div>
+            
+            <div class="chronometric-segment-node">
+                <span class="chronometric-numerical-output" id="luxeMinutes">00</span>
+                <span class="chronometric-descriptor-tag">Minutes</span>
+            </div>
+            
+            <div class="chronometric-splitter-colon">:</div>
+            
+            <div class="chronometric-segment-node">
+                <span class="chronometric-numerical-output" id="luxeSeconds">00</span>
+                <span class="chronometric-descriptor-tag">Seconds</span>
+            </div>
+            
+        </div>
+    </section>
 
-  </div>
 
-  <!-- AUDIO DOCK (fixed) -->
-  <div class="audio-dock" id="audioDock">
-    <svg viewBox="0 0 24 24"><path d="M3 10L3 14M7 6L7 18M11 4L11 20M15 8L15 16M19 6L19 18M23 10L23 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="2" fill="#C5A059" stroke="none"/></svg>
-    <span>atmosphere</span>
-    <div class="pulse-dot"></div>
-  </div>
+    <!-- ========================================================================
+         EDITORIAL ASYMMETRIC GALLERY WITH HIGH-END UNIQUE HOVER TOASTS
+         ======================================================================== -->
+    <section class="editorial-portrait-gallery-wrapper">
+        
+        <div class="gallery-section-header-block reveal-element-fade-up">
+            <span class="premium-caps-label">Visual Chronicle</span>
+            <h2 class="gallery-section-main-title">Moments of Grace</h2>
+            <div class="luxury-geometric-divider" style="margin: 1.5rem auto;">
+                <div class="geometric-axis-line"></div>
+                <div class="geometric-diamond-node"></div>
+                <div class="geometric-axis-line"></div>
+            </div>
+        </div>
 
-  <script>
-    (function() {
-      "use strict";
+        <div class="editorial-asymmetric-gallery-grid">
+            
+            <!-- Picture 0: kofolove.jpg (The Genesis) -->
+            <div class="luxury-gallery-card-vessel card-position-zero gallery-reveal-pivot">
+                <img src="kofolove.jpg" alt="Faiza & Abdulmumin Matrimonial Vignette">
+                <div class="luxury-bespoke-hover-toast-container">
+                    <span class="toast-header-classification">Chapter I</span>
+                    <h3 class="toast-prominent-title">The Genesis of Us</h3>
+                    <p class="toast-narrative-body">"A single glance that blossomed into an eternal vow, orchestrated under the divine gaze of Rahmah and absolute blessings."</p>
+                </div>
+            </div>
 
-      // ─── COUNTDOWN ───
-      const target = new Date('2026-07-17T09:30:00').getTime();
-      const d = document.getElementById('days');
-      const h = document.getElementById('hours');
-      const m = document.getElementById('mins');
-      const s = document.getElementById('secs');
+            <!-- Picture 1: kofolove1.jpg (Tranquility Within) -->
+            <div class="luxury-gallery-card-vessel card-position-one gallery-reveal-pivot">
+                <img src="kofolove1.jpg" alt="Faiza & Abdulmumin Matrimonial Vignette">
+                <div class="luxury-bespoke-hover-toast-container">
+                    <span class="toast-header-classification">Chapter II</span>
+                    <h3 class="toast-prominent-title">Tranquility Within</h3>
+                    <p class="toast-narrative-body">"Finding absolute stillness of the soul within each other’s presence—an answered prayer written directly in the stars of our destiny."</p>
+                </div>
+            </div>
 
-      function updateCountdown() {
-        const now = Date.now();
-        let diff = target - now;
-        if (diff < 0) diff = 0;
-        const days = Math.floor(diff / 86400000);
-        const hours = Math.floor((diff % 86400000) / 3600000);
-        const mins = Math.floor((diff % 3600000) / 60000);
-        const secs = Math.floor((diff % 60000) / 1000);
-        d.textContent = String(days).padStart(2, '0');
-        h.textContent = String(hours).padStart(2, '0');
-        m.textContent = String(mins).padStart(2, '0');
-        s.textContent = String(secs).padStart(2, '0');
-      }
-      updateCountdown();
-      setInterval(updateCountdown, 1000);
+            <!-- Picture 2: kofolove2.jpg (Two Paths, One Destiny) -->
+            <div class="luxury-gallery-card-vessel card-position-two gallery-reveal-pivot">
+                <img src="kofolove2.jpg" alt="Faiza & Abdulmumin Matrimonial Vignette">
+                <div class="luxury-bespoke-hover-toast-container">
+                    <span class="toast-header-classification">Chapter III</span>
+                    <h3 class="toast-prominent-title">Two Paths, One Destiny</h3>
+                    <p class="toast-narrative-body">"Stepping gracefully forward into a beautiful horizon, guided completely by unshakeable faith and bound by unconditional affection."</p>
+                </div>
+            </div>
 
-      // ─── PARTICLES (canvas) ───
-      const canvas = document.getElementById('particle-canvas');
-      const ctx = canvas.getContext('2d');
-      let width, height;
-      function resize() {
-        width = canvas.width = window.innerWidth;
-        height = canvas.height = window.innerHeight;
-      }
-      window.addEventListener('resize', resize);
-      resize();
+            <!-- Picture 3: kofolove3.jpg (The Promise of Forever) -->
+            <div class="luxury-gallery-card-vessel card-position-three gallery-reveal-pivot">
+                <img src="kofolove3.jpg" alt="Faiza & Abdulmumin Matrimonial Vignette">
+                <div class="luxury-bespoke-hover-toast-container">
+                    <span class="toast-header-classification">Chapter IV</span>
+                    <h3 class="toast-prominent-title">The Promise of Forever</h3>
+                    <p class="toast-narrative-body">"Every shared smile forms a structural foundation building our sanctuary of peace, love, and continuous mutual spiritual harmony."</p>
+                </div>
+            </div>
 
-      const particles = [];
-      const COUNT = 65;
-      for (let i = 0; i < COUNT; i++) {
-        particles.push({
-          x: Math.random() * width,
-          y: Math.random() * height,
-          r: Math.random() * 2.2 + 0.6,
-          dx: (Math.random() - 0.5) * 0.3,
-          dy: (Math.random() - 0.5) * 0.3 - 0.08,
-          alpha: Math.random() * 0.5 + 0.3,
-          star: Math.random() > 0.7
+            <!-- Picture 4: kofolove4.jpg (Blessed Beginnings) -->
+            <div class="luxury-gallery-card-vessel card-position-four gallery-reveal-pivot">
+                <img src="kofolove4.jpg" alt="Faiza & Abdulmumin Matrimonial Vignette">
+                <div class="luxury-bespoke-hover-toast-container">
+                    <span class="toast-header-classification">Chapter V</span>
+                    <h3 class="toast-prominent-title">Blessed Beginnings</h3>
+                    <p class="toast-narrative-body">"Entering the timeless legacy of sacred marriage, fully enveloped by our families' love and shielded by endless heavenly favors."</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ========================================================================
+         ADDITIONAL PREMIUM EFFIZY: THE CINEMATIC STORIES STAGE (VIDEO PLAYER)
+         ======================================================================== -->
+    <section class="love-story-theatre-section-wrapper reveal-element-fade-up">
+        
+        <div class="gallery-section-header-block">
+            <span class="premium-caps-label">The Visual Narrative</span>
+            <h2 class="gallery-section-main-title">Our Love Story</h2>
+            <div class="luxury-geometric-divider" style="margin: 1.5rem auto;">
+                <div class="geometric-axis-line"></div>
+                <div class="geometric-diamond-node"></div>
+                <div class="geometric-axis-line"></div>
+            </div>
+        </div>
+
+        <div class="theatre-screen-projection-container">
+            <video id="theatreVideoPlayer" class="theatre-video-element" loop playsinline aria-label="Cinematic Love Story Video Frame">
+                <source src="kofoourlovestory.mp4" type="video/mp4">
+            </video>
+            
+            <!-- Custom Luxury Play Skin Overlay -->
+            <div id="theatreControlsOverlay" class="theatre-media-controls-overlay">
+                <button id="theatrePlayBtn" class="theatre-master-play-trigger-btn" aria-label="Play Story Film">
+                    <svg class="theatre-play-icon-vector" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- ========================================================================
+         ITINERARY LOGISTICS ARCHITECTURE
+         ======================================================================== -->
+    <section class="itinerary-logistics-master-section">
+        
+        <div class="logistics-bipartite-grid">
+            
+            <!-- Event Card One: Nikkah Axis -->
+            <div class="logistics-premium-card reveal-element-slide-left">
+                <div class="logistics-card-inner-filigree"></div>
+                <span class="premium-caps-label" style="color: var(--gold-solid);">The Solemnization</span>
+                <h3 class="logistics-card-title">The Nikkah</h3>
+                <p class="logistics-metric-details-block">
+                    Time: <strong>11:00 AM Prompt</strong><br>
+                    Date: <strong>Friday, July 17, 2026</strong><br><br>
+                    Venue Location Details to be Formally Announced.<br>
+                    Kaduna State, Nigeria.
+                </p>
+                <button class="luxury-action-navigation-link" style="cursor: default;">Details Loading</button>
+            </div>
+
+            <!-- Event Card Two: Reception Axis -->
+            <div class="logistics-premium-card reveal-element-slide-right">
+                <div class="logistics-card-inner-filigree"></div>
+                <span class="premium-caps-label" style="color: var(--gold-solid);">The Celebration</span>
+                <h3 class="logistics-card-title">The Reception</h3>
+                <p class="logistics-metric-details-block">
+                    Time: <strong>Immediately Following Nikkah</strong><br>
+                    Date: <strong>Friday, July 17, 2026</strong><br><br>
+                    <strong>Luxury Hall, Agwa,</strong><br>
+                    Kaduna State, Nigeria.
+                </p>
+                <a href="https://maps.google.com/?q=Luxury+Hall+Agwa+Kaduna" target="_blank" class="luxury-action-navigation-link">Navigate Venue</a>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ========================================================================
+         ULTRA-MINIMALIST PALETTE INTERFACE
+         ======================================================================== -->
+    <section class="chromatic-palette-showcase-section reveal-element-fade-up">
+        
+        <h2 class="chromatic-section-title">The Dress Code Palette</h2>
+        
+        <div class="chromatic-swatch-flex-container">
+            
+            <div class="chromatic-swatch-individual-item">
+                <div class="chromatic-swatch-circle-vessel swatch-color-royal-emerald"></div>
+                <span class="chromatic-color-label-descriptor">Royal Emerald</span>
+                <span class="chromatic-color-hex-tag">#004D38</span>
+            </div>
+            
+            <div class="chromatic-swatch-individual-item">
+                <div class="chromatic-swatch-circle-vessel swatch-color-bright-olive"></div>
+                <span class="chromatic-color-label-descriptor">Bright Olive</span>
+                <span class="chromatic-color-hex-tag">#708238</span>
+            </div>
+            
+            <div class="chromatic-swatch-individual-item">
+                <div class="chromatic-swatch-circle-vessel swatch-color-white-silk"></div>
+                <span class="chromatic-color-label-descriptor">White Silk</span>
+                <span class="chromatic-color-hex-tag">#F4F6F4</span>
+            </div>
+            
+            <div class="chromatic-swatch-individual-item">
+                <div class="chromatic-swatch-circle-vessel swatch-color-liquid-gold"></div>
+                <span class="chromatic-color-label-descriptor">Soft Gold</span>
+                <span class="chromatic-color-hex-tag">#C5A059</span>
+            </div>
+            
+        </div>
+    </section>
+
+
+    <!-- ========================================================================
+         EDITORIAL FOOTER FRAME SIGNATURE
+         ======================================================================== -->
+    <footer class="editorial-monolithic-footer">
+        <span class="footer-closing-hashtag">#KoFosealedinlove26#</span>
+        <p>© 2026 Faiza & Abdulmumin. All Rights Reserved.</p>
+    </footer>
+
+
+    <!-- ========================================================================
+         HIGH-FIDELITY ARCHITECTURAL LOGIC SCRIPT ENGINE (JAVASCRIPT)
+         ======================================================================== -->
+    <script>
+        /* 
+         ========================================================================
+         HIGH-PERFORMANCE INTERACTIVE SYSTEM MECHANICS
+         ========================================================================
+        */
+
+        document.addEventListener("DOMContentLoaded", () => {
+            
+            /* --- SEGREGATED INTRO SYSTEM SCROLL REVEAL OBSERVER --- */
+            const globalObserverOptions = {
+                threshold: 0.05,
+                rootMargin: "0px 0px -40px 0px"
+            };
+
+            const revealElementsPool = document.querySelectorAll(
+                '[class*="reveal-element-"], .gallery-reveal-pivot'
+            );
+
+            const scrollRevealCoreEngine = new IntersectionObserver((elementsArray, observerRef) => {
+                elementsArray.forEach(elementNode => {
+                    if (elementNode.isIntersecting) {
+                        elementNode.target.classList.add('is-triggered');
+                        // Permanently unobserve to lock state performance hardware acceleration
+                        observerRef.unobserve(elementNode.target);
+                    }
+                });
+            }, globalObserverOptions);
+
+            revealElementsPool.forEach(targetNode => scrollRevealCoreEngine.observe(targetNode));
+
+
+            /* --- HIGH PERFORMANCE SMOOTH VANILLA GOLD PARTICLES ENGINE --- */
+            const fluidCanvasRef = document.getElementById('luxury-gold-particle-canvas');
+            const primaryContext = fluidCanvasRef.getContext('2d');
+            let structuralParticlesCollection = [];
+
+            function establishCanvasViewportDimensions() {
+                fluidCanvasRef.width = window.innerWidth;
+                fluidCanvasRef.height = window.innerHeight;
+            }
+            window.addEventListener('resize', establishCanvasViewportDimensions);
+            establishCanvasViewportDimensions();
+
+            class LuxuryGoldParticle {
+                constructor() {
+                    this.resetParticleState(true);
+                }
+                resetParticleState(isInitialSpawning) {
+                    this.spatialX = Math.random() * fluidCanvasRef.width;
+                    this.spatialY = isInitialSpawning ? (Math.random() * fluidCanvasRef.height) : (fluidCanvasRef.height + 20);
+                    this.particleRadius = Math.random() * 1.8 + 0.4;
+                    this.velocityVertical = Math.random() * 0.35 + 0.12;
+                    this.velocityHorizontal = Math.sin(Math.random() * 4) * 0.15;
+                    this.alphaOpacity = Math.random() * 0.45 + 0.15;
+                }
+                processStateUpdate() {
+                    this.spatialY -= this.velocityVertical;
+                    this.spatialX += this.velocityHorizontal;
+                    if (this.spatialY < -15 || this.spatialX < -15 || this.spatialX > fluidCanvasRef.width + 15) {
+                        this.resetParticleState(false);
+                    }
+                }
+                renderGraphicMatrix() {
+                    primaryContext.fillStyle = `rgba(197, 160, 89, ${this.alphaOpacity})`;
+                    primaryContext.beginPath();
+                    primaryContext.arc(this.spatialX, this.spatialY, this.particleRadius, 0, Math.PI * 2);
+                    primaryContext.fill();
+                }
+            }
+
+            function initializeParticleEnvironment() {
+                structuralParticlesCollection = [];
+                // Calculated optimal count for processing smoothness across viewport width thresholds
+                const calculatedDensityCount = Math.min(80, Math.floor(fluidCanvasRef.width / 20));
+                for (let idx = 0; idx < calculatedDensityCount; idx++) {
+                    structuralParticlesCollection.push(new LuxuryGoldParticle());
+                }
+            }
+
+            function systemRenderLoopAnimation() {
+                primaryContext.clearRect(0, 0, fluidCanvasRef.width, fluidCanvasRef.height);
+                structuralParticlesCollection.forEach(particleNode => {
+                    particleNode.processStateUpdate();
+                    particleNode.renderGraphicMatrix();
+                });
+                requestAnimationFrame(systemRenderLoopAnimation);
+            }
+            initializeParticleEnvironment();
+            systemRenderLoopAnimation();
+
+
+            /* --- ULTRA-ACCURATE CHRONOMETRIC COUNTDOWN ENGINE --- */
+            const matrimonialEventTargetDate = new Date('July 17, 2026 11:00:00').getTime();
+
+            function executeTimeCalculations() {
+                const systemCurrentTime = new Date().getTime();
+                const operationalTemporalGap = matrimonialEventTargetDate - systemCurrentTime;
+
+                if (operationalTemporalGap <= 0) {
+                    document.getElementById('chronometricDashboard').innerHTML = `
+                        <div style="font-size: 1.4rem; font-style: italic; letter-spacing: 0.15em; color: var(--gold-solid); width: 100%;">
+                            The Matrimonial Celebration Has Commenced
+                        </div>`;
+                    return;
+                }
+
+                const computationDays = Math.floor(operationalTemporalGap / (1000 * 60 * 60 * 24));
+                const computationHours = Math.floor((operationalTemporalGap % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const computationMinutes = Math.floor((operationalTemporalGap % (1000 * 60 * 60)) / (1000 * 60));
+                const computationSeconds = Math.floor((operationalTemporalGap % (1000 * 60)) / 1000);
+
+                document.getElementById('luxeDays').innerText = computationDays < 10 ? '0' + computationDays : computationDays;
+                document.getElementById('luxeHours').innerText = computationHours < 10 ? '0' + computationHours : computationHours;
+                document.getElementById('luxeMinutes').innerText = computationMinutes < 10 ? '0' + computationMinutes : computationMinutes;
+                document.getElementById('luxeSeconds').innerText = computationSeconds < 10 ? '0' + computationSeconds : computationSeconds;
+            }
+            setInterval(executeTimeCalculations, 1000);
+            executeTimeCalculations();
+
+
+            /* --- SYSTEM AUDIO DRIVER CORE INTERFACE --- */
+            const internalMusicTrack = document.getElementById('matrimonialMusicTrack');
+            const interfaceAudioBtn = document.getElementById('globalAudioBtn');
+            const interfaceAudioIcon = document.getElementById('globalAudioIcon');
+            let hardwareUserInteractedFlag = false;
+
+            function triggerTrackPlayback() {
+                internalMusicTrack.play().then(() => {
+                    interfaceAudioBtn.classList.add('is-playing-animation');
+                    interfaceAudioIcon.innerHTML = `
+                        <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77zM4.34 2.93L2.93 4.34 7.59 9H3v6h4l5 5v-6.59l4.38 4.38c-.69.44-1.43.77-2.38.91v2.06c1.5-.33 2.87-.98 4.02-1.89l3.05 3.05 1.41-1.41L4.34 2.93zM12 4L9.91 6.09 12 8.18V4z"/>`;
+                }).catch(err => console.log("Awaiting core layout gestural interaction to bypass autoplay block."));
+            }
+
+            function alternatingAudioToggleMechanism() {
+                if (internalMusicTrack.paused) {
+                    triggerTrackPlayback();
+                } else {
+                    internalMusicTrack.pause();
+                    interfaceAudioBtn.classList.remove('is-playing-animation');
+                    interfaceAudioIcon.innerHTML = `
+                        <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>`;
+                }
+            }
+
+            interfaceAudioBtn.addEventListener('click', (eventObj) => {
+                eventObj.stopPropagation();
+                hardwareUserInteractedFlag = true;
+                alternatingAudioToggleMechanism();
+            });
+
+            const activationEventsRegistry = ['click', 'touchstart', 'scroll', 'mousemove'];
+            function autoAudioActivationHandler() {
+                if (!hardwareUserInteractedFlag) {
+                    hardwareUserInteractedFlag = true;
+                    triggerTrackPlayback();
+                }
+                activationEventsRegistry.forEach(evtString => window.removeEventListener(evtString, autoAudioActivationHandler));
+            }
+            activationEventsRegistry.forEach(evtString => window.addEventListener(evtString, autoAudioActivationHandler, { passive: true }));
+
+
+            /* --- BESPOKE INTEGRATED STORY VIDEO THEATRE INTERACTION CONTROLS --- */
+            const storyVideoComponent = document.getElementById('theatreVideoPlayer');
+            const storyControlsOverlayLayer = document.getElementById('theatreControlsOverlay');
+            const storyPlayBtnTrigger = document.getElementById('theatrePlayBtn');
+
+            function toggleStoryTheatrePlayback() {
+                if (storyVideoComponent.paused) {
+                    // Duck background music slightly if user plays cinematic love film
+                    if (!internalMusicTrack.paused) {
+                        internalMusicTrack.volume = 0.2;
+                    }
+                    storyVideoComponent.play();
+                    storyControlsOverlayLayer.classList.add('is-hidden');
+                } else {
+                    storyVideoComponent.pause();
+                    storyControlsOverlayLayer.classList.remove('is-hidden');
+                    internalMusicTrack.volume = 1.0;
+                }
+            }
+
+            storyPlayBtnTrigger.addEventListener('click', toggleStoryTheatrePlayback);
+            storyVideoComponent.addEventListener('click', toggleStoryTheatrePlayback);
+            
+            // Re-establish audio balances once cinematic story completes running
+            storyVideoComponent.addEventListener('ended', () => {
+                storyControlsOverlayLayer.classList.remove('is-hidden');
+                internalMusicTrack.volume = 1.0;
+            });
+
+
+            /* --- SECURE MOBILITY FLUID FORCED BG AUTOPLAY FALLBACK --- */
+            const fluidAmbientBgVideo = document.getElementById('cinematic-bg-video');
+            function guaranteeBackgroundVideoExecution() {
+                if (fluidAmbientBgVideo && fluidAmbientBgVideo.paused) {
+                    fluidAmbientBgVideo.play().catch(ex => console.log("Autonomous video stream looping active."));
+                }
+            }
+            ['click', 'touchstart', 'scroll'].forEach(evtType => {
+                window.addEventListener(evtType, guaranteeBackgroundVideoExecution, { passive: true });
+            });
+
         });
-      }
-
-      function drawParticles() {
-        ctx.clearRect(0, 0, width, height);
-        for (let p of particles) {
-          p.x += p.dx;
-          p.y += p.dy;
-          if (p.x < 0 || p.x > width) p.dx *= -1;
-          if (p.y < 0 || p.y > height) p.dy *= -1;
-          ctx.beginPath();
-          if (p.star) {
-            // tiny star shape
-            ctx.arc(p.x, p.y, p.r * 1.6, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(197, 160, 89, ${p.alpha * 0.5})`;
-          } else {
-            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(197, 160, 89, ${p.alpha * 0.7})`;
-          }
-          ctx.fill();
-          // extra glow
-          if (p.r > 1.5) {
-            ctx.shadowColor = '#C5A059';
-            ctx.shadowBlur = 12;
-            ctx.fill();
-            ctx.shadowBlur = 0;
-          }
-        }
-        requestAnimationFrame(drawParticles);
-      }
-      drawParticles();
-
-      // ─── INTERSECTION OBSERVER (reveal) ───
-      const revealEls = document.querySelectorAll('.reveal, .reveal-slide');
-      const observer = new IntersectionObserver((entries) => {
-        for (let e of entries) {
-          if (e.isIntersecting) {
-            e.target.classList.add('visible');
-          }
-        }
-      }, { threshold: 0.2, rootMargin: '0px 0px -30px 0px' });
-      for (let el of revealEls) observer.observe(el);
-
-      // ─── GALLERY TOAST ───
-      const toast = document.getElementById('toast');
-      const galleryImgs = document.querySelectorAll('#galleryGrid img, .gallery-grid img');
-      let toastTimeout;
-
-      function showToast(text) {
-        toast.textContent = text;
-        toast.classList.add('show');
-        clearTimeout(toastTimeout);
-        toastTimeout = setTimeout(() => {
-          toast.classList.remove('show');
-        }, 2800);
-      }
-
-      for (let img of galleryImgs) {
-        img.addEventListener('click', function(e) {
-          const msg = this.getAttribute('data-toast') || 'Elegance in every frame.';
-          showToast(msg);
-        });
-        img.addEventListener('touchstart', function(e) {
-          // for mobile
-          const msg = this.getAttribute('data-toast') || 'Elegance in every frame.';
-          showToast(msg);
-        }, { passive: true });
-      }
-
-      // ─── AUDIO DOCK (soundscape) ───
-      const audioDock = document.getElementById('audioDock');
-      let audio = null;
-      let audioPlaying = false;
-
-      audioDock.addEventListener('click', function() {
-        if (!audio) {
-          audio = new Audio('kofoweddingmusic.mp3');
-          audio.loop = true;
-          audio.volume = 0.5;
-        }
-        if (audioPlaying) {
-          audio.pause();
-          audioPlaying = false;
-          audioDock.querySelector('span').textContent = 'unmute';
-        } else {
-          audio.play().catch(() => {});
-          audioPlaying = true;
-          audioDock.querySelector('span').textContent = 'playing';
-        }
-      });
-
-      // also load love story video if needed (but not used directly)
-      // we just keep asset reference
-
-      console.log('KOFOSEALEDINLOVE26 · luxury wedding');
-    })();
-  </script>
+    </script>
 </body>
 </html>
