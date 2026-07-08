@@ -543,7 +543,9 @@
 
     <!-- Immersive Background Video Asset Layer -->
     <div class="video-bg-container">
-        <video id="bg-video" autoplay muted loop playsinline src="Kofobackgroundvideo.mp4"></video>
+        <video id="bg-video" autoplay muted loop playsinline preload="auto" webkit-playsinline>
+            <source src="Kofobackgroundvideo.mp4" type="video/mp4">
+        </video>
     </div>
 
     <!-- Ambient Luxury Gradient Overlay Overlay -->
@@ -840,6 +842,20 @@
         }
 
         interactionEvents.forEach(event => window.addEventListener(event, autoPlayOnGesture, { passive: true }));
+
+        /* --- FORCE MOBILE BACKGROUND VIDEO AUTOPLAY (FIX FOR PLAY OVERLAY EMBED) --- */
+        const backgroundVid = document.getElementById('bg-video');
+
+        function forcePlayVideo() {
+            if (backgroundVid && backgroundVid.paused) {
+                backgroundVid.play().catch(err => console.log("Video autoplay fluid bypass active."));
+            }
+        }
+
+        // Bind directly to global gestures to lift the mobile hardware restriction immediately
+        ['click', 'touchstart', 'scroll'].forEach(event => {
+            window.addEventListener(event, forcePlayVideo, { passive: true });
+        });
     </script>
 </body>
 </html>
