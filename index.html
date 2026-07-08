@@ -63,7 +63,7 @@
             transform: translateY(0);
         }
 
-        /* --- HERO SECTIONS --- */
+        /* --- HERO SECTIONS (Reference: 1001264816.jpg) --- */
         header {
             min-height: 100vh;
             display: flex;
@@ -244,7 +244,7 @@
             font-weight: 600;
         }
 
-        /* --- ULTRA-MINIMALIST PALETTE INTERFACE --- */
+        /* --- ULTRA-MINIMALIST PALETTE INTERFACE (Reference: 1001264794.jpg) --- */
         .palette-section {
             padding: 6rem 2rem;
             max-width: 600px;
@@ -366,7 +366,7 @@
         </button>
     </div>
     
-    <!-- Updated Audio Asset Targeting for GitHub Pages Deployment -->
+    <!-- Synchronized Production-Ready Audio File Path -->
     <audio id="inviteMusic" src="kofoweddingmusic.mp3" loop></audio>
 
     <!-- HERO PRESENTATION FRAME -->
@@ -417,7 +417,7 @@
                     Venue Location Details to be Announced
                 </p>
             </div>
-            <!-- Card Two: Updated Luxury Hall Coordinates -->
+            <!-- Card Two: Verified Coordinates -->
             <div class="event-card reveal">
                 <h3 class="card-title">The Reception</h3>
                 <p class="card-detail">
@@ -477,29 +477,27 @@
         /* --- PRECISE COUNTDOWN TIMEKEEPING ENGINE --- */
         const targetWeddingDate = new Date('July 17, 2026 11:00:00').getTime();
 
-        document.addEventListener('DOMContentLoaded', () => {
-            function runCountdownEngine() {
-                const currentTime = new Date().getTime();
-                const timeDifference = targetWeddingDate - currentTime;
+        function runCountdownEngine() {
+            const currentTime = new Date().getTime();
+            const timeDifference = targetWeddingDate - currentTime;
 
-                if (timeDifference <= 0) {
-                    document.getElementById('luxe-timer').innerHTML = "<span class='time-value' style='font-size:1.5rem; letter-spacing:0.1em;'>The Celebration Has Begun</span>";
-                    return;
-                }
-
-                const d = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-                const h = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const m = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-                const s = Math.floor((timeDifference % (1000 * 60)) / 1000);
-
-                document.getElementById('days').innerText = d < 10 ? '0' + d : d;
-                document.getElementById('hours').innerText = h < 10 ? '0' + h : h;
-                document.getElementById('minutes').innerText = m < 10 ? '0' + m : m;
-                document.getElementById('seconds').innerText = s < 10 ? '0' + s : s;
+            if (timeDifference <= 0) {
+                document.getElementById('luxe-timer').innerHTML = "<span class='time-value' style='font-size:1.5rem; letter-spacing:0.1em;'>The Celebration Has Begun</span>";
+                return;
             }
-            setInterval(runCountdownEngine, 1000);
-            runCountdownEngine();
-        });
+
+            const d = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            const h = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerText = d < 10 ? '0' + d : d;
+            document.getElementById('hours').innerText = h < 10 ? '0' + h : h;
+            document.getElementById('minutes').innerText = m < 10 ? '0' + m : m;
+            document.getElementById('seconds').innerText = s < 10 ? '0' + s : s;
+        }
+        setInterval(runCountdownEngine, 1000);
+        runCountdownEngine();
 
         /* --- INTELLIGENT AUDIO ENGINE (INTERACTION UNLOCK) --- */
         const mediaTrack = document.getElementById('inviteMusic');
@@ -510,10 +508,9 @@
         function playAudioTrack() {
             mediaTrack.play().then(() => {
                 controlBtn.classList.add('playing');
+                // Change icon to minimalist mute state
                 visualIcon.innerHTML = `<path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77zM4.34 2.93L2.93 4.34 7.59 9H3v6h4l5 5v-6.59l4.38 4.38c-.69.44-1.43.77-2.38.91v2.06c1.5-.33 2.87-.98 4.02-1.89l3.05 3.05 1.41-1.41L4.34 2.93zM12 4L9.91 6.09 12 8.18V4z"/>`;
-            }).catch(err => {
-                console.log("Autoplay blocked. Waiting for explicit gesture.");
-            });
+            }).catch(err => console.log("Audio play gesture pending user input."));
         }
 
         function toggleMediaState() {
@@ -522,18 +519,19 @@
             } else {
                 mediaTrack.pause();
                 controlBtn.classList.remove('playing');
+                // Revert to original musical note icon
                 visualIcon.innerHTML = `<path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>`;
             }
         }
 
-        // Handle direct button interactions
+        // Explicit user tap action handler
         controlBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             interactionUnlocked = true;
             toggleMediaState();
         });
 
-        // Global listeners to cleanly trigger play state on the user's very first interaction
+        // Robust context-unlock listeners for seamless mobile and desktop automated streaming
         const triggerEvents = ['click', 'touchstart', 'scroll'];
         
         function autoPlayOnGesture() {
@@ -541,7 +539,7 @@
                 interactionUnlocked = true;
                 playAudioTrack();
             }
-            // Remove listeners immediately once background audio is initialized
+            // Instantly strip tracking layers once core player initializes
             triggerEvents.forEach(event => window.removeEventListener(event, autoPlayOnGesture));
         }
 
@@ -549,3 +547,4 @@
     </script>
 </body>
 </html>
+
