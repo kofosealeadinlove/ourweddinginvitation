@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Wedding of Faiza & Abdulmumin</title>
+    
     <!-- Premium Typography Selection -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,9 +36,29 @@
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             text-align: center;
+            position: relative;
         }
 
-        /* Ambient Luxury Background Mesh */
+        /* --- IMMERSIVE VIDEO BACKGROUND CONTAINER --- */
+        .video-bg-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -3;
+            overflow: hidden;
+        }
+
+        #bg-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.28; /* Perfect balance for background legibility */
+            filter: contrast(105%) brightness(85%);
+        }
+
+        /* Ambient Luxury Layering & Gradient Tint Mesh */
         .bg-overlay {
             position: fixed;
             top: 0;
@@ -45,8 +66,20 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(circle at 10% 20%, rgba(0, 102, 77, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(112, 130, 56, 0.12) 0%, transparent 40%);
+                linear-gradient(to bottom, rgba(11, 21, 17, 0.8) 0%, rgba(11, 21, 17, 0.6) 50%, var(--dark-slate) 100%),
+                radial-gradient(circle at 10% 20%, rgba(0, 102, 77, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(112, 130, 56, 0.15) 0%, transparent 50%);
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        /* --- AMBIENT FLOATING PARTICLES CANVAS --- */
+        #particleCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             z-index: -1;
             pointer-events: none;
         }
@@ -54,7 +87,7 @@
         /* --- SCROLL REVEAL MECHANICS --- */
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(40px);
             transition: var(--transition-smooth);
         }
 
@@ -63,20 +96,20 @@
             transform: translateY(0);
         }
 
-        /* --- HERO SECTIONS (Reference: 1001264816.jpg) --- */
+        /* --- HERO PRESENTATION FRAME --- */
         header {
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 2rem;
+            padding: 3rem 2rem;
             position: relative;
         }
 
         .bismillah {
             font-family: 'Amiri', serif;
-            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-size: clamp(2rem, 5vw, 3.2rem);
             background: var(--gold-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -85,27 +118,28 @@
         }
 
         .tagline {
-            font-size: clamp(0.75rem, 1.5vw, 0.95rem);
+            font-size: clamp(0.75rem, 1.6vw, 0.95rem);
             text-transform: uppercase;
-            letter-spacing: 0.35em;
-            color: rgba(244, 246, 246, 0.85);
-            margin-bottom: 2rem;
-            max-width: 90%;
+            letter-spacing: 0.38em;
+            color: rgba(244, 246, 246, 0.9);
+            margin-bottom: 2.5rem;
+            max-width: 85%;
             line-height: 1.8;
         }
 
         .couple-names {
-            font-size: clamp(3rem, 8vw, 6rem);
+            font-size: clamp(3.2rem, 9vw, 6.5rem);
             font-weight: 300;
             font-style: italic;
-            line-height: 1.2;
+            line-height: 1.1;
             margin-bottom: 1.5rem;
-            letter-spacing: 0.02em;
+            letter-spacing: 0.03em;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.6);
         }
 
         .ampersand {
             display: block;
-            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-size: clamp(2.2rem, 6vw, 3.8rem);
             background: var(--gold-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -113,34 +147,116 @@
         }
 
         .divider-line {
-            width: 120px;
+            width: 150px;
             height: 1px;
             background: var(--gold-gradient);
-            margin: 1.5rem auto;
-            opacity: 0.6;
+            margin: 2rem auto;
+            opacity: 0.7;
         }
 
         .event-type {
-            font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+            font-size: clamp(1.2rem, 2.8vw, 1.8rem);
             font-style: italic;
             color: var(--subtle-gold);
-            letter-spacing: 0.1em;
+            letter-spacing: 0.12em;
             margin-bottom: 1.5rem;
         }
 
         .date-location-line {
-            font-size: clamp(0.85rem, 2vw, 1.15rem);
-            letter-spacing: 0.2em;
+            font-size: clamp(0.85rem, 2vw, 1.2rem);
+            letter-spacing: 0.22em;
             text-transform: uppercase;
-            color: rgba(244, 246, 246, 0.9);
-            margin-bottom: 2rem;
+            color: rgba(244, 246, 246, 0.95);
+            margin-bottom: 2.5rem;
         }
 
         .hashtag {
-            font-size: clamp(0.8rem, 1.8vw, 1rem);
-            letter-spacing: 0.15em;
+            font-size: clamp(0.85rem, 1.8vw, 1.05rem);
+            letter-spacing: 0.18em;
             color: var(--subtle-gold);
             font-weight: 300;
+        }
+
+        /* --- SACRED QURANIC VERSE CONFIGURATION --- */
+        .quran-section {
+            padding: 6rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .quran-frame {
+            border: 1px solid rgba(197, 160, 89, 0.25);
+            padding: 3.5rem 2.5rem;
+            position: relative;
+            background: rgba(11, 21, 17, 0.4);
+            backdrop-filter: blur(8px);
+            border-radius: 4px;
+        }
+
+        .quran-frame::before, .quran-frame::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 1px solid var(--subtle-gold);
+        }
+        .quran-frame::before { top: 10px; left: 10px; border-right: none; border-bottom: none; }
+        .quran-frame::after { bottom: 10px; right: 10px; border-left: none; border-top: none; }
+
+        .arabic-verse {
+            font-family: 'Amiri', serif;
+            font-size: clamp(1.6rem, 3.5vw, 2.3rem);
+            line-height: 2.2;
+            color: var(--white-silk);
+            direction: rtl;
+            margin-bottom: 2rem;
+        }
+
+        .english-translation {
+            font-size: clamp(1rem, 1.8vw, 1.2rem);
+            font-style: italic;
+            line-height: 1.8;
+            color: rgba(244, 246, 246, 0.8);
+            font-weight: 300;
+        }
+
+        /* --- CINEMATIC SCROLL TEXT EFFECTS (MARQUEE) --- */
+        .scroll-marquee-container {
+            width: 100vw;
+            overflow: hidden;
+            background: rgba(0, 102, 77, 0.15);
+            border-top: 1px solid rgba(197, 160, 89, 0.2);
+            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+            padding: 1.2rem 0;
+            margin: 4rem 0;
+            white-space: nowrap;
+        }
+
+        .marquee-wrapper {
+            display: inline-block;
+            animation: marquee continuous 25s linear infinite;
+        }
+
+        .marquee-text {
+            font-size: clamp(1.2rem, 3vw, 2.2rem);
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            font-weight: 300;
+            color: var(--white-silk);
+            padding-right: 2rem;
+        }
+
+        .marquee-text span {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-style: italic;
+        }
+
+        @keyframes marquee {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
         }
 
         /* --- COUNTDOWN TIMELINE AXIS --- */
@@ -153,37 +269,109 @@
 
         #luxe-timer {
             display: flex;
-            gap: clamp(1rem, 3vw, 2.5rem);
+            gap: clamp(1.2rem, 4vw, 3rem);
             justify-content: center;
             align-items: center;
             width: 100%;
-            max-width: 600px;
+            max-width: 650px;
+            background: rgba(255,255,255,0.01);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.03);
         }
 
         .time-node {
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-width: 70px;
+            min-width: 75px;
         }
 
         .time-value {
-            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-size: clamp(2.2rem, 5vw, 4rem);
             font-weight: 300;
             background: var(--gold-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            font-style: italic;
         }
 
         .time-label {
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 0.2em;
+            letter-spacing: 0.22em;
             color: rgba(244, 246, 246, 0.5);
-            margin-top: 0.5rem;
+            margin-top: 0.6rem;
         }
 
-        /* --- ITINERARY / DETAILS GRID --- */
+        /* --- EDITORIAL GALLERY WITH HOVER TOASTS --- */
+        .gallery-section {
+            padding: 5rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 4px;
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            aspect-ratio: 3 / 4;
+            background: #111;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        /* Luxury Image Hover Toast Container */
+        .image-toast {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 2.5rem 1.5rem;
+            background: linear-gradient(to top, rgba(11, 21, 17, 0.95) 0%, rgba(11, 21, 17, 0.7) 60%, transparent 100%);
+            transform: translateY(101%);
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            text-align: center;
+        }
+
+        .toast-title {
+            font-size: 1.3rem;
+            color: var(--subtle-gold);
+            margin-bottom: 0.4rem;
+            letter-spacing: 0.05em;
+        }
+
+        .toast-body {
+            font-size: 0.95rem;
+            font-style: italic;
+            color: rgba(244, 246, 246, 0.85);
+            line-height: 1.5;
+        }
+
+        /* Hover Mechanics trigger */
+        .gallery-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .gallery-card:hover .image-toast {
+            transform: translateY(0);
+        }
+
+        /* --- ITINERARY LOGISTICS ARCHITECTURE --- */
         .details-section {
             padding: 5rem 2rem;
             max-width: 1000px;
@@ -198,35 +386,37 @@
         }
 
         .event-card {
-            background: rgba(255, 255, 255, 0.02);
+            background: rgba(11, 21, 17, 0.6);
+            backdrop-filter: blur(6px);
             border: 1px solid rgba(197, 160, 89, 0.15);
-            padding: 3rem 2rem;
+            padding: 3.5rem 2rem;
             border-radius: 4px;
             transition: var(--transition-smooth);
         }
 
         .event-card:hover {
             border-color: var(--subtle-gold);
-            background: rgba(255, 255, 255, 0.04);
+            background: rgba(11, 21, 17, 0.8);
+            transform: translateY(-5px);
         }
 
         .card-title {
-            font-size: 1.6rem;
+            font-size: 1.7rem;
             letter-spacing: 0.1em;
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
             color: var(--subtle-gold);
         }
 
         .card-detail {
             font-size: 1.05rem;
-            line-height: 1.8;
-            color: rgba(244, 246, 246, 0.8);
-            margin-bottom: 1.5rem;
+            line-height: 1.9;
+            color: rgba(244, 246, 246, 0.85);
+            margin-bottom: 2rem;
         }
 
         .maps-btn {
             display: inline-block;
-            padding: 0.6rem 1.5rem;
+            padding: 0.65rem 1.8rem;
             border: 1px solid var(--subtle-gold);
             color: var(--white-silk);
             text-decoration: none;
@@ -244,7 +434,7 @@
             font-weight: 600;
         }
 
-        /* --- ULTRA-MINIMALIST PALETTE INTERFACE (Reference: 1001264794.jpg) --- */
+        /* --- ULTRA-MINIMALIST PALETTE INTERFACE --- */
         .palette-section {
             padding: 6rem 2rem;
             max-width: 600px;
@@ -253,9 +443,9 @@
 
         .palette-title {
             font-size: 1.5rem;
-            letter-spacing: 0.2em;
+            letter-spacing: 0.22em;
             text-transform: uppercase;
-            margin-bottom: 3rem;
+            margin-bottom: 3.5rem;
             font-weight: 300;
         }
 
@@ -280,11 +470,10 @@
             height: 65px;
             border-radius: 50%;
             margin-bottom: 1rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
             border: 1px solid rgba(255,255,255,0.1);
         }
 
-        /* Individual Swatch Assignments */
         .swatch-emerald { background-color: var(--emerald); }
         .swatch-olive { background-color: var(--olive); }
         .swatch-white { background-color: var(--white-silk); }
@@ -293,8 +482,7 @@
         .color-label {
             font-size: 0.85rem;
             letter-spacing: 0.1em;
-            color: rgba(244, 246, 246, 0.9);
-            text-align: center;
+            color: rgba(244, 246, 246, 0.95);
         }
 
         /* --- FLOATING AUDIO SYSTEM --- */
@@ -309,13 +497,13 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: rgba(11, 21, 17, 0.85);
+            background: rgba(11, 21, 17, 0.9);
             border: 1px solid var(--subtle-gold);
             display: flex;
             justify-content: center;
             align-items: center;
             cursor: pointer;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(5px);
             transition: var(--transition-smooth);
         }
@@ -332,7 +520,6 @@
             transition: var(--transition-smooth);
         }
 
-        /* Rotation animation when media is active */
         .playing {
             animation: spin 4s linear infinite;
         }
@@ -343,30 +530,38 @@
 
         /* --- FOOTER FRAME --- */
         footer {
-            padding: 4rem 2rem;
+            padding: 5rem 2rem;
             font-size: 0.8rem;
             letter-spacing: 0.15em;
             color: rgba(244, 246, 246, 0.4);
             text-transform: uppercase;
+            border-top: 1px solid rgba(255,255,255,0.02);
         }
     </style>
 </head>
 <body>
 
-    <!-- Subtle Design Gradient Environment -->
+    <!-- Immersive Background Video Asset Layer -->
+    <div class="video-bg-container">
+        <video id="bg-video" autoplay muted loop playsinline src="bg-video.mp4"></video>
+    </div>
+
+    <!-- Ambient Luxury Gradient Overlay Overlay -->
     <div class="bg-overlay"></div>
 
-    <!-- Floating Audio Control Module -->
+    <!-- Active Floating Canvas for Golden Spark Particles Engine -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Floating Interface Music Module -->
     <div class="audio-wrapper">
         <button class="audio-toggle" id="audioBtn" aria-label="Toggle Background Music">
-            <!-- Dynamic Inline Elegant SVG Icon -->
             <svg class="audio-icon" id="audioIcon" viewBox="0 0 24 24">
                 <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
             </svg>
         </button>
     </div>
     
-    <!-- Synchronized Production-Ready Audio File Path -->
+    <!-- Verified Relative Core Audio Target Asset -->
     <audio id="inviteMusic" src="kofoweddingmusic.mp3" loop></audio>
 
     <!-- HERO PRESENTATION FRAME -->
@@ -383,6 +578,24 @@
         <div class="date-location-line reveal">17 . 07 . 2026 — KADUNA STATE</div>
         <div class="hashtag reveal">#KoFosealedinlove26#</div>
     </header>
+
+    <!-- SACRED QURANIC VERSE FRAME -->
+    <section class="quran-section reveal">
+        <div class="quran-frame">
+            <div class="arabic-verse">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً</div>
+            <div class="english-translation">"And of His signs is that He created for you from yourselves mates that you may find tranquility in them; and He placed between you affection and mercy..." <br><strong>— Surah Ar-Rum: 21</strong></div>
+        </div>
+    </section>
+
+    <!-- CINEMATIC CONTINUOUS HORIZONTAL SCROLL TEXT EFFECT -->
+    <div class="scroll-marquee-container reveal">
+        <div class="marquee-wrapper">
+            <span class="marquee-text">Faiza & Abdulmumin • <span>Save The Date</span> • July 17, 2026 • #KoFosealedinlove26# • </span>
+            <span class="marquee-text">Faiza & Abdulmumin • <span>Save The Date</span> • July 17, 2026 • #KoFosealedinlove26# • </span>
+            <span class="marquee-text">Faiza & Abdulmumin • <span>Save The Date</span> • July 17, 2026 • #KoFosealedinlove26# • </span>
+            <span class="marquee-text">Faiza & Abdulmumin • <span>Save The Date</span> • July 17, 2026 • #KoFosealedinlove26# • </span>
+        </div>
+    </div>
 
     <!-- PERFECTLY CENTERED TIMELINE COORDINATE -->
     <section id="countdown-section" class="reveal">
@@ -406,6 +619,33 @@
         </div>
     </section>
 
+    <!-- EDITORIAL GALLERY FRAME WITH SLIDING HOVER TOASTS -->
+    <section class="gallery-section reveal">
+        <div class="gallery-grid">
+            <div class="gallery-card">
+                <img src="kofolove1.jpg" alt="Faiza & Abdulmumin Moments">
+                <div class="image-toast">
+                    <h4 class="toast-title">A Journey of Love</h4>
+                    <p class="toast-body">"Hand in hand, building a lifetime of laughter, growth, and endless companionship."</p>
+                </div>
+            </div>
+            <div class="gallery-card">
+                <img src="kofolove2.jpg" alt="Faiza & Abdulmumin Moments">
+                <div class="image-toast">
+                    <h4 class="toast-title">Tranquility Found</h4>
+                    <p class="toast-body">"Under the blessing of faith, two souls intertwined into a single harmonious path."</p>
+                </div>
+            </div>
+            <div class="gallery-card">
+                <img src="kofolove3.jpg" alt="Faiza & Abdulmumin Moments">
+                <div class="image-toast">
+                    <h4 class="toast-title">Forever Starts Today</h4>
+                    <p class="toast-body">"With gratitude, we look forward to sharing our sacred celebration with you."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ITINERARY LOGISTICS ARCHITECTURE -->
     <section class="details-section">
         <div class="grid-container">
@@ -417,7 +657,7 @@
                     Venue Location Details to be Announced
                 </p>
             </div>
-            <!-- Card Two: Verified Coordinates -->
+            <!-- Card Two: Perfect Coordinates -->
             <div class="event-card reveal">
                 <h3 class="card-title">The Reception</h3>
                 <p class="card-detail">
@@ -460,7 +700,7 @@
     <!-- INTERACTION LOGIC & SYSTEM MECHANICS -->
     <script>
         /* --- HARDWARE-ACCELERATED SCROLL REVEAL SCRIPT --- */
-        const observerOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
+        const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -40px 0px" };
         const revealElements = document.querySelectorAll('.reveal');
         
         const revealObserver = new IntersectionObserver((entries) => {
@@ -473,6 +713,62 @@
         }, observerOptions);
 
         revealElements.forEach(element => revealObserver.observe(element));
+
+        /* --- HIGH PERFORMANCE VANILLA JS CANVAS GOLD PARTICLES ENGINE --- */
+        const canvas = document.getElementById('particleCanvas');
+        const ctx = canvas.getContext('2d');
+        let particlesArray = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height + canvas.height;
+                this.size = Math.random() * 2 + 0.5;
+                this.speedY = Math.random() * 0.4 + 0.15;
+                this.speedX = Math.sin(Math.random() * 2) * 0.2;
+                this.opacity = Math.random() * 0.5 + 0.2;
+            }
+            update() {
+                this.y -= this.speedY;
+                this.x += this.speedX;
+                if (this.y < -10) {
+                    this.y = canvas.height + 10;
+                    this.x = Math.random() * canvas.width;
+                }
+            }
+            draw() {
+                ctx.fillStyle = `rgba(197, 160, 89, ${this.opacity})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            particlesArray = [];
+            const particleCount = Math.min(60, Math.floor(canvas.width / 25)); // Balanced density
+            for(let i = 0; i < particleCount; i++) {
+                particlesArray.push(new Particle());
+            }
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particlesArray.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animateParticles);
+        }
+        initParticles();
+        animateParticles();
 
         /* --- PRECISE COUNTDOWN TIMEKEEPING ENGINE --- */
         const targetWeddingDate = new Date('July 17, 2026 11:00:00').getTime();
@@ -499,7 +795,7 @@
         setInterval(runCountdownEngine, 1000);
         runCountdownEngine();
 
-        /* --- INTELLIGENT AUDIO ENGINE (INTERACTION UNLOCK) --- */
+        /* --- ULTRA-AGGRESSIVE INTERACTION-UNLOCK AUTO-PLAY AUDIO MODULE --- */
         const mediaTrack = document.getElementById('inviteMusic');
         const controlBtn = document.getElementById('audioBtn');
         const visualIcon = document.getElementById('audioIcon');
@@ -508,9 +804,9 @@
         function playAudioTrack() {
             mediaTrack.play().then(() => {
                 controlBtn.classList.add('playing');
-                // Change icon to minimalist mute state
+                // Absolute mute state icon update
                 visualIcon.innerHTML = `<path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77zM4.34 2.93L2.93 4.34 7.59 9H3v6h4l5 5v-6.59l4.38 4.38c-.69.44-1.43.77-2.38.91v2.06c1.5-.33 2.87-.98 4.02-1.89l3.05 3.05 1.41-1.41L4.34 2.93zM12 4L9.91 6.09 12 8.18V4z"/>`;
-            }).catch(err => console.log("Audio play gesture pending user input."));
+            }).catch(err => console.log("Awaiting hardware interaction context unlock."));
         }
 
         function toggleMediaState() {
@@ -519,32 +815,31 @@
             } else {
                 mediaTrack.pause();
                 controlBtn.classList.remove('playing');
-                // Revert to original musical note icon
+                // Revert completely to original musical note icon layout
                 visualIcon.innerHTML = `<path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>`;
             }
         }
 
-        // Explicit user tap action handler
+        // Direct control trigger
         controlBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             interactionUnlocked = true;
             toggleMediaState();
         });
 
-        // Robust context-unlock listeners for seamless mobile and desktop automated streaming
-        const triggerEvents = ['click', 'touchstart', 'scroll'];
+        // Global ambient activation array to safely sweep standard browser blocks automatically
+        const interactionEvents = ['click', 'touchstart', 'scroll', 'mousemove'];
         
         function autoPlayOnGesture() {
             if (!interactionUnlocked) {
                 interactionUnlocked = true;
                 playAudioTrack();
             }
-            // Instantly strip tracking layers once core player initializes
-            triggerEvents.forEach(event => window.removeEventListener(event, autoPlayOnGesture));
+            // Clear monitoring engine directly upon execution
+            interactionEvents.forEach(event => window.removeEventListener(event, autoPlayOnGesture));
         }
 
-        triggerEvents.forEach(event => window.addEventListener(event, autoPlayOnGesture, { passive: true }));
+        interactionEvents.forEach(event => window.addEventListener(event, autoPlayOnGesture, { passive: true }));
     </script>
 </body>
 </html>
-
