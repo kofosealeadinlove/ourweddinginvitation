@@ -16,10 +16,6 @@
          ========================================================================
          LUXURY DIGITAL INVITATION DESIGN SYSTEM
          ========================================================================
-         Architectural Guidelines:
-         - Palette: Deep Royal Emerald, Olive Accentuation, Pure White Silk, and Gradient Liquid Golds.
-         - Motion: Fluid, hardware-accelerated transforms utilizing cubic-bezier pacing.
-         - Layout: Immersive, layered viewport rendering with meticulous micro-interactions.
         */
 
         /* --- ADVANCED CSS DESIGN TOKENS --- */
@@ -130,13 +126,12 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.22; /* Engineered for maximum copy readability */
+            opacity: 0.22;
             filter: brightness(75%) contrast(110%) saturate(85%);
             transform: scale(1.02);
             will-change: transform;
         }
 
-        /* Atmospheric Layering Layer and Vignette Shading */
         .luxury-atmospheric-overlay-mesh {
             position: fixed;
             top: 0;
@@ -151,7 +146,6 @@
                 radial-gradient(circle at 20% 30%, rgba(0, 77, 56, 0.25) 0%, transparent 60%);
         }
 
-        /* Interactive Particle Overlay Layer */
         #luxury-gold-particle-canvas {
             position: fixed;
             top: 0;
@@ -162,8 +156,7 @@
             pointer-events: none;
         }
 
-        /* --- HARDWARE-ACCELERATED SEGREGATED INTRO SCROLL REVEALS --- */
-        /* Core Fade Up Dynamic Pattern */
+        /* --- HARDWARE-ACCELERATED ANIMATED CONTENT REVEALS --- */
         .reveal-element-fade-up {
             opacity: 0;
             transform: translateY(50px) translateZ(0);
@@ -175,7 +168,6 @@
             transform: translateY(0) translateZ(0);
         }
 
-        /* Cinematic Scale Zoom Reveal Pattern */
         .reveal-element-cinematic-zoom {
             opacity: 0;
             transform: scale(0.9) translateZ(0);
@@ -187,7 +179,6 @@
             transform: scale(1) translateZ(0);
         }
 
-        /* High-End 3D Perspective Rotation Flip Pattern */
         .reveal-element-3d-flip {
             opacity: 0;
             transform: perspective(1200px) rotateX(-25deg) translateY(40px) translateZ(0);
@@ -199,7 +190,6 @@
             transform: perspective(1200px) rotateX(0deg) translateY(0) translateZ(0);
         }
 
-        /* Lateral Spatial Slide Reveal Pattern - Left Vector */
         .reveal-element-slide-left {
             opacity: 0;
             transform: translateX(-70px) translateZ(0);
@@ -211,7 +201,6 @@
             transform: translateX(0) translateZ(0);
         }
 
-        /* Lateral Spatial Slide Reveal Pattern - Right Vector */
         .reveal-element-slide-right {
             opacity: 0;
             transform: translateX(70px) translateZ(0);
@@ -223,7 +212,6 @@
             transform: translateX(0) translateZ(0);
         }
 
-        /* EXCLUSIVE HIGH-END SPECIAL INTAKE SCROLL REVEALS FOR PICTURES */
         .gallery-reveal-pivot {
             opacity: 0;
             filter: blur(8px);
@@ -288,7 +276,6 @@
             font-weight: 400;
         }
 
-        /* Linear Geometric Separator */
         .luxury-geometric-divider {
             display: flex;
             align-items: center;
@@ -312,7 +299,6 @@
             box-shadow: var(--shadow-gold-glow);
         }
 
-        /* SVG Interlocking Rings Geometry Section */
         .interlocking-rings-svg-container {
             margin: 1rem auto 2.5rem auto;
             display: flex;
@@ -369,7 +355,7 @@
             box-shadow: var(--shadow-subtle);
         }
 
-        /* --- THE SACRED APHORISM EMBEDDED VESSEL (QURANIC ANCHOR) --- */
+        /* --- THE SACRED QURANIC ANCHOR VANE --- */
         .sacred-aphorism-monumental-section {
             padding: 8rem 2rem;
             max-width: 900px;
@@ -388,7 +374,6 @@
             box-shadow: var(--shadow-luxury);
         }
 
-        /* Custom Fine-Line Border Filigree Details */
         .sacred-aphorism-architectural-frame::before {
             content: '';
             position: absolute;
@@ -441,7 +426,7 @@
             color: var(--gold-solid);
         }
 
-        /* --- THE INFINITE CINEMATIC HORIZONTAL TEXT MOTOR (MARQUEE) --- */
+        /* --- THE INFINITE TEXT MOTOR MARQUEE --- */
         .infinite-marquee-cinematic-conveyor {
             width: 100vw;
             overflow: hidden;
@@ -492,24 +477,26 @@
             100% { transform: translate3d(-50%, 0, 0); }
         }
 
-        /* --- HIGH-PRECISION RECOGNITION TIME PREKEEPER CONTAINER (COUNTDOWN) --- */
+        /* --- CHRONOMETRIC COUNTDOWN ARCHITECTURE (MOBILE PROTECTED) --- */
         .chronometric-countdown-outer-wrapper {
-            padding: 4rem 2rem;
+            padding: 4rem 1rem;
             display: flex;
             justify-content: center;
             align-items: center;
             position: relative;
+            width: 100%;
         }
 
         .chronometric-luxe-dashboard {
             display: flex;
-            gap: clamp(1.5rem, 5vw, 4rem);
-            justify-content: center;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
             align-items: center;
             width: 100%;
-            max-width: 800px;
+            max-width: 750px;
             background: linear-gradient(180deg, rgba(255,255,255,0.01) 0%, rgba(255,255,255,0.03) 100%);
-            padding: 3rem 2.5rem;
+            padding: 3rem 2rem;
             border-radius: 12px;
             border: 1px solid rgba(255,255,255,0.04);
             backdrop-filter: blur(10px);
@@ -523,11 +510,12 @@
             align-items: center;
             position: relative;
             flex: 1;
+            min-width: 0; /* Anti-overflow rule */
         }
 
         .chronometric-numerical-output {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2.8rem, 7vw, 5.5rem);
+            font-size: clamp(2.2rem, 6.5vw, 5rem);
             font-weight: 300;
             background: var(--gold-primary);
             -webkit-background-clip: text;
@@ -539,26 +527,43 @@
 
         .chronometric-descriptor-tag {
             font-family: 'Montserrat', sans-serif;
-            font-size: 0.7rem;
+            font-size: clamp(0.55rem, 1.8vw, 0.7rem);
             font-weight: 400;
             text-transform: uppercase;
-            letter-spacing: 0.32em;
+            letter-spacing: 0.25em;
             color: rgba(244, 246, 246, 0.45);
-            margin-top: 1rem;
+            margin-top: 0.8rem;
+            white-space: nowrap;
         }
 
-        /* Inter-node Separation Dot */
         .chronometric-splitter-colon {
-            font-size: 2.5rem;
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
             color: var(--gold-solid);
             opacity: 0.3;
             font-weight: 200;
-            transform: translateY(-10px);
+            transform: translateY(-8px);
             display: flex;
             align-items: center;
+            justify-content: center;
+            padding: 0 0.2rem;
         }
 
-        /* --- HIGH-END EDITORIAL GALLERY SYSTEM WITH INDIVIDUAL LUXURY TOASTS --- */
+        /* High-Definition Safeguard for Micro-Screens */
+        @media (max-width: 480px) {
+            .chronometric-luxe-dashboard {
+                padding: 2rem 1rem;
+                gap: 0;
+            }
+            .chronometric-splitter-colon {
+                transform: translateY(-5px);
+            }
+            .chronometric-descriptor-tag {
+                letter-spacing: 0.12em;
+                margin-top: 0.5rem;
+            }
+        }
+
+        /* --- ASYMMETRICAL PORTRAIT GALLERY GRID --- */
         .editorial-portrait-gallery-wrapper {
             padding: 8rem 2rem;
             max-width: 1300px;
@@ -578,7 +583,6 @@
             font-style: italic;
         }
 
-        /* Responsive Asymmetrical Editorial Grid Layout */
         .editorial-asymmetric-gallery-grid {
             display: grid;
             grid-template-columns: repeat(12, 1fr);
@@ -586,7 +590,6 @@
             width: 100%;
         }
 
-        /* Premium Image Card Architecture */
         .luxury-gallery-card-vessel {
             position: relative;
             overflow: hidden;
@@ -616,7 +619,6 @@
             filter: brightness(90%);
         }
 
-        /* --- THE REWRITTEN HIGH-END INTERACTIVE EXTENDED CORRESPONDING TOASTS --- */
         .luxury-bespoke-hover-toast-container {
             position: absolute;
             bottom: 0;
@@ -668,35 +670,13 @@
             font-weight: 300;
         }
 
-        /* --- ASYMMETRICAL SPATIAL GRID ASSIGNMENTS --- */
-        /* Card 0: kofolove.jpg */
-        .card-position-zero {
-            grid-column: span 12;
-            aspect-ratio: 16 / 9;
-            max-height: 520px;
-        }
-        /* Card 1: kofolove1.jpg */
-        .card-position-one {
-            grid-column: span 6;
-            aspect-ratio: 4 / 5;
-        }
-        /* Card 2: kofolove2.jpg */
-        .card-position-two {
-            grid-column: span 6;
-            aspect-ratio: 4 / 5;
-        }
-        /* Card 3: kofolove3.jpg */
-        .card-position-three {
-            grid-column: span 7;
-            aspect-ratio: 4 / 3;
-        }
-        /* Card 4: kofolove4.jpg */
-        .card-position-four {
-            grid-column: span 5;
-            aspect-ratio: 1 / 1;
-        }
+        /* Grid Alignment Matrix */
+        .card-position-zero { grid-column: span 12; aspect-ratio: 16 / 9; max-height: 520px; }
+        .card-position-one { grid-column: span 6; aspect-ratio: 4 / 5; }
+        .card-position-two { grid-column: span 6; aspect-ratio: 4 / 5; }
+        .card-position-three { grid-column: span 7; aspect-ratio: 4 / 3; }
+        .card-position-four { grid-column: span 5; aspect-ratio: 1 / 1; }
 
-        /* Responsive Grid Collapse Constraints */
         @media (max-width: 850px) {
             .editorial-asymmetric-gallery-grid {
                 display: flex;
@@ -708,18 +688,12 @@
                 aspect-ratio: 3 / 4 !important;
                 width: 100%;
             }
-            .card-position-zero {
-                aspect-ratio: 4 / 3 !important;
-            }
-            .card-position-three {
-                aspect-ratio: 4 / 3 !important;
-            }
-            .card-position-four {
+            .card-position-zero, .card-position-three, .card-position-four {
                 aspect-ratio: 4 / 3 !important;
             }
         }
 
-        /* --- NEW EFFIZY CONTENT SECTION: CINEMATIC LOVE STORY THEATRE --- */
+        /* --- CINEMATIC LOVE STORY THEATRE --- */
         .love-story-theatre-section-wrapper {
             padding: 8rem 2rem;
             background: linear-gradient(180deg, transparent, var(--matte-black), transparent);
@@ -745,7 +719,6 @@
             display: block;
         }
 
-        /* Bespoke Luxury Media Interface Skins */
         .theatre-media-controls-overlay {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -791,7 +764,7 @@
             fill: var(--white-silk);
         }
 
-        /* --- ITINERARY LOGISTICS ARCHITECTURE --- */
+        /* --- ITINERARY LOGISTICS SCENARIO --- */
         .itinerary-logistics-master-section {
             padding: 8rem 2rem;
             max-width: 1150px;
@@ -898,7 +871,7 @@
             box-shadow: var(--shadow-gold-glow);
         }
 
-        /* --- THE CHROMATIC MATRIMONIAL VISUAL CODE (PALETTE) --- */
+        /* --- CHROMATIC MATRIMONIAL VISUAL CODE --- */
         .chromatic-palette-showcase-section {
             padding: 8rem 2rem;
             max-width: 800px;
@@ -947,7 +920,6 @@
             box-shadow: 0 15px 30px rgba(0,0,0,0.7);
         }
 
-        /* Specific Swatch Identifiers */
         .swatch-color-royal-emerald { background-color: var(--royal-emerald); }
         .swatch-color-bright-olive  { background-color: var(--bright-olive); }
         .swatch-color-white-silk    { background-color: var(--white-silk); }
@@ -970,7 +942,7 @@
             text-transform: uppercase;
         }
 
-        /* --- INTERACTIVE FLOATING BACKGROUND MUSIC STAGE --- */
+        /* --- FLOATING AMBIENT AUDIO COUPLER --- */
         .floating-audio-orchestration-wrapper {
             position: fixed;
             bottom: 35px;
@@ -1010,7 +982,6 @@
             fill: var(--white-silk);
         }
 
-        /* Rotational animation if music plays */
         .audio-hardware-toggle-trigger.is-playing-animation {
             animation: luxuryMusicRotation 12s linear infinite;
         }
@@ -1019,7 +990,7 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* --- EDITORIAL FOOTER COMPOSURE --- */
+        /* --- MINIMALIST FORMAL FOOTER COMPOSURE --- */
         .editorial-monolithic-footer {
             padding: 8rem 2rem 6rem 2rem;
             font-family: 'Montserrat', sans-serif;
@@ -1065,15 +1036,11 @@
         </button>
     </div>
     
-    <!-- Verified Relative Core Audio Target Asset -->
+    <!-- Audio Target Asset -->
     <audio id="matrimonialMusicTrack" src="kofoweddingmusic.mp3" loop></audio>
 
-
-    <!-- ========================================================================
-         EDITORIAL HERO PRESENTATION SECTION
-         ======================================================================== -->
+    <!-- HERO PRESENTATION HEADER -->
     <header class="editorial-hero-header-container">
-        
         <div class="sacred-bismillah-emblem reveal-element-cinematic-zoom gold-text-gradient">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
         
         <p class="matrimonial-tagline-callout reveal-element-fade-up premium-caps-label">
@@ -1088,7 +1055,6 @@
             </h1>
         </div>
 
-        <!-- Interlocking Rings Emblem -->
         <div class="interlocking-rings-svg-container reveal-element-fade-up">
             <svg class="interlocking-rings-svg" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
                 <defs>
@@ -1117,17 +1083,11 @@
         <div class="reveal-element-fade-up">
             <span class="matrimonial-unified-hashtag">#KoFosealedinlove26#</span>
         </div>
-
     </header>
 
-
-    <!-- ========================================================================
-         SACRED APHORISM SECTION (QURANIC TEXT ACCENT)
-         ======================================================================== -->
+    <!-- QURANIC ANCHOR EMBED -->
     <section class="sacred-aphorism-monumental-section reveal-element-3d-flip">
         <div class="sacred-aphorism-architectural-frame">
-            
-            <!-- Structural Filigree Accents -->
             <div class="corner-accent-filigree top-left-accent"></div>
             <div class="corner-accent-filigree top-right-accent"></div>
             <div class="corner-accent-filigree bottom-left-accent"></div>
@@ -1138,16 +1098,11 @@
             <p class="vernacular-translation-typography">
                 "And of His signs is that He created for you from yourselves mates that you may find tranquility in them; and He placed between you affection and mercy..."
             </p>
-            
             <span class="scripture-citation-tag">— Surah Ar-Rum: 21</span>
-            
         </div>
     </section>
 
-
-    <!-- ========================================================================
-         CINEMATIC MARQUEE CONVEYOR STRIP
-         ======================================================================== -->
+    <!-- CINEMATIC MARQUEE CONVEYOR -->
     <div class="infinite-marquee-cinematic-conveyor reveal-element-fade-up">
         <div class="marquee-high-velocity-wrapper">
             <span class="marquee-editorial-text-node">Faiza & Abdulmumin • <span>The Sacred Union</span> • July 17, 2026 • #KoFosealedinlove26# • </span>
@@ -1157,13 +1112,9 @@
         </div>
     </div>
 
-
-    <!-- ========================================================================
-         CHRONOMETRIC TIME RECONSTRUCTED HUB (COUNTDOWN)
-         ======================================================================== -->
+    <!-- CHRONOMETRIC COUNTDOWN ARCHITECTURE -->
     <section class="chronometric-countdown-outer-wrapper reveal-element-fade-up">
         <div class="chronometric-luxe-dashboard" id="chronometricDashboard">
-            
             <div class="chronometric-segment-node">
                 <span class="chronometric-numerical-output" id="luxeDays">00</span>
                 <span class="chronometric-descriptor-tag">Days</span>
@@ -1189,16 +1140,11 @@
                 <span class="chronometric-numerical-output" id="luxeSeconds">00</span>
                 <span class="chronometric-descriptor-tag">Seconds</span>
             </div>
-            
         </div>
     </section>
 
-
-    <!-- ========================================================================
-         EDITORIAL ASYMMETRIC GALLERY WITH HIGH-END UNIQUE HOVER TOASTS
-         ======================================================================== -->
+    <!-- ASYMMETRICAL PORTRAIT PORTFOLIO GRID -->
     <section class="editorial-portrait-gallery-wrapper">
-        
         <div class="gallery-section-header-block reveal-element-fade-up">
             <span class="premium-caps-label">Visual Chronicle</span>
             <h2 class="gallery-section-main-title">Moments of Grace</h2>
@@ -1210,8 +1156,6 @@
         </div>
 
         <div class="editorial-asymmetric-gallery-grid">
-            
-            <!-- Picture 0: kofolove.jpg (The Genesis) -->
             <div class="luxury-gallery-card-vessel card-position-zero gallery-reveal-pivot">
                 <img src="kofolove.jpg" alt="Faiza & Abdulmumin Matrimonial Vignette">
                 <div class="luxury-bespoke-hover-toast-container">
@@ -1221,7 +1165,6 @@
                 </div>
             </div>
 
-            <!-- Picture 1: kofolove1.jpg (Tranquility Within) -->
             <div class="luxury-gallery-card-vessel card-position-one gallery-reveal-pivot">
                 <img src="kofolove1.jpg" alt="Faiza & Abdulmumin Matrimonial Vignette">
                 <div class="luxury-bespoke-hover-toast-container">
@@ -1231,7 +1174,6 @@
                 </div>
             </div>
 
-            <!-- Picture 2: kofolove2.jpg (Two Paths, One Destiny) -->
             <div class="luxury-gallery-card-vessel card-position-two gallery-reveal-pivot">
                 <img src="kofolove2.jpg" alt="Faiza & Abdulmumin Matrimonial Vignette">
                 <div class="luxury-bespoke-hover-toast-container">
@@ -1241,7 +1183,6 @@
                 </div>
             </div>
 
-            <!-- Picture 3: kofolove3.jpg (The Promise of Forever) -->
             <div class="luxury-gallery-card-vessel card-position-three gallery-reveal-pivot">
                 <img src="kofolove3.jpg" alt="Faiza & Abdulmumin Matrimonial Vignette">
                 <div class="luxury-bespoke-hover-toast-container">
@@ -1251,7 +1192,6 @@
                 </div>
             </div>
 
-            <!-- Picture 4: kofolove4.jpg (Blessed Beginnings) -->
             <div class="luxury-gallery-card-vessel card-position-four gallery-reveal-pivot">
                 <img src="kofolove4.jpg" alt="Faiza & Abdulmumin Matrimonial Vignette">
                 <div class="luxury-bespoke-hover-toast-container">
@@ -1260,16 +1200,11 @@
                     <p class="toast-narrative-body">"Entering the timeless legacy of sacred marriage, fully enveloped by our families' love and shielded by endless heavenly favors."</p>
                 </div>
             </div>
-
         </div>
     </section>
 
-
-    <!-- ========================================================================
-         ADDITIONAL PREMIUM EFFIZY: THE CINEMATIC STORIES STAGE (VIDEO PLAYER)
-         ======================================================================== -->
+    <!-- CINEMATIC STORIES STAGE (VIDEO COUPLER) -->
     <section class="love-story-theatre-section-wrapper reveal-element-fade-up">
-        
         <div class="gallery-section-header-block">
             <span class="premium-caps-label">The Visual Narrative</span>
             <h2 class="gallery-section-main-title">Our Love Story</h2>
@@ -1285,7 +1220,6 @@
                 <source src="kofoourlovestory.mp4" type="video/mp4">
             </video>
             
-            <!-- Custom Luxury Play Skin Overlay -->
             <div id="theatreControlsOverlay" class="theatre-media-controls-overlay">
                 <button id="theatrePlayBtn" class="theatre-master-play-trigger-btn" aria-label="Play Story Film">
                     <svg class="theatre-play-icon-vector" viewBox="0 0 24 24">
@@ -1294,18 +1228,11 @@
                 </button>
             </div>
         </div>
-
     </section>
 
-
-    <!-- ========================================================================
-         ITINERARY LOGISTICS ARCHITECTURE
-         ======================================================================== -->
+    <!-- ITINERARY LOGISTICS ARCHITECTURE -->
     <section class="itinerary-logistics-master-section">
-        
         <div class="logistics-bipartite-grid">
-            
-            <!-- Event Card One: Nikkah Axis -->
             <div class="logistics-premium-card reveal-element-slide-left">
                 <div class="logistics-card-inner-filigree"></div>
                 <span class="premium-caps-label" style="color: var(--gold-solid);">The Solemnization</span>
@@ -1319,7 +1246,6 @@
                 <button class="luxury-action-navigation-link" style="cursor: default;">Details Loading</button>
             </div>
 
-            <!-- Event Card Two: Reception Axis -->
             <div class="logistics-premium-card reveal-element-slide-right">
                 <div class="logistics-card-inner-filigree"></div>
                 <span class="premium-caps-label" style="color: var(--gold-solid);">The Celebration</span>
@@ -1332,20 +1258,14 @@
                 </p>
                 <a href="https://maps.google.com/?q=Luxury+Hall+Agwa+Kaduna" target="_blank" class="luxury-action-navigation-link">Navigate Venue</a>
             </div>
-
         </div>
     </section>
 
-
-    <!-- ========================================================================
-         ULTRA-MINIMALIST PALETTE INTERFACE
-         ======================================================================== -->
+    <!-- DRESS CODE CHROMATIC PALETTE -->
     <section class="chromatic-palette-showcase-section reveal-element-fade-up">
-        
         <h2 class="chromatic-section-title">The Dress Code Palette</h2>
         
         <div class="chromatic-swatch-flex-container">
-            
             <div class="chromatic-swatch-individual-item">
                 <div class="chromatic-swatch-circle-vessel swatch-color-royal-emerald"></div>
                 <span class="chromatic-color-label-descriptor">Royal Emerald</span>
@@ -1369,33 +1289,20 @@
                 <span class="chromatic-color-label-descriptor">Soft Gold</span>
                 <span class="chromatic-color-hex-tag">#C5A059</span>
             </div>
-            
         </div>
     </section>
 
-
-    <!-- ========================================================================
-         EDITORIAL FOOTER FRAME SIGNATURE
-         ======================================================================== -->
+    <!-- FORMAL MINIMALIST FOOTER REVISED FRAME -->
     <footer class="editorial-monolithic-footer">
         <span class="footer-closing-hashtag">#KoFosealedinlove26#</span>
         <p>© 2026 Faiza & Abdulmumin. All Rights Reserved.</p>
     </footer>
 
-
-    <!-- ========================================================================
-         HIGH-FIDELITY ARCHITECTURAL LOGIC SCRIPT ENGINE (JAVASCRIPT)
-         ======================================================================== -->
+    <!-- INTERACTIVE SYSTEM JAVASCRIPT LOGIC ENGINE -->
     <script>
-        /* 
-         ========================================================================
-         HIGH-PERFORMANCE INTERACTIVE SYSTEM MECHANICS
-         ========================================================================
-        */
-
         document.addEventListener("DOMContentLoaded", () => {
             
-            /* --- SEGREGATED INTRO SYSTEM SCROLL REVEAL OBSERVER --- */
+            /* --- OBSERVER SCROLL REVEAL ENGINE --- */
             const globalObserverOptions = {
                 threshold: 0.05,
                 rootMargin: "0px 0px -40px 0px"
@@ -1409,7 +1316,6 @@
                 elementsArray.forEach(elementNode => {
                     if (elementNode.isIntersecting) {
                         elementNode.target.classList.add('is-triggered');
-                        // Permanently unobserve to lock state performance hardware acceleration
                         observerRef.unobserve(elementNode.target);
                     }
                 });
@@ -1418,7 +1324,7 @@
             revealElementsPool.forEach(targetNode => scrollRevealCoreEngine.observe(targetNode));
 
 
-            /* --- HIGH PERFORMANCE SMOOTH VANILLA GOLD PARTICLES ENGINE --- */
+            /* --- LUXURY GOLD DUST ENGINE --- */
             const fluidCanvasRef = document.getElementById('luxury-gold-particle-canvas');
             const primaryContext = fluidCanvasRef.getContext('2d');
             let structuralParticlesCollection = [];
@@ -1459,7 +1365,6 @@
 
             function initializeParticleEnvironment() {
                 structuralParticlesCollection = [];
-                // Calculated optimal count for processing smoothness across viewport width thresholds
                 const calculatedDensityCount = Math.min(80, Math.floor(fluidCanvasRef.width / 20));
                 for (let idx = 0; idx < calculatedDensityCount; idx++) {
                     structuralParticlesCollection.push(new LuxuryGoldParticle());
@@ -1507,7 +1412,7 @@
             executeTimeCalculations();
 
 
-            /* --- SYSTEM AUDIO DRIVER CORE INTERFACE --- */
+            /* --- SYSTEM AUDIO DRIVER MODULE --- */
             const internalMusicTrack = document.getElementById('matrimonialMusicTrack');
             const interfaceAudioBtn = document.getElementById('globalAudioBtn');
             const interfaceAudioIcon = document.getElementById('globalAudioIcon');
@@ -1518,7 +1423,7 @@
                     interfaceAudioBtn.classList.add('is-playing-animation');
                     interfaceAudioIcon.innerHTML = `
                         <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77zM4.34 2.93L2.93 4.34 7.59 9H3v6h4l5 5v-6.59l4.38 4.38c-.69.44-1.43.77-2.38.91v2.06c1.5-.33 2.87-.98 4.02-1.89l3.05 3.05 1.41-1.41L4.34 2.93zM12 4L9.91 6.09 12 8.18V4z"/>`;
-                }).catch(err => console.log("Awaiting core layout gestural interaction to bypass autoplay block."));
+                }).catch(err => console.log("Awaiting configuration trigger token to lift browser sandbox."));
             }
 
             function alternatingAudioToggleMechanism() {
@@ -1549,14 +1454,13 @@
             activationEventsRegistry.forEach(evtString => window.addEventListener(evtString, autoAudioActivationHandler, { passive: true }));
 
 
-            /* --- BESPOKE INTEGRATED STORY VIDEO THEATRE INTERACTION CONTROLS --- */
+            /* --- CINEMATIC LOVE STORY THEATRE OVERLAYS --- */
             const storyVideoComponent = document.getElementById('theatreVideoPlayer');
             const storyControlsOverlayLayer = document.getElementById('theatreControlsOverlay');
             const storyPlayBtnTrigger = document.getElementById('theatrePlayBtn');
 
             function toggleStoryTheatrePlayback() {
                 if (storyVideoComponent.paused) {
-                    // Duck background music slightly if user plays cinematic love film
                     if (!internalMusicTrack.paused) {
                         internalMusicTrack.volume = 0.2;
                     }
@@ -1572,18 +1476,17 @@
             storyPlayBtnTrigger.addEventListener('click', toggleStoryTheatrePlayback);
             storyVideoComponent.addEventListener('click', toggleStoryTheatrePlayback);
             
-            // Re-establish audio balances once cinematic story completes running
             storyVideoComponent.addEventListener('ended', () => {
                 storyControlsOverlayLayer.classList.remove('is-hidden');
                 internalMusicTrack.volume = 1.0;
             });
 
 
-            /* --- SECURE MOBILITY FLUID FORCED BG AUTOPLAY FALLBACK --- */
+            /* --- SECURE PORTABLE BACKGROUND ENGINE PLAY PROTECTION --- */
             const fluidAmbientBgVideo = document.getElementById('cinematic-bg-video');
             function guaranteeBackgroundVideoExecution() {
                 if (fluidAmbientBgVideo && fluidAmbientBgVideo.paused) {
-                    fluidAmbientBgVideo.play().catch(ex => console.log("Autonomous video stream looping active."));
+                    fluidAmbientBgVideo.play().catch(ex => console.log("Loop stream executing."));
                 }
             }
             ['click', 'touchstart', 'scroll'].forEach(evtType => {
