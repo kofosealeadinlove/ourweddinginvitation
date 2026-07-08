@@ -88,6 +88,30 @@
         ::-webkit-scrollbar-track { background: var(--matte-black); }
         ::-webkit-scrollbar-thumb { background: var(--gold-solid); border-radius: 3px; }
 
+        /* --- SCROLL PROGRESS INDICATOR (new) --- */
+        .scroll-progress-bar {
+            position: fixed;
+            top: 0; left: 0;
+            height: 3px;
+            width: 0%;
+            background: var(--gold-primary);
+            z-index: 2000;
+            box-shadow: 0 0 12px rgba(197, 160, 89, 0.6);
+            transition: width 0.05s linear;
+        }
+
+        /* --- STAGGERED LETTER REVEAL (new) --- */
+        .letter-reveal-wrap { display: inline-block; overflow: hidden; }
+        .letter-char {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(60%);
+            animation: letterRise 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes letterRise {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         /* --- BACKDROP VIDEO: made clearly visible (fix) --- */
         .ambient-video-background-wrapper {
             position: fixed;
@@ -357,7 +381,19 @@
         }
 
         .chapters-narrative-section { padding: 6rem 2rem 4rem 2rem; max-width: 1100px; margin: 0 auto; }
-        .chapters-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; margin-top: 4rem; }
+
+        /* --- SWIPEABLE CHAPTER CAROUSEL (fix: was static grid) --- */
+        .chapters-grid {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 4rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 1rem;
+            scrollbar-width: none;
+        }
+        .chapters-grid::-webkit-scrollbar { display: none; }
         .chapter-card {
             position: relative;
             height: 420px;
@@ -367,18 +403,62 @@
             box-shadow: var(--shadow-subtle);
             cursor: pointer;
             background: var(--matte-black);
+            flex: 0 0 82%;
+            max-width: 340px;
+            scroll-snap-align: center;
         }
-        .chapter-img-container { width: 100%; height: 100%; position: relative; }
-        .chapter-img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition-smooth); filter: brightness(60%) contrast(105%); }
-        .chapter-overlay-mesh {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(3,5,4,0.3) 0%, rgba(0, 51, 36, 0.4) 60%, rgba(3,5,4,0.95) 100%);
-            display: flex; flex-direction: column; justify-content: flex-end;
-            padding: 2rem 1.5rem;
+        @media (min-width: 900px) {
+            .chapter-card { flex: 0 0 30%; }
+        }
+
+        .chapter-dots { display: flex; justify-content: center; gap: 0.6rem; margin-top: 1.8rem; }
+        .chapter-dot {
+            width: 7px; height: 7px; border-radius: 50%;
+            background: rgba(197, 160, 89, 0.3);
             transition: var(--transition-snappy);
         }
-        .chapter-number { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; letter-spacing: 0.3em; color: var(--gold-solid); text-transform: uppercase; margin-bottom: 0.5rem; }
-        .chapter-title { font-size: 1.6rem; font-style: italic; font-weight: 400; color: var(--white-silk); margin-bottom: 0.8rem; }
+        .chapter-dot.active { background: var(--gold-solid); width: 20px; border-radius: 4px; }
+        .swipe-hint {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(244,246,246,0.4);
+            text-align: center;
+            margin-top: 1rem;
+        }
+        .chapter-img-container { width: 100%; height: 100%; position: relative; }
+        .chapter-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-smooth);
+            filter: brightness(70%) contrast(105%) saturate(85%);
+            opacity: 0.4;
+        }
+        .chapter-overlay-mesh {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(180deg, rgba(3,5,4,0.35) 0%, rgba(0,51,36,0.25) 50%, rgba(3,5,4,0.55) 100%);
+            transition: var(--transition-snappy);
+        }
+        .chapter-face {
+            position: absolute; inset: 0;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            padding: 2rem 1.8rem; text-align: center;
+            transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+        }
+        .chapter-face-front { opacity: 1; transform: translateY(0); }
+        .chapter-face-back { opacity: 0; transform: translateY(28px); pointer-events: none; }
+        .chapter-card.expanded .chapter-face-front { opacity: 0; transform: translateY(-28px); pointer-events: none; }
+        .chapter-card.expanded .chapter-face-back { opacity: 1; transform: translateY(0); pointer-events: auto; }
+        .chapter-story-text {
+            font-size: 1rem; line-height: 1.85; font-style: italic; color: var(--white-silk);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.9);
+            max-height: 260px; overflow-y: auto; margin: 1rem 0;
+        }
+        .chapter-close-indicator { margin-top: 0.5rem; }
+        .chapter-number { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; letter-spacing: 0.3em; color: var(--gold-solid); text-transform: uppercase; margin-bottom: 0.8rem; text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
+        .chapter-title { font-size: 1.7rem; font-style: italic; font-weight: 400; color: var(--white-silk); margin-bottom: 1.2rem; text-shadow: 0 2px 12px rgba(0,0,0,0.85); }
         .chapter-tap-indicator {
             font-family: 'Montserrat', sans-serif; font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase;
             color: var(--gold-pale); border: 1px solid var(--gold-muted); padding: 0.4rem 1rem; border-radius: 20px;
@@ -387,23 +467,37 @@
         }
         .chapter-tap-indicator::after { content: '•'; color: var(--gold-solid); animation: pulseDot 1.5s infinite alternate; }
         @keyframes pulseDot { 0% { opacity: 0.3; } 100% { opacity: 1; } }
-        .chapter-card:hover .chapter-img { transform: scale(1.06); filter: brightness(45%) contrast(110%); }
+        .chapter-card:hover .chapter-img { transform: scale(1.06); opacity: 0.55; filter: brightness(60%) contrast(110%); }
         .chapter-card:hover .chapter-tap-indicator { background: var(--gold-primary); color: var(--matte-black); border-color: transparent; box-shadow: var(--shadow-gold-glow); }
 
-        .story-popover-modal {
-            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-            background: rgba(3, 5, 4, 0.95); backdrop-filter: blur(15px); z-index: 1000;
-            display: flex; justify-content: center; align-items: center;
-            opacity: 0; pointer-events: none; transition: opacity 0.5s ease; padding: 2rem;
+        /* --- ISLAMIC GEOMETRIC TEXTURE (new) --- */
+        .islamic-texture-overlay {
+            position: fixed; inset: 0;
+            z-index: -7;
+            pointer-events: none;
+            opacity: 0.06;
         }
-        .story-popover-modal.is-active { opacity: 1; pointer-events: auto; }
-        .popover-content-frame {
-            background: linear-gradient(135deg, var(--deep-emerald), var(--dark-slate));
-            border: 1px solid var(--gold-solid); padding: 3rem 2rem; border-radius: 12px;
-            max-width: 600px; width: 100%; position: relative; box-shadow: var(--shadow-luxury);
+
+        /* --- MUSIC TOGGLE (new) --- */
+        .music-toggle {
+            position: fixed; bottom: 1.6rem; right: 1.6rem; z-index: 1500;
+            width: 48px; height: 48px; border-radius: 50%;
+            background: rgba(0, 51, 36, 0.65);
+            border: 1px solid var(--gold-muted);
+            backdrop-filter: blur(6px);
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow-subtle);
+            transition: var(--transition-snappy);
         }
-        .popover-close-btn { position: absolute; top: 15px; right: 20px; font-size: 2rem; color: var(--gold-pale); cursor: pointer; background: none; border: none; }
-        .popover-body-text { font-size: 1.35rem; line-height: 1.8; font-style: italic; color: var(--white-silk); margin-top: 1.5rem; }
+        .music-toggle:hover { border-color: var(--gold-solid); box-shadow: var(--shadow-gold-glow); }
+        .music-bars { display: flex; align-items: flex-end; gap: 3px; height: 16px; }
+        .music-bars span { width: 3px; background: var(--gold-pale); border-radius: 1px; height: 5px; animation: musicbar 0.9s ease-in-out infinite; animation-play-state: paused; }
+        .music-toggle.playing .music-bars span { animation-play-state: running; }
+        .music-bars span:nth-child(1) { animation-delay: 0s; }
+        .music-bars span:nth-child(2) { animation-delay: 0.2s; }
+        .music-bars span:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes musicbar { 0%, 100% { height: 5px; } 50% { height: 16px; } }
 
         .itinerary-celebration-section { padding: 6rem 2rem; max-width: 1000px; margin: 0 auto; }
         .itinerary-dual-architecture { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3.5rem; margin-top: 4rem; }
@@ -450,6 +544,8 @@
 </head>
 <body>
 
+    <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+
     <div class="ambient-video-background-wrapper">
         <video autoplay loop muted playsinline id="cinematic-bg-video">
             <source src="kofobackgroundvideo.mp4" type="video/mp4">
@@ -457,6 +553,17 @@
     </div>
     <div class="luxury-atmospheric-overlay-mesh"></div>
     <canvas id="luxury-gold-particle-canvas"></canvas>
+    <svg class="islamic-texture-overlay" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+        <defs>
+            <pattern id="islamicStarPattern" width="90" height="90" patternUnits="userSpaceOnUse">
+                <g stroke="#c5a059" stroke-width="0.6" fill="none">
+                    <path d="M45 8 L53 30 L76 30 L57 44 L65 67 L45 52 L25 67 L33 44 L14 30 L37 30 Z"/>
+                    <circle cx="45" cy="45" r="34"/>
+                </g>
+            </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#islamicStarPattern)"/>
+    </svg>
 
     <header class="editorial-hero-header-container">
         <div class="sacred-bismillah-emblem reveal-element">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ</div>
@@ -468,7 +575,7 @@
 
         <div class="reveal-element">
             <h1 class="monumental-couple-names">
-                <span class="gold-text-gradient">Faiza</span>
+                <span class="gold-text-gradient letter-reveal-wrap" data-letters="Faiza">Faiza</span>
 
                 <div class="interlocking-rings-svg-container">
                     <svg class="interlocking-rings-svg" viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -484,7 +591,7 @@
                     </svg>
                 </div>
 
-                <span class="gold-text-gradient">Abdulmumin</span>
+                <span class="gold-text-gradient letter-reveal-wrap" data-letters="Abdulmumin">Abdulmumin</span>
             </h1>
         </div>
 
@@ -555,61 +662,99 @@
         <h2 class="gold-text-gradient" style="font-size: clamp(2rem, 4vw, 3rem); font-style: italic; font-weight: 300; margin-top: 0.5rem;">The Love Story</h2>
 
         <div class="chapters-grid">
-            <div class="chapter-card reveal-element" onclick="openStoryModal('Chapter I: The Genesis of Us', 'A single glance that blossomed into an eternal vow, orchestrated under the divine gaze of Rahmah and absolute blessings. Every step since that moment has been anchored in trust, friendship, and prayer.')">
+            <div class="chapter-card reveal-element">
                 <div class="chapter-img-container">
                     <img src="kofolove.jpg" alt="The Genesis of Us" class="chapter-img" loading="lazy">
                     <div class="chapter-overlay-mesh">
-                        <span class="chapter-number">Chapter I</span>
-                        <h3 class="chapter-title">The Genesis of Us</h3>
-                        <div class="chapter-tap-indicator">Tap here to read</div>
+                        <div class="chapter-face chapter-face-front">
+                            <span class="chapter-number">Chapter I</span>
+                            <h3 class="chapter-title">The Genesis of Us</h3>
+                            <div class="chapter-tap-indicator">Tap here to read</div>
+                        </div>
+                        <div class="chapter-face chapter-face-back">
+                            <span class="chapter-number">Chapter I</span>
+                            <p class="chapter-story-text">A single glance that blossomed into an eternal vow, orchestrated under the divine gaze of Rahmah and absolute blessings. Every step since that moment has been anchored in trust, friendship, and prayer.</p>
+                            <div class="chapter-tap-indicator chapter-close-indicator">Tap to close</div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="chapter-card reveal-element" onclick="openStoryModal('Chapter II: Destined Companions', 'Through seasons of patience, our paths aligned perfectly under Allah\'s beautiful plan. We recognized in each other the prayer we had both silently sent upwards.')">
+            <div class="chapter-card reveal-element">
                 <div class="chapter-img-container">
                     <img src="kofolove1.jpg" alt="Destined Companions" class="chapter-img" loading="lazy">
                     <div class="chapter-overlay-mesh">
-                        <span class="chapter-number">Chapter II</span>
-                        <h3 class="chapter-title">Destined Companions</h3>
-                        <div class="chapter-tap-indicator">Tap here to read</div>
+                        <div class="chapter-face chapter-face-front">
+                            <span class="chapter-number">Chapter II</span>
+                            <h3 class="chapter-title">Destined Companions</h3>
+                            <div class="chapter-tap-indicator">Tap here to read</div>
+                        </div>
+                        <div class="chapter-face chapter-face-back">
+                            <span class="chapter-number">Chapter II</span>
+                            <p class="chapter-story-text">Through seasons of patience, our paths aligned perfectly under Allah's beautiful plan. We recognized in each other the prayer we had both silently sent upwards.</p>
+                            <div class="chapter-tap-indicator chapter-close-indicator">Tap to close</div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="chapter-card reveal-element" onclick="openStoryModal('Chapter III: Two Hearts, One Deen', 'Building our foundation on faith, mutual respect, and infinite care. Growing together spiritually, promising to hold hands all the way to Jannah.')">
+            <div class="chapter-card reveal-element">
                 <div class="chapter-img-container">
                     <img src="kofolove2.jpg" alt="Two Hearts, One Deen" class="chapter-img" loading="lazy">
                     <div class="chapter-overlay-mesh">
-                        <span class="chapter-number">Chapter III</span>
-                        <h3 class="chapter-title">Two Hearts, One Deen</h3>
-                        <div class="chapter-tap-indicator">Tap here to read</div>
+                        <div class="chapter-face chapter-face-front">
+                            <span class="chapter-number">Chapter III</span>
+                            <h3 class="chapter-title">Two Hearts, One Deen</h3>
+                            <div class="chapter-tap-indicator">Tap here to read</div>
+                        </div>
+                        <div class="chapter-face chapter-face-back">
+                            <span class="chapter-number">Chapter III</span>
+                            <p class="chapter-story-text">Building our foundation on faith, mutual respect, and infinite care. Growing together spiritually, promising to hold hands all the way to Jannah.</p>
+                            <div class="chapter-tap-indicator chapter-close-indicator">Tap to close</div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="chapter-card reveal-element" onclick="openStoryModal('Chapter IV: The Threshold of Forever', 'The beautiful period of anticipation and planning, matching smiles and aligning vision for a family legacy of love and mercy.')">
+            <div class="chapter-card reveal-element">
                 <div class="chapter-img-container">
                     <img src="kofolove3.jpg" alt="The Threshold of Forever" class="chapter-img" loading="lazy">
                     <div class="chapter-overlay-mesh">
-                        <span class="chapter-number">Chapter IV</span>
-                        <h3 class="chapter-title">The Threshold of Forever</h3>
-                        <div class="chapter-tap-indicator">Tap here to read</div>
+                        <div class="chapter-face chapter-face-front">
+                            <span class="chapter-number">Chapter IV</span>
+                            <h3 class="chapter-title">The Threshold of Forever</h3>
+                            <div class="chapter-tap-indicator">Tap here to read</div>
+                        </div>
+                        <div class="chapter-face chapter-face-back">
+                            <span class="chapter-number">Chapter IV</span>
+                            <p class="chapter-story-text">The beautiful period of anticipation and planning, matching smiles and aligning vision for a family legacy of love and mercy.</p>
+                            <div class="chapter-tap-indicator chapter-close-indicator">Tap to close</div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="chapter-card reveal-element" onclick="openStoryModal('Chapter V: Sealed In Love', 'The culmination of our journey and the dawn of a new chapter. Hand in hand, writing our beautiful forever starting today under #KoFosealedinlove26#.')">
+            <div class="chapter-card reveal-element">
                 <div class="chapter-img-container">
                     <img src="kofolove4.jpg" alt="Sealed In Love" class="chapter-img" loading="lazy">
                     <div class="chapter-overlay-mesh">
-                        <span class="chapter-number">Chapter V</span>
-                        <h3 class="chapter-title">Sealed In Love</h3>
-                        <div class="chapter-tap-indicator">Tap here to read</div>
+                        <div class="chapter-face chapter-face-front">
+                            <span class="chapter-number">Chapter V</span>
+                            <h3 class="chapter-title">Sealed In Love</h3>
+                            <div class="chapter-tap-indicator">Tap here to read</div>
+                        </div>
+                        <div class="chapter-face chapter-face-back">
+                            <span class="chapter-number">Chapter V</span>
+                            <p class="chapter-story-text">The culmination of our journey and the dawn of a new chapter. Hand in hand, writing our beautiful forever starting today under #KoFosealedinlove26#.</p>
+                            <div class="chapter-tap-indicator chapter-close-indicator">Tap to close</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="chapter-dots" id="chapterDots"></div>
+        <p class="swipe-hint">Swipe to browse · Tap a photo to read →</p>
     </section>
 
     <div class="infinite-marquee-cinematic-conveyor">
@@ -676,18 +821,12 @@
         <p class="footer-copy">&copy; 2026 · Faiza &amp; Abdulmumin</p>
     </footer>
 
-    <div class="story-popover-modal" id="story-reader-modal">
-        <div class="popover-content-frame">
-            <button class="popover-close-btn" onclick="closeStoryModal()">&times;</button>
-            <h3 id="modal-chapter-header" class="gold-text-gradient" style="font-size: 1.8rem; text-transform: uppercase; letter-spacing: 0.15em;">Chapter Title</h3>
-            <div class="luxury-geometric-divider" style="margin: 1.5rem auto;">
-                <div class="geometric-axis-line"></div>
-                <div class="geometric-diamond-node"></div>
-                <div class="geometric-axis-line"></div>
-            </div>
-            <p id="modal-chapter-body" class="popover-body-text">Story text goes here...</p>
-        </div>
-    </div>
+    <audio id="bgMusic" loop preload="none">
+        <source src="kofoweddingmusic.mp3" type="audio/mpeg">
+    </audio>
+    <button class="music-toggle" id="musicToggle" aria-label="Play background music" aria-pressed="false">
+        <span class="music-bars"><span></span><span></span><span></span></span>
+    </button>
 
     <script>
         const revealElements = document.querySelectorAll('.reveal-element');
@@ -702,20 +841,84 @@
         window.addEventListener('scroll', triggerReveals);
         window.addEventListener('load', triggerReveals);
 
-        const modal = document.getElementById('story-reader-modal');
-        const mHeader = document.getElementById('modal-chapter-header');
-        const mBody = document.getElementById('modal-chapter-body');
+        /* --- SCROLL PROGRESS BAR --- */
+        const progressBar = document.getElementById('scrollProgressBar');
+        function updateScrollProgress() {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            progressBar.style.width = pct + '%';
+        }
+        window.addEventListener('scroll', updateScrollProgress, { passive: true });
+        updateScrollProgress();
 
-        function openStoryModal(title, text) {
-            mHeader.textContent = title;
-            mBody.textContent = text;
-            modal.classList.add('is-active');
+        /* --- STAGGERED LETTER REVEAL --- */
+        document.querySelectorAll('.letter-reveal-wrap').forEach(wrap => {
+            const text = wrap.getAttribute('data-letters') || wrap.textContent;
+            wrap.textContent = '';
+            text.split('').forEach((ch, i) => {
+                const span = document.createElement('span');
+                span.className = 'letter-char';
+                span.style.animationDelay = (0.5 + i * 0.06) + 's';
+                span.textContent = ch === ' ' ? '\u00A0' : ch;
+                wrap.appendChild(span);
+            });
+        });
+
+        /* --- SWIPEABLE CHAPTER CAROUSEL DOTS --- */
+        const chaptersGrid = document.querySelector('.chapters-grid');
+        const chapterCards = document.querySelectorAll('.chapter-card');
+        const dotsContainer = document.getElementById('chapterDots');
+        chapterCards.forEach((_, i) => {
+            const dot = document.createElement('span');
+            dot.className = 'chapter-dot' + (i === 0 ? ' active' : '');
+            dotsContainer.appendChild(dot);
+        });
+        const dots = document.querySelectorAll('.chapter-dot');
+        function updateActiveDot() {
+            const scrollLeft = chaptersGrid.scrollLeft;
+            const cardWidth = chapterCards[0].offsetWidth + 24;
+            const activeIndex = Math.round(scrollLeft / cardWidth);
+            dots.forEach((d, i) => d.classList.toggle('active', i === activeIndex));
         }
-        function closeStoryModal() {
-            modal.classList.remove('is-active');
-        }
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) closeStoryModal();
+        chaptersGrid.addEventListener('scroll', updateActiveDot, { passive: true });
+        dots.forEach((dot, i) => {
+            dot.style.cursor = 'pointer';
+            dot.addEventListener('click', () => {
+                const cardWidth = chapterCards[0].offsetWidth + 24;
+                chaptersGrid.scrollTo({ left: cardWidth * i, behavior: 'smooth' });
+            });
+        });
+
+        /* --- CHAPTER CARD FLIP (replaces old modal popover) --- */
+        document.querySelectorAll('.chapter-card').forEach(card => {
+            card.addEventListener('click', (e) => {
+                if (card.classList.contains('expanded')) {
+                    card.classList.remove('expanded');
+                } else {
+                    document.querySelectorAll('.chapter-card.expanded').forEach(c => {
+                        if (c !== card) c.classList.remove('expanded');
+                    });
+                    card.classList.add('expanded');
+                }
+            });
+        });
+
+        /* --- BACKGROUND MUSIC TOGGLE --- */
+        const bgMusic = document.getElementById('bgMusic');
+        const musicToggle = document.getElementById('musicToggle');
+        musicToggle.addEventListener('click', () => {
+            if (bgMusic.paused) {
+                bgMusic.play().catch(() => {});
+                musicToggle.classList.add('playing');
+                musicToggle.setAttribute('aria-pressed', 'true');
+                musicToggle.setAttribute('aria-label', 'Pause background music');
+            } else {
+                bgMusic.pause();
+                musicToggle.classList.remove('playing');
+                musicToggle.setAttribute('aria-pressed', 'false');
+                musicToggle.setAttribute('aria-label', 'Play background music');
+            }
         });
 
         /* FIX: countdown now targets the correct wedding date/time */
@@ -789,7 +992,7 @@
 
         function initParticles() {
             particlesArray = [];
-            const count = Math.min(Math.floor(window.innerWidth / 15), 65);
+            const count = Math.min(Math.floor(window.innerWidth / 12), 90);
             for (let i = 0; i < count; i++) {
                 particlesArray.push(new AmbientParticle());
             }
