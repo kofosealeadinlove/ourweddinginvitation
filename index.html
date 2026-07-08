@@ -54,6 +54,18 @@
             overflow-x: hidden;
             text-size-adjust: 100%;
             -webkit-text-size-adjust: 100%;
+           .silver-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    /* Luxurious silver metallic gradient */
+    background: linear-gradient(135deg, #d1d1d1 0%, #a8a8a8 50%, #e0e0e0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top: 1.5rem;
+    margin-bottom: 0.2rem;
+} 
         }
 
         body {
@@ -196,17 +208,31 @@
             text-shadow: 0 2px 8px rgba(0,0,0,0.5);
         }
 
-        .monumental-couple-names {
-            font-size: clamp(3.5rem, 10vw, 7.5rem);
-            font-weight: 300;
-            font-style: italic;
-            line-height: 1.05;
-            letter-spacing: 0.02em;
-            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+        .<h1 class="monumental-couple-names">
+    <!-- Bride Section -->
+    <span class="silver-label">Bride</span>
+    <span class="gold-text-gradient letter-reveal-wrap" data-letters="Faiza">Faiza</span>
+
+    <!-- Rings (The central divider) -->
+    <div class="interlocking-rings-svg-container">
+        <svg class="interlocking-rings-svg" viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="ringGoldGrad" x1="0" y1="0" x2="100" y2="50" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#bf953f"/>
+                    <stop offset="0.5" stop-color="#fcf6ba"/>
+                    <stop offset="1" stop-color="#bf953f"/>
+                </linearGradient>
+            </defs>
+            <circle cx="36" cy="25" r="19" stroke="url(#ringGoldGrad)" stroke-width="4"/>
+            <circle cx="64" cy="25" r="19" stroke="url(#ringGoldGrad)" stroke-width="4"/>
+        </svg>
+    </div>
+
+    <!-- Groom Section -->
+    <span class="silver-label">Groom</span>
+    <span class="gold-text-gradient letter-reveal-wrap" data-letters="Abdulmumin">Abdulmumin</span>
+</h1>
+
 
         .luxury-geometric-divider {
             display: flex;
