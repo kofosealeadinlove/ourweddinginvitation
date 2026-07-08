@@ -3,1593 +3,1093 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="The Digital Wedding Invitation for Faiza and Abdulmumin. #KoFosealedinlove26#">
-    <title>The Wedding of Faiza & Abdulmumin — #KoFosealedinlove26#</title>
+    <title>Faiza &amp; Abdulmumin — #KOFOSEALEDINLOVE26#</title>
     
-    <!-- PREMIUM TYPOGRAPHY INJECTION STACK -->
+    <!-- Premium Google Typography Engines -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@100;200;300;400;500&display=swap" rel="stylesheet">
     
     <style>
-        /* 
-         ========================================================================
-         LUXURY DIGITAL INVITATION DESIGN SYSTEM
-         ========================================================================
-         Architectural Guidelines:
-         - Palette: Deep Royal Emerald, Olive Accentuation, Pure White Silk, and Gradient Liquid Golds.
-         - Motion: Fluid, hardware-accelerated transforms utilizing cubic-bezier pacing.
-         - Layout: Immersive, layered viewport rendering with meticulous micro-interactions.
-        */
-
-        /* --- ADVANCED CSS DESIGN TOKENS --- */
+        /* ==========================================================================
+           1. CORE ARCHITECTURE & DESIGN TOKENS
+           ========================================================================== */
         :root {
-            /* Primary Colors */
-            --royal-emerald: #004d38;
-            --deep-emerald: #003324;
-            --olive-accent: #5c6b30;
+            /* Exact Color Palette Specs from 1001265155.jpg */
+            --royal-emerald: #004D38;
             --bright-olive: #708238;
-            --dark-slate: #060b09;
-            --matte-black: #030504;
+            --white-silk: #F4F6F4;
+            --soft-gold: #C5A059;
             
-            /* Luxury Materials */
-            --white-silk: #f4f6f4;
-            --translucent-silk: rgba(244, 246, 246, 0.85);
-            --glass-dark: rgba(6, 11, 9, 0.65);
-            --glass-darker: rgba(3, 5, 4, 0.85);
-            --glass-emerald: rgba(0, 51, 36, 0.4);
+            /* Premium Depth Variations */
+            --bg-dark-pure: #070707;
+            --bg-dark-elevated: #111111;
+            --bg-dark-card: #161616;
+            --gold-muted: rgba(197, 160, 89, 0.4);
+            --gold-ultra-faint: rgba(197, 160, 89, 0.08);
+            --emerald-glow: rgba(0, 77, 56, 0.15);
             
-            /* High-Fidelity Metallic Gold Gradients */
-            --gold-primary: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fcf6ba 75%, #bf953f 100%);
-            --gold-shimmer: linear-gradient(90deg, #b38728 0%, #fcf6ba 50%, #b38728 100%);
-            --gold-solid: #c5a059;
-            --gold-pale: #e5cf9a;
-            --gold-muted: rgba(197, 160, 89, 0.3);
+            /* Typography Scale Sets */
+            --font-display: 'Cinzel', serif;
+            --font-serif: 'Cormorant Garamond', serif;
+            --font-sans: 'Montserrat', sans-serif;
             
-            /* Global Transitions */
-            --transition-epic: all 1.4s cubic-bezier(0.16, 1, 0.3, 1);
-            --transition-smooth: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-            --transition-snappy: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            
-            /* Structural Shadows */
-            --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.3);
-            --shadow-luxury: 0 20px 50px rgba(0, 0, 0, 0.6);
-            --shadow-gold-glow: 0 0 25px rgba(197, 160, 89, 0.25);
+            /* Motion Dynamics */
+            --ease-premium: cubic-bezier(0.25, 1, 0.5, 1);
+            --transition-slow: all 0.8s var(--ease-premium);
+            --transition-fast: all 0.3s ease;
         }
 
-        /* --- RESET AND CORE ENGINE CONFIGURATION --- */
+        /* Reset & Global Normalization */
         *, *::before, *::after {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            outline: none;
         }
 
         html {
             scroll-behavior: smooth;
-            background-color: var(--dark-slate);
+            background-color: var(--bg-dark-pure);
+            color: var(--white-silk);
+            font-family: var(--font-serif);
+            font-size: 16px;
+            line-height: 1.75;
+            letter-spacing: 0.04em;
             overflow-x: hidden;
-            text-size-adjust: 100%;
-            -webkit-text-size-adjust: 100%;
+            -webkit-font-smoothing: antialiased;
         }
 
         body {
-            font-family: 'Cormorant Garamond', serif;
-            color: var(--white-silk);
-            background-color: var(--dark-slate);
             min-height: 100vh;
-            text-align: center;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
             overflow-x: hidden;
             position: relative;
         }
 
-        /* --- GLOBAL LUXURIOUS UTILITY COMPONENTS --- */
-        .gold-text-gradient {
-            background: var(--gold-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: inline-block;
-        }
-
-        .premium-caps-label {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.8rem;
-            font-weight: 300;
-            letter-spacing: 0.4em;
-            text-transform: uppercase;
-            color: var(--translucent-silk);
-        }
-
-        /* Custom Scrollbar Architecture */
+        /* Bespoke Luxury Scrollbar */
         ::-webkit-scrollbar {
             width: 6px;
         }
         ::-webkit-scrollbar-track {
-            background: var(--matte-black);
+            background: var(--bg-dark-pure);
         }
         ::-webkit-scrollbar-thumb {
-            background: var(--gold-solid);
+            background: var(--soft-gold);
             border-radius: 3px;
         }
 
-        /* --- BACKDROP VIDEO ENVIRONMENT & ATMOSPHERE --- */
-        .ambient-video-background-wrapper {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -10;
-            overflow: hidden;
-            pointer-events: none;
+        /* Selection Aesthetics */
+        ::selection {
+            background: var(--royal-emerald);
+            color: var(--white-silk);
         }
 
-        #cinematic-bg-video {
+        /* ==========================================================================
+           2. REUSABLE UTILITIES & LAYOUT MACROS
+           ========================================================================== */
+        .container {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.22; /* Engineered for maximum copy readability */
-            filter: brightness(75%) contrast(110%) saturate(85%);
-            transform: scale(1.02);
-            will-change: transform;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
         }
 
-        /* Atmospheric Layering Layer and Vignette Shading */
-        .luxury-atmospheric-overlay-mesh {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -9;
-            pointer-events: none;
-            background: 
-                linear-gradient(to bottom, rgba(6, 11, 9, 0.85) 0%, rgba(6, 11, 9, 0.5) 40%, rgba(3, 5, 4, 0.9) 85%, var(--matte-black) 100%),
-                radial-gradient(circle at 50% 50%, transparent 20%, rgba(3, 5, 4, 0.7) 100%),
-                radial-gradient(circle at 20% 30%, rgba(0, 77, 56, 0.25) 0%, transparent 60%);
+        .section-padding {
+            padding: 140px 0;
         }
 
-        /* Interactive Particle Overlay Layer */
-        #luxury-gold-particle-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -8;
-            pointer-events: none;
+        .text-center { text-align: center; }
+        
+        .gold-text {
+            color: var(--soft-gold);
+            font-family: var(--font-display);
         }
 
-        /* --- HARDWARE-ACCELERATED SEGREGATED INTRO SCROLL REVEALS --- */
-        /* Core Fade Up Dynamic Pattern */
-        .reveal-element-fade-up {
-            opacity: 0;
-            transform: translateY(50px) translateZ(0);
-            transition: var(--transition-epic);
-            will-change: transform, opacity;
-        }
-        .reveal-element-fade-up.is-triggered {
-            opacity: 1;
-            transform: translateY(0) translateZ(0);
-        }
-
-        /* Cinematic Scale Zoom Reveal Pattern */
-        .reveal-element-cinematic-zoom {
-            opacity: 0;
-            transform: scale(0.9) translateZ(0);
-            transition: var(--transition-epic);
-            will-change: transform, opacity;
-        }
-        .reveal-element-cinematic-zoom.is-triggered {
-            opacity: 1;
-            transform: scale(1) translateZ(0);
-        }
-
-        /* High-End 3D Perspective Rotation Flip Pattern */
-        .reveal-element-3d-flip {
-            opacity: 0;
-            transform: perspective(1200px) rotateX(-25deg) translateY(40px) translateZ(0);
-            transition: var(--transition-epic);
-            will-change: transform, opacity;
-        }
-        .reveal-element-3d-flip.is-triggered {
-            opacity: 1;
-            transform: perspective(1200px) rotateX(0deg) translateY(0) translateZ(0);
-        }
-
-        /* Lateral Spatial Slide Reveal Pattern - Left Vector */
-        .reveal-element-slide-left {
-            opacity: 0;
-            transform: translateX(-70px) translateZ(0);
-            transition: var(--transition-epic);
-            will-change: transform, opacity;
-        }
-        .reveal-element-slide-left.is-triggered {
-            opacity: 1;
-            transform: translateX(0) translateZ(0);
-        }
-
-        /* Lateral Spatial Slide Reveal Pattern - Right Vector */
-        .reveal-element-slide-right {
-            opacity: 0;
-            transform: translateX(70px) translateZ(0);
-            transition: var(--transition-epic);
-            will-change: transform, opacity;
-        }
-        .reveal-element-slide-right.is-triggered {
-            opacity: 1;
-            transform: translateX(0) translateZ(0);
-        }
-
-        /* EXCLUSIVE HIGH-END SPECIAL INTAKE SCROLL REVEALS FOR PICTURES */
-        .gallery-reveal-pivot {
-            opacity: 0;
-            filter: blur(8px);
-            transform: perspective(1500px) rotateY(12deg) rotateX(4deg) translateY(60px) scale(0.95) translateZ(0);
-            transition: opacity 1.6s cubic-bezier(0.16, 1, 0.3, 1), 
-                        filter 1.6s cubic-bezier(0.16, 1, 0.3, 1), 
-                        transform 1.6s cubic-bezier(0.16, 1, 0.3, 1);
-            will-change: transform, opacity, filter;
-        }
-        .gallery-reveal-pivot.is-triggered {
-            opacity: 1;
-            filter: blur(0);
-            transform: perspective(1500px) rotateY(0deg) rotateX(0deg) translateY(0) scale(1) translateZ(0);
-        }
-
-        /* --- MAIN HERO OVERLAY FRAMING --- */
-        .editorial-hero-header-container {
-            min-height: 100vh;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 4rem 2rem;
-            position: relative;
-        }
-
-        .sacred-bismillah-emblem {
-            font-family: 'Amiri', serif;
-            font-size: clamp(2.2rem, 5.5vw, 3.8rem);
-            margin-bottom: 2.5rem;
-            letter-spacing: 2px;
-            font-weight: 700;
-            text-shadow: 0 4px 15px rgba(0,0,0,0.4);
-        }
-
-        .matrimonial-tagline-callout {
-            margin-bottom: 3rem;
-            max-width: 650px;
-            line-height: 2;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
-        }
-
-        .monumental-couple-typographic-wrapper {
-            margin-bottom: 2rem;
-            position: relative;
-        }
-
-        .monumental-couple-names {
-            font-size: clamp(3.5rem, 10vw, 7.5rem);
-            font-weight: 300;
-            font-style: italic;
-            line-height: 1.05;
-            letter-spacing: 0.02em;
-            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-        }
-
-        .editorial-ampersand-bridge {
-            display: block;
-            font-size: clamp(2.5rem, 7vw, 4.2rem);
-            margin: 0.8rem 0;
-            font-weight: 400;
-        }
-
-        /* Linear Geometric Separator */
-        .luxury-geometric-divider {
+        /* Luxury Decorative Divider Component */
+        .luxury-divider {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 1.5rem;
-            margin: 3rem auto;
-            width: 100%;
-            max-width: 350px;
+            gap: 20px;
+            margin: 35px auto;
+            max-width: 300px;
         }
-        .geometric-axis-line {
-            height: 1px;
+
+        .luxury-divider::before,
+        .luxury-divider::after {
+            content: '';
             flex: 1;
-            background: linear-gradient(90deg, transparent, var(--gold-solid), transparent);
-            opacity: 0.8;
+            height: 1px;
+            background: linear-gradient(to var(--direction, right), transparent, var(--soft-gold));
         }
-        .geometric-diamond-node {
+
+        .luxury-divider::after { --direction: left; }
+
+        .luxury-divider .diamond {
             width: 8px;
             height: 8px;
+            background: var(--soft-gold);
             transform: rotate(45deg);
-            background: var(--gold-primary);
-            box-shadow: var(--shadow-gold-glow);
+            box-shadow: 0 0 8px var(--soft-gold);
         }
 
-        /* SVG Interlocking Rings Geometry Section */
-        .interlocking-rings-svg-container {
-            margin: 1rem auto 2.5rem auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .interlocking-rings-svg {
-            width: 85px;
-            height: auto;
-            filter: drop-shadow(0px 8px 15px rgba(0, 0, 0, 0.5));
-            animation: premiumContinuousGlow 4s ease-in-out infinite alternate;
-        }
-
-        @keyframes premiumContinuousGlow {
-            0% {
-                transform: scale(1) rotate(0deg);
-                filter: drop-shadow(0px 8px 15px rgba(197, 160, 89, 0.15));
-            }
-            100% {
-                transform: scale(1.05) rotate(1deg);
-                filter: drop-shadow(0px 12px 22px rgba(197, 160, 89, 0.45));
-            }
-        }
-
-        .matrimonial-event-classification {
-            font-size: clamp(1.4rem, 3.2vw, 2.2rem);
-            font-style: italic;
-            color: var(--gold-solid);
-            letter-spacing: 0.18em;
-            margin-bottom: 1.5rem;
-            font-weight: 400;
-        }
-
-        .matrimonial-spatial-chronicle {
-            font-size: clamp(0.9rem, 2.2vw, 1.3rem);
-            letter-spacing: 0.26em;
-            text-transform: uppercase;
-            color: rgba(244, 246, 246, 0.95);
-            margin-bottom: 3rem;
-            font-weight: 300;
-        }
-
-        .matrimonial-unified-hashtag {
-            font-family: 'Montserrat', sans-serif;
-            font-size: clamp(0.85rem, 1.8vw, 1.1rem);
-            letter-spacing: 0.25em;
-            color: var(--gold-pale);
-            font-weight: 300;
-            background: rgba(0, 51, 36, 0.4);
-            padding: 0.6rem 1.8rem;
-            border-radius: 30px;
-            border: 1px solid var(--gold-muted);
-            backdrop-filter: blur(4px);
-            box-shadow: var(--shadow-subtle);
-        }
-
-        /* --- THE SACRED APHORISM EMBEDDED VESSEL (QURANIC ANCHOR) --- */
-        .sacred-aphorism-monumental-section {
-            padding: 8rem 2rem;
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .sacred-aphorism-architectural-frame {
-            border: 1px solid rgba(197, 160, 89, 0.22);
-            padding: 5rem 3.5rem;
-            position: relative;
-            background: linear-gradient(135deg, rgba(6, 11, 9, 0.8), rgba(3, 5, 4, 0.95));
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-radius: 8px;
-            box-shadow: var(--shadow-luxury);
-        }
-
-        /* Custom Fine-Line Border Filigree Details */
-        .sacred-aphorism-architectural-frame::before {
-            content: '';
+        /* ==========================================================================
+           3. HEADERS & NAVIGATION
+           ========================================================================== */
+        header {
             position: absolute;
-            top: 14px; left: 14px; bottom: 14px; right: 14px;
-            border: 1px solid rgba(197, 160, 89, 0.08);
-            pointer-events: none;
-            border-radius: 6px;
-        }
-
-        .corner-accent-filigree {
-            position: absolute;
-            width: 25px;
-            height: 25px;
-            border: 2px solid var(--gold-solid);
-            pointer-events: none;
-        }
-        .top-left-accent     { top: 20px; left: 20px; border-right: none; border-bottom: none; }
-        .top-right-accent    { top: 20px; right: 20px; border-left: none; border-bottom: none; }
-        .bottom-left-accent  { bottom: 20px; left: 20px; border-right: none; border-top: none; }
-        .bottom-right-accent { bottom: 20px; right: 20px; border-left: none; border-top: none; }
-
-        .arabic-scripture-typography {
-            font-family: 'Amiri', serif;
-            font-size: clamp(1.8rem, 4vw, 2.6rem);
-            line-height: 2.3;
-            color: var(--white-silk);
-            direction: rtl;
-            margin-bottom: 3rem;
-            font-weight: 700;
-            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
-        }
-
-        .vernacular-translation-typography {
-            font-size: clamp(1.05rem, 2vw, 1.35rem);
-            font-style: italic;
-            line-height: 2;
-            color: rgba(244, 246, 246, 0.85);
-            font-weight: 300;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .scripture-citation-tag {
-            display: inline-block;
-            margin-top: 2rem;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.75rem;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            color: var(--gold-solid);
-        }
-
-        /* --- THE INFINITE CINEMATIC HORIZONTAL TEXT MOTOR (MARQUEE) --- */
-        .infinite-marquee-cinematic-conveyor {
-            width: 100vw;
-            overflow: hidden;
-            background: linear-gradient(90deg, rgba(0, 51, 36, 0.3), rgba(92, 107, 48, 0.2), rgba(0, 51, 36, 0.3));
-            border-top: 1px solid rgba(197, 160, 89, 0.18);
-            border-bottom: 1px solid rgba(197, 160, 89, 0.18);
-            padding: 1.5rem 0;
-            margin: 6rem 0;
-            white-space: nowrap;
-            position: relative;
-        }
-
-        .infinite-marquee-cinematic-conveyor::before, .infinite-marquee-cinematic-conveyor::after {
-            content: '';
-            position: absolute;
-            top: 0; width: 15vw; height: 100%;
-            z-index: 2;
-            pointer-events: none;
-        }
-        .infinite-marquee-cinematic-conveyor::before { left: 0; background: linear-gradient(90deg, var(--dark-slate), transparent); }
-        .infinite-marquee-cinematic-conveyor::after { right: 0; background: linear-gradient(-90deg, var(--dark-slate), transparent); }
-
-        .marquee-high-velocity-wrapper {
-            display: inline-block;
-            animation: luxuryMarqueeEngine 32s linear infinite;
-        }
-
-        .marquee-editorial-text-node {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(1.4rem, 3.5vw, 2.5rem);
-            text-transform: uppercase;
-            letter-spacing: 0.22em;
-            font-weight: 300;
-            color: var(--white-silk);
-            padding-right: 3rem;
-        }
-
-        .marquee-editorial-text-node span {
-            background: var(--gold-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-style: italic;
-            font-weight: 400;
-        }
-
-        @keyframes luxuryMarqueeEngine {
-            0% { transform: translate3d(0, 0, 0); }
-            100% { transform: translate3d(-50%, 0, 0); }
-        }
-
-        /* --- HIGH-PRECISION RECOGNITION TIME PREKEEPER CONTAINER (COUNTDOWN) --- */
-        .chronometric-countdown-outer-wrapper {
-            padding: 4rem 2rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-
-        .chronometric-luxe-dashboard {
-            display: flex;
-            gap: clamp(1.5rem, 5vw, 4rem);
-            justify-content: center;
-            align-items: center;
+            top: 0;
+            left: 0;
             width: 100%;
-            max-width: 800px;
-            background: linear-gradient(180deg, rgba(255,255,255,0.01) 0%, rgba(255,255,255,0.03) 100%);
-            padding: 3rem 2.5rem;
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.04);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            box-shadow: inset 0 1px 1px rgba(255,255,255,0.1), var(--shadow-subtle);
+            z-index: 10;
+            padding: 40px 0;
+            border-bottom: 1px solid rgba(244, 246, 244, 0.05);
         }
 
-        .chronometric-segment-node {
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 500;
+            letter-spacing: 0.25em;
+            color: var(--soft-gold);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .nav-monogram {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            color: var(--white-silk);
+            border: 1px solid var(--soft-gold);
+            padding: 5px 12px;
+            border-radius: 50%;
+        }
+
+        /* ==========================================================================
+           4. HERO LANDING SUITE
+           ========================================================================== */
+        .hero {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at center, var(--royal-emerald) 0%, var(--bg-dark-pure) 100%);
+            overflow: hidden;
+        }
+
+        /* Elegant Ambient Canvas Overlay */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: radial-gradient(rgba(197, 160, 89, 0.04) 1px, transparent 0);
+            background-size: 24px 24px;
+            z-index: 1;
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-subtitle {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 0.4em;
+            color: var(--white-silk);
+            margin-bottom: 25px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: luxuryFadeInUp 1.2s var(--ease-premium) forwards;
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: 4.5rem;
+            font-weight: 400;
+            line-height: 1.15;
+            color: var(--soft-gold);
+            margin-bottom: 30px;
+            opacity: 0;
+            transform: translateY(35px);
+            animation: luxuryFadeInUp 1.6s var(--ease-premium) forwards 0.3s;
+            text-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+        }
+
+        .hero-title span {
+            display: block;
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 3rem;
+            color: var(--white-silk);
+            margin: 10px 0;
+            text-transform: lowercase;
+        }
+
+        .hero-date {
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            border-top: 1px solid var(--gold-muted);
+            border-bottom: 1px solid var(--gold-muted);
+            padding: 15px 40px;
+            display: inline-block;
+            margin-bottom: 45px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: luxuryFadeInUp 1.2s var(--ease-premium) forwards 0.6s;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
             display: flex;
             flex-direction: column;
             align-items: center;
-            position: relative;
-            flex: 1;
+            gap: 10px;
+            opacity: 0.6;
+            transition: var(--transition-fast);
         }
 
-        .chronometric-numerical-output {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2.8rem, 7vw, 5.5rem);
-            font-weight: 300;
-            background: var(--gold-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-style: italic;
-            line-height: 1;
-            letter-spacing: -0.02em;
-        }
+        .scroll-indicator:hover { opacity: 1; }
 
-        .chronometric-descriptor-tag {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.7rem;
-            font-weight: 400;
-            text-transform: uppercase;
-            letter-spacing: 0.32em;
-            color: rgba(244, 246, 246, 0.45);
-            margin-top: 1rem;
-        }
-
-        /* Inter-node Separation Dot */
-        .chronometric-splitter-colon {
-            font-size: 2.5rem;
-            color: var(--gold-solid);
-            opacity: 0.3;
-            font-weight: 200;
-            transform: translateY(-10px);
-            display: flex;
-            align-items: center;
-        }
-
-        /* --- HIGH-END EDITORIAL GALLERY SYSTEM WITH INDIVIDUAL LUXURY TOASTS --- */
-        .editorial-portrait-gallery-wrapper {
-            padding: 8rem 2rem;
-            max-width: 1300px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .gallery-section-header-block {
-            margin-bottom: 5rem;
-        }
-        
-        .gallery-section-main-title {
-            font-size: clamp(2rem, 4.5vw, 3.5rem);
-            font-weight: 300;
-            letter-spacing: 0.15em;
-            margin-top: 0.8rem;
-            font-style: italic;
-        }
-
-        /* Responsive Asymmetrical Editorial Grid Layout */
-        .editorial-asymmetric-gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: 3.5rem 2.5rem;
-            width: 100%;
-        }
-
-        /* Premium Image Card Architecture */
-        .luxury-gallery-card-vessel {
+        .scroll-line {
+            width: 1px;
+            height: 60px;
+            background: linear-gradient(to bottom, var(--soft-gold), transparent);
             position: relative;
             overflow: hidden;
-            border-radius: 6px;
-            border: 1px solid rgba(197, 160, 89, 0.18);
-            background: var(--matte-black);
-            box-shadow: var(--shadow-luxury);
-            transition: border-color 0.8s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .luxury-gallery-card-vessel:hover {
-            border-color: var(--gold-solid);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.85), var(--shadow-gold-glow);
-        }
-
-        .luxury-gallery-card-vessel img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 1.6s cubic-bezier(0.16, 1, 0.3, 1), filter 1.6s ease;
-            will-change: transform;
-        }
-
-        .luxury-gallery-card-vessel:hover img {
-            transform: scale(1.07) translateZ(0);
-            filter: brightness(90%);
-        }
-
-        /* --- THE REWRITTEN HIGH-END INTERACTIVE EXTENDED CORRESPONDING TOASTS --- */
-        .luxury-bespoke-hover-toast-container {
+        .scroll-line::after {
+            content: '';
             position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 3rem 2rem 2.5rem 2rem;
-            background: linear-gradient(to top, 
-                rgba(3, 5, 4, 0.98) 0%, 
-                rgba(6, 11, 9, 0.9) 65%, 
-                rgba(6, 11, 9, 0.4) 85%, 
-                transparent 100%);
-            transform: translateY(102%) translateZ(0);
-            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            top: 0; left: 0; width: 100%; height: 20px;
+            background: var(--white-silk);
+            animation: scrollDrop 2s infinite linear;
+        }
+
+        /* ==========================================================================
+           5. THE JOURNAL & JOURNEY (OUR STORY)
+           ========================================================================== */
+        .story-narrative {
+            max-width: 750px;
+            margin: 0 auto 80px auto;
             text-align: center;
-            z-index: 5;
-            border-top: 1px solid rgba(197, 160, 89, 0.15);
-            backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px);
-            will-change: transform;
         }
 
-        .luxury-gallery-card-vessel:hover .luxury-bespoke-hover-toast-container {
-            transform: translateY(0) translateZ(0);
-        }
-
-        .toast-header-classification {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.7rem;
-            letter-spacing: 0.35em;
-            text-transform: uppercase;
-            color: var(--bright-olive);
-            margin-bottom: 0.6rem;
-            font-weight: 500;
-        }
-
-        .toast-prominent-title {
+        .story-narrative p {
             font-size: 1.4rem;
-            font-weight: 400;
-            color: var(--gold-pale);
-            margin-bottom: 0.8rem;
-            letter-spacing: 0.04em;
-        }
-
-        .toast-narrative-body {
-            font-size: 0.95rem;
-            font-style: italic;
-            color: rgba(244, 246, 246, 0.8);
-            line-height: 1.6;
             font-weight: 300;
+            line-height: 2;
+            color: rgba(244, 246, 244, 0.9);
+            margin-bottom: 25px;
         }
 
-        /* --- ASYMMETRICAL SPATIAL GRID ASSIGNMENTS --- */
-        /* Card 0: kofolove.jpg */
-        .card-position-zero {
-            grid-column: span 12;
-            aspect-ratio: 16 / 9;
-            max-height: 520px;
-        }
-        /* Card 1: kofolove1.jpg */
-        .card-position-one {
-            grid-column: span 6;
-            aspect-ratio: 4 / 5;
-        }
-        /* Card 2: kofolove2.jpg */
-        .card-position-two {
-            grid-column: span 6;
-            aspect-ratio: 4 / 5;
-        }
-        /* Card 3: kofolove3.jpg */
-        .card-position-three {
-            grid-column: span 7;
-            aspect-ratio: 4 / 3;
-        }
-        /* Card 4: kofolove4.jpg */
-        .card-position-four {
-            grid-column: span 5;
-            aspect-ratio: 1 / 1;
+        .story-narrative p::first-letter {
+            font-family: var(--font-display);
+            font-size: 3.5rem;
+            float: left;
+            margin-right: 15px;
+            line-height: 0.8;
+            color: var(--soft-gold);
+            margin-top: 5px;
         }
 
-        /* Responsive Grid Collapse Constraints */
-        @media (max-width: 850px) {
-            .editorial-asymmetric-gallery-grid {
-                display: flex;
-                flex-direction: column;
-                gap: 4rem;
-            }
-            .luxury-gallery-card-vessel {
-                grid-column: span 12 !important;
-                aspect-ratio: 3 / 4 !important;
-                width: 100%;
-            }
-            .card-position-zero {
-                aspect-ratio: 4 / 3 !important;
-            }
-            .card-position-three {
-                aspect-ratio: 4 / 3 !important;
-            }
-            .card-position-four {
-                aspect-ratio: 4 / 3 !important;
-            }
-        }
-
-        /* --- NEW EFFIZY CONTENT SECTION: CINEMATIC LOVE STORY THEATRE --- */
-        .love-story-theatre-section-wrapper {
-            padding: 8rem 2rem;
-            background: linear-gradient(180deg, transparent, var(--matte-black), transparent);
-            position: relative;
-        }
-
-        .theatre-screen-projection-container {
-            max-width: 950px;
-            margin: 0 auto;
-            position: relative;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid rgba(197, 160, 89, 0.25);
-            box-shadow: var(--shadow-luxury);
-            aspect-ratio: 16 / 9;
-            background: #000;
-        }
-
-        .theatre-video-element {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        /* Bespoke Luxury Media Interface Skins */
-        .theatre-media-controls-overlay {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(3, 5, 4, 0.45);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: opacity 0.5s ease;
-            z-index: 3;
-        }
-        .theatre-media-controls-overlay.is-hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .theatre-master-play-trigger-btn {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, rgba(6, 11, 9, 0.95), rgba(0, 51, 36, 0.95));
-            border: 2px solid var(--gold-solid);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            box-shadow: var(--shadow-gold-glow), 0 10px 25px rgba(0,0,0,0.5);
-            transition: var(--transition-smooth);
-        }
-        .theatre-master-play-trigger-btn:hover {
-            transform: scale(1.1);
-            border-color: var(--white-silk);
-            box-shadow: 0 0 35px rgba(197, 160, 89, 0.6);
-        }
-
-        .theatre-play-icon-vector {
-            fill: var(--gold-solid);
-            width: 26px;
-            height: 26px;
-            margin-left: 5px;
-            transition: var(--transition-smooth);
-        }
-        .theatre-master-play-trigger-btn:hover .theatre-play-icon-vector {
-            fill: var(--white-silk);
-        }
-
-        /* --- ITINERARY LOGISTICS ARCHITECTURE --- */
-        .itinerary-logistics-master-section {
-            padding: 8rem 2rem;
-            max-width: 1150px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .logistics-bipartite-grid {
+        /* Structural Editorial Grid */
+        .editorial-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 4rem;
-            margin-top: 2rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-top: 100px;
         }
 
-        .logistics-premium-card {
-            background: linear-gradient(180deg, rgba(6, 11, 9, 0.75) 0%, rgba(3, 5, 4, 0.95) 100%);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            border: 1px solid rgba(197, 160, 89, 0.15);
-            padding: 5rem 3rem;
-            border-radius: 6px;
+        .editorial-panel {
             position: relative;
-            box-shadow: var(--shadow-luxury);
-            transition: var(--transition-smooth);
-        }
-
-        .logistics-premium-card:hover {
-            border-color: var(--gold-solid);
-            transform: translateY(-8px) translateZ(0);
-            box-shadow: 0 25px 55px rgba(0,0,0,0.8), var(--shadow-gold-glow);
-        }
-
-        .logistics-card-inner-filigree {
-            position: absolute;
-            top: 12px; left: 12px; bottom: 12px; right: 12px;
-            border: 1px solid rgba(197, 160, 89, 0.05);
-            pointer-events: none;
+            padding: 40px;
+            background: var(--bg-dark-elevated);
+            border: 1px solid rgba(197, 160, 89, 0.1);
             border-radius: 4px;
         }
 
-        .logistics-card-title {
-            font-size: 2.2rem;
-            font-weight: 300;
-            letter-spacing: 0.08em;
-            margin-bottom: 2rem;
-            color: var(--gold-solid);
-            font-style: italic;
+        .editorial-panel h3 {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            color: var(--soft-gold);
+            margin-bottom: 20px;
         }
 
-        .logistics-metric-details-block {
-            font-size: 1.15rem;
-            line-height: 2.1;
-            color: rgba(244, 246, 246, 0.9);
-            font-weight: 300;
-            margin-bottom: 3.5rem;
+        /* ==========================================================================
+           6. FLUID COUNTDOWN SYSTEM (MOBILE RE-ENGINEERED)
+           ========================================================================== */
+        .countdown-block {
+            background: linear-gradient(180deg, var(--bg-dark-elevated) 0%, var(--bg-dark-pure) 100%);
+            border-top: 1px solid rgba(197, 160, 89, 0.15);
+            border-bottom: 1px solid rgba(197, 160, 89, 0.15);
+            padding: 80px 0;
+            position: relative;
+            box-shadow: inset 0 20px 40px rgba(0,0,0,0.5);
         }
 
-        .logistics-metric-details-block strong {
-            font-weight: 500;
-            color: var(--white-silk);
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.25rem;
+        .countdown-outer {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .luxury-action-navigation-link {
-            display: inline-block;
-            padding: 1rem 2.8rem;
-            border: 1px solid var(--gold-solid);
-            color: var(--white-silk);
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
+        /* Re-engineered Flex Wrapper to Absolute Prevention of Viewport Overflow */
+        .countdown-flex-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap; /* Crucial defensive structural asset */
+            gap: 20px;       /* Scale safe metric spacing */
+            width: 100%;
+        }
+
+        .countdown-box {
+            background: var(--bg-dark-card);
+            border: 1px solid var(--gold-muted);
+            border-radius: 8px;
+            padding: 25px 20px;
+            flex: 1;
+            min-width: 110px; /* Secure horizontal baseline metric prevents squishing */
+            max-width: 160px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition-slow);
+        }
+
+        .countdown-box::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 3px;
+            background: linear-gradient(to right, var(--royal-emerald), var(--soft-gold));
+            opacity: 0.7;
+        }
+
+        .countdown-box:hover {
+            transform: translateY(-8px);
+            border-color: var(--soft-gold);
+            box-shadow: 0 20px 45px var(--emerald-glow);
+        }
+
+        .countdown-box .metric-value {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 600;
+            color: var(--soft-gold);
+            display: block;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .countdown-box .metric-label {
+            font-family: var(--font-sans);
             font-size: 0.75rem;
             font-weight: 400;
             text-transform: uppercase;
             letter-spacing: 0.25em;
-            transition: var(--transition-smooth);
-            border-radius: 2px;
-            background: transparent;
+            color: var(--white-silk);
+            opacity: 0.6;
+            margin-top: 10px;
+            display: block;
+        }
+
+        /* ==========================================================================
+           7. THE CELEBRATION CHRONICLES (ITINERARY CARD MATRICES)
+           ========================================================================== */
+        .itinerary-matrix {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .itinerary-card {
+            background-color: var(--bg-dark-card);
+            border: 1px solid rgba(197, 160, 89, 0.12);
+            padding: 50px 40px;
+            border-radius: 4px;
+            text-align: center;
             position: relative;
-            z-index: 1;
+            transition: var(--transition-slow);
             overflow: hidden;
         }
 
-        .luxury-action-navigation-link::before {
+        .itinerary-card::after {
             content: '';
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: var(--gold-primary);
-            z-index: -1;
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            inset: 0;
+            border: 1px solid transparent;
+            transition: var(--transition-slow);
+            pointer-events: none;
         }
 
-        .luxury-action-navigation-link:hover::before {
-            transform: scaleX(1);
-            transform-origin: left;
+        .itinerary-card:hover::after {
+            inset: 15px;
+            border-color: var(--soft-gold);
+            opacity: 0.3;
         }
 
-        .luxury-action-navigation-link:hover {
-            color: var(--matte-black);
-            font-weight: 500;
-            border-color: transparent;
-            box-shadow: var(--shadow-gold-glow);
+        .itinerary-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--soft-gold);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.6);
         }
 
-        /* --- THE CHROMATIC MATRIMONIAL VISUAL CODE (PALETTE) --- */
-        .chromatic-palette-showcase-section {
-            padding: 8rem 2rem;
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
+        .itinerary-accent-title {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            color: var(--soft-gold);
+            letter-spacing: 0.1em;
+            margin-bottom: 15px;
         }
 
-        .chromatic-section-title {
-            font-size: 1.6rem;
-            letter-spacing: 0.3em;
+        .itinerary-time {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
             text-transform: uppercase;
-            margin-bottom: 4.5rem;
-            font-weight: 300;
-            color: var(--translucent-silk);
+            letter-spacing: 0.3em;
+            color: var(--white-silk);
+            display: inline-block;
+            padding: 6px 20px;
+            background: rgba(112, 130, 56, 0.2); /* Bright Olive Accent Tint */
+            border-radius: 30px;
+            margin-bottom: 30px;
         }
 
-        .chromatic-swatch-flex-container {
+        .itinerary-details {
+            font-size: 1.15rem;
+            color: rgba(244, 246, 244, 0.8);
+            line-height: 1.8;
+        }
+
+        /* ==========================================================================
+           8. PORTRAIT CURATION & IMAGERY STANDS
+           ========================================================================== */
+        .gallery-strip {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 60px;
+        }
+
+        .gallery-frame {
+            position: relative;
+            height: 450px;
+            background-color: var(--bg-dark-elevated);
+            overflow: hidden;
+            border: 1px solid rgba(197, 160, 89, 0.15);
+            border-radius: 4px;
+        }
+
+        /* Custom Pure CSS Asset Framing Placeholder Visuals */
+        .gallery-frame .placeholder-svg {
+            width: 100%;
+            height: 100%;
             display: flex;
-            justify-content: space-around;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 3rem 1.5rem;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--royal-emerald) 0%, var(--bg-dark-pure) 100%);
+            transition: var(--transition-slow);
         }
 
-        .chromatic-swatch-individual-item {
+        .gallery-frame:hover .placeholder-svg {
+            transform: scale(1.08);
+            filter: brightness(1.1);
+        }
+
+        .gallery-frame .frame-inner-text {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            z-index: 2;
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            letter-spacing: 0.1em;
+            color: var(--white-silk);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+
+        /* ==========================================================================
+           9. HIGH-FIDELITY LUXURY RSVP SUITE
+           ========================================================================== */
+        .rsvp-wrapper {
+            background-color: var(--bg-dark-card);
+            border: 1px solid rgba(197, 160, 89, 0.15);
+            max-width: 800px;
+            margin: 60px auto 0 auto;
+            padding: 80px 60px;
+            border-radius: 4px;
+            position: relative;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+        }
+
+        .rsvp-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px 25px;
+            margin-top: 45px;
+        }
+
+        .full-width-input {
+            grid-column: span 2;
+        }
+
+        .form-group {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            flex: 1;
-            min-width: 130px;
+            gap: 10px;
         }
 
-        .chromatic-swatch-circle-vessel {
-            width: 85px;
-            height: 85px;
-            border-radius: 50%;
-            margin-bottom: 1.4rem;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-            border: 1px solid rgba(255,255,255,0.15);
-            position: relative;
-            transition: var(--transition-snappy);
-        }
-        
-        .chromatic-swatch-individual-item:hover .chromatic-swatch-circle-vessel {
-            transform: scale(1.1) translateY(-4px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.7);
-        }
-
-        /* Specific Swatch Identifiers */
-        .swatch-color-royal-emerald { background-color: var(--royal-emerald); }
-        .swatch-color-bright-olive  { background-color: var(--bright-olive); }
-        .swatch-color-white-silk    { background-color: var(--white-silk); }
-        .swatch-color-liquid-gold   { background: var(--gold-primary); border-color: var(--gold-pale); }
-
-        .chromatic-color-label-descriptor {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.1rem;
-            letter-spacing: 0.08em;
-            color: var(--white-silk);
+        .form-group label {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--soft-gold);
             font-weight: 400;
         }
 
-        .chromatic-color-hex-tag {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.65rem;
-            color: rgba(244, 246, 246, 0.4);
-            margin-top: 0.4rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
+        .form-control {
+            background-color: var(--bg-dark-pure);
+            border: 1px solid rgba(244, 246, 244, 0.15);
+            padding: 16px 20px;
+            color: var(--white-silk);
+            font-family: var(--font-serif);
+            font-size: 1.15rem;
+            border-radius: 2px;
+            transition: var(--transition-fast);
+            width: 100%;
         }
 
-        /* --- INTERACTIVE FLOATING BACKGROUND MUSIC STAGE --- */
-        .floating-audio-orchestration-wrapper {
+        .form-control:focus {
+            outline: none;
+            border-color: var(--soft-gold);
+            box-shadow: 0 0 10px rgba(197, 160, 89, 0.15);
+        }
+
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23C5A059' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 20px center;
+            background-size: 14px;
+            cursor: pointer;
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Sovereign Button System */
+        .btn-luxury-action {
+            grid-column: span 2;
+            background: transparent;
+            border: 1px solid var(--soft-gold);
+            padding: 20px 40px;
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: var(--soft-gold);
+            cursor: pointer;
+            position: relative;
+            z-index: 1;
+            transition: var(--transition-slow);
+            margin-top: 15px;
+            border-radius: 2px;
+        }
+
+        .btn-luxury-action::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 0; height: 100%;
+            background: var(--soft-gold);
+            z-index: -1;
+            transition: var(--transition-slow);
+        }
+
+        .btn-luxury-action:hover {
+            color: var(--bg-dark-pure);
+        }
+
+        .btn-luxury-action:hover::before {
+            width: 100%;
+        }
+
+        /* ==========================================================================
+           10. THE REGISTRY NOTE (FINANCIALS & GIFTS)
+           ========================================================================== */
+        .registry-card {
+            max-width: 650px;
+            margin: 0 auto;
+            text-align: center;
+            background: linear-gradient(135deg, var(--bg-dark-elevated) 0%, rgba(0, 77, 56, 0.08) 100%);
+            border: 1px solid rgba(197, 160, 89, 0.15);
+            padding: 60px 40px;
+            border-radius: 4px;
+        }
+
+        .registry-text {
+            font-size: 1.2rem;
+            color: rgba(244, 246, 244, 0.85);
+            line-height: 1.9;
+            margin-bottom: 35px;
+        }
+
+        /* ==========================================================================
+           11. LIVE INTERACTIVE AUDIO CONTAINER OVERLAY
+           ========================================================================== */
+        .audio-dock {
             position: fixed;
-            bottom: 35px;
-            right: 35px;
+            bottom: 40px;
+            right: 40px;
             z-index: 999;
         }
 
-        .audio-hardware-toggle-trigger {
-            width: 58px;
-            height: 58px;
+        .audio-dock-btn {
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
-            background: rgba(3, 5, 4, 0.9);
-            border: 1px solid var(--gold-solid);
+            background-color: rgba(7, 7, 7, 0.85);
+            border: 1px solid var(--soft-gold);
             display: flex;
             justify-content: center;
             align-items: center;
             cursor: pointer;
-            box-shadow: var(--shadow-luxury), 0 0 15px rgba(197, 160, 89, 0.2);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            transition: var(--transition-smooth);
-        }
-
-        .audio-hardware-toggle-trigger:hover {
-            transform: scale(1.08);
-            border-color: var(--white-silk);
-            box-shadow: var(--shadow-luxury), 0 0 25px rgba(197, 160, 89, 0.5);
-        }
-
-        .audio-core-svg-icon {
-            fill: var(--gold-solid);
-            width: 20px;
-            height: 20px;
-            transition: var(--transition-smooth);
-        }
-        .audio-hardware-toggle-trigger:hover .audio-core-svg-icon {
-            fill: var(--white-silk);
-        }
-
-        /* Rotational animation if music plays */
-        .audio-hardware-toggle-trigger.is-playing-animation {
-            animation: luxuryMusicRotation 12s linear infinite;
-        }
-
-        @keyframes luxuryMusicRotation {
-            100% { transform: rotate(360deg); }
-        }
-
-        /* --- EDITORIAL FOOTER COMPOSURE --- */
-        .editorial-monolithic-footer {
-            padding: 8rem 2rem 6rem 2rem;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.75rem;
-            letter-spacing: 0.25em;
-            color: rgba(244, 246, 246, 0.3);
-            text-transform: uppercase;
-            border-top: 1px solid rgba(255,255,255,0.03);
-            background: linear-gradient(to bottom, transparent, var(--matte-black));
+            box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
+            transition: var(--transition-slow);
             position: relative;
         }
 
-        .footer-closing-hashtag {
-            color: var(--gold-solid);
-            font-size: 0.85rem;
-            margin-bottom: 1.5rem;
+        .audio-dock-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--soft-gold);
+            transition: var(--transition-fast);
+        }
+
+        .audio-dock-btn:hover {
+            transform: scale(1.1);
+            border-color: var(--white-silk);
+            box-shadow: 0 0 20px var(--soft-gold);
+        }
+
+        /* Interactive Audio Wave Ripple Animation Indicator */
+        .audio-waves {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 1px solid var(--soft-gold);
+            opacity: 0;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .playing .audio-waves {
+            animation: audioPulse 2s infinite linear;
+        }
+
+        /* ==========================================================================
+           12. FOOTER SUITE (HUMAN ELEGANCE SIGNATURE OVERHAUL)
+           ========================================================================== */
+        footer {
+            background: linear-gradient(180deg, var(--bg-dark-pure) 0%, #030303 100%);
+            padding: 100px 0 60px 0;
+            border-top: 1px solid rgba(244, 246, 244, 0.03);
+            text-align: center;
+        }
+
+        .footer-hashtag {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            color: var(--soft-gold);
             letter-spacing: 0.3em;
-            display: block;
+            margin-bottom: 40px;
+            display: inline-block;
+        }
+
+        .footer-signature {
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            font-weight: 300;
+            letter-spacing: 0.2em;
+            line-height: 2.2;
+            color: rgba(244, 246, 244, 0.35);
+            max-width: 700px;
+            margin: 0 auto;
+            text-transform: uppercase;
+        }
+
+        /* ==========================================================================
+           13. DEFENSIVE DYNAMIC RESPONSIVE BREAKPOINTS
+           ========================================================================== */
+        @media (max-width: 1024px) {
+            html { font-size: 15px; }
+            .gallery-strip { grid-template-columns: repeat(2, 1fr); }
+            .gallery-frame { height: 380px; }
+        }
+
+        @media (max-width: 768px) {
+            .section-padding { padding: 90px 0; }
+            .hero-title { font-size: 3.2rem; }
+            .hero-title span { font-size: 2.2rem; }
+            .editorial-grid { grid-template-columns: 1fr; gap: 40px; }
+            .rsvp-form { grid-template-columns: 1fr; }
+            .full-width-input, .form-group, .btn-luxury-action { grid-column: span 1; }
+            .rsvp-wrapper { padding: 50px 30px; }
+        }
+
+        /* Absolute Guard Against Countdown Box and Typography Clipping on Small Displays */
+        @media (max-width: 480px) {
+            html { font-size: 14px; }
+            .container { padding: 0 20px; }
+            .hero-title { font-size: 2.6rem; }
+            
+            /* Enhanced Protection for Mobile Countdown View */
+            .countdown-flex-wrapper {
+                gap: 12px; /* Tighten grid gaps dynamically on super thin screens */
+            }
+            .countdown-box {
+                min-width: 68px; /* Perfectly aligns four across down to 320px wide viewports */
+                padding: 16px 8px;
+                border-radius: 6px;
+            }
+            .countdown-box .metric-value {
+                font-size: 1.8rem; /* Smooth context scale down prevents text breaks */
+            }
+            .countdown-box .metric-label {
+                font-size: 0.55rem;
+                letter-spacing: 0.15em;
+                margin-top: 6px;
+            }
+            
+            .itinerary-matrix { grid-template-columns: 1fr; }
+            .gallery-strip { grid-template-columns: 1fr; }
+            .audio-dock { bottom: 20px; right: 20px; }
+            .footer-signature { font-size: 0.7rem; letter-spacing: 0.15em; }
+        }
+
+        /* ==========================================================================
+           14. MOTION KEYFRAME CANVAS
+           ========================================================================== */
+        @keyframes luxuryFadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scrollDrop {
+            0% { top: -20px; opacity: 0; }
+            30% { opacity: 1; }
+            60% { opacity: 1; }
+            100% { top: 60px; opacity: 0; }
+        }
+
+        @keyframes audioPulse {
+            0% { transform: scale(1); opacity: 0.5; }
+            100% { transform: scale(1.5); opacity: 0; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Ambient Video Background Asset Layer -->
-    <div class="ambient-video-background-wrapper">
-        <video id="cinematic-bg-video" autoplay muted loop playsinline preload="auto" webkit-playsinline>
-            <source src="kofobackgroundvideo.mp4" type="video/mp4">
-        </video>
-    </div>
-
-    <!-- Atmospheric Overlay Layer -->
-    <div class="luxury-atmospheric-overlay-mesh"></div>
-
-    <!-- Golden Dust Particle Canvas -->
-    <canvas id="luxury-gold-particle-canvas"></canvas>
-
-    <!-- Floating Interface Music Module Container -->
-    <div class="floating-audio-orchestration-wrapper">
-        <button class="audio-hardware-toggle-trigger" id="globalAudioBtn" aria-label="Toggle Matrimonial Audio Orchestration">
-            <svg class="audio-core-svg-icon" id="globalAudioIcon" viewBox="0 0 24 24">
-                <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
-            </svg>
-        </button>
-    </div>
-    
-    <!-- Verified Relative Core Audio Target Asset -->
-    <audio id="matrimonialMusicTrack" src="kofoweddingmusic.mp3" loop></audio>
-
-
-    <!-- ========================================================================
-         EDITORIAL HERO PRESENTATION SECTION
-         ======================================================================== -->
-    <header class="editorial-hero-header-container">
-        
-        <div class="sacred-bismillah-emblem reveal-element-cinematic-zoom gold-text-gradient">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
-        
-        <p class="matrimonial-tagline-callout reveal-element-fade-up premium-caps-label">
-            The Honour of Your Presence is Requested at the Nikkah Ceremony of
-        </p>
-        
-        <div class="monumental-couple-typographic-wrapper reveal-element-cinematic-zoom">
-            <h1 class="monumental-couple-names">
-                Faiza 
-                <span class="editorial-ampersand-bridge gold-text-gradient">&</span> 
-                Abdulmumin
-            </h1>
+    <!-- SITE LEVEL HEADER BRANDING -->
+    <header>
+        <div class="container nav-wrapper">
+            <div class="nav-logo">F &amp; A</div>
+            <div class="nav-monogram">M</div>
+            <div class="nav-logo">2026</div>
         </div>
-
-        <!-- Interlocking Rings Emblem -->
-        <div class="interlocking-rings-svg-container reveal-element-fade-up">
-            <svg class="interlocking-rings-svg" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <linearGradient id="ringGoldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stop-color="#bf953f" />
-                        <stop offset="25%" stop-color="#fcf6ba" />
-                        <stop offset="50%" stop-color="#b38728" />
-                        <stop offset="75%" stop-color="#fcf6ba" />
-                        <stop offset="100%" stop-color="#bf953f" />
-                    </linearGradient>
-                </defs>
-                <circle cx="38" cy="30" r="20" stroke="url(#ringGoldGradient)" stroke-width="3" fill="none" />
-                <circle cx="62" cy="30" r="20" stroke="url(#ringGoldGradient)" stroke-width="3" fill="none" />
-            </svg>
-        </div>
-
-        <div class="luxury-geometric-divider reveal-element-fade-up">
-            <div class="geometric-axis-line"></div>
-            <div class="geometric-diamond-node"></div>
-            <div class="geometric-axis-line"></div>
-        </div>
-
-        <div class="matrimonial-event-classification reveal-element-fade-up">The Nikkah</div>
-        <div class="matrimonial-spatial-chronicle reveal-element-fade-up">Friday . 17 . 07 . 2026 — Kaduna State</div>
-        
-        <div class="reveal-element-fade-up">
-            <span class="matrimonial-unified-hashtag">#KoFosealedinlove26#</span>
-        </div>
-
     </header>
 
+    <!-- IMMERSIVE HERO FRAME -->
+    <section class="hero" id="home">
+        <div class="hero-inner">
+            <div class="hero-subtitle">The Honor of Your Presence is Requested</div>
+            <h1 class="hero-title">Faiza <span>&amp;</span> Abdulmumin</h1>
+            <div class="hero-date">December 2026</div>
+        </div>
+        <a href="#story" class="scroll-indicator">
+            <span class="scroll-line"></span>
+        </a>
+    </section>
 
-    <!-- ========================================================================
-         SACRED APHORISM SECTION (QURANIC TEXT ACCENT)
-         ======================================================================== -->
-    <section class="sacred-aphorism-monumental-section reveal-element-3d-flip">
-        <div class="sacred-aphorism-architectural-frame">
+    <!-- JOURNAL CORE SECTION (OUR STORY) -->
+    <section class="section-padding" id="story">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="gold-text" style="font-size: 2.5rem; letter-spacing: 0.2em;">The Alliance</h2>
+                <div class="luxury-divider"><div class="diamond"></div></div>
+            </div>
             
-            <!-- Structural Filigree Accents -->
-            <div class="corner-accent-filigree top-left-accent"></div>
-            <div class="corner-accent-filigree top-right-accent"></div>
-            <div class="corner-accent-filigree bottom-left-accent"></div>
-            <div class="corner-accent-filigree bottom-right-accent"></div>
-            
-            <div class="arabic-scripture-typography">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً</div>
-            
-            <p class="vernacular-translation-typography">
-                "And of His signs is that He created for you from yourselves mates that you may find tranquility in them; and He placed between you affection and mercy..."
-            </p>
-            
-            <span class="scripture-citation-tag">— Surah Ar-Rum: 21</span>
-            
+            <div class="story-narrative">
+                <p>Destiny isn't written by chance, it is orchestrated by design. Our journey began with a shared path of purpose, beautifully woven under grace into an unbreakable bond. Together, we found a sanctuary in each other’s hearts—a space built on mutual respect, deep devotion, and an enduring friendship.</p>
+                <p>As we cross this magnificent threshold, we are dynamic reflections of two worlds merging into one clear future. We look forward to documenting this milestone with our closest circles, celebrating a union anchored in absolute love.</p>
+            </div>
+
+            <!-- Contextual Layout Panels -->
+            <div class="editorial-grid">
+                <div class="editorial-panel">
+                    <h3>The Proposal</h3>
+                    <p style="color: rgba(244, 246, 244, 0.75);">A quiet afternoon transformed into a lifelong covenant. Surrounded by nothing but genuine serenity and soft promises, we chose forever. It wasn't about grandeur; it was about the pristine sincerity of two souls making a definitive choice.</p>
+                </div>
+                <div class="editorial-panel">
+                    <h3>The Shared Path</h3>
+                    <p style="color: rgba(244, 246, 244, 0.75);">From shared projects and late-night architectural brainstorms to deep literary observations, we learned that real elegance lies in unity. We compliment each other's spaces, creating a balanced canvas prepared to meet the future.</p>
+                </div>
+            </div>
         </div>
     </section>
 
-
-    <!-- ========================================================================
-         CINEMATIC MARQUEE CONVEYOR STRIP
-         ======================================================================== -->
-    <div class="infinite-marquee-cinematic-conveyor reveal-element-fade-up">
-        <div class="marquee-high-velocity-wrapper">
-            <span class="marquee-editorial-text-node">Faiza & Abdulmumin • <span>The Sacred Union</span> • July 17, 2026 • #KoFosealedinlove26# • </span>
-            <span class="marquee-editorial-text-node">Faiza & Abdulmumin • <span>The Sacred Union</span> • July 17, 2026 • #KoFosealedinlove26# • </span>
-            <span class="marquee-editorial-text-node">Faiza & Abdulmumin • <span>The Sacred Union</span> • July 17, 2026 • #KoFosealedinlove26# • </span>
-            <span class="marquee-editorial-text-node">Faiza & Abdulmumin • <span>The Sacred Union</span> • July 17, 2026 • #KoFosealedinlove26# • </span>
+    <!-- COUNTDOWN COMPONENT BLOCK (MOBILE SAFE OVERFLOW PREVENTION) -->
+    <section class="countdown-block">
+        <div class="container countdown-outer">
+            <div class="countdown-flex-wrapper" id="countdownContainer">
+                <div class="countdown-box">
+                    <span class="metric-value" id="daysValue">00</span>
+                    <span class="metric-label">Days</span>
+                </div>
+                <div class="countdown-box">
+                    <span class="metric-value" id="hoursValue">00</span>
+                    <span class="metric-label">Hours</span>
+                </div>
+                <div class="countdown-box">
+                    <span class="metric-value" id="minutesValue">00</span>
+                    <span class="metric-label">Mins</span>
+                </div>
+                <div class="countdown-box">
+                    <span class="metric-value" id="secondsValue">00</span>
+                    <span class="metric-label">Secs</span>
+                </div>
+            </div>
         </div>
+    </section>
+
+    <!-- CELEBRATION CHRONICLES (EVENT ITINERARIES) -->
+    <section class="section-padding" id="details">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="gold-text" style="font-size: 2.2rem; letter-spacing: 0.15em;">The Celebration Schedule</h2>
+                <div class="luxury-divider"><div class="diamond"></div></div>
+                <p style="max-width: 600px; margin: 0 auto; color: rgba(244, 246, 244, 0.65);">Please coordinate your arrival gracefully to ensure you do not miss a single moment of the curation.</p>
+            </div>
+
+            <div class="itinerary-matrix">
+                <div class="itinerary-card">
+                    <h3 class="itinerary-accent-title">The Solemnization</h3>
+                    <div class="itinerary-time">11:00 AM Sharp</div>
+                    <p class="itinerary-details">The pristine exchange of lifetime vows under traditional honor blocks. An intimate setting dedicated to family blessings, prayer, and deep spiritual alliance.</p>
+                </div>
+                <div class="itinerary-card">
+                    <h3 class="itinerary-accent-title">The Dinner Gala</h3>
+                    <div class="itinerary-time">02:30 PM Onwards</div>
+                    <p class="itinerary-details">An exclusive evening of refined hospitality, haute cuisine, and dynamic celebration. Bring your best energies as we dance the night away into a new dawn.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VISUAL LOOKBOOK (IMAGE GRIDS) -->
+    <section class="section-padding" id="gallery" style="background-color: var(--bg-dark-elevated);">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="gold-text" style="font-size: 2.2rem; letter-spacing: 0.15em;">The Visual Lookbook</h2>
+                <div class="luxury-divider"><div class="diamond"></div></div>
+            </div>
+            
+            <div class="gallery-strip">
+                <div class="gallery-frame">
+                    <div class="placeholder-svg"></div>
+                    <div class="frame-inner-text">I. Introspection</div>
+                </div>
+                <div class="gallery-frame">
+                    <div class="placeholder-svg" style="background: linear-gradient(135deg, var(--bright-olive) 0%, var(--bg-dark-pure) 100%);"></div>
+                    <div class="frame-inner-text">II. Alignment</div>
+                </div>
+                <div class="gallery-frame">
+                    <div class="placeholder-svg"></div>
+                    <div class="frame-inner-text">III. The Promise</div>
+                </div>
+                <div class="gallery-frame">
+                    <div class="placeholder-svg" style="background: linear-gradient(135deg, var(--bright-olive) 0%, var(--bg-dark-pure) 100%);"></div>
+                    <div class="frame-inner-text">IV. Eternity</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRESTIGE RSVP MANAGER SUITE -->
+    <section class="section-padding" id="rsvp">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="gold-text" style="font-size: 2.2rem; letter-spacing: 0.15em;">Secure Your Attendance</h2>
+                <div class="luxury-divider"><div class="diamond"></div></div>
+                <p style="max-width: 550px; margin: 0 auto; color: rgba(244, 246, 244, 0.65);">Kindly respond by November 1st to ensure precision seating and customized table hospitality.</p>
+            </div>
+
+            <div class="rsvp-wrapper">
+                <form class="rsvp-form" id="weddingRsvpForm">
+                    <div class="form-group">
+                        <label for="guestFirstName">First Name</label>
+                        <input type="text" id="guestFirstName" class="form-control" placeholder="e.g., Sulaimon" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="guestLastName">Last Name</label>
+                        <input type="text" id="guestLastName" class="form-control" placeholder="e.g., Adejumo" required>
+                    </div>
+                    <div class="form-group full-width-input">
+                        <label for="guestEmail">Digital Mail Address</label>
+                        <input type="email" id="guestEmail" class="form-control" placeholder="name@domain.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="attendanceStatus">Attendance Status</label>
+                        <select id="attendanceStatus" class="form-control" required>
+                            <option value="" disabled selected>Select option...</option>
+                            <option value="accept">Joyfully Accepting</option>
+                            <option value="decline">Regretfully Declining</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="plusOneCount">Additional Guests</label>
+                        <select id="plusOneCount" class="form-control">
+                            <option value="0">None (0)</option>
+                            <option value="1">Plus One (1)</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width-input">
+                        <label for="dietaryNotes">Special Hospitality Notes</label>
+                        <textarea id="dietaryNotes" class="form-control" placeholder="Dietary adjustments, preferences, or warm words..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-luxury-action">Transmit RSVP Response</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- REGISTRY NOTE (FINANCIALS & GIFTS) -->
+    <section class="section-padding" id="registry" style="background-color: var(--bg-dark-elevated);">
+        <div class="container">
+            <div class="registry-card">
+                <h2 class="gold-text" style="font-size: 2rem; margin-bottom: 20px;">The Registry Note</h2>
+                <p class="registry-text">Your love, presence, and prayers are the greatest treasures we could ever receive. However, should you wish to honor our new foundation with a token of support, a financial contribution toward our collective future would be received with profound gratitude.</p>
+                <button class="btn-luxury-action" style="grid-column: auto; display: inline-block; width: auto;" onclick="alert('Digital Registry details will be appended seamlessly here.')">Access Contribution Portal</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FIXED IMMERSIVE AUDIO CAPABILITIES DOCK -->
+    <div class="audio-dock">
+        <button class="audio-dock-btn" id="luxuryAudioToggle" aria-label="Toggle Atmosphere Soundscape">
+            <div class="audio-waves"></div>
+            <!-- Synchronized Icon System Matching 1001265155.jpg Design Layout -->
+            <svg viewBox="0 0 24 24" id="audioNoteIcon">
+                <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h6V3h-6z"/>
+            </svg>
+        </button>
+        <audio id="soundscapeEngine" loop>
+            <source src="audio/atmosphere-lux.mp3" type="audio/mpeg">
+        </audio>
     </div>
 
-
-    <!-- ========================================================================
-         CHRONOMETRIC TIME RECONSTRUCTED HUB (COUNTDOWN)
-         ======================================================================== -->
-    <section class="chronometric-countdown-outer-wrapper reveal-element-fade-up">
-        <div class="chronometric-luxe-dashboard" id="chronometricDashboard">
-            
-            <div class="chronometric-segment-node">
-                <span class="chronometric-numerical-output" id="luxeDays">00</span>
-                <span class="chronometric-descriptor-tag">Days</span>
-            </div>
-            
-            <div class="chronometric-splitter-colon">:</div>
-            
-            <div class="chronometric-segment-node">
-                <span class="chronometric-numerical-output" id="luxeHours">00</span>
-                <span class="chronometric-descriptor-tag">Hours</span>
-            </div>
-            
-            <div class="chronometric-splitter-colon">:</div>
-            
-            <div class="chronometric-segment-node">
-                <span class="chronometric-numerical-output" id="luxeMinutes">00</span>
-                <span class="chronometric-descriptor-tag">Minutes</span>
-            </div>
-            
-            <div class="chronometric-splitter-colon">:</div>
-            
-            <div class="chronometric-segment-node">
-                <span class="chronometric-numerical-output" id="luxeSeconds">00</span>
-                <span class="chronometric-descriptor-tag">Seconds</span>
-            </div>
-            
-        </div>
-    </section>
-
-
-    <!-- ========================================================================
-         EDITORIAL ASYMMETRIC GALLERY WITH HIGH-END UNIQUE HOVER TOASTS
-         ======================================================================== -->
-    <section class="editorial-portrait-gallery-wrapper">
-        
-        <div class="gallery-section-header-block reveal-element-fade-up">
-            <span class="premium-caps-label">Visual Chronicle</span>
-            <h2 class="gallery-section-main-title">Moments of Grace</h2>
-            <div class="luxury-geometric-divider" style="margin: 1.5rem auto;">
-                <div class="geometric-axis-line"></div>
-                <div class="geometric-diamond-node"></div>
-                <div class="geometric-axis-line"></div>
+    <!-- REWRITTEN LUXURY FOOTER SUITE (HUMAN CENTRIC LOGICS OVERHAUL) -->
+    <footer>
+        <div class="container">
+            <div class="footer-hashtag">#KOFOSEALEDINLOVE26#</div>
+            <div class="footer-signature">
+                &copy; 2026 Faiza &amp; Abdulmumin. Curated with unwavering elegance. All photographic elements, text layouts, and site architectures are protected assets. All Rights Reserved.
             </div>
         </div>
-
-        <div class="editorial-asymmetric-gallery-grid">
-            
-            <!-- Picture 0: kofolove.jpg (The Genesis) -->
-            <div class="luxury-gallery-card-vessel card-position-zero gallery-reveal-pivot">
-                <img src="kofolove.jpg" alt="Faiza & Abdulmumin Matrimonial Vignette">
-                <div class="luxury-bespoke-hover-toast-container">
-                    <span class="toast-header-classification">Chapter I</span>
-                    <h3 class="toast-prominent-title">The Genesis of Us</h3>
-                    <p class="toast-narrative-body">"A single glance that blossomed into an eternal vow, orchestrated under the divine gaze of Rahmah and absolute blessings."</p>
-                </div>
-            </div>
-
-            <!-- Picture 1: kofolove1.jpg (Tranquility Within) -->
-            <div class="luxury-gallery-card-vessel card-position-one gallery-reveal-pivot">
-                <img src="kofolove1.jpg" alt="Faiza & Abdulmumin Matrimonial Vignette">
-                <div class="luxury-bespoke-hover-toast-container">
-                    <span class="toast-header-classification">Chapter II</span>
-                    <h3 class="toast-prominent-title">Tranquility Within</h3>
-                    <p class="toast-narrative-body">"Finding absolute stillness of the soul within each other’s presence—an answered prayer written directly in the stars of our destiny."</p>
-                </div>
-            </div>
-
-            <!-- Picture 2: kofolove2.jpg (Two Paths, One Destiny) -->
-            <div class="luxury-gallery-card-vessel card-position-two gallery-reveal-pivot">
-                <img src="kofolove2.jpg" alt="Faiza & Abdulmumin Matrimonial Vignette">
-                <div class="luxury-bespoke-hover-toast-container">
-                    <span class="toast-header-classification">Chapter III</span>
-                    <h3 class="toast-prominent-title">Two Paths, One Destiny</h3>
-                    <p class="toast-narrative-body">"Stepping gracefully forward into a beautiful horizon, guided completely by unshakeable faith and bound by unconditional affection."</p>
-                </div>
-            </div>
-
-            <!-- Picture 3: kofolove3.jpg (The Promise of Forever) -->
-            <div class="luxury-gallery-card-vessel card-position-three gallery-reveal-pivot">
-                <img src="kofolove3.jpg" alt="Faiza & Abdulmumin Matrimonial Vignette">
-                <div class="luxury-bespoke-hover-toast-container">
-                    <span class="toast-header-classification">Chapter IV</span>
-                    <h3 class="toast-prominent-title">The Promise of Forever</h3>
-                    <p class="toast-narrative-body">"Every shared smile forms a structural foundation building our sanctuary of peace, love, and continuous mutual spiritual harmony."</p>
-                </div>
-            </div>
-
-            <!-- Picture 4: kofolove4.jpg (Blessed Beginnings) -->
-            <div class="luxury-gallery-card-vessel card-position-four gallery-reveal-pivot">
-                <img src="kofolove4.jpg" alt="Faiza & Abdulmumin Matrimonial Vignette">
-                <div class="luxury-bespoke-hover-toast-container">
-                    <span class="toast-header-classification">Chapter V</span>
-                    <h3 class="toast-prominent-title">Blessed Beginnings</h3>
-                    <p class="toast-narrative-body">"Entering the timeless legacy of sacred marriage, fully enveloped by our families' love and shielded by endless heavenly favors."</p>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-
-    <!-- ========================================================================
-         ADDITIONAL PREMIUM EFFIZY: THE CINEMATIC STORIES STAGE (VIDEO PLAYER)
-         ======================================================================== -->
-    <section class="love-story-theatre-section-wrapper reveal-element-fade-up">
-        
-        <div class="gallery-section-header-block">
-            <span class="premium-caps-label">The Visual Narrative</span>
-            <h2 class="gallery-section-main-title">Our Love Story</h2>
-            <div class="luxury-geometric-divider" style="margin: 1.5rem auto;">
-                <div class="geometric-axis-line"></div>
-                <div class="geometric-diamond-node"></div>
-                <div class="geometric-axis-line"></div>
-            </div>
-        </div>
-
-        <div class="theatre-screen-projection-container">
-            <video id="theatreVideoPlayer" class="theatre-video-element" loop playsinline aria-label="Cinematic Love Story Video Frame">
-                <source src="kofoourlovestory.mp4" type="video/mp4">
-            </video>
-            
-            <!-- Custom Luxury Play Skin Overlay -->
-            <div id="theatreControlsOverlay" class="theatre-media-controls-overlay">
-                <button id="theatrePlayBtn" class="theatre-master-play-trigger-btn" aria-label="Play Story Film">
-                    <svg class="theatre-play-icon-vector" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z"/>
-                    </svg>
-                </button>
-            </div>
-        </div>
-
-    </section>
-
-
-    <!-- ========================================================================
-         ITINERARY LOGISTICS ARCHITECTURE
-         ======================================================================== -->
-    <section class="itinerary-logistics-master-section">
-        
-        <div class="logistics-bipartite-grid">
-            
-            <!-- Event Card One: Nikkah Axis -->
-            <div class="logistics-premium-card reveal-element-slide-left">
-                <div class="logistics-card-inner-filigree"></div>
-                <span class="premium-caps-label" style="color: var(--gold-solid);">The Solemnization</span>
-                <h3 class="logistics-card-title">The Nikkah</h3>
-                <p class="logistics-metric-details-block">
-                    Time: <strong>11:00 AM Prompt</strong><br>
-                    Date: <strong>Friday, July 17, 2026</strong><br><br>
-                    Venue Location Details to be Formally Announced.<br>
-                    Kaduna State, Nigeria.
-                </p>
-                <button class="luxury-action-navigation-link" style="cursor: default;">Details Loading</button>
-            </div>
-
-            <!-- Event Card Two: Reception Axis -->
-            <div class="logistics-premium-card reveal-element-slide-right">
-                <div class="logistics-card-inner-filigree"></div>
-                <span class="premium-caps-label" style="color: var(--gold-solid);">The Celebration</span>
-                <h3 class="logistics-card-title">The Reception</h3>
-                <p class="logistics-metric-details-block">
-                    Time: <strong>Immediately Following Nikkah</strong><br>
-                    Date: <strong>Friday, July 17, 2026</strong><br><br>
-                    <strong>Luxury Hall, Agwa,</strong><br>
-                    Kaduna State, Nigeria.
-                </p>
-                <a href="https://maps.google.com/?q=Luxury+Hall+Agwa+Kaduna" target="_blank" class="luxury-action-navigation-link">Navigate Venue</a>
-            </div>
-
-        </div>
-    </section>
-
-
-    <!-- ========================================================================
-         ULTRA-MINIMALIST PALETTE INTERFACE
-         ======================================================================== -->
-    <section class="chromatic-palette-showcase-section reveal-element-fade-up">
-        
-        <h2 class="chromatic-section-title">The Dress Code Palette</h2>
-        
-        <div class="chromatic-swatch-flex-container">
-            
-            <div class="chromatic-swatch-individual-item">
-                <div class="chromatic-swatch-circle-vessel swatch-color-royal-emerald"></div>
-                <span class="chromatic-color-label-descriptor">Royal Emerald</span>
-                <span class="chromatic-color-hex-tag">#004D38</span>
-            </div>
-            
-            <div class="chromatic-swatch-individual-item">
-                <div class="chromatic-swatch-circle-vessel swatch-color-bright-olive"></div>
-                <span class="chromatic-color-label-descriptor">Bright Olive</span>
-                <span class="chromatic-color-hex-tag">#708238</span>
-            </div>
-            
-            <div class="chromatic-swatch-individual-item">
-                <div class="chromatic-swatch-circle-vessel swatch-color-white-silk"></div>
-                <span class="chromatic-color-label-descriptor">White Silk</span>
-                <span class="chromatic-color-hex-tag">#F4F6F4</span>
-            </div>
-            
-            <div class="chromatic-swatch-individual-item">
-                <div class="chromatic-swatch-circle-vessel swatch-color-liquid-gold"></div>
-                <span class="chromatic-color-label-descriptor">Soft Gold</span>
-                <span class="chromatic-color-hex-tag">#C5A059</span>
-            </div>
-            
-        </div>
-    </section>
-
-
-    <!-- ========================================================================
-         EDITORIAL FOOTER FRAME SIGNATURE
-         ======================================================================== -->
-    <footer class="editorial-monolithic-footer">
-        <span class="footer-closing-hashtag">#KoFosealedinlove26#</span>
-        <p>© 2026 Faiza & Abdulmumin. Manufactured with Absolute Luxury. All Rights Reserved.</p>
     </footer>
 
-
-    <!-- ========================================================================
-         HIGH-FIDELITY ARCHITECTURAL LOGIC SCRIPT ENGINE (JAVASCRIPT)
-         ======================================================================== -->
+    <!-- LIVE RUNTIME LOGIC SUITES -->
     <script>
-        /* 
-         ========================================================================
-         HIGH-PERFORMANCE INTERACTIVE SYSTEM MECHANICS
-         ========================================================================
-        */
+        // TARGET WEDDING DATE COUNTDOWN LOGIC CONTROLLER
+        // Custom configurations adjust this standard target instance seamlessly
+        const targetTimeline = new Date("Dec 31, 2026 11:00:00").getTime();
 
-        document.addEventListener("DOMContentLoaded", () => {
-            
-            /* --- SEGREGATED INTRO SYSTEM SCROLL REVEAL OBSERVER --- */
-            const globalObserverOptions = {
-                threshold: 0.05,
-                rootMargin: "0px 0px -40px 0px"
-            };
+        function executeTimerTick() {
+            const currentMoment = new Date().getTime();
+            const distanceRemaining = targetTimeline - currentMoment;
 
-            const revealElementsPool = document.querySelectorAll(
-                '[class*="reveal-element-"], .gallery-reveal-pivot'
-            );
+            // Immediate fallback safety loop when date passes smoothly
+            if (distanceRemaining <= 0) {
+                document.getElementById("countdownContainer").innerHTML = `
+                    <div style="width:100%; text-align:center; font-family:var(--font-display); font-size:1.8rem; color:var(--soft-gold); letter-spacing:0.15em;">
+                        The Celebration Has Commenced
+                    </div>`;
+                clearInterval(liveTimerEngine);
+                return;
+            }
 
-            const scrollRevealCoreEngine = new IntersectionObserver((elementsArray, observerRef) => {
-                elementsArray.forEach(elementNode => {
-                    if (elementNode.isIntersecting) {
-                        elementNode.target.classList.add('is-triggered');
-                        // Permanently unobserve to lock state performance hardware acceleration
-                        observerRef.unobserve(elementNode.target);
-                    }
+            // High Precision Calculations
+            const days = Math.floor(distanceRemaining / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distanceRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distanceRemaining % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distanceRemaining % (1000 * 60)) / 1000);
+
+            // Responsive String Padding Operations
+            document.getElementById("daysValue").innerText = days < 10 ? "0" + days : days;
+            document.getElementById("hoursValue").innerText = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutesValue").innerText = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("secondsValue").innerText = seconds < 10 ? "0" + seconds : seconds;
+        }
+
+        // Initialize Tick Engine Instantly
+        const liveTimerEngine = setInterval(executeTimerTick, 1000);
+        executeTimerTick();
+
+        // AMBIENT MULTIMEDIA DOCK DRIVER LOGICS
+        const mediaEngine = document.getElementById("soundscapeEngine");
+        const dockBtn = document.getElementById("luxuryAudioToggle");
+
+        dockBtn.addEventListener("click", () => {
+            if (mediaEngine.paused) {
+                mediaEngine.play().catch(playbackError => {
+                    console.log("Browser safety standards intercepted immediate un-interacted audio engine requests.");
                 });
-            }, globalObserverOptions);
-
-            revealElementsPool.forEach(targetNode => scrollRevealCoreEngine.observe(targetNode));
-
-
-            /* --- HIGH PERFORMANCE SMOOTH VANILLA GOLD PARTICLES ENGINE --- */
-            const fluidCanvasRef = document.getElementById('luxury-gold-particle-canvas');
-            const primaryContext = fluidCanvasRef.getContext('2d');
-            let structuralParticlesCollection = [];
-
-            function establishCanvasViewportDimensions() {
-                fluidCanvasRef.width = window.innerWidth;
-                fluidCanvasRef.height = window.innerHeight;
+                dockBtn.classList.add("playing");
+                dockBtn.style.borderColor = "var(--white-silk)";
+            } else {
+                mediaEngine.pause();
+                dockBtn.classList.remove("playing");
+                dockBtn.style.borderColor = "var(--soft-gold)";
             }
-            window.addEventListener('resize', establishCanvasViewportDimensions);
-            establishCanvasViewportDimensions();
+        });
 
-            class LuxuryGoldParticle {
-                constructor() {
-                    this.resetParticleState(true);
-                }
-                resetParticleState(isInitialSpawning) {
-                    this.spatialX = Math.random() * fluidCanvasRef.width;
-                    this.spatialY = isInitialSpawning ? (Math.random() * fluidCanvasRef.height) : (fluidCanvasRef.height + 20);
-                    this.particleRadius = Math.random() * 1.8 + 0.4;
-                    this.velocityVertical = Math.random() * 0.35 + 0.12;
-                    this.velocityHorizontal = Math.sin(Math.random() * 4) * 0.15;
-                    this.alphaOpacity = Math.random() * 0.45 + 0.15;
-                }
-                processStateUpdate() {
-                    this.spatialY -= this.velocityVertical;
-                    this.spatialX += this.velocityHorizontal;
-                    if (this.spatialY < -15 || this.spatialX < -15 || this.spatialX > fluidCanvasRef.width + 15) {
-                        this.resetParticleState(false);
-                    }
-                }
-                renderGraphicMatrix() {
-                    primaryContext.fillStyle = `rgba(197, 160, 89, ${this.alphaOpacity})`;
-                    primaryContext.beginPath();
-                    primaryContext.arc(this.spatialX, this.spatialY, this.particleRadius, 0, Math.PI * 2);
-                    primaryContext.fill();
-                }
-            }
-
-            function initializeParticleEnvironment() {
-                structuralParticlesCollection = [];
-                // Calculated optimal count for processing smoothness across viewport width thresholds
-                const calculatedDensityCount = Math.min(80, Math.floor(fluidCanvasRef.width / 20));
-                for (let idx = 0; idx < calculatedDensityCount; idx++) {
-                    structuralParticlesCollection.push(new LuxuryGoldParticle());
-                }
-            }
-
-            function systemRenderLoopAnimation() {
-                primaryContext.clearRect(0, 0, fluidCanvasRef.width, fluidCanvasRef.height);
-                structuralParticlesCollection.forEach(particleNode => {
-                    particleNode.processStateUpdate();
-                    particleNode.renderGraphicMatrix();
-                });
-                requestAnimationFrame(systemRenderLoopAnimation);
-            }
-            initializeParticleEnvironment();
-            systemRenderLoopAnimation();
-
-
-            /* --- ULTRA-ACCURATE CHRONOMETRIC COUNTDOWN ENGINE --- */
-            const matrimonialEventTargetDate = new Date('July 17, 2026 11:00:00').getTime();
-
-            function executeTimeCalculations() {
-                const systemCurrentTime = new Date().getTime();
-                const operationalTemporalGap = matrimonialEventTargetDate - systemCurrentTime;
-
-                if (operationalTemporalGap <= 0) {
-                    document.getElementById('chronometricDashboard').innerHTML = `
-                        <div style="font-size: 1.4rem; font-style: italic; letter-spacing: 0.15em; color: var(--gold-solid); width: 100%;">
-                            The Matrimonial Celebration Has Commenced
-                        </div>`;
-                    return;
-                }
-
-                const computationDays = Math.floor(operationalTemporalGap / (1000 * 60 * 60 * 24));
-                const computationHours = Math.floor((operationalTemporalGap % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const computationMinutes = Math.floor((operationalTemporalGap % (1000 * 60 * 60)) / (1000 * 60));
-                const computationSeconds = Math.floor((operationalTemporalGap % (1000 * 60)) / 1000);
-
-                document.getElementById('luxeDays').innerText = computationDays < 10 ? '0' + computationDays : computationDays;
-                document.getElementById('luxeHours').innerText = computationHours < 10 ? '0' + computationHours : computationHours;
-                document.getElementById('luxeMinutes').innerText = computationMinutes < 10 ? '0' + computationMinutes : computationMinutes;
-                document.getElementById('luxeSeconds').innerText = computationSeconds < 10 ? '0' + computationSeconds : computationSeconds;
-            }
-            setInterval(executeTimeCalculations, 1000);
-            executeTimeCalculations();
-
-
-            /* --- SYSTEM AUDIO DRIVER CORE INTERFACE --- */
-            const internalMusicTrack = document.getElementById('matrimonialMusicTrack');
-            const interfaceAudioBtn = document.getElementById('globalAudioBtn');
-            const interfaceAudioIcon = document.getElementById('globalAudioIcon');
-            let hardwareUserInteractedFlag = false;
-
-            function triggerTrackPlayback() {
-                internalMusicTrack.play().then(() => {
-                    interfaceAudioBtn.classList.add('is-playing-animation');
-                    interfaceAudioIcon.innerHTML = `
-                        <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77zM4.34 2.93L2.93 4.34 7.59 9H3v6h4l5 5v-6.59l4.38 4.38c-.69.44-1.43.77-2.38.91v2.06c1.5-.33 2.87-.98 4.02-1.89l3.05 3.05 1.41-1.41L4.34 2.93zM12 4L9.91 6.09 12 8.18V4z"/>`;
-                }).catch(err => console.log("Awaiting core layout gestural interaction to bypass autoplay block."));
-            }
-
-            function alternatingAudioToggleMechanism() {
-                if (internalMusicTrack.paused) {
-                    triggerTrackPlayback();
-                } else {
-                    internalMusicTrack.pause();
-                    interfaceAudioBtn.classList.remove('is-playing-animation');
-                    interfaceAudioIcon.innerHTML = `
-                        <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>`;
-                }
-            }
-
-            interfaceAudioBtn.addEventListener('click', (eventObj) => {
-                eventObj.stopPropagation();
-                hardwareUserInteractedFlag = true;
-                alternatingAudioToggleMechanism();
-            });
-
-            const activationEventsRegistry = ['click', 'touchstart', 'scroll', 'mousemove'];
-            function autoAudioActivationHandler() {
-                if (!hardwareUserInteractedFlag) {
-                    hardwareUserInteractedFlag = true;
-                    triggerTrackPlayback();
-                }
-                activationEventsRegistry.forEach(evtString => window.removeEventListener(evtString, autoAudioActivationHandler));
-            }
-            activationEventsRegistry.forEach(evtString => window.addEventListener(evtString, autoAudioActivationHandler, { passive: true }));
-
-
-            /* --- BESPOKE INTEGRATED STORY VIDEO THEATRE INTERACTION CONTROLS --- */
-            const storyVideoComponent = document.getElementById('theatreVideoPlayer');
-            const storyControlsOverlayLayer = document.getElementById('theatreControlsOverlay');
-            const storyPlayBtnTrigger = document.getElementById('theatrePlayBtn');
-
-            function toggleStoryTheatrePlayback() {
-                if (storyVideoComponent.paused) {
-                    // Duck background music slightly if user plays cinematic love film
-                    if (!internalMusicTrack.paused) {
-                        internalMusicTrack.volume = 0.2;
-                    }
-                    storyVideoComponent.play();
-                    storyControlsOverlayLayer.classList.add('is-hidden');
-                } else {
-                    storyVideoComponent.pause();
-                    storyControlsOverlayLayer.classList.remove('is-hidden');
-                    internalMusicTrack.volume = 1.0;
-                }
-            }
-
-            storyPlayBtnTrigger.addEventListener('click', toggleStoryTheatrePlayback);
-            storyVideoComponent.addEventListener('click', toggleStoryTheatrePlayback);
-            
-            // Re-establish audio balances once cinematic story completes running
-            storyVideoComponent.addEventListener('ended', () => {
-                storyControlsOverlayLayer.classList.remove('is-hidden');
-                internalMusicTrack.volume = 1.0;
-            });
-
-
-            /* --- SECURE MOBILITY FLUID FORCED BG AUTOPLAY FALLBACK --- */
-            const fluidAmbientBgVideo = document.getElementById('cinematic-bg-video');
-            function guaranteeBackgroundVideoExecution() {
-                if (fluidAmbientBgVideo && fluidAmbientBgVideo.paused) {
-                    fluidAmbientBgVideo.play().catch(ex => console.log("Autonomous video stream looping active."));
-                }
-            }
-            ['click', 'touchstart', 'scroll'].forEach(evtType => {
-                window.addEventListener(evtType, guaranteeBackgroundVideoExecution, { passive: true });
-            });
-
+        // FORM TRANSACTION SIMULATOR
+        document.getElementById("weddingRsvpForm").addEventListener("submit", (e) => {
+            e.preventDefault();
+            alert("Thank you. Your responses have been safely transmitted to the verification database.");
         });
     </script>
 </body>
