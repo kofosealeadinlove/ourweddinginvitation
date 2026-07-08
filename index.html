@@ -12,7 +12,7 @@
     
     <style>
         /* --------------------------------------------------------
-           LUXURY LUXE THEME (Reflecting User Reference Images)
+           LUXURY LUXE THEME
         -------------------------------------------------------- */
         :root {
             --emerald-deep: #021a14;
@@ -46,7 +46,6 @@
             overflow-x: hidden;
         }
 
-        /* The Exact Geometric Trellis Pattern from 1001264701.jpg */
         body {
             position: relative;
             background-image: linear-gradient(135deg, rgba(4,38,30,0.4) 25%, transparent 25%), 
@@ -95,7 +94,7 @@
         }
 
         /* --------------------------------------------------------
-           HERO HEADER (As seen in 1001264700.jpg)
+           HERO HEADER
         -------------------------------------------------------- */
         .hero-viewport {
             height: 100vh;
@@ -189,7 +188,6 @@
             opacity: 0.8;
         }
 
-        /* Decorative Line Tributes */
         .luxe-separator {
             display: flex;
             align-items: center;
@@ -267,35 +265,14 @@
         }
 
         /* --------------------------------------------------------
-           ASYNCHRONOUS LOVE STORY SECTION (WITH TIMEOUT TOAST)
+           CENTERED TIMEKEEPING HORIZON (VIDEO REMOVED)
         -------------------------------------------------------- */
-        .story-layout {
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 5rem;
-            align-items: center;
-        }
-        @media (max-width: 900px) {
-            .story-layout { grid-template-columns: 1fr; gap: 4rem; }
-        }
-
-        .video-art-frame {
-            position: relative;
-            padding: 1rem;
-            border: 1px solid rgba(212, 175, 87, 0.2);
-            background: rgba(4, 38, 30, 0.3);
-        }
-        .video-art-frame video {
-            width: 100%;
-            display: block;
-            aspect-ratio: 3/4;
-            object-fit: cover;
-        }
-        
         .story-text-frame {
             display: flex;
             flex-direction: column;
             justify-content: center;
+            align-items: center;
+            text-align: center;
         }
         .toast-label {
             font-size: 0.8rem;
@@ -319,28 +296,29 @@
             line-height: 1.7;
             color: var(--text-muted);
             margin-bottom: 2.5rem;
-            border-left: 2px solid var(--gold-primary);
-            padding-left: 1.5rem;
+            max-width: 600px;
+            border-bottom: 1px solid rgba(212, 175, 87, 0.15);
+            padding-bottom: 1.5rem;
         }
 
-        /* Premium Minimal Timer Grid */
         .countdown-grid {
             display: flex;
-            gap: 2rem;
-            margin-top: 1rem;
+            gap: 2.5rem;
+            margin-top: 2rem;
+            justify-content: center;
         }
         .countdown-node {
             text-align: center;
         }
         .countdown-node .num {
             font-family: var(--font-serif);
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-size: clamp(2.8rem, 6vw, 4rem);
             font-weight: 300;
             color: var(--white-silk);
             line-height: 1;
         }
         .countdown-node .lbl {
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 0.2em;
             color: var(--gold-primary);
@@ -349,7 +327,7 @@
         }
 
         /* --------------------------------------------------------
-           EDITORIAL PORTRAIT EXHIBITION (THE FINE ART GALLERY)
+           EDITORIAL PORTRAIT EXHIBITION
         -------------------------------------------------------- */
         .editorial-gallery-flow {
             display: flex;
@@ -398,7 +376,6 @@
             line-height: 1.6;
         }
 
-        /* Alternating Asymmetric Layout Coordinates */
         .row-one .gallery-image-wrapper { grid-column: 1 / 8; }
         .row-one .gallery-caption-box { grid-column: 9 / 13; text-align: left; }
 
@@ -482,30 +459,31 @@
         }
 
         /* --------------------------------------------------------
-           DRESS PALETTE & ATTIRING
+           MINIMALIST PALETTE FRAME (AS SEEN IN 1001264794.jpg)
         -------------------------------------------------------- */
         .palette-flex {
             display: flex;
             justify-content: center;
             gap: 3rem;
-            margin: 4rem 0;
+            margin: 4rem 0 0;
             flex-wrap: wrap;
         }
         .palette-pill {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 1rem;
+            gap: 1.2rem;
         }
         .palette-pill span {
             font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--text-muted);
+            letter-spacing: 0.2em;
+            color: var(--white-silk);
+            font-weight: 400;
         }
         .circle-swatch {
-            width: 65px;
-            height: 65px;
+            width: 75px;
+            height: 75px;
             border-radius: 50%;
             border: 1px solid rgba(255,255,255,0.1);
             box-shadow: 0 10px 25px rgba(0,0,0,0.3);
@@ -515,15 +493,8 @@
         .circle-swatch.c3 { background-color: #f4f6f4; }
         .circle-swatch.c4 { background: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728); }
 
-        .attire-toast-note {
-            font-family: var(--font-serif);
-            font-size: 1.5rem;
-            font-style: italic;
-            color: var(--gold-bright);
-        }
-
         /* --------------------------------------------------------
-           RSVP COORDINATION HOVER CARDS
+           RSVP COORDINATION
         -------------------------------------------------------- */
         .rsvp-flex-wrapper {
             display: grid;
@@ -639,35 +610,25 @@
         </div>
     </section>
 
-    <!-- ASYNC CHRONOLOGY AND DIGITAL TOAST PRESENTATION -->
+    <!-- CENTERED TIMEKEEPING CHRONO -->
     <section class="section-space" style="background-color: rgba(1, 15, 12, 0.4);">
-        <div class="container">
-            <div class="story-layout">
-                <div class="video-art-frame reveal-luxe">
-                    <video autoplay muted loop playsinline>
-                        <source src="kofoulovestory.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <div class="story-text-frame reveal-luxe">
-                    <span class="toast-label">A Toast to Destiny</span>
-                    <h3 class="section-header-title">Our Shared Horizon</h3>
-                    <p class="toast-quote">"Two souls, unified under divine ordinance, stepping together into an endless stream of prayer and devotion."</p>
-                    <p class="editorial-prose" style="font-size:1.15rem; margin-bottom: 2rem; line-height:1.7;">
-                        Our story is one authored by patience, molded by faith, and beautifully sealed by the grace of Allah. As the clock counts down to our sacred vows, we hold your prayers close to our hearts.
-                    </p>
-                    
-                    <div class="countdown-grid" id="luxe-timer" data-target="2026-07-17T09:30:00">
-                        <div class="countdown-node"><span class="num" id="d-val">00</span><span class="lbl">Days</span></div>
-                        <div class="countdown-node"><span class="num" id="h-val">00</span><span class="lbl">Hours</span></div>
-                        <div class="countdown-node"><span class="num" id="m-val">00</span><span class="lbl">Mins</span></div>
-                        <div class="countdown-node"><span class="num" id="s-val">00</span><span class="lbl">Secs</span></div>
-                    </div>
+        <div class="container narrow-width">
+            <div class="story-text-frame reveal-luxe">
+                <span class="toast-label">A Toast to Destiny</span>
+                <h2 class="section-header-title">Our Shared Horizon</h2>
+                <p class="toast-quote">"Two souls, unified under divine ordinance, stepping together into an endless stream of prayer and devotion."</p>
+                
+                <div class="countdown-grid" id="luxe-timer" data-target="2026-07-17T09:30:00">
+                    <div class="countdown-node"><span class="num" id="d-val">00</span><span class="lbl">Days</span></div>
+                    <div class="countdown-node"><span class="num" id="h-val">00</span><span class="lbl">Hours</span></div>
+                    <div class="countdown-node"><span class="num" id="m-val">00</span><span class="lbl">Mins</span></div>
+                    <div class="countdown-node"><span class="num" id="s-val">00</span><span class="lbl">Secs</span></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- THE FINE ART PORTRAIT EXHIBITION GALLERY WITH EMBEDDED TOAST VERSE -->
+    <!-- FINE ART PORTRAIT EXHIBITION GALLERY -->
     <section class="section-space">
         <div class="container">
             <div class="text-center" style="margin-bottom: 8rem;">
@@ -760,9 +721,9 @@
                     </div>
                     <div>
                         <span class="itinerary-meta-title">The Coordinates</span>
-                        <p class="itinerary-meta-value">The Grand Ballroom, Luxury Hotel, <br>Kaduna State, Nigeria</p>
+                        <p class="itinerary-meta-value">Kudende Hall, Agwa, Kaduna.</p>
                     </div>
-                    <a href="https://maps.google.com/?q=Luxury+Hotel+Ballroom+Kaduna" target="_blank" rel="noopener noreferrer" class="btn-luxe-action">
+                    <a href="https://maps.google.com/?q=Kudende+Hall+Agwa+Kaduna" target="_blank" rel="noopener noreferrer" class="btn-luxe-action">
                         <span>Navigate Location</span>
                     </a>
                 </div>
@@ -770,10 +731,9 @@
         </div>
     </section>
 
-    <!-- LUXURY DRESS PALETTE DISPLAY -->
+    <!-- MINIMALIST MATRIMONIAL PALETTE (AS IMAGE 1001264794.jpg - TEXT REMOVED) -->
     <section class="section-space text-center">
         <div class="container narrow-width">
-            <span class="toast-label">Visual Harmony</span>
             <h2 class="section-header-title">The Matrimonial Palette</h2>
             
             <div class="palette-flex reveal-luxe">
@@ -782,12 +742,10 @@
                 <div class="palette-pill"><div class="circle-swatch c3"></div><span>White Silk</span></div>
                 <div class="palette-pill"><div class="circle-swatch c4"></div><span>Soft Gold</span></div>
             </div>
-            
-            <p class="attire-toast-note reveal-luxe">Attire: Royal, Refined Traditional Black Tie Elegance</p>
         </div>
     </section>
 
-    <!-- RSVP ASSISTANCE AND DESIGNATED COORDINATION -->
+    <!-- RSVP ASSISTANCE -->
     <section class="section-space text-center" style="background-color: var(--emerald-deep); border-top:1px solid rgba(212,175,87,0.15);">
         <div class="container narrow-width">
             <h2 class="section-header-title gold-gradient-text reveal-luxe">RSVP &amp; Enquiries</h2>
@@ -814,14 +772,13 @@
         <p>&copy; 2026 All Rights Reserved.</p>
     </footer>
 
-    <!-- INTERACTIVE SCRIPTS FOR REAL-TIME RENDERING -->
+    <!-- INTERACTIVE SCRIPTS -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             runCountdownEngine();
             runRevealObserver();
         });
 
-        // Precision Real-Time Chronometer
         function runCountdownEngine() {
             const wrap = document.getElementById("luxe-timer");
             if (!wrap) return;
@@ -858,7 +815,6 @@
             const intervalId = setInterval(compute, 1000);
         }
 
-        // Cinematic Minimalist Intersection Observers 
         function runRevealObserver() {
             const items = document.querySelectorAll('.reveal-luxe');
             
