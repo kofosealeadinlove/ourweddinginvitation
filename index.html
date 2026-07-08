@@ -3,21 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
     <meta name="description" content="The Digital Wedding Invitation for Faiza and Abdulmumin. #KoFosealedinlove26#">
     <title>The Wedding of Faiza & Abdulmumin — #KoFosealedinlove26#</title>
-    
-    <!-- PREMIUM TYPOGRAPHY INJECTION STACK -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
-    
-    <style>
-        /* 
-         ========================================================================
-         LUXURY DIGITAL INVITATION DESIGN SYSTEM
-         ========================================================================
-        */
 
+    <style>
         :root {
             --royal-emerald: #004d38;
             --deep-emerald: #003324;
@@ -25,23 +19,23 @@
             --bright-olive: #708238;
             --dark-slate: #060b09;
             --matte-black: #030504;
-            
+
             --white-silk: #f4f6f4;
             --translucent-silk: rgba(244, 246, 246, 0.85);
             --glass-dark: rgba(6, 11, 9, 0.75);
             --glass-darker: rgba(3, 5, 4, 0.9);
             --glass-emerald: rgba(0, 51, 36, 0.5);
-            
+
             --gold-primary: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fcf6ba 75%, #bf953f 100%);
             --gold-shimmer: linear-gradient(90deg, #b38728 0%, #fcf6ba 50%, #b38728 100%);
             --gold-solid: #c5a059;
             --gold-pale: #e5cf9a;
             --gold-muted: rgba(197, 160, 89, 0.3);
-            
+
             --transition-epic: all 1.4s cubic-bezier(0.16, 1, 0.3, 1);
             --transition-smooth: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
             --transition-snappy: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            
+
             --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.3);
             --shadow-luxury: 0 20px 50px rgba(0, 0, 0, 0.6);
             --shadow-gold-glow: 0 0 25px rgba(197, 160, 89, 0.25);
@@ -90,24 +84,15 @@
             color: var(--translucent-silk);
         }
 
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--matte-black);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--gold-solid);
-            border-radius: 3px;
-        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--matte-black); }
+        ::-webkit-scrollbar-thumb { background: var(--gold-solid); border-radius: 3px; }
 
-        /* --- BACKDROP VIDEO ENVIRONMENT & ATMOSPHERE --- */
+        /* --- BACKDROP VIDEO: made clearly visible (fix) --- */
         .ambient-video-background-wrapper {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
             z-index: -10;
             overflow: hidden;
             pointer-events: none;
@@ -117,47 +102,38 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.25;
-            filter: brightness(65%) contrast(115%) saturate(80%);
+            opacity: 0.85;
+            filter: brightness(80%) contrast(108%) saturate(100%);
             transform: scale(1.02);
         }
 
         .luxury-atmospheric-overlay-mesh {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
             z-index: -9;
             pointer-events: none;
-            background: 
-                linear-gradient(to bottom, rgba(6, 11, 9, 0.85) 0%, rgba(6, 11, 9, 0.5) 40%, rgba(3, 5, 4, 0.9) 85%, var(--matte-black) 100%),
-                radial-gradient(circle at 50% 50%, transparent 20%, rgba(3, 5, 4, 0.7) 100%),
-                radial-gradient(circle at 20% 30%, rgba(0, 77, 56, 0.25) 0%, transparent 60%);
+            background:
+                linear-gradient(to bottom, rgba(6, 11, 9, 0.55) 0%, rgba(6, 11, 9, 0.3) 40%, rgba(3, 5, 4, 0.7) 85%, var(--matte-black) 100%),
+                radial-gradient(circle at 50% 50%, transparent 30%, rgba(3, 5, 4, 0.45) 100%),
+                radial-gradient(circle at 20% 30%, rgba(0, 77, 56, 0.2) 0%, transparent 60%);
         }
 
         #luxury-gold-particle-canvas {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
             z-index: -8;
             pointer-events: none;
         }
 
-        /* --- SCROLL REVEALS --- */
         .reveal-element {
             opacity: 0;
             transform: translateY(40px);
             transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .reveal-element.is-triggered {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .reveal-element.is-triggered { opacity: 1; transform: translateY(0); }
 
-        /* --- HERO HEADER --- */
         .editorial-hero-header-container {
             min-height: 100vh;
             width: 100%;
@@ -193,13 +169,9 @@
             line-height: 1.05;
             letter-spacing: 0.02em;
             text-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-        }
-
-        .editorial-ampersand-bridge {
-            display: block;
-            font-size: clamp(2.5rem, 7vw, 4.2rem);
-            margin: 0.8rem 0;
-            font-weight: 400;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .luxury-geometric-divider {
@@ -225,11 +197,12 @@
             box-shadow: var(--shadow-gold-glow);
         }
 
+        /* --- RING ICON: now actually rendered (fix) --- */
         .interlocking-rings-svg-container {
-            margin: 1rem auto 2.5rem auto;
+            margin: 1.2rem auto;
         }
         .interlocking-rings-svg {
-            width: 85px;
+            width: 78px;
             height: auto;
             animation: premiumContinuousGlow 4s ease-in-out infinite alternate;
         }
@@ -260,15 +233,26 @@
             border: 1px solid var(--gold-muted);
             backdrop-filter: blur(4px);
             box-shadow: var(--shadow-subtle);
+            margin-bottom: 2.5rem;
         }
 
-        /* --- THE SACRED QURANIC ANCHOR --- */
-        .sacred-aphorism-monumental-section {
-            padding: 6rem 2rem;
-            max-width: 900px;
-            margin: 0 auto;
+        /* --- DATE & LOCATION DISPLAY (new, fixes missing date) --- */
+        .date-location-block {
+            display: flex;
+            gap: clamp(2rem, 8vw, 5rem);
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 0.5rem;
+        }
+        .date-location-item { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; }
+        .date-location-value {
+            font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+            font-style: italic;
+            font-weight: 400;
+            color: var(--white-silk);
         }
 
+        .sacred-aphorism-monumental-section { padding: 6rem 2rem; max-width: 900px; margin: 0 auto; }
         .sacred-aphorism-architectural-frame {
             border: 1px solid rgba(197, 160, 89, 0.22);
             padding: 4rem 2.5rem;
@@ -278,14 +262,7 @@
             border-radius: 8px;
             box-shadow: var(--shadow-luxury);
         }
-
-        .corner-accent-filigree {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            border: 2px solid var(--gold-solid);
-            pointer-events: none;
-        }
+        .corner-accent-filigree { position: absolute; width: 20px; height: 20px; border: 2px solid var(--gold-solid); pointer-events: none; }
         .top-left-accent     { top: 15px; left: 15px; border-right: none; border-bottom: none; }
         .top-right-accent    { top: 15px; right: 15px; border-left: none; border-bottom: none; }
         .bottom-left-accent  { bottom: 15px; left: 15px; border-right: none; border-top: none; }
@@ -300,7 +277,6 @@
             margin-bottom: 2.5rem;
             font-weight: 700;
         }
-
         .vernacular-translation-typography {
             font-size: clamp(1.05rem, 2vw, 1.3rem);
             font-style: italic;
@@ -310,7 +286,6 @@
             max-width: 700px;
             margin: 0 auto;
         }
-
         .scripture-citation-tag {
             display: inline-block;
             margin-top: 1.5rem;
@@ -321,7 +296,6 @@
             color: var(--gold-solid);
         }
 
-        /* --- THE INFINITE MARQUEE --- */
         .infinite-marquee-cinematic-conveyor {
             width: 100vw;
             overflow: hidden;
@@ -332,12 +306,7 @@
             margin: 4rem 0;
             white-space: nowrap;
         }
-
-        .marquee-high-velocity-wrapper {
-            display: inline-block;
-            animation: luxuryMarqueeEngine 25s linear infinite;
-        }
-
+        .marquee-high-velocity-wrapper { display: inline-block; animation: luxuryMarqueeEngine 25s linear infinite; }
         .marquee-editorial-text-node {
             font-size: clamp(1.3rem, 3vw, 2.2rem);
             text-transform: uppercase;
@@ -346,19 +315,9 @@
             color: var(--white-silk);
             padding-right: 4rem;
         }
+        @keyframes luxuryMarqueeEngine { 0% { transform: translate3d(0,0,0); } 100% { transform: translate3d(-50%,0,0); } }
 
-        @keyframes luxuryMarqueeEngine {
-            0% { transform: translate3d(0, 0, 0); }
-            100% { transform: translate3d(-50%, 0, 0); }
-        }
-
-        /* --- CHRONOMETRIC COUNTDOWN --- */
-        .chronometric-countdown-outer-wrapper {
-            padding: 2rem 1rem;
-            display: flex;
-            justify-content: center;
-        }
-
+        .chronometric-countdown-outer-wrapper { padding: 2rem 1rem; display: flex; justify-content: center; }
         .chronometric-luxe-dashboard {
             display: flex;
             width: 100%;
@@ -370,14 +329,7 @@
             backdrop-filter: blur(10px);
             box-shadow: var(--shadow-luxury);
         }
-
-        .chronometric-segment-node {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
+        .chronometric-segment-node { flex: 1; display: flex; flex-direction: column; align-items: center; }
         .chronometric-numerical-output {
             font-size: clamp(2rem, 6vw, 4.5rem);
             font-weight: 300;
@@ -386,8 +338,8 @@
             -webkit-text-fill-color: transparent;
             font-style: italic;
             line-height: 1;
+            font-variant-numeric: tabular-nums;
         }
-
         .chronometric-descriptor-tag {
             font-family: 'Montserrat', sans-serif;
             font-size: clamp(0.55rem, 1.5vw, 0.7rem);
@@ -396,7 +348,6 @@
             color: rgba(244, 246, 246, 0.5);
             margin-top: 0.6rem;
         }
-
         .chronometric-splitter-colon {
             font-size: clamp(1.5rem, 5vw, 2.5rem);
             color: var(--gold-solid);
@@ -405,20 +356,8 @@
             padding: 0 0.4rem;
         }
 
-        /* --- INTERACTIVE STORY CHAPTERS --- */
-        .chapters-narrative-section {
-            padding: 6rem 2rem 4rem 2rem;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .chapters-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
-            margin-top: 4rem;
-        }
-
+        .chapters-narrative-section { padding: 6rem 2rem 4rem 2rem; max-width: 1100px; margin: 0 auto; }
+        .chapters-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; margin-top: 4rem; }
         .chapter-card {
             position: relative;
             height: 420px;
@@ -429,204 +368,88 @@
             cursor: pointer;
             background: var(--matte-black);
         }
-
-        .chapter-img-container {
-            width: 100%;
-            height: 100%;
-            position: relative;
-        }
-
-        .chapter-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition-smooth);
-            filter: brightness(60%) contrast(105%);
-        }
-
+        .chapter-img-container { width: 100%; height: 100%; position: relative; }
+        .chapter-img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition-smooth); filter: brightness(60%) contrast(105%); }
         .chapter-overlay-mesh {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: linear-gradient(to bottom, rgba(3,5,4,0.3) 0%, rgba(0, 51, 36, 0.4) 60%, rgba(3,5,4,0.95) 100%);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
+            display: flex; flex-direction: column; justify-content: flex-end;
             padding: 2rem 1.5rem;
             transition: var(--transition-snappy);
         }
-
-        .chapter-number {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.75rem;
-            letter-spacing: 0.3em;
-            color: var(--gold-solid);
-            text-transform: uppercase;
-            margin-bottom: 0.5rem;
-        }
-
-        .chapter-title {
-            font-size: 1.6rem;
-            font-style: italic;
-            font-weight: 400;
-            color: var(--white-silk);
-            margin-bottom: 0.8rem;
-        }
-
-        /* Tap Here Aesthetic Callout Indicator */
+        .chapter-number { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; letter-spacing: 0.3em; color: var(--gold-solid); text-transform: uppercase; margin-bottom: 0.5rem; }
+        .chapter-title { font-size: 1.6rem; font-style: italic; font-weight: 400; color: var(--white-silk); margin-bottom: 0.8rem; }
         .chapter-tap-indicator {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.7rem;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            color: var(--gold-pale);
-            border: 1px solid var(--gold-muted);
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            background: rgba(6, 11, 9, 0.6);
-            backdrop-filter: blur(4px);
-            align-self: center;
-            opacity: 0.9;
-            transition: var(--transition-snappy);
-            margin-top: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            font-family: 'Montserrat', sans-serif; font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase;
+            color: var(--gold-pale); border: 1px solid var(--gold-muted); padding: 0.4rem 1rem; border-radius: 20px;
+            background: rgba(6, 11, 9, 0.6); backdrop-filter: blur(4px); align-self: center; opacity: 0.9;
+            transition: var(--transition-snappy); margin-top: 0.5rem; display: flex; align-items: center; gap: 0.5rem;
         }
+        .chapter-tap-indicator::after { content: '•'; color: var(--gold-solid); animation: pulseDot 1.5s infinite alternate; }
+        @keyframes pulseDot { 0% { opacity: 0.3; } 100% { opacity: 1; } }
+        .chapter-card:hover .chapter-img { transform: scale(1.06); filter: brightness(45%) contrast(110%); }
+        .chapter-card:hover .chapter-tap-indicator { background: var(--gold-primary); color: var(--matte-black); border-color: transparent; box-shadow: var(--shadow-gold-glow); }
 
-        .chapter-tap-indicator::after {
-            content: '•';
-            color: var(--gold-solid);
-            animation: pulseDot 1.5s infinite alternate;
-        }
-
-        @keyframes pulseDot {
-            0% { opacity: 0.3; }
-            100% { opacity: 1; }
-        }
-
-        /* Hover States for Desktop, Interactive Clues */
-        .chapter-card:hover .chapter-img {
-            transform: scale(1.06);
-            filter: brightness(45%) contrast(110%);
-        }
-
-        .chapter-card:hover .chapter-tap-indicator {
-            background: var(--gold-primary);
-            color: var(--matte-black);
-            border-color: transparent;
-            box-shadow: var(--shadow-gold-glow);
-        }
-
-        /* Dynamic Popover Modal for Reading the Chapters */
         .story-popover-modal {
-            position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
-            background: rgba(3, 5, 4, 0.95);
-            backdrop-filter: blur(15px);
-            z-index: 1000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.5s ease;
-            padding: 2rem;
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background: rgba(3, 5, 4, 0.95); backdrop-filter: blur(15px); z-index: 1000;
+            display: flex; justify-content: center; align-items: center;
+            opacity: 0; pointer-events: none; transition: opacity 0.5s ease; padding: 2rem;
         }
-        .story-popover-modal.is-active {
-            opacity: 1;
-            pointer-events: auto;
-        }
+        .story-popover-modal.is-active { opacity: 1; pointer-events: auto; }
         .popover-content-frame {
             background: linear-gradient(135deg, var(--deep-emerald), var(--dark-slate));
-            border: 1px solid var(--gold-solid);
-            padding: 3rem 2rem;
-            border-radius: 12px;
-            max-width: 600px;
-            width: 100%;
-            position: relative;
-            box-shadow: var(--shadow-luxury);
+            border: 1px solid var(--gold-solid); padding: 3rem 2rem; border-radius: 12px;
+            max-width: 600px; width: 100%; position: relative; box-shadow: var(--shadow-luxury);
         }
-        .popover-close-btn {
-            position: absolute;
-            top: 15px; right: 20px;
-            font-size: 2rem;
-            color: var(--gold-pale);
-            cursor: pointer;
-            background: none;
-            border: none;
-        }
-        .popover-body-text {
-            font-size: 1.35rem;
-            line-height: 1.8;
-            font-style: italic;
-            color: var(--white-silk);
-            margin-top: 1.5rem;
-        }
+        .popover-close-btn { position: absolute; top: 15px; right: 20px; font-size: 2rem; color: var(--gold-pale); cursor: pointer; background: none; border: none; }
+        .popover-body-text { font-size: 1.35rem; line-height: 1.8; font-style: italic; color: var(--white-silk); margin-top: 1.5rem; }
 
-        /* --- CELEBRATION EVENTS SCHEDULE (NIKAH & RECEPTION) --- */
-        .itinerary-celebration-section {
-            padding: 6rem 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .itinerary-dual-architecture {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3.5rem;
-            margin-top: 4rem;
-        }
-
+        .itinerary-celebration-section { padding: 6rem 2rem; max-width: 1000px; margin: 0 auto; }
+        .itinerary-dual-architecture { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3.5rem; margin-top: 4rem; }
         .itinerary-card-column {
             background: linear-gradient(180deg, rgba(0, 77, 56, 0.2) 0%, rgba(6, 11, 9, 0.8) 100%);
-            border: 1px solid rgba(197, 160, 89, 0.25);
-            border-radius: 12px;
-            padding: 4rem 2rem;
-            box-shadow: var(--shadow-luxury);
-            position: relative;
-            backdrop-filter: blur(8px);
+            border: 1px solid rgba(197, 160, 89, 0.25); border-radius: 12px; padding: 4rem 2rem;
+            box-shadow: var(--shadow-luxury); position: relative; backdrop-filter: blur(8px);
         }
-
         .itinerary-card-column::before {
-            content: '';
-            position: absolute;
-            top: 10px; left: 10px; right: 10px; bottom: 10px;
-            border: 1px solid rgba(255,255,255,0.03);
-            border-radius: 10px;
-            pointer-events: none;
+            content: ''; position: absolute; top: 10px; left: 10px; right: 10px; bottom: 10px;
+            border: 1px solid rgba(255,255,255,0.03); border-radius: 10px; pointer-events: none;
         }
+        .itinerary-badge-header { font-family: 'Montserrat', sans-serif; font-size: 0.85rem; letter-spacing: 0.35em; color: var(--gold-solid); text-transform: uppercase; margin-bottom: 1.5rem; }
+        .itinerary-title-venue { font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 300; margin-bottom: 2rem; color: var(--white-silk); line-height: 1.3; }
+        .itinerary-time-marker { font-size: clamp(1.3rem, 2.2vw, 1.7rem); font-style: italic; color: var(--gold-pale); border-top: 1px solid rgba(197, 160, 89, 0.2); padding-top: 1.5rem; display: inline-block; width: 80%; }
 
-        .itinerary-badge-header {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.85rem;
-            letter-spacing: 0.35em;
-            color: var(--gold-solid);
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
+        /* --- COLOR CODE SECTION (new) --- */
+        .colorcode-section { padding: 4rem 2rem 6rem; max-width: 700px; margin: 0 auto; }
+        .colorcode-grid { display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; margin-top: 3rem; }
+        .colorcode-item { display: flex; flex-direction: column; align-items: center; gap: 0.9rem; }
+        .colorcode-swatch { width: 56px; height: 56px; border-radius: 50%; border: 1px solid rgba(197,160,89,0.4); box-shadow: var(--shadow-subtle); }
+        .colorcode-label { font-family: 'Montserrat', sans-serif; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--translucent-silk); }
+        .colorcode-hex { font-family: 'Montserrat', sans-serif; font-size: 0.65rem; letter-spacing: 0.1em; color: var(--gold-pale); opacity: 0.8; margin-top: -0.4rem; }
+
+        /* --- RSVP SECTION (new, was missing) --- */
+        .rsvp-section { padding: 4rem 2rem 6rem; max-width: 800px; margin: 0 auto; text-align: center; }
+        .rsvp-contact-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 2.5rem; }
+        .rsvp-chip {
+            font-family: 'Montserrat', sans-serif; font-size: 0.85rem; letter-spacing: 0.05em;
+            color: var(--gold-pale); text-decoration: none; border: 1px solid var(--gold-muted);
+            border-radius: 30px; padding: 0.75rem 1.4rem; background: rgba(0,51,36,0.35);
+            backdrop-filter: blur(4px); transition: var(--transition-snappy);
         }
+        .rsvp-chip:hover { background: var(--gold-primary); color: var(--matte-black); border-color: transparent; }
 
-        .itinerary-title-venue {
-            font-size: clamp(1.8rem, 3vw, 2.4rem);
-            font-weight: 300;
-            margin-bottom: 2rem;
-            color: var(--white-silk);
-            line-height: 1.3;
-        }
+        .site-footer { padding: 4rem 2rem; text-align: center; }
+        .footer-hashtag { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; letter-spacing: 0.2em; color: var(--gold-pale); margin-bottom: 0.8rem; }
+        .footer-copy { font-family: 'Montserrat', sans-serif; font-size: 0.62rem; letter-spacing: 0.1em; color: rgba(244,246,246,0.4); }
 
-        .itinerary-time-marker {
-            font-size: clamp(1.3rem, 2.2vw, 1.7rem);
-            font-style: italic;
-            color: var(--gold-pale);
-            border-top: 1px solid rgba(197, 160, 89, 0.2);
-            padding-top: 1.5rem;
-            display: inline-block;
-            width: 80%;
+        @media (max-width: 600px) {
+            .date-location-block { gap: 2rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- ATMOSPHERIC VECTOR CANVAS LAYER -->
     <div class="ambient-video-background-wrapper">
         <video autoplay loop muted playsinline id="cinematic-bg-video">
             <source src="kofobackgroundvideo.mp4" type="video/mp4">
@@ -635,19 +458,32 @@
     <div class="luxury-atmospheric-overlay-mesh"></div>
     <canvas id="luxury-gold-particle-canvas"></canvas>
 
-    <!-- MAIN HERO OVERLAY FRAMING -->
     <header class="editorial-hero-header-container">
         <div class="sacred-bismillah-emblem reveal-element">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ</div>
-        
+
         <p class="premium-caps-label reveal-element" style="margin-bottom:1rem;">The Honorable Invitation</p>
         <p class="matrimonial-tagline-callout reveal-element">
             Under the divine decree and blessings of Almighty Allah (SWT), we honorably request your presence at the solemnization of the holy matrimony of our beloved children.
         </p>
 
-        <div class="monumental-couple-typographic-wrapper reveal-element">
+        <div class="reveal-element">
             <h1 class="monumental-couple-names">
                 <span class="gold-text-gradient">Faiza</span>
-                <span class="editorial-ampersand-bridge">&</span>
+
+                <div class="interlocking-rings-svg-container">
+                    <svg class="interlocking-rings-svg" viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="ringGoldGrad" x1="0" y1="0" x2="100" y2="50" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#bf953f"/>
+                                <stop offset="0.5" stop-color="#fcf6ba"/>
+                                <stop offset="1" stop-color="#bf953f"/>
+                            </linearGradient>
+                        </defs>
+                        <circle cx="36" cy="25" r="19" stroke="url(#ringGoldGrad)" stroke-width="4"/>
+                        <circle cx="64" cy="25" r="19" stroke="url(#ringGoldGrad)" stroke-width="4"/>
+                    </svg>
+                </div>
+
                 <span class="gold-text-gradient">Abdulmumin</span>
             </h1>
         </div>
@@ -660,9 +496,19 @@
 
         <p class="matrimonial-event-classification reveal-element">The Nikah Celebration</p>
         <p class="matrimonial-unified-hashtag reveal-element">#KoFosealedinlove26#</p>
+
+        <div class="date-location-block reveal-element">
+            <div class="date-location-item">
+                <span class="premium-caps-label">Date</span>
+                <span class="date-location-value gold-text-gradient">17th July 2026</span>
+            </div>
+            <div class="date-location-item">
+                <span class="premium-caps-label">Location</span>
+                <span class="date-location-value gold-text-gradient">Kaduna State</span>
+            </div>
+        </div>
     </header>
 
-    <!-- THE SACRED QURANIC ANCHOR VANE -->
     <section class="sacred-aphorism-monumental-section reveal-element">
         <div class="sacred-aphorism-architectural-frame">
             <div class="corner-accent-filigree top-left-accent"></div>
@@ -680,7 +526,6 @@
         </div>
     </section>
 
-    <!-- CHRONOMETRIC COUNTDOWN ARCHITECTURE -->
     <section class="chronometric-countdown-outer-wrapper reveal-element">
         <div class="chronometric-luxe-dashboard">
             <div class="chronometric-segment-node">
@@ -705,16 +550,14 @@
         </div>
     </section>
 
-    <!-- INTERACTIVE NARRATIVE CHAPTERS -->
     <section class="chapters-narrative-section reveal-element">
         <p class="premium-caps-label">Our Chronicle</p>
         <h2 class="gold-text-gradient" style="font-size: clamp(2rem, 4vw, 3rem); font-style: italic; font-weight: 300; margin-top: 0.5rem;">The Love Story</h2>
-        
+
         <div class="chapters-grid">
-            <!-- CHAPTER I -->
             <div class="chapter-card reveal-element" onclick="openStoryModal('Chapter I: The Genesis of Us', 'A single glance that blossomed into an eternal vow, orchestrated under the divine gaze of Rahmah and absolute blessings. Every step since that moment has been anchored in trust, friendship, and prayer.')">
                 <div class="chapter-img-container">
-                    <img src="kofolove.jpg" alt="The Genesis of Us" class="chapter-img">
+                    <img src="kofolove.jpg" alt="The Genesis of Us" class="chapter-img" loading="lazy">
                     <div class="chapter-overlay-mesh">
                         <span class="chapter-number">Chapter I</span>
                         <h3 class="chapter-title">The Genesis of Us</h3>
@@ -723,10 +566,9 @@
                 </div>
             </div>
 
-            <!-- CHAPTER II -->
             <div class="chapter-card reveal-element" onclick="openStoryModal('Chapter II: Destined Companions', 'Through seasons of patience, our paths aligned perfectly under Allah\'s beautiful plan. We recognized in each other the prayer we had both silently sent upwards.')">
                 <div class="chapter-img-container">
-                    <img src="kofolove1.jpg" alt="Destined Companions" class="chapter-img">
+                    <img src="kofolove1.jpg" alt="Destined Companions" class="chapter-img" loading="lazy">
                     <div class="chapter-overlay-mesh">
                         <span class="chapter-number">Chapter II</span>
                         <h3 class="chapter-title">Destined Companions</h3>
@@ -735,10 +577,9 @@
                 </div>
             </div>
 
-            <!-- CHAPTER III -->
             <div class="chapter-card reveal-element" onclick="openStoryModal('Chapter III: Two Hearts, One Deen', 'Building our foundation on faith, mutual respect, and infinite care. Growing together spiritually, promising to hold hands all the way to Jannah.')">
                 <div class="chapter-img-container">
-                    <img src="kofolove2.jpg" alt="Two Hearts, One Deen" class="chapter-img">
+                    <img src="kofolove2.jpg" alt="Two Hearts, One Deen" class="chapter-img" loading="lazy">
                     <div class="chapter-overlay-mesh">
                         <span class="chapter-number">Chapter III</span>
                         <h3 class="chapter-title">Two Hearts, One Deen</h3>
@@ -747,10 +588,9 @@
                 </div>
             </div>
 
-            <!-- CHAPTER IV -->
             <div class="chapter-card reveal-element" onclick="openStoryModal('Chapter IV: The Threshold of Forever', 'The beautiful period of anticipation and planning, matching smiles and aligning vision for a family legacy of love and mercy.')">
                 <div class="chapter-img-container">
-                    <img src="kofolove3.jpg" alt="The Threshold of Forever" class="chapter-img">
+                    <img src="kofolove3.jpg" alt="The Threshold of Forever" class="chapter-img" loading="lazy">
                     <div class="chapter-overlay-mesh">
                         <span class="chapter-number">Chapter IV</span>
                         <h3 class="chapter-title">The Threshold of Forever</h3>
@@ -759,10 +599,9 @@
                 </div>
             </div>
 
-            <!-- CHAPTER V -->
             <div class="chapter-card reveal-element" onclick="openStoryModal('Chapter V: Sealed In Love', 'The culmination of our journey and the dawn of a new chapter. Hand in hand, writing our beautiful forever starting today under #KoFosealedinlove26#.')">
                 <div class="chapter-img-container">
-                    <img src="kofolove4.jpg" alt="Sealed In Love" class="chapter-img">
+                    <img src="kofolove4.jpg" alt="Sealed In Love" class="chapter-img" loading="lazy">
                     <div class="chapter-overlay-mesh">
                         <span class="chapter-number">Chapter V</span>
                         <h3 class="chapter-title">Sealed In Love</h3>
@@ -773,7 +612,6 @@
         </div>
     </section>
 
-    <!-- THE INFINITE MARQUEE SEPARATOR -->
     <div class="infinite-marquee-cinematic-conveyor">
         <div class="marquee-high-velocity-wrapper">
             <span class="marquee-editorial-text-node">FAIZA <span class="gold-text-gradient">&</span> ABDULMUMIN •</span>
@@ -783,20 +621,17 @@
         </div>
     </div>
 
-    <!-- CELEBRATION EVENTS SCHEDULE (NIKAH & RECEPTION) -->
     <section class="itinerary-celebration-section reveal-element">
         <p class="premium-caps-label">The Gathering</p>
         <h2 class="gold-text-gradient" style="font-size: clamp(2rem, 4vw, 3rem); font-style: italic; font-weight: 300; margin-top: 0.5rem;">Event Schedule</h2>
 
         <div class="itinerary-dual-architecture">
-            <!-- NIKAH VENUE CARD -->
             <div class="itinerary-card-column reveal-element">
                 <div class="itinerary-badge-header">The Solemnization</div>
                 <h3 class="itinerary-title-venue">Oba Agwa Compound</h3>
                 <div class="itinerary-time-marker">9:30 AM</div>
             </div>
 
-            <!-- RECEPTION VENUE CARD -->
             <div class="itinerary-card-column reveal-element">
                 <div class="itinerary-badge-header">The Reception Banquet</div>
                 <h3 class="itinerary-title-venue">Luxury Hotel,<br><span style="font-size: 1.4rem; color: rgba(244,246,246,0.75);">Agwa, Kaduna State</span></h3>
@@ -805,7 +640,42 @@
         </div>
     </section>
 
-    <!-- DYNAMIC STORY READING MODAL FRAME -->
+    <section class="colorcode-section reveal-element">
+        <p class="premium-caps-label">Attire</p>
+        <h2 class="gold-text-gradient" style="font-size: clamp(1.8rem, 3.5vw, 2.4rem); font-style: italic; font-weight: 300; margin-top: 0.5rem;">Color Code</h2>
+        <div class="colorcode-grid">
+            <div class="colorcode-item">
+                <div class="colorcode-swatch" style="background:#FFFFFF;"></div>
+                <span class="colorcode-label">White</span>
+            </div>
+            <div class="colorcode-item">
+                <div class="colorcode-swatch" style="background:#00664D;"></div>
+                <span class="colorcode-label">Emerald Green</span>
+                <span class="colorcode-hex">#00664D</span>
+            </div>
+            <div class="colorcode-item">
+                <div class="colorcode-swatch" style="background:#6E7B3A;"></div>
+                <span class="colorcode-label">Olive Green</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="rsvp-section reveal-element">
+        <p class="premium-caps-label">Kindly Respond</p>
+        <h2 class="gold-text-gradient" style="font-size: clamp(1.8rem, 3.5vw, 2.4rem); font-style: italic; font-weight: 300; margin-top: 0.5rem;">RSVP</h2>
+        <div class="rsvp-contact-grid">
+            <a class="rsvp-chip" href="https://wa.me/2348036007267" target="_blank" rel="noopener">0803 600 7267</a>
+            <a class="rsvp-chip" href="https://wa.me/2347032326592" target="_blank" rel="noopener">0703 232 6592</a>
+            <a class="rsvp-chip" href="https://wa.me/2348177145309" target="_blank" rel="noopener">0817 714 5309</a>
+            <a class="rsvp-chip" href="https://wa.me/2347039171555" target="_blank" rel="noopener">0703 917 1555</a>
+        </div>
+    </section>
+
+    <footer class="site-footer reveal-element">
+        <p class="footer-hashtag">#KoFosealedinlove26#</p>
+        <p class="footer-copy">&copy; 2026 · Faiza &amp; Abdulmumin</p>
+    </footer>
+
     <div class="story-popover-modal" id="story-reader-modal">
         <div class="popover-content-frame">
             <button class="popover-close-btn" onclick="closeStoryModal()">&times;</button>
@@ -819,9 +689,7 @@
         </div>
     </div>
 
-    <!-- HIGH-PERFORMANCE SCRIPTS AND AMBIENT PARTICLES ENGINE -->
     <script>
-        /* --- SCROLL REVEAL UTILITY ENGINE --- */
         const revealElements = document.querySelectorAll('.reveal-element');
         const triggerReveals = () => {
             revealElements.forEach(el => {
@@ -834,7 +702,6 @@
         window.addEventListener('scroll', triggerReveals);
         window.addEventListener('load', triggerReveals);
 
-        /* --- INTERACTIVE STORY POP-OVER SYSTEM --- */
         const modal = document.getElementById('story-reader-modal');
         const mHeader = document.getElementById('modal-chapter-header');
         const mBody = document.getElementById('modal-chapter-body');
@@ -851,13 +718,18 @@
             if (e.target === modal) closeStoryModal();
         });
 
-        /* --- MATH CHRONOMETER SYSTEM --- */
-        const targetDate = new Date("December 26, 2026 09:30:00").getTime();
+        /* FIX: countdown now targets the correct wedding date/time */
+        const targetDate = new Date("July 17, 2026 09:30:00").getTime();
         function runCountdown() {
             const now = new Date().getTime();
             const distance = targetDate - now;
-            if (distance < 0) return;
-
+            if (distance < 0) {
+                document.getElementById("countdown-days").textContent = "00";
+                document.getElementById("countdown-hours").textContent = "00";
+                document.getElementById("countdown-minutes").textContent = "00";
+                document.getElementById("countdown-seconds").textContent = "00";
+                return;
+            }
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
@@ -871,7 +743,6 @@
         setInterval(runCountdown, 1000);
         runCountdown();
 
-        /* --- AMBIENT ISLAMIC GOLD FLOATING PARTICLES ENGINE --- */
         const canvas = document.getElementById('luxury-gold-particle-canvas');
         const ctx = canvas.getContext('2d');
         let particlesArray = [];
@@ -889,7 +760,7 @@
                 this.y = Math.random() * canvas.height;
                 this.size = Math.random() * 2.5 + 0.5;
                 this.speedX = Math.random() * 0.3 - 0.15;
-                this.speedY = Math.random() * -0.5 - 0.1; // Gentle upwards float
+                this.speedY = Math.random() * -0.5 - 0.1;
                 this.opacity = Math.random() * 0.5 + 0.2;
             }
             update() {
@@ -908,7 +779,7 @@
                 ctx.globalAlpha = this.opacity;
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = '#fcf6ba'; // Luxury shimmery light gold
+                ctx.fillStyle = '#fcf6ba';
                 ctx.shadowBlur = 8;
                 ctx.shadowColor = '#bf953f';
                 ctx.fill();
