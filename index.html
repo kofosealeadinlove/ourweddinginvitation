@@ -19,7 +19,7 @@
             --dark-slate: #0b1511;
             --gold-gradient: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fcf6ba 75%, #bf953f 100%);
             --subtle-gold: #c5a059;
-            --transition-smooth: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+            --transition-smooth: all 1.2s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
         /* --- SYSTEM RESET & BASE CONFIG --- */
@@ -84,16 +84,80 @@
             pointer-events: none;
         }
 
-        /* --- SCROLL REVEAL MECHANICS --- */
-        .reveal {
+        /* --- SEGMENTED DISTINCT SCROLL REVEAL EFFECTS --- */
+        /* 1. Cinematic Zoom Reveal (Hero / Rings) */
+        .reveal-zoom {
+            opacity: 0;
+            transform: scale(0.92);
+            transition: var(--transition-smooth);
+        }
+        .reveal-zoom.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* 2. 3D Perspective Flip Reveal (Sacred Quran Verse) */
+        .reveal-3d-flip {
+            opacity: 0;
+            transform: perspective(1000px) rotateX(-20deg) translateY(30px);
+            transition: var(--transition-smooth);
+        }
+        .reveal-3d-flip.active {
+            opacity: 1;
+            transform: perspective(1000px) rotateX(0deg) translateY(0);
+        }
+
+        /* 3. Smooth Fade Up (Marquee / Countdowns / General Elements) */
+        .reveal-fade-up {
             opacity: 0;
             transform: translateY(40px);
             transition: var(--transition-smooth);
         }
-
-        .reveal.active {
+        .reveal-fade-up.active {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        /* 4. Elegant Slide-In Left (Nikkah Logistics Axis) */
+        .reveal-slide-left {
+            opacity: 0;
+            transform: translateX(-60px);
+            transition: var(--transition-smooth);
+        }
+        .reveal-slide-left.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* 5. Elegant Slide-In Right (Reception Logistics Axis) */
+        .reveal-slide-right {
+            opacity: 0;
+            transform: translateX(60px);
+            transition: var(--transition-smooth);
+        }
+        .reveal-slide-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* --- MATRIMONIAL RING EMBLEM INTERFACE --- */
+        .wedding-rings-container {
+            margin: 1.5rem auto 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .wedding-rings-svg {
+            width: 75px;
+            height: auto;
+            filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.4));
+            animation: ringGlowAnimation 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes ringGlowAnimation {
+            0% { transform: scale(1); filter: drop-shadow(0px 4px 10px rgba(197, 160, 89, 0.1)); }
+            100% { transform: scale(1.04); filter: drop-shadow(0px 6px 15px rgba(197, 160, 89, 0.4)); }
         }
 
         /* --- HERO PRESENTATION FRAME --- */
@@ -376,6 +440,7 @@
             padding: 5rem 2rem;
             max-width: 1000px;
             margin: 0 auto;
+            overflow: hidden;
         }
 
         .grid-container {
@@ -541,10 +606,10 @@
 </head>
 <body>
 
-    <!-- Immersive Background Video Asset Layer -->
+    <!-- Immersive Background Video Asset Layer (Fixed lower-case naming mismatch) -->
     <div class="video-bg-container">
         <video id="bg-video" autoplay muted loop playsinline preload="auto" webkit-playsinline>
-            <source src="Kofobackgroundvideo.mp4" type="video/mp4">
+            <source src="kofobackgroundvideo.mp4" type="video/mp4">
         </video>
     </div>
 
@@ -568,29 +633,49 @@
 
     <!-- HERO PRESENTATION FRAME -->
     <header>
-        <div class="bismillah reveal">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
-        <div class="tagline reveal">The Honour of Your Presence is Requested at the Nikkah of</div>
-        <h1 class="couple-names reveal">
+        <div class="bismillah reveal-zoom">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
+        <div class="tagline reveal-zoom">The Honour of Your Presence is Requested at the Nikkah of</div>
+        <h1 class="couple-names reveal-zoom">
             Faiza 
             <span class="ampersand">&</span> 
             Abdulmumin
         </h1>
-        <div class="divider-line reveal"></div>
-        <div class="event-type reveal">Nikkah</div>
-        <div class="date-location-line reveal">17 . 07 . 2026 — KADUNA STATE</div>
-        <div class="hashtag reveal">#KoFosealedinlove26#</div>
+
+        <!-- MATRIMONIAL SOURCEABLE INTERLOCKING GOLD RINGS EMBLEM -->
+        <div class="wedding-rings-container reveal-zoom">
+            <svg class="wedding-rings-svg" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="svgGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#bf953f" />
+                        <stop offset="25%" stop-color="#fcf6ba" />
+                        <stop offset="50%" stop-color="#b38728" />
+                        <stop offset="75%" stop-color="#fcf6ba" />
+                        <stop offset="100%" stop-color="#bf953f" />
+                    </linearGradient>
+                </defs>
+                <!-- Left Ring Overlay Axis -->
+                <circle cx="38" cy="30" r="20" stroke="url(#svgGold)" stroke-width="3.5" fill="none" />
+                <!-- Right Interlocking Ring Axis -->
+                <circle cx="62" cy="30" r="20" stroke="url(#svgGold)" stroke-width="3.5" fill="none" />
+            </svg>
+        </div>
+
+        <div class="divider-line reveal-zoom"></div>
+        <div class="event-type reveal-zoom">Nikkah</div>
+        <div class="date-location-line reveal-zoom">17 . 07 . 2026 — KADUNA STATE</div>
+        <div class="hashtag reveal-zoom">#KoFosealedinlove26#</div>
     </header>
 
-    <!-- SACRED QURANIC VERSE FRAME -->
-    <section class="quran-section reveal">
+    <!-- SACRED QURANIC VERSE FRAME (3D Perspective Flip Scroll Behavior) -->
+    <section class="quran-section reveal-3d-flip">
         <div class="quran-frame">
-            <div class="arabic-verse">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً</div>
+            <div class="arabic-verse">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً</div>
             <div class="english-translation">"And of His signs is that He created for you from yourselves mates that you may find tranquility in them; and He placed between you affection and mercy..." <br><strong>— Surah Ar-Rum: 21</strong></div>
         </div>
     </section>
 
-    <!-- CINEMATIC CONTINUOUS HORIZONTAL SCROLL TEXT EFFECT -->
-    <div class="scroll-marquee-container reveal">
+    <!-- CINEMATIC CONTINUOUS HORIZONTAL SCROLL TEXT EFFECT (Smooth Fade Up Scroll Behavior) -->
+    <div class="scroll-marquee-container reveal-fade-up">
         <div class="marquee-wrapper">
             <span class="marquee-text">Faiza & Abdulmumin • <span>Save The Date</span> • July 17, 2026 • #KoFosealedinlove26# • </span>
             <span class="marquee-text">Faiza & Abdulmumin • <span>Save The Date</span> • July 17, 2026 • #KoFosealedinlove26# • </span>
@@ -599,8 +684,8 @@
         </div>
     </div>
 
-    <!-- PERFECTLY CENTERED TIMELINE COORDINATE -->
-    <section id="countdown-section" class="reveal">
+    <!-- PERFECTLY CENTERED TIMELINE COORDINATE (Smooth Fade Up Scroll Behavior) -->
+    <section id="countdown-section" class="reveal-fade-up">
         <div id="luxe-timer">
             <div class="time-node">
                 <span class="time-value" id="days">00</span>
@@ -621,8 +706,8 @@
         </div>
     </section>
 
-    <!-- EDITORIAL GALLERY FRAME WITH SLIDING HOVER TOASTS -->
-    <section class="gallery-section reveal">
+    <!-- EDITORIAL GALLERY FRAME WITH SLIDING HOVER TOASTS (Cinematic Zoom Scroll Behavior) -->
+    <section class="gallery-section reveal-zoom">
         <div class="gallery-grid">
             <div class="gallery-card">
                 <img src="kofolove1.jpg" alt="Faiza & Abdulmumin Moments">
@@ -648,19 +733,19 @@
         </div>
     </section>
 
-    <!-- ITINERARY LOGISTICS ARCHITECTURE -->
+    <!-- ITINERARY LOGISTICS ARCHITECTURE (Directional Lateral Slide In Transitions) -->
     <section class="details-section">
         <div class="grid-container">
-            <!-- Card One -->
-            <div class="event-card reveal">
+            <!-- Card One (Slides in Left) -->
+            <div class="event-card reveal-slide-left">
                 <h3 class="card-title">The Nikkah</h3>
                 <p class="card-detail">
                     Time: 11:00 AM Prompt<br>
                     Venue Location Details to be Announced
                 </p>
             </div>
-            <!-- Card Two: Perfect Coordinates -->
-            <div class="event-card reveal">
+            <!-- Card Two (Slides in Right) -->
+            <div class="event-card reveal-slide-right">
                 <h3 class="card-title">The Reception</h3>
                 <p class="card-detail">
                     Time: Immediately Following Nikkah<br>
@@ -671,8 +756,8 @@
         </div>
     </section>
 
-    <!-- ULTRA-MINIMALIST PALETTE INTERFACE -->
-    <section class="palette-section reveal">
+    <!-- ULTRA-MINIMALIST PALETTE INTERFACE (Smooth Fade Up Scroll Behavior) -->
+    <section class="palette-section reveal-fade-up">
         <h2 class="palette-title">Matrimonial Palette</h2>
         <div class="palette-grid">
             <div class="palette-item">
@@ -701,20 +786,20 @@
 
     <!-- INTERACTION LOGIC & SYSTEM MECHANICS -->
     <script>
-        /* --- HARDWARE-ACCELERATED SCROLL REVEAL SCRIPT --- */
-        const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -40px 0px" };
-        const revealElements = document.querySelectorAll('.reveal');
+        /* --- MULTI-SEGMENT SEGREGATED SCROLL REVEAL DRIVER SCRIPT --- */
+        const observerOptions = { threshold: 0.08, rootMargin: "0px 0px -20px 0px" };
+        const dynamicRevealElements = document.querySelectorAll('[class*="reveal-"]');
         
-        const revealObserver = new IntersectionObserver((entries) => {
+        const segmentRevealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
-                    revealObserver.unobserve(entry.target);
+                    segmentRevealObserver.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
-        revealElements.forEach(element => revealObserver.observe(element));
+        dynamicRevealElements.forEach(element => segmentRevealObserver.observe(element));
 
         /* --- HIGH PERFORMANCE VANILLA JS CANVAS GOLD PARTICLES ENGINE --- */
         const canvas = document.getElementById('particleCanvas');
@@ -755,7 +840,7 @@
 
         function initParticles() {
             particlesArray = [];
-            const particleCount = Math.min(60, Math.floor(canvas.width / 25)); // Balanced density
+            const particleCount = Math.min(60, Math.floor(canvas.width / 25));
             for(let i = 0; i < particleCount; i++) {
                 particlesArray.push(new Particle());
             }
@@ -797,7 +882,7 @@
         setInterval(runCountdownEngine, 1000);
         runCountdownEngine();
 
-        /* --- ULTRA-AGGRESSIVE INTERACTION-UNLOCK AUTO-PLAY AUDIO MODULE --- */
+        /* --- AUDIO SYSTEM MECHANICS --- */
         const mediaTrack = document.getElementById('inviteMusic');
         const controlBtn = document.getElementById('audioBtn');
         const visualIcon = document.getElementById('audioIcon');
@@ -806,7 +891,6 @@
         function playAudioTrack() {
             mediaTrack.play().then(() => {
                 controlBtn.classList.add('playing');
-                // Absolute mute state icon update
                 visualIcon.innerHTML = `<path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77zM4.34 2.93L2.93 4.34 7.59 9H3v6h4l5 5v-6.59l4.38 4.38c-.69.44-1.43.77-2.38.91v2.06c1.5-.33 2.87-.98 4.02-1.89l3.05 3.05 1.41-1.41L4.34 2.93zM12 4L9.91 6.09 12 8.18V4z"/>`;
             }).catch(err => console.log("Awaiting hardware interaction context unlock."));
         }
@@ -817,42 +901,33 @@
             } else {
                 mediaTrack.pause();
                 controlBtn.classList.remove('playing');
-                // Revert completely to original musical note icon layout
                 visualIcon.innerHTML = `<path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>`;
             }
         }
 
-        // Direct control trigger
         controlBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             interactionUnlocked = true;
             toggleMediaState();
         });
 
-        // Global ambient activation array to safely sweep standard browser blocks automatically
         const interactionEvents = ['click', 'touchstart', 'scroll', 'mousemove'];
-        
         function autoPlayOnGesture() {
             if (!interactionUnlocked) {
                 interactionUnlocked = true;
                 playAudioTrack();
             }
-            // Clear monitoring engine directly upon execution
             interactionEvents.forEach(event => window.removeEventListener(event, autoPlayOnGesture));
         }
-
         interactionEvents.forEach(event => window.addEventListener(event, autoPlayOnGesture, { passive: true }));
 
-        /* --- FORCE MOBILE BACKGROUND VIDEO AUTOPLAY (FIX FOR PLAY OVERLAY EMBED) --- */
+        /* --- FORCE MOBILE BACKGROUND VIDEO AUTOPLAY --- */
         const backgroundVid = document.getElementById('bg-video');
-
         function forcePlayVideo() {
             if (backgroundVid && backgroundVid.paused) {
                 backgroundVid.play().catch(err => console.log("Video autoplay fluid bypass active."));
             }
         }
-
-        // Bind directly to global gestures to lift the mobile hardware restriction immediately
         ['click', 'touchstart', 'scroll'].forEach(event => {
             window.addEventListener(event, forcePlayVideo, { passive: true });
         });
