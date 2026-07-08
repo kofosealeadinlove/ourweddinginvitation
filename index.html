@@ -1,1096 +1,521 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Faiza &amp; Abdulmumin — #KOFOSEALEDINLOVE26#</title>
-    
-    <!-- Premium Google Typography Engines -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@100;200;300;400;500&display=swap" rel="stylesheet">
-    
-    <style>
-        /* ==========================================================================
-           1. CORE ARCHITECTURE & DESIGN TOKENS
-           ========================================================================== */
-        :root {
-            /* Exact Color Palette Specs from 1001265155.jpg */
-            --royal-emerald: #004D38;
-            --bright-olive: #708238;
-            --white-silk: #F4F6F4;
-            --soft-gold: #C5A059;
-            
-            /* Premium Depth Variations */
-            --bg-dark-pure: #070707;
-            --bg-dark-elevated: #111111;
-            --bg-dark-card: #161616;
-            --gold-muted: rgba(197, 160, 89, 0.4);
-            --gold-ultra-faint: rgba(197, 160, 89, 0.08);
-            --emerald-glow: rgba(0, 77, 56, 0.15);
-            
-            /* Typography Scale Sets */
-            --font-display: 'Cinzel', serif;
-            --font-serif: 'Cormorant Garamond', serif;
-            --font-sans: 'Montserrat', sans-serif;
-            
-            /* Motion Dynamics */
-            --ease-premium: cubic-bezier(0.25, 1, 0.5, 1);
-            --transition-slow: all 0.8s var(--ease-premium);
-            --transition-fast: all 0.3s ease;
-        }
-
-        /* Reset & Global Normalization */
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            background-color: var(--bg-dark-pure);
-            color: var(--white-silk);
-            font-family: var(--font-serif);
-            font-size: 16px;
-            line-height: 1.75;
-            letter-spacing: 0.04em;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        body {
-            min-height: 100vh;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        /* Bespoke Luxury Scrollbar */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--bg-dark-pure);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--soft-gold);
-            border-radius: 3px;
-        }
-
-        /* Selection Aesthetics */
-        ::selection {
-            background: var(--royal-emerald);
-            color: var(--white-silk);
-        }
-
-        /* ==========================================================================
-           2. REUSABLE UTILITIES & LAYOUT MACROS
-           ========================================================================== */
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 30px;
-        }
-
-        .section-padding {
-            padding: 140px 0;
-        }
-
-        .text-center { text-align: center; }
-        
-        .gold-text {
-            color: var(--soft-gold);
-            font-family: var(--font-display);
-        }
-
-        /* Luxury Decorative Divider Component */
-        .luxury-divider {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            margin: 35px auto;
-            max-width: 300px;
-        }
-
-        .luxury-divider::before,
-        .luxury-divider::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: linear-gradient(to var(--direction, right), transparent, var(--soft-gold));
-        }
-
-        .luxury-divider::after { --direction: left; }
-
-        .luxury-divider .diamond {
-            width: 8px;
-            height: 8px;
-            background: var(--soft-gold);
-            transform: rotate(45deg);
-            box-shadow: 0 0 8px var(--soft-gold);
-        }
-
-        /* ==========================================================================
-           3. HEADERS & NAVIGATION
-           ========================================================================== */
-        header {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 10;
-            padding: 40px 0;
-            border-bottom: 1px solid rgba(244, 246, 244, 0.05);
-        }
-
-        .nav-wrapper {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-logo {
-            font-family: var(--font-display);
-            font-size: 1.4rem;
-            font-weight: 500;
-            letter-spacing: 0.25em;
-            color: var(--soft-gold);
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .nav-monogram {
-            font-family: var(--font-display);
-            font-size: 1.8rem;
-            color: var(--white-silk);
-            border: 1px solid var(--soft-gold);
-            padding: 5px 12px;
-            border-radius: 50%;
-        }
-
-        /* ==========================================================================
-           4. HERO LANDING SUITE
-           ========================================================================== */
-        .hero {
-            position: relative;
-            height: 100vh;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: radial-gradient(circle at center, var(--royal-emerald) 0%, var(--bg-dark-pure) 100%);
-            overflow: hidden;
-        }
-
-        /* Elegant Ambient Canvas Overlay */
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-image: radial-gradient(rgba(197, 160, 89, 0.04) 1px, transparent 0);
-            background-size: 24px 24px;
-            z-index: 1;
-        }
-
-        .hero-inner {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            padding: 0 20px;
-        }
-
-        .hero-subtitle {
-            font-family: var(--font-sans);
-            font-size: 0.85rem;
-            font-weight: 300;
-            text-transform: uppercase;
-            letter-spacing: 0.4em;
-            color: var(--white-silk);
-            margin-bottom: 25px;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: luxuryFadeInUp 1.2s var(--ease-premium) forwards;
-        }
-
-        .hero-title {
-            font-family: var(--font-display);
-            font-size: 4.5rem;
-            font-weight: 400;
-            line-height: 1.15;
-            color: var(--soft-gold);
-            margin-bottom: 30px;
-            opacity: 0;
-            transform: translateY(35px);
-            animation: luxuryFadeInUp 1.6s var(--ease-premium) forwards 0.3s;
-            text-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
-        }
-
-        .hero-title span {
-            display: block;
-            font-family: var(--font-serif);
-            font-style: italic;
-            font-size: 3rem;
-            color: var(--white-silk);
-            margin: 10px 0;
-            text-transform: lowercase;
-        }
-
-        .hero-date {
-            font-family: var(--font-sans);
-            font-size: 0.95rem;
-            font-weight: 400;
-            text-transform: uppercase;
-            letter-spacing: 0.3em;
-            border-top: 1px solid var(--gold-muted);
-            border-bottom: 1px solid var(--gold-muted);
-            padding: 15px 40px;
-            display: inline-block;
-            margin-bottom: 45px;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: luxuryFadeInUp 1.2s var(--ease-premium) forwards 0.6s;
-        }
-
-        .scroll-indicator {
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            opacity: 0.6;
-            transition: var(--transition-fast);
-        }
-
-        .scroll-indicator:hover { opacity: 1; }
-
-        .scroll-line {
-            width: 1px;
-            height: 60px;
-            background: linear-gradient(to bottom, var(--soft-gold), transparent);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .scroll-line::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 20px;
-            background: var(--white-silk);
-            animation: scrollDrop 2s infinite linear;
-        }
-
-        /* ==========================================================================
-           5. THE JOURNAL & JOURNEY (OUR STORY)
-           ========================================================================== */
-        .story-narrative {
-            max-width: 750px;
-            margin: 0 auto 80px auto;
-            text-align: center;
-        }
-
-        .story-narrative p {
-            font-size: 1.4rem;
-            font-weight: 300;
-            line-height: 2;
-            color: rgba(244, 246, 244, 0.9);
-            margin-bottom: 25px;
-        }
-
-        .story-narrative p::first-letter {
-            font-family: var(--font-display);
-            font-size: 3.5rem;
-            float: left;
-            margin-right: 15px;
-            line-height: 0.8;
-            color: var(--soft-gold);
-            margin-top: 5px;
-        }
-
-        /* Structural Editorial Grid */
-        .editorial-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-            margin-top: 100px;
-        }
-
-        .editorial-panel {
-            position: relative;
-            padding: 40px;
-            background: var(--bg-dark-elevated);
-            border: 1px solid rgba(197, 160, 89, 0.1);
-            border-radius: 4px;
-        }
-
-        .editorial-panel h3 {
-            font-family: var(--font-display);
-            font-size: 1.8rem;
-            color: var(--soft-gold);
-            margin-bottom: 20px;
-        }
-
-        /* ==========================================================================
-           6. FLUID COUNTDOWN SYSTEM (MOBILE RE-ENGINEERED)
-           ========================================================================== */
-        .countdown-block {
-            background: linear-gradient(180deg, var(--bg-dark-elevated) 0%, var(--bg-dark-pure) 100%);
-            border-top: 1px solid rgba(197, 160, 89, 0.15);
-            border-bottom: 1px solid rgba(197, 160, 89, 0.15);
-            padding: 80px 0;
-            position: relative;
-            box-shadow: inset 0 20px 40px rgba(0,0,0,0.5);
-        }
-
-        .countdown-outer {
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        /* Re-engineered Flex Wrapper to Absolute Prevention of Viewport Overflow */
-        .countdown-flex-wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap; /* Crucial defensive structural asset */
-            gap: 20px;       /* Scale safe metric spacing */
-            width: 100%;
-        }
-
-        .countdown-box {
-            background: var(--bg-dark-card);
-            border: 1px solid var(--gold-muted);
-            border-radius: 8px;
-            padding: 25px 20px;
-            flex: 1;
-            min-width: 110px; /* Secure horizontal baseline metric prevents squishing */
-            max-width: 160px;
-            text-align: center;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-            position: relative;
-            overflow: hidden;
-            transition: var(--transition-slow);
-        }
-
-        .countdown-box::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 3px;
-            background: linear-gradient(to right, var(--royal-emerald), var(--soft-gold));
-            opacity: 0.7;
-        }
-
-        .countdown-box:hover {
-            transform: translateY(-8px);
-            border-color: var(--soft-gold);
-            box-shadow: 0 20px 45px var(--emerald-glow);
-        }
-
-        .countdown-box .metric-value {
-            font-family: var(--font-display);
-            font-size: 3rem;
-            font-weight: 600;
-            color: var(--soft-gold);
-            display: block;
-            line-height: 1.1;
-            letter-spacing: -0.02em;
-        }
-
-        .countdown-box .metric-label {
-            font-family: var(--font-sans);
-            font-size: 0.75rem;
-            font-weight: 400;
-            text-transform: uppercase;
-            letter-spacing: 0.25em;
-            color: var(--white-silk);
-            opacity: 0.6;
-            margin-top: 10px;
-            display: block;
-        }
-
-        /* ==========================================================================
-           7. THE CELEBRATION CHRONICLES (ITINERARY CARD MATRICES)
-           ========================================================================== */
-        .itinerary-matrix {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
-        }
-
-        .itinerary-card {
-            background-color: var(--bg-dark-card);
-            border: 1px solid rgba(197, 160, 89, 0.12);
-            padding: 50px 40px;
-            border-radius: 4px;
-            text-align: center;
-            position: relative;
-            transition: var(--transition-slow);
-            overflow: hidden;
-        }
-
-        .itinerary-card::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border: 1px solid transparent;
-            transition: var(--transition-slow);
-            pointer-events: none;
-        }
-
-        .itinerary-card:hover::after {
-            inset: 15px;
-            border-color: var(--soft-gold);
-            opacity: 0.3;
-        }
-
-        .itinerary-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--soft-gold);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.6);
-        }
-
-        .itinerary-accent-title {
-            font-family: var(--font-display);
-            font-size: 1.8rem;
-            color: var(--soft-gold);
-            letter-spacing: 0.1em;
-            margin-bottom: 15px;
-        }
-
-        .itinerary-time {
-            font-family: var(--font-sans);
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.3em;
-            color: var(--white-silk);
-            display: inline-block;
-            padding: 6px 20px;
-            background: rgba(112, 130, 56, 0.2); /* Bright Olive Accent Tint */
-            border-radius: 30px;
-            margin-bottom: 30px;
-        }
-
-        .itinerary-details {
-            font-size: 1.15rem;
-            color: rgba(244, 246, 244, 0.8);
-            line-height: 1.8;
-        }
-
-        /* ==========================================================================
-           8. PORTRAIT CURATION & IMAGERY STANDS
-           ========================================================================== */
-        .gallery-strip {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            margin-top: 60px;
-        }
-
-        .gallery-frame {
-            position: relative;
-            height: 450px;
-            background-color: var(--bg-dark-elevated);
-            overflow: hidden;
-            border: 1px solid rgba(197, 160, 89, 0.15);
-            border-radius: 4px;
-        }
-
-        /* Custom Pure CSS Asset Framing Placeholder Visuals */
-        .gallery-frame .placeholder-svg {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, var(--royal-emerald) 0%, var(--bg-dark-pure) 100%);
-            transition: var(--transition-slow);
-        }
-
-        .gallery-frame:hover .placeholder-svg {
-            transform: scale(1.08);
-            filter: brightness(1.1);
-        }
-
-        .gallery-frame .frame-inner-text {
-            position: absolute;
-            bottom: 30px;
-            left: 30px;
-            z-index: 2;
-            font-family: var(--font-display);
-            font-size: 1.1rem;
-            letter-spacing: 0.1em;
-            color: var(--white-silk);
-            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
-        }
-
-        /* ==========================================================================
-           9. HIGH-FIDELITY LUXURY RSVP SUITE
-           ========================================================================== */
-        .rsvp-wrapper {
-            background-color: var(--bg-dark-card);
-            border: 1px solid rgba(197, 160, 89, 0.15);
-            max-width: 800px;
-            margin: 60px auto 0 auto;
-            padding: 80px 60px;
-            border-radius: 4px;
-            position: relative;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
-        }
-
-        .rsvp-form {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 35px 25px;
-            margin-top: 45px;
-        }
-
-        .full-width-input {
-            grid-column: span 2;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .form-group label {
-            font-family: var(--font-sans);
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            color: var(--soft-gold);
-            font-weight: 400;
-        }
-
-        .form-control {
-            background-color: var(--bg-dark-pure);
-            border: 1px solid rgba(244, 246, 244, 0.15);
-            padding: 16px 20px;
-            color: var(--white-silk);
-            font-family: var(--font-serif);
-            font-size: 1.15rem;
-            border-radius: 2px;
-            transition: var(--transition-fast);
-            width: 100%;
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--soft-gold);
-            box-shadow: 0 0 10px rgba(197, 160, 89, 0.15);
-        }
-
-        select.form-control {
-            appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23C5A059' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 20px center;
-            background-size: 14px;
-            cursor: pointer;
-        }
-
-        textarea.form-control {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        /* Sovereign Button System */
-        .btn-luxury-action {
-            grid-column: span 2;
-            background: transparent;
-            border: 1px solid var(--soft-gold);
-            padding: 20px 40px;
-            font-family: var(--font-sans);
-            font-size: 0.85rem;
-            font-weight: 400;
-            text-transform: uppercase;
-            letter-spacing: 0.3em;
-            color: var(--soft-gold);
-            cursor: pointer;
-            position: relative;
-            z-index: 1;
-            transition: var(--transition-slow);
-            margin-top: 15px;
-            border-radius: 2px;
-        }
-
-        .btn-luxury-action::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 0; height: 100%;
-            background: var(--soft-gold);
-            z-index: -1;
-            transition: var(--transition-slow);
-        }
-
-        .btn-luxury-action:hover {
-            color: var(--bg-dark-pure);
-        }
-
-        .btn-luxury-action:hover::before {
-            width: 100%;
-        }
-
-        /* ==========================================================================
-           10. THE REGISTRY NOTE (FINANCIALS & GIFTS)
-           ========================================================================== */
-        .registry-card {
-            max-width: 650px;
-            margin: 0 auto;
-            text-align: center;
-            background: linear-gradient(135deg, var(--bg-dark-elevated) 0%, rgba(0, 77, 56, 0.08) 100%);
-            border: 1px solid rgba(197, 160, 89, 0.15);
-            padding: 60px 40px;
-            border-radius: 4px;
-        }
-
-        .registry-text {
-            font-size: 1.2rem;
-            color: rgba(244, 246, 244, 0.85);
-            line-height: 1.9;
-            margin-bottom: 35px;
-        }
-
-        /* ==========================================================================
-           11. LIVE INTERACTIVE AUDIO CONTAINER OVERLAY
-           ========================================================================== */
-        .audio-dock {
-            position: fixed;
-            bottom: 40px;
-            right: 40px;
-            z-index: 999;
-        }
-
-        .audio-dock-btn {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background-color: rgba(7, 7, 7, 0.85);
-            border: 1px solid var(--soft-gold);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.5);
-            backdrop-filter: blur(10px);
-            transition: var(--transition-slow);
-            position: relative;
-        }
-
-        .audio-dock-btn svg {
-            width: 18px;
-            height: 18px;
-            fill: var(--soft-gold);
-            transition: var(--transition-fast);
-        }
-
-        .audio-dock-btn:hover {
-            transform: scale(1.1);
-            border-color: var(--white-silk);
-            box-shadow: 0 0 20px var(--soft-gold);
-        }
-
-        /* Interactive Audio Wave Ripple Animation Indicator */
-        .audio-waves {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            border: 1px solid var(--soft-gold);
-            opacity: 0;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .playing .audio-waves {
-            animation: audioPulse 2s infinite linear;
-        }
-
-        /* ==========================================================================
-           12. FOOTER SUITE (HUMAN ELEGANCE SIGNATURE OVERHAUL)
-           ========================================================================== */
-        footer {
-            background: linear-gradient(180deg, var(--bg-dark-pure) 0%, #030303 100%);
-            padding: 100px 0 60px 0;
-            border-top: 1px solid rgba(244, 246, 244, 0.03);
-            text-align: center;
-        }
-
-        .footer-hashtag {
-            font-family: var(--font-display);
-            font-size: 1.4rem;
-            color: var(--soft-gold);
-            letter-spacing: 0.3em;
-            margin-bottom: 40px;
-            display: inline-block;
-        }
-
-        .footer-signature {
-            font-family: var(--font-sans);
-            font-size: 0.8rem;
-            font-weight: 300;
-            letter-spacing: 0.2em;
-            line-height: 2.2;
-            color: rgba(244, 246, 244, 0.35);
-            max-width: 700px;
-            margin: 0 auto;
-            text-transform: uppercase;
-        }
-
-        /* ==========================================================================
-           13. DEFENSIVE DYNAMIC RESPONSIVE BREAKPOINTS
-           ========================================================================== */
-        @media (max-width: 1024px) {
-            html { font-size: 15px; }
-            .gallery-strip { grid-template-columns: repeat(2, 1fr); }
-            .gallery-frame { height: 380px; }
-        }
-
-        @media (max-width: 768px) {
-            .section-padding { padding: 90px 0; }
-            .hero-title { font-size: 3.2rem; }
-            .hero-title span { font-size: 2.2rem; }
-            .editorial-grid { grid-template-columns: 1fr; gap: 40px; }
-            .rsvp-form { grid-template-columns: 1fr; }
-            .full-width-input, .form-group, .btn-luxury-action { grid-column: span 1; }
-            .rsvp-wrapper { padding: 50px 30px; }
-        }
-
-        /* Absolute Guard Against Countdown Box and Typography Clipping on Small Displays */
-        @media (max-width: 480px) {
-            html { font-size: 14px; }
-            .container { padding: 0 15px; } /* Enhanced breathing room on edge viewports */
-            .hero-title { font-size: 2.6rem; }
-            
-            /* Enhanced Protection for Mobile Countdown View */
-            .countdown-flex-wrapper {
-                gap: 8px; /* Compressed safely to maintain perfect 4-across rows without clipping */
-            }
-            .countdown-box {
-                min-width: 65px; /* Precision inline geometry map prevents grid overflow */
-                padding: 14px 4px;
-                border-radius: 6px;
-            }
-            .countdown-box .metric-value {
-                font-size: 1.6rem; /* Calculated scale adjustment preserves numerical hierarchy */
-            }
-            .countdown-box .metric-label {
-                font-size: 0.5rem;
-                letter-spacing: 0.12em;
-                margin-top: 5px;
-            }
-            
-            .itinerary-matrix { grid-template-columns: 1fr; }
-            .gallery-strip { grid-template-columns: 1fr; }
-            .audio-dock { bottom: 20px; right: 20px; }
-            .footer-signature { font-size: 0.7rem; letter-spacing: 0.15em; }
-        }
-
-        /* ==========================================================================
-           14. MOTION KEYFRAME CANVAS
-           ========================================================================== */
-        @keyframes luxuryFadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes scrollDrop {
-            0% { top: -20px; opacity: 0; }
-            30% { opacity: 1; }
-            60% { opacity: 1; }
-            100% { top: 60px; opacity: 0; }
-        }
-
-        @keyframes audioPulse {
-            0% { transform: scale(1); opacity: 0.5; }
-            100% { transform: scale(1.5); opacity: 0; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>KOFOSEALEDINLOVE26 · Islamic Wedding</title>
+  <!-- Google Fonts · Cinzel · Cormorant Garamond · Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ─── RESET & BASE ─── */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: #0b0a0a;
+      font-family: 'Cormorant Garamond', serif;
+      color: #f5efe6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    /* ─── VIDEO BG ─── */
+    #hero-video {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      object-fit: cover;
+      z-index: 0;
+      pointer-events: none;
+    }
+    /* canvas overlay · particles */
+    #particle-canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      z-index: 1;
+      pointer-events: none;
+    }
+    /* main scroll wrapper */
+    .content {
+      position: relative;
+      z-index: 2;
+      min-height: 100vh;
+      padding: 2rem 1.5rem 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      backdrop-filter: blur(1px);
+    }
+    /* ─── TYPOGRAPHY & COLORS ─── */
+    :root {
+      --white-silk: #FFFFFF;
+      --emerald: #00664D;
+      --olive: #808000;
+      --soft-gold: #C5A059;
+    }
+    .gold-text { color: var(--soft-gold); }
+    .emerald-bg { background: var(--emerald); }
+    /* ─── HEADER / BISMILLAH ─── */
+    .bismillah {
+      font-family: 'Cinzel', serif;
+      font-size: 1.8rem;
+      text-align: center;
+      letter-spacing: 0.1em;
+      color: var(--soft-gold);
+      text-shadow: 0 0 20px rgba(197, 160, 89, 0.3);
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+    }
+    @media (max-width: 480px) { .bismillah { font-size: 1.3rem; } }
+    /* ─── INVITATION CARD ─── */
+    .invitation-card {
+      background: rgba(10, 10, 10, 0.55);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(197, 160, 89, 0.25);
+      border-radius: 3rem 3rem 2rem 2rem;
+      padding: 2.5rem 2rem;
+      margin: 2rem 0 3rem;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.7);
+      text-align: center;
+      transition: all 0.4s ease;
+    }
+    .invitation-card h1 {
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: 3.8rem;
+      letter-spacing: 0.2em;
+      color: var(--white-silk);
+      text-shadow: 0 4px 20px rgba(0,0,0,0.6);
+      line-height: 1.1;
+    }
+    .invitation-card h1 span { color: var(--soft-gold); }
+    .invitation-card .couple {
+      font-family: 'Cinzel', serif;
+      font-size: 2.8rem;
+      font-weight: 600;
+      color: var(--soft-gold);
+      letter-spacing: 0.15em;
+      margin: 0.5rem 0;
+    }
+    .invitation-card .family-line {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: #d4cdc0;
+      border-top: 1px solid rgba(197, 160, 89, 0.3);
+      border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+      padding: 0.8rem 0;
+      margin: 1.2rem 0;
+    }
+    .date-block {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 400;
+      font-size: 1.2rem;
+      letter-spacing: 0.1em;
+      color: #e8e0d0;
+    }
+    .date-block strong { color: var(--soft-gold); font-weight: 600; }
+    /* ─── COUNTDOWN GRID ─── */
+    .countdown-grid {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin: 1.8rem 0 0.5rem;
+      flex-wrap: nowrap;
+    }
+    .countdown-item {
+      background: rgba(0, 102, 77, 0.25);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border: 1px solid rgba(197, 160, 89, 0.3);
+      border-radius: 20px;
+      padding: 0.6rem 0.2rem;
+      min-width: 70px;
+      flex: 1 1 0;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+    .countdown-item .number {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 2.5rem;
+      line-height: 1;
+      color: var(--white-silk);
+      letter-spacing: 0.05em;
+    }
+    .countdown-item .label {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #c5b8a0;
+      margin-top: 0.2rem;
+    }
+    /* micro screens */
+    @media (max-width: 480px) {
+      .countdown-item { min-width: 50px; padding: 0.4rem 0.1rem; }
+      .countdown-item .number { font-size: 1.8rem; }
+      .countdown-item .label { font-size: 0.55rem; }
+      .invitation-card h1 { font-size: 2.5rem; }
+      .invitation-card .couple { font-size: 2rem; }
+    }
+    /* ─── INFO BLOCKS ─── */
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+    }
+    .info-card {
+      background: rgba(20, 20, 20, 0.5);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border-radius: 2rem;
+      padding: 1.8rem 1rem;
+      border: 1px solid rgba(197, 160, 89, 0.2);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .info-card svg { width: 48px; height: 48px; stroke: var(--soft-gold); fill: none; stroke-width: 1.5; margin-bottom: 0.5rem; }
+    .info-card h3 { font-family: 'Cinzel', serif; font-size: 1.3rem; color: var(--soft-gold); letter-spacing: 0.1em; }
+    .info-card p { font-size: 1.2rem; font-weight: 300; color: #ece3d0; margin-top: 0.3rem; }
+    .info-card .sub { font-size: 0.9rem; color: #b8aa92; }
+    @media (max-width: 600px) { .info-grid { grid-template-columns: 1fr; } }
+    /* ─── GALLERY ─── */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.2rem;
+      margin: 2.5rem 0;
+    }
+    .gallery-grid img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border-radius: 2rem;
+      border: 1px solid rgba(197, 160, 89, 0.25);
+      cursor: pointer;
+      transition: all 0.35s cubic-bezier(0.2, 0.9, 0.3, 1);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+    }
+    .gallery-grid img:hover { transform: scale(1.02); border-color: var(--soft-gold); }
+    @media (max-width: 480px) { .gallery-grid { gap: 0.8rem; } }
+    /* ─── RSVP ─── */
+    .rsvp-block {
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 3rem;
+      padding: 2rem 1.5rem;
+      border: 1px solid rgba(197, 160, 89, 0.2);
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .rsvp-block h3 { font-family: 'Cinzel', serif; color: var(--soft-gold); font-size: 1.8rem; }
+    .rsvp-numbers { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.8rem 1.5rem; margin: 1rem 0; }
+    .rsvp-numbers span { font-family: 'Montserrat', sans-serif; font-weight: 300; background: rgba(255,255,255,0.04); padding: 0.3rem 1.2rem; border-radius: 40px; border: 1px solid rgba(197, 160, 89, 0.15); }
+    /* ─── AUDIO DOCK ─── */
+    .audio-dock {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 50;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 60px;
+      padding: 0.8rem 1.2rem;
+      border: 1px solid rgba(197, 160, 89, 0.4);
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      transition: all 0.3s ease;
+    }
+    .audio-dock svg { width: 28px; height: 28px; stroke: var(--soft-gold); fill: none; }
+    .audio-dock span { font-family: 'Montserrat', sans-serif; font-weight: 300; color: #f0e8d8; font-size: 0.9rem; letter-spacing: 0.1em; }
+    .pulse-dot { width: 12px; height: 12px; background: var(--soft-gold); border-radius: 50%; animation: pulse-dot 1.6s infinite; }
+    @keyframes pulse-dot { 0% { opacity: 0.4; transform: scale(0.8); } 50% { opacity: 1; transform: scale(1.2); } 100% { opacity: 0.4; transform: scale(0.8); } }
+    /* ─── REVEAL (Intersection Observer) ─── */
+    .reveal {
+      opacity: 0;
+      transform: scale(0.96) translateY(20px);
+      transition: all 0.9s cubic-bezier(0.15, 0.85, 0.35, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+    .reveal-slide {
+      opacity: 0;
+      transform: translateX(-30px);
+      transition: all 0.9s cubic-bezier(0.15, 0.85, 0.35, 1);
+    }
+    .reveal-slide.visible { opacity: 1; transform: translateX(0); }
+    /* toast glass */
+    .toast-glass {
+      position: fixed;
+      bottom: 6rem;
+      left: 50%;
+      transform: translateX(-50%) scale(0.9);
+      background: rgba(10, 10, 10, 0.75);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(197, 160, 89, 0.3);
+      border-radius: 60px;
+      padding: 0.8rem 2rem;
+      color: #f5efe6;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 300;
+      letter-spacing: 0.05em;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+      opacity: 0;
+      transition: all 0.5s cubic-bezier(0.2, 0.9, 0.3, 1);
+      z-index: 100;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+    .toast-glass.show { opacity: 1; transform: translateX(-50%) scale(1); }
+    @media (max-width: 480px) { .toast-glass { font-size: 1rem; padding: 0.6rem 1.2rem; bottom: 5rem; } }
+  </style>
 </head>
 <body>
 
-    <!-- SITE LEVEL HEADER BRANDING -->
-    <header>
-        <div class="container nav-wrapper">
-            <div class="nav-logo">F &amp; A</div>
-            <div class="nav-monogram">M</div>
-            <div class="nav-logo">2026</div>
-        </div>
-    </header>
+  <!-- VIDEO BACKGROUND -->
+  <video id="hero-video" autoplay muted loop playsinline>
+    <source src="kofobackgroundvideo.mp4" type="video/mp4">
+  </video>
 
-    <!-- IMMERSIVE HERO FRAME -->
-    <section class="hero" id="home">
-        <div class="hero-inner">
-            <div class="hero-subtitle">The Honor of Your Presence is Requested</div>
-            <h1 class="hero-title">Faiza <span>&amp;</span> Abdulmumin</h1>
-            <div class="hero-date">December 2026</div>
-        </div>
-        <a href="#story" class="scroll-indicator">
-            <span class="scroll-line"></span>
-        </a>
-    </section>
+  <!-- PARTICLE CANVAS -->
+  <canvas id="particle-canvas"></canvas>
 
-    <!-- JOURNAL CORE SECTION (OUR STORY) -->
-    <section class="section-padding" id="story">
-        <div class="container">
-            <div class="text-center">
-                <h2 class="gold-text" style="font-size: 2.5rem; letter-spacing: 0.2em;">The Alliance</h2>
-                <div class="luxury-divider"><div class="diamond"></div></div>
-            </div>
-            
-            <div class="story-narrative">
-                <p>Destiny isn't written by chance, it is orchestrated by design. Our journey began with a shared path of purpose, beautifully woven under grace into an unbreakable bond. Together, we found a sanctuary in each other’s hearts—a space built on mutual respect, deep devotion, and an enduring friendship.</p>
-                <p>As we cross this magnificent threshold, we are dynamic reflections of two worlds merging into one clear future. We look forward to documenting this milestone with our closest circles, celebrating a union anchored in absolute love.</p>
-            </div>
+  <!-- TOAST -->
+  <div id="toast" class="toast-glass"></div>
 
-            <!-- Contextual Layout Panels -->
-            <div class="editorial-grid">
-                <div class="editorial-panel">
-                    <h3>The Proposal</h3>
-                    <p style="color: rgba(244, 246, 244, 0.75);">A quiet afternoon transformed into a lifelong covenant. Surrounded by nothing but genuine serenity and soft promises, we chose forever. It wasn't about grandeur; it was about the pristine sincerity of two souls making a definitive choice.</p>
-                </div>
-                <div class="editorial-panel">
-                    <h3>The Shared Path</h3>
-                    <p style="color: rgba(244, 246, 244, 0.75);">From shared projects and late-night architectural brainstorms to deep literary observations, we learned that real elegance lies in unity. We compliment each other's spaces, creating a balanced canvas prepared to meet the future.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- MAIN CONTENT -->
+  <div class="content">
 
-    <!-- COUNTDOWN COMPONENT BLOCK (MOBILE SAFE OVERFLOW PREVENTION) -->
-    <section class="countdown-block">
-        <div class="container countdown-outer">
-            <div class="countdown-flex-wrapper" id="countdownContainer">
-                <div class="countdown-box">
-                    <span class="metric-value" id="daysValue">00</span>
-                    <span class="metric-label">Days</span>
-                </div>
-                <div class="countdown-box">
-                    <span class="metric-value" id="hoursValue">00</span>
-                    <span class="metric-label">Hours</span>
-                </div>
-                <div class="countdown-box">
-                    <span class="metric-value" id="minutesValue">00</span>
-                    <span class="metric-label">Mins</span>
-                </div>
-                <div class="countdown-box">
-                    <span class="metric-value" id="secondsValue">00</span>
-                    <span class="metric-label">Secs</span>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- BISMILLAH -->
+    <div class="bismillah reveal">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
 
-    <!-- CELEBRATION CHRONICLES (EVENT ITINERARIES) -->
-    <section class="section-padding" id="details">
-        <div class="container">
-            <div class="text-center">
-                <h2 class="gold-text" style="font-size: 2.2rem; letter-spacing: 0.15em;">The Celebration Schedule</h2>
-                <div class="luxury-divider"><div class="diamond"></div></div>
-                <p style="max-width: 600px; margin: 0 auto; color: rgba(244, 246, 244, 0.65);">Please coordinate your arrival gracefully to ensure you do not miss a single moment of the curation.</p>
-            </div>
-
-            <div class="itinerary-matrix">
-                <div class="itinerary-card">
-                    <h3 class="itinerary-accent-title">The Solemnization</h3>
-                    <div class="itinerary-time">11:00 AM Sharp</div>
-                    <p class="itinerary-details">The pristine exchange of lifetime vows under traditional honor blocks. An intimate setting dedicated to family blessings, prayer, and deep spiritual alliance.</p>
-                </div>
-                <div class="itinerary-card">
-                    <h3 class="itinerary-accent-title">The Dinner Gala</h3>
-                    <div class="itinerary-time">02:30 PM Onwards</div>
-                    <p class="itinerary-details">An exclusive evening of refined hospitality, haute cuisine, and dynamic celebration. Bring your best energies as we dance the night away into a new dawn.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- VISUAL LOOKBOOK (IMAGE GRIDS) -->
-    <section class="section-padding" id="gallery" style="background-color: var(--bg-dark-elevated);">
-        <div class="container">
-            <div class="text-center">
-                <h2 class="gold-text" style="font-size: 2.2rem; letter-spacing: 0.15em;">The Visual Lookbook</h2>
-                <div class="luxury-divider"><div class="diamond"></div></div>
-            </div>
-            
-            <div class="gallery-strip">
-                <div class="gallery-frame">
-                    <div class="placeholder-svg"></div>
-                    <div class="frame-inner-text">I. Introspection</div>
-                </div>
-                <div class="gallery-frame">
-                    <div class="placeholder-svg" style="background: linear-gradient(135deg, var(--bright-olive) 0%, var(--bg-dark-pure) 100%);"></div>
-                    <div class="frame-inner-text">II. Alignment</div>
-                </div>
-                <div class="gallery-frame">
-                    <div class="placeholder-svg"></div>
-                    <div class="frame-inner-text">III. The Promise</div>
-                </div>
-                <div class="gallery-frame">
-                    <div class="placeholder-svg" style="background: linear-gradient(135deg, var(--bright-olive) 0%, var(--bg-dark-pure) 100%);"></div>
-                    <div class="frame-inner-text">IV. Eternity</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PRESTIGE RSVP MANAGER SUITE -->
-    <section class="section-padding" id="rsvp">
-        <div class="container">
-            <div class="text-center">
-                <h2 class="gold-text" style="font-size: 2.2rem; letter-spacing: 0.15em;">Secure Your Attendance</h2>
-                <div class="luxury-divider"><div class="diamond"></div></div>
-                <p style="max-width: 550px; margin: 0 auto; color: rgba(244, 246, 244, 0.65);">Kindly respond by November 1st to ensure precision seating and customized table hospitality.</p>
-            </div>
-
-            <div class="rsvp-wrapper">
-                <form class="rsvp-form" id="weddingRsvpForm">
-                    <div class="form-group">
-                        <label for="guestFirstName">First Name</label>
-                        <input type="text" id="guestFirstName" class="form-control" placeholder="e.g., Sulaimon" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="guestLastName">Last Name</label>
-                        <input type="text" id="guestLastName" class="form-control" placeholder="e.g., Adejumo" required>
-                    </div>
-                    <div class="form-group full-width-input">
-                        <label for="guestEmail">Digital Mail Address</label>
-                        <input type="email" id="guestEmail" class="form-control" placeholder="name@domain.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="attendanceStatus">Attendance Status</label>
-                        <select id="attendanceStatus" class="form-control" required>
-                            <option value="" disabled selected>Select option...</option>
-                            <option value="accept">Joyfully Accepting</option>
-                            <option value="decline">Regretfully Declining</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="plusOneCount">Additional Guests</label>
-                        <select id="plusOneCount" class="form-control">
-                            <option value="0">None (0)</option>
-                            <option value="1">Plus One (1)</option>
-                        </select>
-                    </div>
-                    <div class="form-group full-width-input">
-                        <label for="dietaryNotes">Special Hospitality Notes</label>
-                        <textarea id="dietaryNotes" class="form-control" placeholder="Dietary adjustments, preferences, or warm words..."></textarea>
-                    </div>
-                    <button type="submit" class="btn-luxury-action">Transmit RSVP Response</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- REGISTRY NOTE (FINANCIALS & GIFTS) -->
-    <section class="section-padding" id="registry" style="background-color: var(--bg-dark-elevated);">
-        <div class="container">
-            <div class="registry-card">
-                <h2 class="gold-text" style="font-size: 2rem; margin-bottom: 20px;">The Registry Note</h2>
-                <p class="registry-text">Your love, presence, and prayers are the greatest treasures we could ever receive. However, should you wish to honor our new foundation with a token of support, a financial contribution toward our collective future would be received with profound gratitude.</p>
-                <button class="btn-luxury-action" style="grid-column: auto; display: inline-block; width: auto;" onclick="alert('Digital Registry details will be appended seamlessly here.')">Access Contribution Portal</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- FIXED IMMERSIVE AUDIO CAPABILITIES DOCK -->
-    <div class="audio-dock">
-        <button class="audio-dock-btn" id="luxuryAudioToggle" aria-label="Toggle Atmosphere Soundscape">
-            <div class="audio-waves"></div>
-            <!-- Synchronized Icon System Matching 1001265155.jpg Design Layout -->
-            <svg viewBox="0 0 24 24" id="audioNoteIcon">
-                <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h6V3h-6z"/>
-            </svg>
-        </button>
-        <audio id="soundscapeEngine" loop>
-            <source src="audio/atmosphere-lux.mp3" type="audio/mpeg">
-        </audio>
+    <!-- INVITATION CARD -->
+    <div class="invitation-card reveal">
+      <h1>#<span>KOFOSEALED</span>INLOVE26#</h1>
+      <div class="couple">Faiza <span style="color: #fff;">&</span> Abdulmumin</div>
+      <div class="family-line">
+        Alhaji Abdulrazaq Abubakar Ahmed (Oba Agwa) &amp; Alhaji Aminullah Muhammad (Al-imam)
+      </div>
+      <div class="date-block">
+        <strong>17 July 2026</strong> · Nikkah 9:30 AM · Oba Agwa Compound
+      </div>
+      <!-- COUNTDOWN -->
+      <div class="countdown-grid" id="countdownGrid">
+        <div class="countdown-item"><div class="number" id="days">00</div><div class="label">Days</div></div>
+        <div class="countdown-item"><div class="number" id="hours">00</div><div class="label">Hours</div></div>
+        <div class="countdown-item"><div class="number" id="mins">00</div><div class="label">Mins</div></div>
+        <div class="countdown-item"><div class="number" id="secs">00</div><div class="label">Secs</div></div>
+      </div>
     </div>
 
-    <!-- REWRITTEN LUXURY FOOTER SUITE (HUMAN CENTRIC LOGICS OVERHAUL) -->
-    <footer>
-        <div class="container">
-            <div class="footer-hashtag">#KOFOSEALEDINLOVE26#</div>
-            <div class="footer-signature">
-                &copy; 2026 FAIZA &amp; ABDULMUMIN. CURATED WITH ABSOLUTE ELEGANCE. ALL RIGHTS RESERVED.
-            </div>
-        </div>
-    </footer>
+    <!-- INFO GRID with SVGs -->
+    <div class="info-grid">
+      <div class="info-card reveal-slide">
+        <!-- Wedding Ring Icon -->
+        <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="14" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="32" cy="32" r="20" stroke="currentColor" stroke-width="1.5" fill="none" stroke-dasharray="4 4"/><path d="M22 32 L12 22 L8 26 L18 36 L22 32" stroke="currentColor" stroke-width="1.5"/><path d="M42 32 L52 22 L56 26 L46 36 L42 32" stroke="currentColor" stroke-width="1.5"/></svg>
+        <h3>Nikkah Session</h3>
+        <p>9:30 AM · Oba Agwa Compound</p>
+        <div class="sub">Kaduna State</div>
+      </div>
+      <div class="info-card reveal-slide">
+        <!-- Hotel/Gala Icon -->
+        <svg viewBox="0 0 64 64"><path d="M8 24 L32 8 L56 24 L56 52 L8 52 L8 24 Z" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M20 52 L20 36 L44 36 L44 52" stroke="currentColor" stroke-width="1.5"/><rect x="24" y="28" width="6" height="6" stroke="currentColor" stroke-width="1.5"/><rect x="34" y="28" width="6" height="6" stroke="currentColor" stroke-width="1.5"/></svg>
+        <h3>Reception Gala</h3>
+        <p>2:00 PM · Luxury Hotel</p>
+        <div class="sub">Kaduna State</div>
+      </div>
+    </div>
 
-    <!-- LIVE RUNTIME LOGIC SUITES -->
-    <script>
-        // TARGET WEDDING DATE COUNTDOWN LOGIC CONTROLLER
-        // Custom configurations adjust this standard target instance seamlessly
-        const targetTimeline = new Date("Dec 31, 2026 11:00:00").getTime();
+    <!-- GALLERY -->
+    <div class="gallery-grid" id="galleryGrid">
+      <img src="kofolove.jpg" data-toast="Capturing an eternity of grace..." alt="love">
+      <img src="kofolove1.jpg" data-toast="A journey written in destiny..." alt="love1">
+      <img src="kofolove2.jpg" data-toast="Two souls, one synchronized path..." alt="love2">
+      <img src="kofolove3.jpg" data-toast="Elegance woven in time..." alt="love3">
+      <!-- hidden extra: we have 4 images but we also have kofolove4.jpg, we'll add it -->
+    </div>
+    <!-- add 5th image manually to satisfy all assets -->
+    <div class="gallery-grid" style="margin-top: -0.5rem;">
+      <img src="kofolove4.jpg" data-toast="Forever etched in gold..." alt="love4" style="grid-column: span 2; max-width: 50%; margin: 0 auto; aspect-ratio: 2/1; object-fit: cover;">
+    </div>
 
-        function executeTimerTick() {
-            const currentMoment = new Date().getTime();
-            const distanceRemaining = targetTimeline - currentMoment;
+    <!-- RSVP -->
+    <div class="rsvp-block reveal">
+      <h3>RSVP</h3>
+      <div class="rsvp-numbers">
+        <span>08036007267</span> <span>07032326592</span>
+        <span>08177145309</span> <span>07039171555</span>
+      </div>
+      <div style="font-family: 'Montserrat', sans-serif; font-weight: 300; letter-spacing: 0.05em; color: #b8aa92;">Kaduna State · 2026</div>
+    </div>
 
-            // Immediate fallback safety loop when date passes smoothly
-            if (distanceRemaining <= 0) {
-                document.getElementById("countdownContainer").innerHTML = `
-                    <div style="width:100%; text-align:center; font-family:var(--font-display); font-size:1.8rem; color:var(--soft-gold); letter-spacing:0.15em;">
-                        The Celebration Has Commenced
-                    </div>`;
-                clearInterval(liveTimerEngine);
-                return;
-            }
+  </div>
 
-            // High Precision Calculations
-            const days = Math.floor(distanceRemaining / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distanceRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distanceRemaining % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distanceRemaining % (1000 * 60)) / 1000);
+  <!-- AUDIO DOCK (fixed) -->
+  <div class="audio-dock" id="audioDock">
+    <svg viewBox="0 0 24 24"><path d="M3 10L3 14M7 6L7 18M11 4L11 20M15 8L15 16M19 6L19 18M23 10L23 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="2" fill="#C5A059" stroke="none"/></svg>
+    <span>atmosphere</span>
+    <div class="pulse-dot"></div>
+  </div>
 
-            // Responsive String Padding Operations
-            document.getElementById("daysValue").innerText = days < 10 ? "0" + days : days;
-            document.getElementById("hoursValue").innerText = hours < 10 ? "0" + hours : hours;
-            document.getElementById("minutesValue").innerText = minutes < 10 ? "0" + minutes : minutes;
-            document.getElementById("secondsValue").innerText = seconds < 10 ? "0" + seconds : seconds;
+  <script>
+    (function() {
+      "use strict";
+
+      // ─── COUNTDOWN ───
+      const target = new Date('2026-07-17T09:30:00').getTime();
+      const d = document.getElementById('days');
+      const h = document.getElementById('hours');
+      const m = document.getElementById('mins');
+      const s = document.getElementById('secs');
+
+      function updateCountdown() {
+        const now = Date.now();
+        let diff = target - now;
+        if (diff < 0) diff = 0;
+        const days = Math.floor(diff / 86400000);
+        const hours = Math.floor((diff % 86400000) / 3600000);
+        const mins = Math.floor((diff % 3600000) / 60000);
+        const secs = Math.floor((diff % 60000) / 1000);
+        d.textContent = String(days).padStart(2, '0');
+        h.textContent = String(hours).padStart(2, '0');
+        m.textContent = String(mins).padStart(2, '0');
+        s.textContent = String(secs).padStart(2, '0');
+      }
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+
+      // ─── PARTICLES (canvas) ───
+      const canvas = document.getElementById('particle-canvas');
+      const ctx = canvas.getContext('2d');
+      let width, height;
+      function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      }
+      window.addEventListener('resize', resize);
+      resize();
+
+      const particles = [];
+      const COUNT = 65;
+      for (let i = 0; i < COUNT; i++) {
+        particles.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          r: Math.random() * 2.2 + 0.6,
+          dx: (Math.random() - 0.5) * 0.3,
+          dy: (Math.random() - 0.5) * 0.3 - 0.08,
+          alpha: Math.random() * 0.5 + 0.3,
+          star: Math.random() > 0.7
+        });
+      }
+
+      function drawParticles() {
+        ctx.clearRect(0, 0, width, height);
+        for (let p of particles) {
+          p.x += p.dx;
+          p.y += p.dy;
+          if (p.x < 0 || p.x > width) p.dx *= -1;
+          if (p.y < 0 || p.y > height) p.dy *= -1;
+          ctx.beginPath();
+          if (p.star) {
+            // tiny star shape
+            ctx.arc(p.x, p.y, p.r * 1.6, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(197, 160, 89, ${p.alpha * 0.5})`;
+          } else {
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(197, 160, 89, ${p.alpha * 0.7})`;
+          }
+          ctx.fill();
+          // extra glow
+          if (p.r > 1.5) {
+            ctx.shadowColor = '#C5A059';
+            ctx.shadowBlur = 12;
+            ctx.fill();
+            ctx.shadowBlur = 0;
+          }
         }
+        requestAnimationFrame(drawParticles);
+      }
+      drawParticles();
 
-        // Initialize Tick Engine Instantly
-        const liveTimerEngine = setInterval(executeTimerTick, 1000);
-        executeTimerTick();
+      // ─── INTERSECTION OBSERVER (reveal) ───
+      const revealEls = document.querySelectorAll('.reveal, .reveal-slide');
+      const observer = new IntersectionObserver((entries) => {
+        for (let e of entries) {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+          }
+        }
+      }, { threshold: 0.2, rootMargin: '0px 0px -30px 0px' });
+      for (let el of revealEls) observer.observe(el);
 
-        // AMBIENT MULTIMEDIA DOCK DRIVER LOGICS
-        const mediaEngine = document.getElementById("soundscapeEngine");
-        const dockBtn = document.getElementById("luxuryAudioToggle");
+      // ─── GALLERY TOAST ───
+      const toast = document.getElementById('toast');
+      const galleryImgs = document.querySelectorAll('#galleryGrid img, .gallery-grid img');
+      let toastTimeout;
 
-        dockBtn.addEventListener("click", () => {
-            if (mediaEngine.paused) {
-                mediaEngine.play().catch(playbackError => {
-                    console.log("Browser safety standards intercepted immediate un-interacted audio engine requests.");
-                });
-                dockBtn.classList.add("playing");
-                dockBtn.style.borderColor = "var(--white-silk)";
-            } else {
-                mediaEngine.pause();
-                dockBtn.classList.remove("playing");
-                dockBtn.style.borderColor = "var(--soft-gold)";
-            }
+      function showToast(text) {
+        toast.textContent = text;
+        toast.classList.add('show');
+        clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(() => {
+          toast.classList.remove('show');
+        }, 2800);
+      }
+
+      for (let img of galleryImgs) {
+        img.addEventListener('click', function(e) {
+          const msg = this.getAttribute('data-toast') || 'Elegance in every frame.';
+          showToast(msg);
         });
+        img.addEventListener('touchstart', function(e) {
+          // for mobile
+          const msg = this.getAttribute('data-toast') || 'Elegance in every frame.';
+          showToast(msg);
+        }, { passive: true });
+      }
 
-        // FORM TRANSACTION SIMULATOR
-        document.getElementById("weddingRsvpForm").addEventListener("submit", (e) => {
-            e.preventDefault();
-            alert("Thank you. Your responses have been safely transmitted to the verification database.");
-        });
-    </script>
+      // ─── AUDIO DOCK (soundscape) ───
+      const audioDock = document.getElementById('audioDock');
+      let audio = null;
+      let audioPlaying = false;
+
+      audioDock.addEventListener('click', function() {
+        if (!audio) {
+          audio = new Audio('kofoweddingmusic.mp3');
+          audio.loop = true;
+          audio.volume = 0.5;
+        }
+        if (audioPlaying) {
+          audio.pause();
+          audioPlaying = false;
+          audioDock.querySelector('span').textContent = 'unmute';
+        } else {
+          audio.play().catch(() => {});
+          audioPlaying = true;
+          audioDock.querySelector('span').textContent = 'playing';
+        }
+      });
+
+      // also load love story video if needed (but not used directly)
+      // we just keep asset reference
+
+      console.log('KOFOSEALEDINLOVE26 · luxury wedding');
+    })();
+  </script>
 </body>
 </html>
