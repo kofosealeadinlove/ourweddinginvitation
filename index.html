@@ -767,25 +767,25 @@
         /* Absolute Guard Against Countdown Box and Typography Clipping on Small Displays */
         @media (max-width: 480px) {
             html { font-size: 14px; }
-            .container { padding: 0 20px; }
+            .container { padding: 0 15px; } /* Enhanced breathing room on edge viewports */
             .hero-title { font-size: 2.6rem; }
             
             /* Enhanced Protection for Mobile Countdown View */
             .countdown-flex-wrapper {
-                gap: 12px; /* Tighten grid gaps dynamically on super thin screens */
+                gap: 8px; /* Compressed safely to maintain perfect 4-across rows without clipping */
             }
             .countdown-box {
-                min-width: 68px; /* Perfectly aligns four across down to 320px wide viewports */
-                padding: 16px 8px;
+                min-width: 65px; /* Precision inline geometry map prevents grid overflow */
+                padding: 14px 4px;
                 border-radius: 6px;
             }
             .countdown-box .metric-value {
-                font-size: 1.8rem; /* Smooth context scale down prevents text breaks */
+                font-size: 1.6rem; /* Calculated scale adjustment preserves numerical hierarchy */
             }
             .countdown-box .metric-label {
-                font-size: 0.55rem;
-                letter-spacing: 0.15em;
-                margin-top: 6px;
+                font-size: 0.5rem;
+                letter-spacing: 0.12em;
+                margin-top: 5px;
             }
             
             .itinerary-matrix { grid-template-columns: 1fr; }
@@ -1026,7 +1026,7 @@
         <div class="container">
             <div class="footer-hashtag">#KOFOSEALEDINLOVE26#</div>
             <div class="footer-signature">
-                &copy; 2026 Faiza &amp; Abdulmumin. Curated with unwavering elegance. All photographic elements, text layouts, and site architectures are protected assets. All Rights Reserved.
+                &copy; 2026 FAIZA &amp; ABDULMUMIN. CURATED WITH ABSOLUTE ELEGANCE. ALL RIGHTS RESERVED.
             </div>
         </div>
     </footer>
