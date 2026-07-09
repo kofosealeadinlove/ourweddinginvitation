@@ -216,21 +216,16 @@ animation: letterRise 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 @keyframes letterRise {
 to { opacity: 1; transform: translateY(0); }
 }
-.ambient-video-background-wrapper {
+.faded-photo-background {
 position: fixed;
 top: 0; left: 0;
 width: 100vw; height: 100vh;
 z-index: -10;
-overflow: hidden;
+background-image: url('kofolove.jpg');
+background-size: cover;
+background-position: center;
+opacity: 0.14;
 pointer-events: none;
-opacity: 1;
-}
-#cinematic-bg-video {
-width: 100%;
-height: 100%;
-object-fit: cover;
-filter: brightness(80%) contrast(108%) saturate(100%);
-transform: scale(1.02);
 }
 .luxury-atmospheric-overlay-mesh {
 position: fixed;
@@ -654,11 +649,7 @@ transition: var(--transition-snappy);
 <p class="envelope-tap-label">Tap to Open Invitation</p>
 </div>
 <div class="scroll-progress-bar" id="scrollProgressBar"></div>
-<div class="ambient-video-background-wrapper" id="videoWrapper">
-<video autoplay loop muted playsinline preload="auto" poster="kofolove.jpg" id="cinematic-bg-video">
-<source src="https://assets.mixkit.co/videos/1187/1187-720.mp4" type="video/mp4">
-</video>
-</div>
+<div class="faded-photo-background"></div>
 <div class="luxury-atmospheric-overlay-mesh"></div>
 <canvas id="luxury-gold-particle-canvas"></canvas>
 <canvas id="floating-hearts-canvas"></canvas>
@@ -924,8 +915,6 @@ ENVELOPE INTRO — the single tap that unlocks everything
 const envelopeOverlay = document.getElementById('envelopeOverlay');
 const envelopeBox = document.getElementById('envelopeBox');
 const bodyEl = document.body;
-const bgVideoEl = document.getElementById('cinematic-bg-video');
-const videoWrapperEl = document.getElementById('videoWrapper');
 const bgMusicEl = document.getElementById('bgMusic');
 const musicToggleEl = document.getElementById('musicToggle');
 function setMusicUI(isPlaying) {
@@ -935,9 +924,6 @@ musicToggleEl.setAttribute('aria-label', isPlaying ? 'Pause background music' : 
 }
 function retryMediaOnNextTap() {
 const retry = () => {
-if (bgVideoEl && bgVideoEl.paused) {
-bgVideoEl.play().then(() => videoWrapperEl.classList.add('video-ready')).catch(() => {});
-}
 if (bgMusicEl.paused) {
 bgMusicEl.play().then(() => setMusicUI(true)).catch(() => {});
 }
@@ -947,12 +933,6 @@ document.addEventListener('click', retry, { once: true });
 function openEnvelope() {
 if (envelopeBox.classList.contains('opened')) return;
 envelopeBox.classList.add('opened');
-// Video autoplays on its own (muted video never needs a gesture in
-// any mobile browser) — we just make sure it's actually running.
-if (bgVideoEl && bgVideoEl.paused) {
-bgVideoEl.muted = true;
-bgVideoEl.play().then(() => videoWrapperEl.classList.add('video-ready')).catch(() => {});
-}
 // Music is the one thing that truly requires this tap — browsers
 // block audio-with-sound from starting on its own.
 bgMusicEl.play()
@@ -1037,36 +1017,6 @@ card.classList.add('expanded');
 }
 });
 });
-/* Video: fires independently of the envelope tap — muted video is
-allowed to autoplay in every mobile browser, so we don't gate it
-behind any user gesture. This is just a defensive nudge in case
-the native "autoplay" attribute alone doesn't kick in immediately. */
-if (bgVideoEl) {
-bgVideoEl.muted = true;
-bgVideoEl.load();
-bgVideoEl.addEventListener('canplay', () => videoWrapperEl.classList.add('video-ready'), { once: true });
-bgVideoEl.addEventListener('error', () => {
-console.warn('Background video failed — check kofobackgroundvideo1.mp4 is in the same folder as index.html.');
-showVideoDiagnostic('Video file failed to load. Check the filename and that it uploaded fully on GitHub.');
-});
-const kickstartVideo = () => bgVideoEl.play().then(() => videoWrapperEl.classList.add('video-ready')).catch(() => {});
-kickstartVideo();
-window.addEventListener('load', kickstartVideo, { once: true });
-setTimeout(() => {
-if (!videoWrapperEl.classList.contains('video-ready')) {
-showVideoDiagnostic('Video still hasn\'t started after 6 seconds — likely a slow connection or the file didn\'t upload. Try switching to WiFi and reloading.');
-}
-}, 6000);
-}
-
-function showVideoDiagnostic(message) {
-if (document.getElementById('videoDiagnostic')) return;
-const box = document.createElement('div');
-box.id = 'videoDiagnostic';
-box.style.cssText = 'position:fixed;bottom:1.2rem;left:1.2rem;right:1.2rem;z-index:4000;background:rgba(120,20,20,0.92);color:#fff;font-family:Montserrat,sans-serif;font-size:0.75rem;letter-spacing:0.03em;padding:0.9rem 1.1rem;border-radius:6px;box-shadow:0 10px 30px rgba(0,0,0,0.5);';
-box.textContent = message;
-document.body.appendChild(box);
-}
 /* Music toggle button */
 musicToggleEl.addEventListener('click', (e) => {
 e.stopPropagation();
