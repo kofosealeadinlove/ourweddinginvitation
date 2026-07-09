@@ -713,7 +713,7 @@
     <div class="scroll-progress-bar" id="scrollProgressBar"></div>
 
     <div class="ambient-video-background-wrapper" id="videoWrapper">
-        <video loop muted playsinline preload="auto" poster="kofolove.jpg" id="cinematic-bg-video">
+        <video autoplay loop muted playsinline preload="auto" poster="kofolove.jpg" id="cinematic-bg-video">
             <source src="kofobackgroundvideo1.mp4" type="video/mp4">
         </video>
     </div>
@@ -1037,14 +1037,15 @@
             if (envelopeBox.classList.contains('opened')) return;
             envelopeBox.classList.add('opened');
 
-            // Start video + music inside this synchronous tap handler —
-            // required for iOS/Android to allow audio/video playback.
-            if (bgVideoEl) {
+            // Video autoplays on its own (muted video never needs a gesture in
+            // any mobile browser) — we just make sure it's actually running.
+            if (bgVideoEl && bgVideoEl.paused) {
                 bgVideoEl.muted = true;
-                bgVideoEl.play()
-                    .then(() => videoWrapperEl.classList.add('video-ready'))
-                    .catch((err) => { console.warn('Video play blocked on envelope tap:', err); retryMediaOnNextTap(); });
+                bgVideoEl.play().then(() => videoWrapperEl.classList.add('video-ready')).catch(() => {});
             }
+
+            // Music is the one thing that truly requires this tap — browsers
+            // block audio-with-sound from starting on its own.
             bgMusicEl.play()
                 .then(() => setMusicUI(true))
                 .catch((err) => { console.warn('Music play blocked on envelope tap:', err); retryMediaOnNextTap(); });
@@ -1134,13 +1135,19 @@
             });
         });
 
-        /* Video: extra safety net in case autoplay-on-tap above ever fails
-           on a specific device, plus a helpful console warning */
+        /* Video: fires independently of the envelope tap — muted video is
+           allowed to autoplay in every mobile browser, so we don't gate it
+           behind any user gesture. This is just a defensive nudge in case
+           the native "autoplay" attribute alone doesn't kick in immediately. */
         if (bgVideoEl) {
+            bgVideoEl.muted = true;
             bgVideoEl.addEventListener('canplay', () => videoWrapperEl.classList.add('video-ready'), { once: true });
             bgVideoEl.addEventListener('error', () => {
                 console.warn('Background video failed — check kofobackgroundvideo1.mp4 is in the same folder as index.html.');
             });
+            const kickstartVideo = () => bgVideoEl.play().then(() => videoWrapperEl.classList.add('video-ready')).catch(() => {});
+            kickstartVideo();
+            window.addEventListener('load', kickstartVideo, { once: true });
         }
 
         /* Music toggle button */
