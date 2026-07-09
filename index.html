@@ -54,25 +54,11 @@
             overflow-x: hidden;
             text-size-adjust: 100%;
             -webkit-text-size-adjust: 100%;
-           .silver-label {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.7rem;
-    letter-spacing: 0.4em;
-    text-transform: uppercase;
-    /* Luxurious silver metallic gradient */
-    background: linear-gradient(135deg, #d1d1d1 0%, #a8a8a8 50%, #e0e0e0 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-top: 1.5rem;
-    margin-bottom: 0.2rem;
-} 
         }
 
         body {
             font-family: 'Cormorant Garamond', serif;
             color: var(--white-silk);
-            /* FIX: layered fallback background so it never looks "broken" even if
-               the video never loads on a slow mobile connection */
             background-color: var(--dark-slate);
             background-image:
                 linear-gradient(to bottom, rgba(3,5,4,0.75), rgba(3,5,4,0.9)),
@@ -87,6 +73,8 @@
             overflow-x: hidden;
             position: relative;
         }
+
+        body.envelope-locked { overflow: hidden; height: 100vh; }
 
         .gold-text-gradient {
             background: var(--gold-primary);
@@ -108,6 +96,118 @@
         ::-webkit-scrollbar-track { background: var(--matte-black); }
         ::-webkit-scrollbar-thumb { background: var(--gold-solid); border-radius: 3px; }
 
+        /* ===================================================================
+           ENVELOPE INTRO OVERLAY
+           A single deliberate tap here is the "user gesture" mobile browsers
+           require before allowing video/audio autoplay — so this envelope
+           reliably kicks off BOTH the background video and the music.
+        =================================================================== */
+        .envelope-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 5000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            padding: 2rem;
+            background:
+                radial-gradient(circle at 50% 38%, rgba(0,77,56,0.55) 0%, transparent 62%),
+                linear-gradient(160deg, var(--matte-black) 0%, var(--deep-emerald) 55%, var(--matte-black) 100%);
+            cursor: pointer;
+            transition: opacity 1s cubic-bezier(0.16,1,0.3,1), visibility 1s;
+        }
+        .envelope-overlay.envelope-hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        .envelope-names-preview {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-weight: 300;
+            font-size: clamp(1.6rem, 5.5vw, 2.6rem);
+            letter-spacing: 0.03em;
+        }
+        .envelope-box {
+            position: relative;
+            width: min(78vw, 300px);
+            aspect-ratio: 3 / 2;
+            perspective: 1000px;
+        }
+        .envelope-body {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(160deg, #0a1a13 0%, var(--deep-emerald) 100%);
+            border: 1px solid var(--gold-muted);
+            border-radius: 4px;
+            box-shadow: var(--shadow-luxury);
+        }
+        .envelope-flap {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 55%;
+            background: linear-gradient(160deg, #0d2018 0%, var(--royal-emerald) 100%);
+            clip-path: polygon(0 0, 100% 0, 50% 100%);
+            border-bottom: 1px solid var(--gold-muted);
+            transform-origin: top center;
+            transition: transform 1.1s cubic-bezier(0.7, -0.2, 0.3, 1.3);
+            z-index: 3;
+        }
+        .envelope-box.opened .envelope-flap {
+            transform: rotateX(180deg);
+        }
+        .envelope-seal {
+            position: absolute;
+            top: 42%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 46px; height: 46px;
+            border-radius: 50%;
+            background: var(--gold-primary);
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Amiri', serif;
+            font-size: 1.2rem;
+            color: var(--matte-black);
+            box-shadow: 0 0 18px rgba(197,160,89,0.5);
+            z-index: 4;
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+        .envelope-box.opened .envelope-seal { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+        .envelope-card {
+            position: absolute;
+            left: 6%; right: 6%;
+            bottom: 8%;
+            height: 78%;
+            background: linear-gradient(180deg, #0e130f 0%, var(--matte-black) 100%);
+            border: 1px solid var(--gold-muted);
+            border-radius: 3px;
+            display: flex; align-items: center; justify-content: center;
+            padding: 1rem;
+            transform: translateY(0);
+            transition: transform 1.2s cubic-bezier(0.16,1,0.3,1) 0.35s;
+            z-index: 2;
+        }
+        .envelope-box.opened .envelope-card { transform: translateY(-38%); }
+        .envelope-card-text {
+            font-family: 'Amiri', serif;
+            font-size: 0.85rem;
+            color: var(--gold-pale);
+            line-height: 1.6;
+        }
+        .envelope-tap-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.72rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--gold-pale);
+            border: 1px solid var(--gold-muted);
+            border-radius: 30px;
+            padding: 0.7rem 1.6rem;
+            background: rgba(0, 51, 36, 0.4);
+            display: flex; align-items: center; gap: 0.6rem;
+        }
+        .envelope-tap-label::after { content: '•'; color: var(--gold-solid); animation: pulseDot 1.5s infinite alternate; }
+
         .scroll-progress-bar {
             position: fixed;
             top: 0; left: 0;
@@ -120,8 +220,17 @@
         }
 
         .letter-reveal-wrap { display: inline-block; overflow: hidden; }
+        /* FIX: each letter needs its OWN gold-gradient clip — backgrounds
+           don't inherit from the parent .gold-text-gradient wrap, so without
+           this every letter rendered with transparent fill and nothing
+           behind it (invisible text, even though the animation itself ran) */
         .letter-char {
             display: inline-block;
+            background: var(--gold-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
             opacity: 0;
             transform: translateY(60%);
             animation: letterRise 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -137,9 +246,6 @@
             z-index: -10;
             overflow: hidden;
             pointer-events: none;
-            /* FIX: opacity starts at 0 and fades the video in only once it can
-               actually play — until then the CSS body background (above) shows,
-               so there's never a blank/broken-looking frame */
             opacity: 0;
             transition: opacity 1.2s ease;
         }
@@ -173,6 +279,15 @@
             pointer-events: none;
         }
 
+        /* Floating hearts layer, sits above particles/texture but below content */
+        #floating-hearts-canvas {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            z-index: -5;
+            pointer-events: none;
+        }
+
         .reveal-element {
             opacity: 0;
             transform: translateY(40px);
@@ -191,13 +306,16 @@
             position: relative;
         }
 
+        /* Bismillah — now rendered in the gold gradient, heavier weight,
+           with a soft glow so it reads as a luxurious calligraphic emblem
+           rather than plain white text */
         .sacred-bismillah-emblem {
             font-family: 'Amiri', serif;
-            font-size: clamp(2.2rem, 5.5vw, 3.8rem);
+            font-size: clamp(2.4rem, 6vw, 4.2rem);
             margin-bottom: 2.5rem;
             letter-spacing: 2px;
             font-weight: 700;
-            text-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            filter: drop-shadow(0 4px 18px rgba(197, 160, 89, 0.35));
         }
 
         .matrimonial-tagline-callout {
@@ -208,32 +326,17 @@
             text-shadow: 0 2px 8px rgba(0,0,0,0.5);
         }
 
-        .<h1 class="monumental-couple-names">
-    <!-- Bride Section -->
-    <span class="silver-label">Bride</span>
-    <span class="gold-text-gradient letter-reveal-wrap" data-letters="Faiza">Faiza</span>
-
-    <!-- Rings (The central divider) -->
-    <div class="interlocking-rings-svg-container">
-        <svg class="interlocking-rings-svg" viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <linearGradient id="ringGoldGrad" x1="0" y1="0" x2="100" y2="50" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#bf953f"/>
-                    <stop offset="0.5" stop-color="#fcf6ba"/>
-                    <stop offset="1" stop-color="#bf953f"/>
-                </linearGradient>
-            </defs>
-            <circle cx="36" cy="25" r="19" stroke="url(#ringGoldGrad)" stroke-width="4"/>
-            <circle cx="64" cy="25" r="19" stroke="url(#ringGoldGrad)" stroke-width="4"/>
-        </svg>
-    </div>
-
-    <!-- Groom Section -->
-    <span class="silver-label">Groom</span>
-    <span class="gold-text-gradient letter-reveal-wrap" data-letters="Abdulmumin">Abdulmumin</span>
-</h1>
-
-
+        .monumental-couple-names {
+            font-size: clamp(3.5rem, 10vw, 7.5rem);
+            font-weight: 300;
+            font-style: italic;
+            line-height: 1.05;
+            letter-spacing: 0.02em;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
         .luxury-geometric-divider {
             display: flex;
@@ -504,14 +607,13 @@
         .chapter-card:hover .chapter-img { transform: scale(1.06); opacity: 0.55; filter: brightness(60%) contrast(110%); }
         .chapter-card:hover .chapter-tap-indicator { background: var(--gold-primary); color: var(--matte-black); border-color: transparent; box-shadow: var(--shadow-gold-glow); }
 
-        /* FIX: texture opacity raised + softer gold tone so it actually reads
-           against both the dark video area AND the lighter card sections below */
+        /* Islamic geometric texture, visible across the whole page (fixed layer) */
         .islamic-texture-overlay {
             position: fixed; inset: 0;
             z-index: -6;
             pointer-events: none;
-            opacity: 0.3;
-            mix-blend-mode: overlay;
+            opacity: 0.5;
+            mix-blend-mode: screen;
         }
 
         .music-toggle {
@@ -574,7 +676,6 @@
         }
         .rsvp-chip:hover { background: var(--gold-primary); color: var(--matte-black); border-color: transparent; }
 
-        /* NEW: share button block */
         .share-section { padding: 0 2rem 5rem; text-align: center; }
         .share-btn {
             font-family: 'Montserrat', sans-serif; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase;
@@ -594,17 +695,31 @@
         }
     </style>
 </head>
-<body>
+<body class="envelope-locked">
+
+    <div class="envelope-overlay" id="envelopeOverlay">
+        <p class="envelope-names-preview gold-text-gradient">Faiza <span style="color:var(--white-silk); -webkit-text-fill-color:var(--white-silk);">&</span> Abdulmumin</p>
+        <div class="envelope-box" id="envelopeBox">
+            <div class="envelope-card">
+                <p class="envelope-card-text">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ<br>You are invited</p>
+            </div>
+            <div class="envelope-body"></div>
+            <div class="envelope-flap"></div>
+            <div class="envelope-seal">♥</div>
+        </div>
+        <p class="envelope-tap-label">Tap to Open Invitation</p>
+    </div>
 
     <div class="scroll-progress-bar" id="scrollProgressBar"></div>
 
     <div class="ambient-video-background-wrapper" id="videoWrapper">
-        <video autoplay loop muted playsinline preload="auto" poster="kofolove.jpg" id="cinematic-bg-video">
+        <video loop muted playsinline preload="auto" poster="kofolove.jpg" id="cinematic-bg-video">
             <source src="kofobackgroundvideo.mp4" type="video/mp4">
         </video>
     </div>
     <div class="luxury-atmospheric-overlay-mesh"></div>
     <canvas id="luxury-gold-particle-canvas"></canvas>
+    <canvas id="floating-hearts-canvas"></canvas>
     <svg class="islamic-texture-overlay" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
         <defs>
             <pattern id="islamicStarPattern" width="90" height="90" patternUnits="userSpaceOnUse">
@@ -618,7 +733,7 @@
     </svg>
 
     <header class="editorial-hero-header-container">
-        <div class="sacred-bismillah-emblem reveal-element">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ</div>
+        <div class="sacred-bismillah-emblem gold-text-gradient reveal-element">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ</div>
 
         <p class="premium-caps-label reveal-element" style="margin-bottom:1rem;">The Honorable Invitation</p>
         <p class="matrimonial-tagline-callout reveal-element">
@@ -889,6 +1004,44 @@
     </button>
 
     <script>
+        /* ===================================================================
+           ENVELOPE INTRO — the single tap that unlocks everything
+        =================================================================== */
+        const envelopeOverlay = document.getElementById('envelopeOverlay');
+        const envelopeBox = document.getElementById('envelopeBox');
+        const bodyEl = document.body;
+        const bgVideoEl = document.getElementById('cinematic-bg-video');
+        const videoWrapperEl = document.getElementById('videoWrapper');
+        const bgMusicEl = document.getElementById('bgMusic');
+        const musicToggleEl = document.getElementById('musicToggle');
+
+        function setMusicUI(isPlaying) {
+            musicToggleEl.classList.toggle('playing', isPlaying);
+            musicToggleEl.setAttribute('aria-pressed', isPlaying ? 'true' : 'false');
+            musicToggleEl.setAttribute('aria-label', isPlaying ? 'Pause background music' : 'Play background music');
+        }
+
+        function openEnvelope() {
+            if (envelopeBox.classList.contains('opened')) return;
+            envelopeBox.classList.add('opened');
+
+            // Start video + music inside this synchronous tap handler —
+            // required for iOS/Android to allow audio/video playback.
+            if (bgVideoEl) {
+                bgVideoEl.muted = true;
+                bgVideoEl.play().then(() => videoWrapperEl.classList.add('video-ready')).catch(() => {});
+            }
+            bgMusicEl.play().then(() => setMusicUI(true)).catch(() => {});
+
+            setTimeout(() => {
+                envelopeOverlay.classList.add('envelope-hidden');
+                bodyEl.classList.remove('envelope-locked');
+                triggerReveals();
+            }, 1000);
+        }
+        envelopeOverlay.addEventListener('click', openEnvelope);
+        envelopeOverlay.addEventListener('touchstart', function(e){ e.preventDefault(); openEnvelope(); }, { passive: false });
+
         const revealElements = document.querySelectorAll('.reveal-element');
         const triggerReveals = () => {
             revealElements.forEach(el => {
@@ -960,83 +1113,26 @@
             });
         });
 
-        /* ===================================================================
-           FIX: BACKGROUND VIDEO — robust mobile playback
-           - muted is also forced via JS property (some Android/Chrome builds
-             ignore the HTML "muted" attribute for autoplay purposes)
-           - wrapper only fades in (opacity 1) once the video actually reports
-             it can play, so there's never a blank/black frame — the CSS
-             photo background behind it is always visible as a fallback
-           - if the video errors out entirely, we just leave the photo
-             background in place permanently, so nothing looks "broken"
-        =================================================================== */
-        const bgVideo = document.getElementById('cinematic-bg-video');
-        const videoWrapper = document.getElementById('videoWrapper');
-        if (bgVideo) {
-            bgVideo.muted = true;
-            bgVideo.defaultMuted = true;
-
-            const showVideo = () => videoWrapper.classList.add('video-ready');
-
-            bgVideo.addEventListener('canplay', showVideo, { once: true });
-            bgVideo.addEventListener('playing', showVideo, { once: true });
-
-            const tryPlay = () => {
-                const p = bgVideo.play();
-                if (p && p.catch) {
-                    p.then(showVideo).catch(() => {
-                        /* Autoplay blocked — retry on first real user tap */
-                        const retry = () => {
-                            bgVideo.play().then(showVideo).catch(() => {});
-                        };
-                        document.addEventListener('touchstart', retry, { once: true, passive: true });
-                        document.addEventListener('click', retry, { once: true });
-                    });
-                }
-            };
-            tryPlay();
-
-            bgVideo.addEventListener('error', () => {
-                console.warn('Background video failed to load — check that kofobackgroundvideo.mp4 is in the same folder as index.html and under ~15-20MB for smooth mobile playback.');
+        /* Video: extra safety net in case autoplay-on-tap above ever fails
+           on a specific device, plus a helpful console warning */
+        if (bgVideoEl) {
+            bgVideoEl.addEventListener('canplay', () => videoWrapperEl.classList.add('video-ready'), { once: true });
+            bgVideoEl.addEventListener('error', () => {
+                console.warn('Background video failed — check kofobackgroundvideo.mp4 is in the same folder as index.html and under ~15-20MB.');
             });
         }
 
-        /* ===================================================================
-           FIX: BACKGROUND MUSIC — start on first genuine tap
-           Only "click" / "touchstart" / "pointerdown" count as a real user
-           gesture to mobile browsers. "scroll" does NOT, and using it as a
-           trigger can silently consume the gesture without playing audio.
-        =================================================================== */
-        const bgMusic = document.getElementById('bgMusic');
-        const musicToggle = document.getElementById('musicToggle');
-
-        function setPlayingUI(isPlaying) {
-            musicToggle.classList.toggle('playing', isPlaying);
-            musicToggle.setAttribute('aria-pressed', isPlaying ? 'true' : 'false');
-            musicToggle.setAttribute('aria-label', isPlaying ? 'Pause background music' : 'Play background music');
-        }
-
-        function startMusicOnce() {
-            if (bgMusic.paused) {
-                bgMusic.play().then(() => setPlayingUI(true)).catch(() => {});
-            }
-        }
-
-        ['click', 'touchstart', 'pointerdown'].forEach(evt => {
-            document.addEventListener(evt, startMusicOnce, { once: true, passive: true });
-        });
-
-        musicToggle.addEventListener('click', (e) => {
+        /* Music toggle button */
+        musicToggleEl.addEventListener('click', (e) => {
             e.stopPropagation();
-            if (bgMusic.paused) {
-                bgMusic.play().then(() => setPlayingUI(true)).catch(() => {});
+            if (bgMusicEl.paused) {
+                bgMusicEl.play().then(() => setMusicUI(true)).catch(() => {});
             } else {
-                bgMusic.pause();
-                setPlayingUI(false);
+                bgMusicEl.pause();
+                setMusicUI(false);
             }
         });
 
-        /* NEW: Share button */
         const shareBtn = document.getElementById('shareBtn');
         if (shareBtn) {
             shareBtn.addEventListener('click', async () => {
@@ -1081,6 +1177,7 @@
         setInterval(runCountdown, 1000);
         runCountdown();
 
+        /* Ambient gold particles */
         const canvas = document.getElementById('luxury-gold-particle-canvas');
         const ctx = canvas.getContext('2d');
         let particlesArray = [];
@@ -1144,6 +1241,79 @@
 
         initParticles();
         animateParticles();
+
+        /* ===================================================================
+           FLOATING HEART BUBBLES — drift upward across the whole interface
+        =================================================================== */
+        const heartsCanvas = document.getElementById('floating-hearts-canvas');
+        const hctx = heartsCanvas.getContext('2d');
+        let heartsArray = [];
+
+        function resizeHeartsCanvas() {
+            heartsCanvas.width = window.innerWidth;
+            heartsCanvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeHeartsCanvas);
+        resizeHeartsCanvas();
+
+        function drawHeartShape(x, y, size) {
+            hctx.beginPath();
+            const topCurveHeight = size * 0.3;
+            hctx.moveTo(x, y + topCurveHeight);
+            hctx.bezierCurveTo(x, y, x - size / 2, y, x - size / 2, y + topCurveHeight);
+            hctx.bezierCurveTo(x - size / 2, y + (size + topCurveHeight) / 2, x, y + (size + topCurveHeight) / 2, x, y + size);
+            hctx.bezierCurveTo(x, y + (size + topCurveHeight) / 2, x + size / 2, y + (size + topCurveHeight) / 2, x + size / 2, y + topCurveHeight);
+            hctx.bezierCurveTo(x + size / 2, y, x, y, x, y + topCurveHeight);
+            hctx.closePath();
+        }
+
+        class FloatingHeart {
+            constructor() { this.reset(true); }
+            reset(initial) {
+                this.x = Math.random() * heartsCanvas.width;
+                this.y = initial ? Math.random() * heartsCanvas.height : heartsCanvas.height + 30;
+                this.size = Math.random() * 14 + 8;
+                this.speedY = Math.random() * 0.4 + 0.25;
+                this.drift = Math.random() * 0.6 - 0.3;
+                this.opacity = Math.random() * 0.25 + 0.12;
+                this.hue = Math.random() > 0.5 ? '#c5a059' : '#3f8f6f';
+                this.wobble = Math.random() * Math.PI * 2;
+            }
+            update() {
+                this.y -= this.speedY;
+                this.wobble += 0.02;
+                this.x += Math.sin(this.wobble) * 0.3 + this.drift * 0.1;
+                if (this.y < -40) this.reset(false);
+            }
+            draw() {
+                hctx.save();
+                hctx.globalAlpha = this.opacity;
+                hctx.fillStyle = this.hue;
+                drawHeartShape(this.x, this.y, this.size);
+                hctx.fill();
+                hctx.restore();
+            }
+        }
+
+        function initHearts() {
+            heartsArray = [];
+            const count = Math.min(Math.floor(window.innerWidth / 60), 22);
+            for (let i = 0; i < count; i++) {
+                heartsArray.push(new FloatingHeart());
+            }
+        }
+
+        function animateHearts() {
+            hctx.clearRect(0, 0, heartsCanvas.width, heartsCanvas.height);
+            heartsArray.forEach(h => {
+                h.update();
+                h.draw();
+            });
+            requestAnimationFrame(animateHearts);
+        }
+
+        initHearts();
+        animateHearts();
     </script>
 </body>
 </html>
