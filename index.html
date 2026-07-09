@@ -714,7 +714,7 @@
 
     <div class="ambient-video-background-wrapper" id="videoWrapper">
         <video loop muted playsinline preload="auto" poster="kofolove.jpg" id="cinematic-bg-video">
-            <source src="kofobackgroundvideo.mp4" type="video/mp4">
+            <source src="kofobackgroundvideo1.mp4" type="video/mp4">
         </video>
     </div>
     <div class="luxury-atmospheric-overlay-mesh"></div>
@@ -1021,6 +1021,18 @@
             musicToggleEl.setAttribute('aria-label', isPlaying ? 'Pause background music' : 'Play background music');
         }
 
+        function retryMediaOnNextTap() {
+            const retry = () => {
+                if (bgVideoEl && bgVideoEl.paused) {
+                    bgVideoEl.play().then(() => videoWrapperEl.classList.add('video-ready')).catch(() => {});
+                }
+                if (bgMusicEl.paused) {
+                    bgMusicEl.play().then(() => setMusicUI(true)).catch(() => {});
+                }
+            };
+            document.addEventListener('click', retry, { once: true });
+        }
+
         function openEnvelope() {
             if (envelopeBox.classList.contains('opened')) return;
             envelopeBox.classList.add('opened');
@@ -1029,9 +1041,13 @@
             // required for iOS/Android to allow audio/video playback.
             if (bgVideoEl) {
                 bgVideoEl.muted = true;
-                bgVideoEl.play().then(() => videoWrapperEl.classList.add('video-ready')).catch(() => {});
+                bgVideoEl.play()
+                    .then(() => videoWrapperEl.classList.add('video-ready'))
+                    .catch((err) => { console.warn('Video play blocked on envelope tap:', err); retryMediaOnNextTap(); });
             }
-            bgMusicEl.play().then(() => setMusicUI(true)).catch(() => {});
+            bgMusicEl.play()
+                .then(() => setMusicUI(true))
+                .catch((err) => { console.warn('Music play blocked on envelope tap:', err); retryMediaOnNextTap(); });
 
             setTimeout(() => {
                 envelopeOverlay.classList.add('envelope-hidden');
@@ -1039,8 +1055,13 @@
                 triggerReveals();
             }, 1000);
         }
+        /* FIX: only bind to "click" — mobile browsers turn a tap into a
+           click automatically, and click is the one gesture every browser
+           reliably treats as trusted for starting audio/video playback.
+           The previous touchstart handler called preventDefault(), which on
+           some Android builds strips the "trusted user gesture" flag before
+           bgMusicEl.play() ever runs, causing it to silently fail. */
         envelopeOverlay.addEventListener('click', openEnvelope);
-        envelopeOverlay.addEventListener('touchstart', function(e){ e.preventDefault(); openEnvelope(); }, { passive: false });
 
         const revealElements = document.querySelectorAll('.reveal-element');
         const triggerReveals = () => {
@@ -1118,7 +1139,7 @@
         if (bgVideoEl) {
             bgVideoEl.addEventListener('canplay', () => videoWrapperEl.classList.add('video-ready'), { once: true });
             bgVideoEl.addEventListener('error', () => {
-                console.warn('Background video failed — check kofobackgroundvideo.mp4 is in the same folder as index.html and under ~15-20MB.');
+                console.warn('Background video failed — check kofobackgroundvideo1.mp4 is in the same folder as index.html.');
             });
         }
 
